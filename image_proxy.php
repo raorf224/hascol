@@ -19,7 +19,7 @@
 //     exit;
 // }
 
-// // Security: sirf allowed domain se images allow karein
+// // Security: sirf aaaallowed domain se images allow karein
 // $allowed_host = '151.106.17.246';
 // $parsed = parse_url($url);
 // if (!isset($parsed['host']) || $parsed['host'] !== $allowed_host) {
