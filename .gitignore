@@ -1,0 +1,57 @@
+# ============================================
+# Core PHP Project - .gitignore
+# ============================================
+
+# ---------- Sensitive Config Files ----------
+config.php
+config.local.php
+db.php
+database.php
+credentials.php
+secrets.php
+.env
+.env.*
+!.env.example
+
+# ---------- Composer ----------
+/vendor/
+composer.lock
+
+# ---------- Node (agar hai) ----------
+/node_modules/
+package-lock.json
+npm-debug.log*
+yarn-error.log*
+
+# ---------- Logs ----------
+*.log
+logs/
+error_log
+
+# ---------- Cache ----------
+/cache/
+*.cache
+
+# ---------- Uploads ----------
+/uploads/
+/upload/
+*.tmp
+
+# ---------- OS Files ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- IDE / Editor ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---------- Backups ----------
+*.bak
+*.sql
+*.zip
+*.tar.gz
+backup/
