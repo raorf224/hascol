@@ -1023,7 +1023,7 @@
         }
     </style>
 </head>
-
+<!-- testing -->
 <body class="flex h-screen overflow-hidden text-xs">
 
     <?php include 'includes/sidebar.php'; ?>
@@ -1050,7 +1050,6 @@
                 </div>
             </div>
         </div>
-
         <div class="flex-1 overflow-y-auto p-4" id="pageContent">
 
             <div class="flex justify-between items-center mb-4">
