@@ -9,9 +9,9 @@ ini_set('memory_limit', '2048M');
 
 // Database configuration
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'hascolbridge1');
-define('DB_USER', 'faisii');
-define('DB_PASS', '@Allah786');
+define('DB_NAME', 'hascolbridge');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 
 // Create MySQLi connection - DIRECT GLOBAL VARIABLE
 $db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
