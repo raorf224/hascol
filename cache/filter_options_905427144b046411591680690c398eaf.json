@@ -1,0 +1,3119 @@
+{
+    "success": true,
+    "data": {
+        "regions": [
+            "Balochistan",
+            "Faisalabad",
+            "Hyderabad",
+            "Islamabad",
+            "Karachi",
+            "Lahore",
+            "M2",
+            "Multan",
+            "Peshawar",
+            "Rawalpindi",
+            "Sukkur"
+        ],
+        "territories": [
+            "Faisalabad",
+            "Gujranwala",
+            "Hyderabad",
+            "Karachi",
+            "Lahore",
+            "Multan",
+            "Peshawar",
+            "Quetta",
+            "Rawalpindi",
+            "Sukkur"
+        ],
+        "tms": [
+            {
+                "id": "35",
+                "name": " M Arsalan "
+            },
+            {
+                "id": "134",
+                "name": "A.kashif"
+            },
+            {
+                "id": "38",
+                "name": "Abid Hussain"
+            },
+            {
+                "id": "1",
+                "name": "Admin"
+            },
+            {
+                "id": "87",
+                "name": "Aijaz Sheikh"
+            },
+            {
+                "id": "76",
+                "name": "Ali Asim"
+            },
+            {
+                "id": "67",
+                "name": "Ali Hameed"
+            },
+            {
+                "id": "80",
+                "name": "Ali Jumani"
+            },
+            {
+                "id": "72",
+                "name": "Amir Pasha "
+            },
+            {
+                "id": "117",
+                "name": "Amjad Khan"
+            },
+            {
+                "id": "133",
+                "name": "Anas Ahmed\n"
+            },
+            {
+                "id": "114",
+                "name": "Aqeel khan"
+            },
+            {
+                "id": "58",
+                "name": "Asad Qureshi"
+            },
+            {
+                "id": "131",
+                "name": "ashir.asif"
+            },
+            {
+                "id": "86",
+                "name": "Asif Khan"
+            },
+            {
+                "id": "149",
+                "name": "Asif siddique"
+            },
+            {
+                "id": "110",
+                "name": "Asim Irshad"
+            },
+            {
+                "id": "132",
+                "name": "asim.khan"
+            },
+            {
+                "id": "57",
+                "name": "Athar Majeed"
+            },
+            {
+                "id": "107",
+                "name": "Ayaz Farooq"
+            },
+            {
+                "id": "106",
+                "name": "BSO User"
+            },
+            {
+                "id": "135",
+                "name": "Depot.Users"
+            },
+            {
+                "id": "128",
+                "name": "eng.user"
+            },
+            {
+                "id": "69",
+                "name": "Fahad Khalid"
+            },
+            {
+                "id": "77",
+                "name": "Fahad Khalid (App Order)"
+            },
+            {
+                "id": "79",
+                "name": "Faisal inayat (Admin)"
+            },
+            {
+                "id": "119",
+                "name": "finance user"
+            },
+            {
+                "id": "2",
+                "name": "GRM"
+            },
+            {
+                "id": "90",
+                "name": "Hashaam Khalid"
+            },
+            {
+                "id": "52",
+                "name": "Hassan"
+            },
+            {
+                "id": "112",
+                "name": "Hassan Raza"
+            },
+            {
+                "id": "147",
+                "name": "HPL Parking"
+            },
+            {
+                "id": "83",
+                "name": "Ishaq Ahmad"
+            },
+            {
+                "id": "150",
+                "name": "jawwad ali"
+            },
+            {
+                "id": "116",
+                "name": "karrar hussain"
+            },
+            {
+                "id": "36",
+                "name": "Latif Shigri"
+            },
+            {
+                "id": "123",
+                "name": "Logistics Users"
+            },
+            {
+                "id": "56",
+                "name": "Makhdoom Ali"
+            },
+            {
+                "id": "81",
+                "name": "Mohsin Ali"
+            },
+            {
+                "id": "109",
+                "name": "Mohsin Ali"
+            },
+            {
+                "id": "92",
+                "name": "Mubashir Ahmed"
+            },
+            {
+                "id": "129",
+                "name": "Muhammad Umair Javaid"
+            },
+            {
+                "id": "130",
+                "name": "muhammad.saad"
+            },
+            {
+                "id": "91",
+                "name": "Mujtaba Brohi"
+            },
+            {
+                "id": "55",
+                "name": "nasir abidi"
+            },
+            {
+                "id": "68",
+                "name": "Nauman Jan"
+            },
+            {
+                "id": "93",
+                "name": "Naveed ur Rehman"
+            },
+            {
+                "id": "113",
+                "name": "Naveed Yousaf"
+            },
+            {
+                "id": "138",
+                "name": "naveed.malik"
+            },
+            {
+                "id": "125",
+                "name": "Oozema"
+            },
+            {
+                "id": "94",
+                "name": "Raheel Mirza"
+            },
+            {
+                "id": "82",
+                "name": "Raja Said"
+            },
+            {
+                "id": "111",
+                "name": "Reporting User"
+            },
+            {
+                "id": "120",
+                "name": "Rizwan Sheikh"
+            },
+            {
+                "id": "145",
+                "name": "RPL"
+            },
+            {
+                "id": "144",
+                "name": "S&C"
+            },
+            {
+                "id": "85",
+                "name": "Safdar Abbasi"
+            },
+            {
+                "id": "152",
+                "name": "Shahzaib"
+            },
+            {
+                "id": "126",
+                "name": "shehryar khan"
+            },
+            {
+                "id": "75",
+                "name": "Sohaib Ayaz"
+            },
+            {
+                "id": "84",
+                "name": "Sohail Shahid"
+            },
+            {
+                "id": "95",
+                "name": "Subhan Ilahi"
+            },
+            {
+                "id": "88",
+                "name": "Syed Shaheer Hussain"
+            },
+            {
+                "id": "70",
+                "name": "Tahir Shaikh."
+            },
+            {
+                "id": "99",
+                "name": "Tariq Razzaq"
+            },
+            {
+                "id": "122",
+                "name": "Teletix"
+            },
+            {
+                "id": "121",
+                "name": "Telogix"
+            },
+            {
+                "id": "74",
+                "name": "Umair Javaid"
+            },
+            {
+                "id": "148",
+                "name": "Vacant"
+            },
+            {
+                "id": "61",
+                "name": "Vacant Quetta"
+            },
+            {
+                "id": "118",
+                "name": "Vitol"
+            },
+            {
+                "id": "98",
+                "name": "Waqar ul Imran Zahid"
+            },
+            {
+                "id": "115",
+                "name": "zafar munshi"
+            },
+            {
+                "id": "97",
+                "name": "Zahid Hussain"
+            },
+            {
+                "id": "37",
+                "name": "Zeeshan Kashmiri"
+            }
+        ],
+        "sites": [
+            {
+                "id": "1577",
+                "name": " A-Zee Petroleum Service "
+            },
+            {
+                "id": "1809",
+                "name": " A.S  "
+            },
+            {
+                "id": "1590",
+                "name": " Aalim Sons Filling Station "
+            },
+            {
+                "id": "1363",
+                "name": " Abadgar Petroleum Service "
+            },
+            {
+                "id": "1665",
+                "name": " Abbas & Co "
+            },
+            {
+                "id": "1789",
+                "name": " Abbas Filling Station "
+            },
+            {
+                "id": "1471",
+                "name": " Abbas Petroleum "
+            },
+            {
+                "id": "1362",
+                "name": " ABBAS PETROLEUM SERVICE (LALA MUSA) "
+            },
+            {
+                "id": "1324",
+                "name": " Abdalian Petroleum "
+            },
+            {
+                "id": "1630",
+                "name": " ABDUL HAQ CNG & FS "
+            },
+            {
+                "id": "1926",
+                "name": " AbdulHassan& Brothers "
+            },
+            {
+                "id": "1832",
+                "name": " ABDULLAH FILLING STATION "
+            },
+            {
+                "id": "1592",
+                "name": " Abdullah Gulzar Petroleum Service "
+            },
+            {
+                "id": "1491",
+                "name": " ABDULLAH HANNAN PET "
+            },
+            {
+                "id": "1730",
+                "name": " Abdullah Niaz Petroleum "
+            },
+            {
+                "id": "1670",
+                "name": " Adeel Petroleum & Lpg Services "
+            },
+            {
+                "id": "1316",
+                "name": " Adil Cng "
+            },
+            {
+                "id": "1866",
+                "name": " ADIL PETROLEUM SERVICE  "
+            },
+            {
+                "id": "1690",
+                "name": " AFREEN PETROLEUM SERVICE "
+            },
+            {
+                "id": "1518",
+                "name": " Agha-1 Petroleum Service "
+            },
+            {
+                "id": "1945",
+                "name": " AHMAD BUKHSH P\/S "
+            },
+            {
+                "id": "1394",
+                "name": " Ahmed Ali Petroleum Service "
+            },
+            {
+                "id": "1939",
+                "name": " AHMED HASSAN  "
+            },
+            {
+                "id": "1617",
+                "name": " AHMED PETROLEUM "
+            },
+            {
+                "id": "1508",
+                "name": " AIJAZ PETROLEUM SERVICE "
+            },
+            {
+                "id": "1894",
+                "name": " AKBER-2 CNG & PETROLEUM "
+            },
+            {
+                "id": "1375",
+                "name": " Aks-E-Lasani Petroleum Service "
+            },
+            {
+                "id": "1935",
+                "name": " AL - HAFEEZ GASOLINE "
+            },
+            {
+                "id": "1671",
+                "name": " AL - HARRAM\u00a0 P\/S "
+            },
+            {
+                "id": "1863",
+                "name": " AL - SAIM PETROLEUM SERVICE "
+            },
+            {
+                "id": "1551",
+                "name": " Al - Syed Filling Station "
+            },
+            {
+                "id": "1529",
+                "name": " AL ABBAS PETROLEUM SERVICE "
+            },
+            {
+                "id": "1673",
+                "name": " AL AQSA FILLING STATION "
+            },
+            {
+                "id": "1281",
+                "name": " Al Asif Filling Station "
+            },
+            {
+                "id": "1681",
+                "name": " Al Azzan Filling Station "
+            },
+            {
+                "id": "1558",
+                "name": " AL FATEH PETROLEUM SERVICE "
+            },
+            {
+                "id": "1408",
+                "name": " AL GHANI FILLING STATION "
+            },
+            {
+                "id": "1775",
+                "name": " Al Habib Cng Taxila "
+            },
+            {
+                "id": "1747",
+                "name": " AL HABIB PETROLEUM "
+            },
+            {
+                "id": "1830",
+                "name": " AL HAMD CNG "
+            },
+            {
+                "id": "1562",
+                "name": " AL HAMEED FILLING STATION "
+            },
+            {
+                "id": "1497",
+                "name": " Al Haram Petroleum Service "
+            },
+            {
+                "id": "1434",
+                "name": " Al Harmain Filling Station (Karachi) "
+            },
+            {
+                "id": "1604",
+                "name": " Al Hayyat F\/S "
+            },
+            {
+                "id": "1315",
+                "name": " Al Kareem Filling Station "
+            },
+            {
+                "id": "1663",
+                "name": " AL MADINA CNG & FILLING (MURIDKE) "
+            },
+            {
+                "id": "1777",
+                "name": " Al Madina Filling Station - Mardan "
+            },
+            {
+                "id": "1807",
+                "name": " Al Makkah "
+            },
+            {
+                "id": "1755",
+                "name": " Al Makkah Filling Station "
+            },
+            {
+                "id": "1404",
+                "name": " Al Meezan Petroleum "
+            },
+            {
+                "id": "1511",
+                "name": " AL MEHMOOD GESOLINE "
+            },
+            {
+                "id": "1335",
+                "name": " Al Mukhtar Petroleum Service "
+            },
+            {
+                "id": "1745",
+                "name": " AL MUSTAFA CNG "
+            },
+            {
+                "id": "1701",
+                "name": " AL MUSTAFA P\/S - SHAHDADPUR "
+            },
+            {
+                "id": "1761",
+                "name": " Al Nawaz - 2 "
+            },
+            {
+                "id": "1808",
+                "name": " Al Nawaz Petroleum "
+            },
+            {
+                "id": "1356",
+                "name": " Al Noor Petroleum Service "
+            },
+            {
+                "id": "1925",
+                "name": " AL QAMAR FILLING STATION "
+            },
+            {
+                "id": "1301",
+                "name": " AL RASHEED FILLING STATION (TAUNSA) "
+            },
+            {
+                "id": "1654",
+                "name": " AL REHMAN CNG "
+            },
+            {
+                "id": "1862",
+                "name": " Al Rehmat Petroleum "
+            },
+            {
+                "id": "1596",
+                "name": " Al Sadiq "
+            },
+            {
+                "id": "1941",
+                "name": " Al Saleh Cng  "
+            },
+            {
+                "id": "1766",
+                "name": " AL SHAHBAZ FILLING STATION "
+            },
+            {
+                "id": "1643",
+                "name": " Al Zubair Petroleum Service  "
+            },
+            {
+                "id": "1683",
+                "name": " AL-ABBAS P\/S "
+            },
+            {
+                "id": "1348",
+                "name": " Al-Arshad "
+            },
+            {
+                "id": "1298",
+                "name": " Al-Buraq Filling Station "
+            },
+            {
+                "id": "1430",
+                "name": " Al-Ghadir Petroleum Service "
+            },
+            {
+                "id": "1589",
+                "name": " Al-Habib "
+            },
+            {
+                "id": "1611",
+                "name": " Al-Hammad Cng "
+            },
+            {
+                "id": "1426",
+                "name": " AL-HARMAIN CNG & FS "
+            },
+            {
+                "id": "1503",
+                "name": " AL-HASSAN "
+            },
+            {
+                "id": "1742",
+                "name": " Al-Hussain "
+            },
+            {
+                "id": "1533",
+                "name": " AL-JANNAT  "
+            },
+            {
+                "id": "1563",
+                "name": " Al-Kareem Petroleum Ranipur "
+            },
+            {
+                "id": "1479",
+                "name": " Al-Latif Filling "
+            },
+            {
+                "id": "1794",
+                "name": " Al-Madina F\/S "
+            },
+            {
+                "id": "1853",
+                "name": " AL-MAHMOOD PET "
+            },
+            {
+                "id": "1505",
+                "name": " Al-Makkah Filling Station "
+            },
+            {
+                "id": "1787",
+                "name": " Al-Minhas Filling Station "
+            },
+            {
+                "id": "1481",
+                "name": " Al-Naseem Petroleum "
+            },
+            {
+                "id": "1922",
+                "name": " AL-NOOR PETROLEUM SERVICE "
+            },
+            {
+                "id": "1467",
+                "name": " Al-Rehmat Petroleum "
+            },
+            {
+                "id": "1289",
+                "name": " Al-Riaz Filling & Cng Station "
+            },
+            {
+                "id": "1620",
+                "name": " Al-Sami Petroleum "
+            },
+            {
+                "id": "1825",
+                "name": " AL-TARRAR FILLING STATION "
+            },
+            {
+                "id": "1889",
+                "name": " ALAMDAR BUKHHARI SERVICE STATI "
+            },
+            {
+                "id": "1532",
+                "name": " Alamdar Filling Station "
+            },
+            {
+                "id": "1826",
+                "name": " ALI BABA F\/S\u00a0\u00a0 NRO-366 "
+            },
+            {
+                "id": "1827",
+                "name": " Ali Petroleum Service ( Naun Goth Dadu) "
+            },
+            {
+                "id": "1542",
+                "name": " ALI PETROLEUM SERVICE (CHAMBER) "
+            },
+            {
+                "id": "1537",
+                "name": " ALI PETROLEUM SERVICE (TANDO JAM)  "
+            },
+            {
+                "id": "1856",
+                "name": " ALIZ CNG & FILLING STATION "
+            },
+            {
+                "id": "1606",
+                "name": " Allah Ho Akbar Cng & Filling Station "
+            },
+            {
+                "id": "1436",
+                "name": " Allah Muhammad "
+            },
+            {
+                "id": "1402",
+                "name": " Altaf Hussain Burki Service Station "
+            },
+            {
+                "id": "1414",
+                "name": " AMANULLAH "
+            },
+            {
+                "id": "1477",
+                "name": " AMEER HAMZA PETROLEUM SERVICE "
+            },
+            {
+                "id": "1717",
+                "name": " AMIN "
+            },
+            {
+                "id": "1637",
+                "name": " Amir Shahzad Cng & Filling Station "
+            },
+            {
+                "id": "1328",
+                "name": " Anas Petroleum  "
+            },
+            {
+                "id": "1689",
+                "name": " Anwar "
+            },
+            {
+                "id": "1486",
+                "name": " Aqil Shah Petroleum Service "
+            },
+            {
+                "id": "1583",
+                "name": " Ar Cng & Petroleum Service "
+            },
+            {
+                "id": "1310",
+                "name": " Arabian Cng & Filling Station "
+            },
+            {
+                "id": "1711",
+                "name": " ARAIN "
+            },
+            {
+                "id": "1836",
+                "name": " ARHAM CNG "
+            },
+            {
+                "id": "1340",
+                "name": " ARSHAD PETROLEUM "
+            },
+            {
+                "id": "1386",
+                "name": " As-Serat Petroleum (Private) Limited "
+            },
+            {
+                "id": "1541",
+                "name": " ASAD PETROLEUM SERVICE "
+            },
+            {
+                "id": "1899",
+                "name": " Ashraf Petroleum "
+            },
+            {
+                "id": "1904",
+                "name": " ASIF FILLING STATION "
+            },
+            {
+                "id": "1929",
+                "name": " ASIM NASEER & COMPANY (SMC-PRIVATE) LTD. "
+            },
+            {
+                "id": "1763",
+                "name": " Asim Noor Filling Station "
+            },
+            {
+                "id": "1383",
+                "name": " Askari Cng Petroleum Service (Sargodha) "
+            },
+            {
+                "id": "1380",
+                "name": " ASLAM PETROLEUM SERVICE "
+            },
+            {
+                "id": "1485",
+                "name": " ATTA GHANI PETROLEUM SERVICE "
+            },
+            {
+                "id": "1705",
+                "name": " AUTO GAS CNG "
+            },
+            {
+                "id": "1942",
+                "name": " Auto Pick "
+            },
+            {
+                "id": "1781",
+                "name": " Awais Karni Petroleum Service "
+            },
+            {
+                "id": "1739",
+                "name": " AWAN FILLING STATION "
+            },
+            {
+                "id": "1410",
+                "name": " Awan Petroleum (Capital Petroleum - 20771) "
+            },
+            {
+                "id": "1554",
+                "name": " AYOOB FILLING STATION "
+            },
+            {
+                "id": "1364",
+                "name": " Ayub Pet "
+            },
+            {
+                "id": "1888",
+                "name": " AYYAN ABBAS PETROLEUM SERVICE  "
+            },
+            {
+                "id": "1307",
+                "name": " Azam Cng & Filling Station "
+            },
+            {
+                "id": "1770",
+                "name": " Azeem Petroleum Service - Sakr "
+            },
+            {
+                "id": "1713",
+                "name": " AZHAR PETROLEUM SERVICE "
+            },
+            {
+                "id": "1283",
+                "name": " B.B Filling Station "
+            },
+            {
+                "id": "1805",
+                "name": " BABAR PETROLEUM "
+            },
+            {
+                "id": "1581",
+                "name": " Baby Lon Petroleum Service "
+            },
+            {
+                "id": "1466",
+                "name": " Badal Filing Station "
+            },
+            {
+                "id": "1627",
+                "name": " BAGH DHERI FILLING STATION "
+            },
+            {
+                "id": "1452",
+                "name": " Bagh Petroleum "
+            },
+            {
+                "id": "1296",
+                "name": " Baghpatee Petroleum Service "
+            },
+            {
+                "id": "1517",
+                "name": " Bajari Filling Station "
+            },
+            {
+                "id": "1707",
+                "name": " BAKHSH GONDAL FILLING STATION "
+            },
+            {
+                "id": "1300",
+                "name": " Baldia Filling Station "
+            },
+            {
+                "id": "1791",
+                "name": " Barrage Way F\/S "
+            },
+            {
+                "id": "1697",
+                "name": " Bashir & Sons Petroleum Service "
+            },
+            {
+                "id": "1946",
+                "name": " BEST WAY CNG  "
+            },
+            {
+                "id": "1660",
+                "name": " Bhatti F\/S "
+            },
+            {
+                "id": "1433",
+                "name": " Bilal Filling Station "
+            },
+            {
+                "id": "1897",
+                "name": " BILAL FILLING STATION-MARDAN "
+            },
+            {
+                "id": "1398",
+                "name": " BIN NOOR PETROLEUM SERVICE "
+            },
+            {
+                "id": "1580",
+                "name": " Birchlane F\/S  (Synergy Filling Station) "
+            },
+            {
+                "id": "1688",
+                "name": " BISMILLAH CNG "
+            },
+            {
+                "id": "1534",
+                "name": " Bismillah Cng (Bhalwal) "
+            },
+            {
+                "id": "1810",
+                "name": " Bismillah Cng (Sargodha City) "
+            },
+            {
+                "id": "1365",
+                "name": " Bismillah P\/S "
+            },
+            {
+                "id": "1914",
+                "name": " BISMILLAH PETROLEUM SERVICE "
+            },
+            {
+                "id": "1513",
+                "name": " Bismillah Petroleum Service  "
+            },
+            {
+                "id": "1432",
+                "name": " BULLA SHAH PETROLEUM "
+            },
+            {
+                "id": "1708",
+                "name": " BURHAN HASEEB F\/S "
+            },
+            {
+                "id": "1271",
+                "name": " Burki Service Station  "
+            },
+            {
+                "id": "1598",
+                "name": " Ch Ismail "
+            },
+            {
+                "id": "1607",
+                "name": " CHAIRMAN 3 STAR PETROLEUM "
+            },
+            {
+                "id": "1390",
+                "name": " Champion Fuel Mart "
+            },
+            {
+                "id": "1646",
+                "name": " Chan Petroleum Service "
+            },
+            {
+                "id": "1691",
+                "name": " Char Bagh Filling Station "
+            },
+            {
+                "id": "1409",
+                "name": " CHAUDHARY CNG & FILLING STATION (RAWAT) "
+            },
+            {
+                "id": "1668",
+                "name": " CHAUDHRy BROTHER "
+            },
+            {
+                "id": "1626",
+                "name": " CHAUDHRY BROTHER&SONS "
+            },
+            {
+                "id": "1652",
+                "name": " Chaudhry Iqbal Petroleum "
+            },
+            {
+                "id": "1824",
+                "name": " CHAUDHRY PETROLEUM "
+            },
+            {
+                "id": "1305",
+                "name": " Cheema Cng "
+            },
+            {
+                "id": "1640",
+                "name": " Choondiko Petroleum Service "
+            },
+            {
+                "id": "1877",
+                "name": " CITY  DRIVE "
+            },
+            {
+                "id": "1609",
+                "name": " CITY CNG  "
+            },
+            {
+                "id": "1427",
+                "name": " CITY TOP "
+            },
+            {
+                "id": "1507",
+                "name": " Cress Gas "
+            },
+            {
+                "id": "1693",
+                "name": " Crystal Cng "
+            },
+            {
+                "id": "1412",
+                "name": " D. G. Petrolem & Cng Station "
+            },
+            {
+                "id": "1873",
+                "name": " DANIYAL "
+            },
+            {
+                "id": "1838",
+                "name": " DAUZI FILLING STATION "
+            },
+            {
+                "id": "1553",
+                "name": " Dawood  "
+            },
+            {
+                "id": "1291",
+                "name": " Delight Auto Services "
+            },
+            {
+                "id": "1905",
+                "name": " DEYA FILLING STATION "
+            },
+            {
+                "id": "1459",
+                "name": " Dg Trucking Filling Station "
+            },
+            {
+                "id": "1269",
+                "name": " Dha 1 Filling Station "
+            },
+            {
+                "id": "1349",
+                "name": " Dhodial Fiilling & Cng Station "
+            },
+            {
+                "id": "1295",
+                "name": " Diamond Citizen "
+            },
+            {
+                "id": "1618",
+                "name": " Din Petroleum "
+            },
+            {
+                "id": "1679",
+                "name": " DOST YAR  "
+            },
+            {
+                "id": "1395",
+                "name": " Double-A "
+            },
+            {
+                "id": "1629",
+                "name": " Dr. Yousaf Shah Petroleum Serv "
+            },
+            {
+                "id": "1462",
+                "name": " DUA PETROLEUM "
+            },
+            {
+                "id": "1525",
+                "name": " EAGLE PETROLEUM "
+            },
+            {
+                "id": "1585",
+                "name": " East West Trading Corporation "
+            },
+            {
+                "id": "1403",
+                "name": " ECONO F\/S "
+            },
+            {
+                "id": "1936",
+                "name": " ELLAHI GASES "
+            },
+            {
+                "id": "1287",
+                "name": " Empress Filling Station "
+            },
+            {
+                "id": "1292",
+                "name": " Faisal Filling Station "
+            },
+            {
+                "id": "1943",
+                "name": " FAIZAN F\/S "
+            },
+            {
+                "id": "1431",
+                "name": " Fakhar E Niazi Filling Station "
+            },
+            {
+                "id": "1285",
+                "name": " Falco Enterprises "
+            },
+            {
+                "id": "1379",
+                "name": " FAREED FILLING STATION "
+            },
+            {
+                "id": "1699",
+                "name": " FARHAN PETROLEUM "
+            },
+            {
+                "id": "1696",
+                "name": " Farooq Khan Petroleum Service "
+            },
+            {
+                "id": "1393",
+                "name": " Farooq Sattar Petroleum Service "
+            },
+            {
+                "id": "1341",
+                "name": " Fatima Gasoline Station "
+            },
+            {
+                "id": "1377",
+                "name": " FATIMA PETROLEUM SERVICE (LARK "
+            },
+            {
+                "id": "1270",
+                "name": " Fazal Filling Station "
+            },
+            {
+                "id": "1817",
+                "name": " FAZL-E-SUBHAN "
+            },
+            {
+                "id": "1645",
+                "name": " FEROZ FILLING STATION "
+            },
+            {
+                "id": "1743",
+                "name": " FIVE STAR FILLING STATION "
+            },
+            {
+                "id": "1841",
+                "name": " FOUR STAR FILLING STATION "
+            },
+            {
+                "id": "1915",
+                "name": " FRIENDS LORALAI "
+            },
+            {
+                "id": "1456",
+                "name": " FRIENDS PETROLEUM SERVICE & CNG "
+            },
+            {
+                "id": "1514",
+                "name": " FUEL PERFECT (SAFEWAY) "
+            },
+            {
+                "id": "1938",
+                "name": " Fuel Point Fs "
+            },
+            {
+                "id": "1639",
+                "name": " Furqan Petroleum "
+            },
+            {
+                "id": "1865",
+                "name": " GANJ SHAKAR "
+            },
+            {
+                "id": "1764",
+                "name": " GAS LINKS  "
+            },
+            {
+                "id": "1788",
+                "name": " Gate Way Petroleum (Kotli Ajk) "
+            },
+            {
+                "id": "1478",
+                "name": " Geo F\/S "
+            },
+            {
+                "id": "1552",
+                "name": " GG FILLLING STATION "
+            },
+            {
+                "id": "1732",
+                "name": " GHAFFAR JAVED F\/S "
+            },
+            {
+                "id": "1401",
+                "name": " GHOSIA PETROL STATION "
+            },
+            {
+                "id": "1706",
+                "name": " Ghousia CNG "
+            },
+            {
+                "id": "1723",
+                "name": " GHOUSIA PETROLEUM (GRW NORTH) "
+            },
+            {
+                "id": "1725",
+                "name": " Ghousia Petroleum Ser-Larkana "
+            },
+            {
+                "id": "1571",
+                "name": " GHULAM DASTGIR FILLING STATION "
+            },
+            {
+                "id": "1454",
+                "name": " Ghulam Hussain Petroleum Service "
+            },
+            {
+                "id": "1715",
+                "name": " Ghumma PS "
+            },
+            {
+                "id": "1605",
+                "name": " Gold Star Cng "
+            },
+            {
+                "id": "1635",
+                "name": " GONDAL CNG "
+            },
+            {
+                "id": "1784",
+                "name": " GOOD LUCK PETROLEUM SERVICE "
+            },
+            {
+                "id": "1819",
+                "name": " Grace Cng Station "
+            },
+            {
+                "id": "1818",
+                "name": " GREEN STAR "
+            },
+            {
+                "id": "1293",
+                "name": " GUJRAT FILLING STATION "
+            },
+            {
+                "id": "1385",
+                "name": " Gul Petroleum Station "
+            },
+            {
+                "id": "1345",
+                "name": " Gurmani  "
+            },
+            {
+                "id": "1374",
+                "name": " HABIB PETROLEUM "
+            },
+            {
+                "id": "1641",
+                "name": " HABIB PETROLEUM (KASUR) "
+            },
+            {
+                "id": "1560",
+                "name": " HAIDER CNG "
+            },
+            {
+                "id": "1677",
+                "name": " HAJI MUHAMMAD WARIS FILLING ST "
+            },
+            {
+                "id": "1741",
+                "name": " Hajji "
+            },
+            {
+                "id": "1916",
+                "name": " HAMDARD PETROLEUM SERVICE "
+            },
+            {
+                "id": "1720",
+                "name": " HAMZA ARSALAN  "
+            },
+            {
+                "id": "1890",
+                "name": " HAMZA CNG "
+            },
+            {
+                "id": "1803",
+                "name": " Hamza Mushtaq F\/S "
+            },
+            {
+                "id": "1435",
+                "name": " Hamza Petroleum Services "
+            },
+            {
+                "id": "1727",
+                "name": " HANJRA & GORAYA FILLING STATION "
+            },
+            {
+                "id": "1917",
+                "name": " HANZALA & BROTHERS P\/S "
+            },
+            {
+                "id": "1366",
+                "name": " Haq Bahoo Petroleum Service "
+            },
+            {
+                "id": "1516",
+                "name": " HARBIYAR PETROLEUM SERVICE  "
+            },
+            {
+                "id": "1595",
+                "name": " Hasan Khaskheli Filling Station (60 Mile) "
+            },
+            {
+                "id": "1389",
+                "name": " Hasan Petroleum (Talagang) "
+            },
+            {
+                "id": "1878",
+                "name": " Haseeb Amjad Filling Station "
+            },
+            {
+                "id": "1428",
+                "name": " HASILPUR FILLING  "
+            },
+            {
+                "id": "1500",
+                "name": " HASSAN ABDULA CNG "
+            },
+            {
+                "id": "1918",
+                "name": " HASSAN FILLING STATION (LORAL) "
+            },
+            {
+                "id": "1785",
+                "name": " HASSAN FILLING STATION-BUNAIR "
+            },
+            {
+                "id": "1473",
+                "name": " HASSAN PETROLEUM & FILLING STATION "
+            },
+            {
+                "id": "1636",
+                "name": " Hassan Petroleum (Mandi Bahaud "
+            },
+            {
+                "id": "1806",
+                "name": " HASSAN PETROLEUM (SHORKOT - JHNAG) "
+            },
+            {
+                "id": "1843",
+                "name": " HASSNAIN "
+            },
+            {
+                "id": "1528",
+                "name": " HASTAM KHAN F\/S "
+            },
+            {
+                "id": "1661",
+                "name": " Hb Petroleum Service "
+            },
+            {
+                "id": "1614",
+                "name": " Hi- Speed Cng "
+            },
+            {
+                "id": "1772",
+                "name": " HILAL FILLING STATION "
+            },
+            {
+                "id": "1567",
+                "name": " HILINS PETROLEUM SERVICE "
+            },
+            {
+                "id": "1740",
+                "name": " Hussain "
+            },
+            {
+                "id": "1702",
+                "name": " HUSSAINI & LAKHANI PETROLEUM SERVICE  "
+            },
+            {
+                "id": "1317",
+                "name": " Hussaini Petroleum Services "
+            },
+            {
+                "id": "1421",
+                "name": " HYDER PETROLEUM SERVICE "
+            },
+            {
+                "id": "1923",
+                "name": " Ilyas Filling Station "
+            },
+            {
+                "id": "1579",
+                "name": " IMRAN & SONS "
+            },
+            {
+                "id": "1891",
+                "name": " Imran Hamdan "
+            },
+            {
+                "id": "1495",
+                "name": " Indus Drive "
+            },
+            {
+                "id": "1277",
+                "name": " Indus Filling Station (Karachi) "
+            },
+            {
+                "id": "1506",
+                "name": " Innayat Petroleum"
+            },
+            {
+                "id": "1601",
+                "name": " Iqbal Petroleum "
+            },
+            {
+                "id": "1327",
+                "name": " Iqbal Son'S "
+            },
+            {
+                "id": "1861",
+                "name": " IRFAN FILLING STATION "
+            },
+            {
+                "id": "1947",
+                "name": " ISLAMABAD "
+            },
+            {
+                "id": "1623",
+                "name": " Ismail F\/S "
+            },
+            {
+                "id": "1444",
+                "name": " Ismail Filling Station "
+            },
+            {
+                "id": "1367",
+                "name": " Isra Petroleum Service "
+            },
+            {
+                "id": "1487",
+                "name": " Isra-Ii Petroleum Service "
+            },
+            {
+                "id": "1948",
+                "name": " JABLA FILLING STATION "
+            },
+            {
+                "id": "1768",
+                "name": " Jalip Filling Station "
+            },
+            {
+                "id": "1469",
+                "name": " Jam Pet & Cng "
+            },
+            {
+                "id": "1463",
+                "name": " JAMALI PETROLEUM SERVICE  "
+            },
+            {
+                "id": "1373",
+                "name": " Jamra Petroleum \/ Cng "
+            },
+            {
+                "id": "1448",
+                "name": " Jandal "
+            },
+            {
+                "id": "1686",
+                "name": " Jappa 2 Petroleum Service "
+            },
+            {
+                "id": "1521",
+                "name": " JAPPA FILLING STATION "
+            },
+            {
+                "id": "1901",
+                "name": " JATOI TRUCKING STATION "
+            },
+            {
+                "id": "1360",
+                "name": " Javed Gul Petroleum Service "
+            },
+            {
+                "id": "1268",
+                "name": " Jeddah Petroleum Service "
+            },
+            {
+                "id": "1876",
+                "name": " JHOLAY LAL FILLING STATION "
+            },
+            {
+                "id": "1274",
+                "name": " Johar Petroleum 11-1-0133 "
+            },
+            {
+                "id": "1834",
+                "name": " JOIYA (ADNAN-20578) "
+            },
+            {
+                "id": "1729",
+                "name": " JONEJO PETROLEUM SERIVCE "
+            },
+            {
+                "id": "1304",
+                "name": " Jubilee Filling Station "
+            },
+            {
+                "id": "1357",
+                "name": " Jugnoo "
+            },
+            {
+                "id": "1778",
+                "name": " KAMAL FILLING STATION "
+            },
+            {
+                "id": "1793",
+                "name": " KANEEZ FATIMA FILLING STATION "
+            },
+            {
+                "id": "1582",
+                "name": " Karim Cng & Filling Station "
+            },
+            {
+                "id": "1780",
+                "name": " Karmanwala "
+            },
+            {
+                "id": "1600",
+                "name": " Kashmir Associates "
+            },
+            {
+                "id": "1776",
+                "name": " Kashmir ps "
+            },
+            {
+                "id": "1376",
+                "name": " Khairpur Filling Station "
+            },
+            {
+                "id": "1290",
+                "name": " Khalid Petroleum "
+            },
+            {
+                "id": "1371",
+                "name": " Khan Filling Station "
+            },
+            {
+                "id": "1710",
+                "name": " KHAN PET "
+            },
+            {
+                "id": "1919",
+                "name": " KHAN PETROELUM SERVICES -LORAL "
+            },
+            {
+                "id": "1368",
+                "name": " Khan Petroleum (Tarnol - Islamabad) "
+            },
+            {
+                "id": "1515",
+                "name": " KHAN PETROLEUM SERVICE "
+            },
+            {
+                "id": "1675",
+                "name": " Khattak Cng "
+            },
+            {
+                "id": "1483",
+                "name": " KHAWAJA AJMERI PETROLEUM "
+            },
+            {
+                "id": "1802",
+                "name": " KHAZANA FILLING STATION "
+            },
+            {
+                "id": "1608",
+                "name": " Khursheed Alam Sons "
+            },
+            {
+                "id": "1492",
+                "name": " KHYBER PK PET "
+            },
+            {
+                "id": "1548",
+                "name": " KHYBER-II PETROLEUM SERVICE "
+            },
+            {
+                "id": "1712",
+                "name": " KIBRIA F\/S NRO-306 "
+            },
+            {
+                "id": "1622",
+                "name": " Lal Enterprises "
+            },
+            {
+                "id": "1326",
+                "name": " LALAMUSA GAS STATION "
+            },
+            {
+                "id": "1800",
+                "name": " LASANI PETROLEUM SERVICE "
+            },
+            {
+                "id": "1797",
+                "name": " Lodhi Interprises "
+            },
+            {
+                "id": "1858",
+                "name": " London Town Petroleum Service "
+            },
+            {
+                "id": "1874",
+                "name": " LUND KHAWAR FILLING STATION "
+            },
+            {
+                "id": "1642",
+                "name": " M. Ayaz Brother "
+            },
+            {
+                "id": "1574",
+                "name": " M. Rafiq Petroleum "
+            },
+            {
+                "id": "1783",
+                "name": " M. Shafi Petroleum "
+            },
+            {
+                "id": "1314",
+                "name": " M.HUSSAIN SOOMRO PET\/STATION "
+            },
+            {
+                "id": "1397",
+                "name": " M.Y. Filling & Cng Station "
+            },
+            {
+                "id": "1584",
+                "name": " M\/s KA Abbasi "
+            },
+            {
+                "id": "1698",
+                "name": " Madani Petroleum Service (Qamb "
+            },
+            {
+                "id": "1798",
+                "name": " Madina F\/S "
+            },
+            {
+                "id": "1751",
+                "name": " Madina Petroleum "
+            },
+            {
+                "id": "1852",
+                "name": " MADNI FILLING STATION (GUJRANWALA) "
+            },
+            {
+                "id": "1278",
+                "name": " Mahar Filling Station (Rawal Road) "
+            },
+            {
+                "id": "1823",
+                "name": " Mahesar Filling Station "
+            },
+            {
+                "id": "1820",
+                "name": " MAKKAH MADINA FILLING STATION "
+            },
+            {
+                "id": "1795",
+                "name": " MALAKAND F\/S "
+            },
+            {
+                "id": "1692",
+                "name": " Malik Adeel Petroleum & Lpg Service "
+            },
+            {
+                "id": "1320",
+                "name": " Malik Cng & Petroleum "
+            },
+            {
+                "id": "1913",
+                "name": " MALIK FILLING STATION "
+            },
+            {
+                "id": "1921",
+                "name": " MALIK FILLING STATION - KOHLU "
+            },
+            {
+                "id": "1325",
+                "name": " Malik New Energy "
+            },
+            {
+                "id": "1498",
+                "name": " Malik Petroleum "
+            },
+            {
+                "id": "1726",
+                "name": " MALLAH PETROLEUM SERVICE "
+            },
+            {
+                "id": "1441",
+                "name": " Maqbool Petroleum Service (Mianwali) "
+            },
+            {
+                "id": "1388",
+                "name": " Margalla Filling Station "
+            },
+            {
+                "id": "1731",
+                "name": " Marhaba Cng \/ Petroleum "
+            },
+            {
+                "id": "1308",
+                "name": " Marvi Filling Station "
+            },
+            {
+                "id": "1418",
+                "name": " MASHALLAH - II PETROLEUM SERVICE "
+            },
+            {
+                "id": "1821",
+                "name": " MASHALLAH FILLING STATION "
+            },
+            {
+                "id": "1499",
+                "name": " MASHALLAH FS "
+            },
+            {
+                "id": "1440",
+                "name": " MASHALLAH PET. SERVICE (SOUTH) "
+            },
+            {
+                "id": "1279",
+                "name": " Maymar Gasoline "
+            },
+            {
+                "id": "1557",
+                "name": " MEEZAN FILLING STATION "
+            },
+            {
+                "id": "1704",
+                "name": " MEHAR FILLING STATION & TRADERS "
+            },
+            {
+                "id": "1344",
+                "name": " Mehran Gasoline - Rawalpindi "
+            },
+            {
+                "id": "1857",
+                "name": " Mehran II Petroleum Service "
+            },
+            {
+                "id": "1354",
+                "name": " Memon Filling Station  "
+            },
+            {
+                "id": "1628",
+                "name": " Metro Gasoline "
+            },
+            {
+                "id": "1875",
+                "name": " MIAN MUSHTAQ PETROLEUM SERVICE "
+            },
+            {
+                "id": "1464",
+                "name": " Mik Mak  Station -Attock "
+            },
+            {
+                "id": "1774",
+                "name": " Minawar F\/S "
+            },
+            {
+                "id": "1573",
+                "name": " Mir Abid Petroleum "
+            },
+            {
+                "id": "1700",
+                "name": " MIR SALAR - 2 PETROLEUM SERVICE "
+            },
+            {
+                "id": "1342",
+                "name": " Mir Salar Petroleum Service "
+            },
+            {
+                "id": "1501",
+                "name": " MISRANI PETROLEUM SERVICE "
+            },
+            {
+                "id": "1417",
+                "name": " MK's II "
+            },
+            {
+                "id": "1425",
+                "name": " Mohaar Petroleum Service "
+            },
+            {
+                "id": "1687",
+                "name": " Mohsin "
+            },
+            {
+                "id": "1619",
+                "name": " Moiz Pet "
+            },
+            {
+                "id": "1294",
+                "name": " Moiz Petroleum Service "
+            },
+            {
+                "id": "1920",
+                "name": " MORO SUPER DRIVE "
+            },
+            {
+                "id": "1297",
+                "name": " Mountain Filling Station -Stor "
+            },
+            {
+                "id": "1801",
+                "name": " Mozzam (Al-Syed) "
+            },
+            {
+                "id": "1758",
+                "name": " Mubashir "
+            },
+            {
+                "id": "1644",
+                "name": " Mubashir Fs "
+            },
+            {
+                "id": "1662",
+                "name": " MUBASHIR PET "
+            },
+            {
+                "id": "1924",
+                "name": " Muhammad Aziz & Sons F\/S "
+            },
+            {
+                "id": "1520",
+                "name": " MUHAMMAD FILLING STATION "
+            },
+            {
+                "id": "1695",
+                "name": " Muhammad Khan Farooq Khan "
+            },
+            {
+                "id": "1615",
+                "name": " MUHAMMADI PETROLEUM (DOKRI) "
+            },
+            {
+                "id": "1722",
+                "name": " MUHAMMADI PETROLEUM (JUDDHO, M "
+            },
+            {
+                "id": "1749",
+                "name": " Mukhi Petroleum (Grace Cng & Fs) "
+            },
+            {
+                "id": "1744",
+                "name": " MUNEER AWAN "
+            },
+            {
+                "id": "1586",
+                "name": " Mushtaq Petroleum - Pasrur "
+            },
+            {
+                "id": "1526",
+                "name": " MUSHTARKA KHALIL "
+            },
+            {
+                "id": "1882",
+                "name": " Mustafa Filling Station (Pano "
+            },
+            {
+                "id": "1475",
+                "name": " MUZZMIL PETROLEUM SERVICE "
+            },
+            {
+                "id": "1490",
+                "name": " NADEEM FILLING STATION "
+            },
+            {
+                "id": "1624",
+                "name": " NADEEM SHAHZAD 3 PETROLEUM SER "
+            },
+            {
+                "id": "1847",
+                "name": " NADEEM SHAHZAD PETROLEUM SERVI "
+            },
+            {
+                "id": "1337",
+                "name": " NAEEM FILLING STATION (LARKANA) "
+            },
+            {
+                "id": "1840",
+                "name": " NAGHYAL FILLLING STATION "
+            },
+            {
+                "id": "1392",
+                "name": " Naib Filling Station "
+            },
+            {
+                "id": "1746",
+                "name": " NAIMAT PETROLEUM SERVICE "
+            },
+            {
+                "id": "1540",
+                "name": " Najeeb Jatoi Trucking Station "
+            },
+            {
+                "id": "1667",
+                "name": " Nakyal Filling Station "
+            },
+            {
+                "id": "1302",
+                "name": " Naseeb Filling Station "
+            },
+            {
+                "id": "1812",
+                "name": " NASEEM "
+            },
+            {
+                "id": "1736",
+                "name": " NASIR PETROLEUM SERVICE "
+            },
+            {
+                "id": "1814",
+                "name": " National Cng & F\/S "
+            },
+            {
+                "id": "1616",
+                "name": " Neeli Bar "
+            },
+            {
+                "id": "1535",
+                "name": " NEHAL FILLING & CNG STATION "
+            },
+            {
+                "id": "1369",
+                "name": " NEVADA GAS CO "
+            },
+            {
+                "id": "1406",
+                "name": " NEW AL MADINA FILLING STATION "
+            },
+            {
+                "id": "1509",
+                "name": " New Babar Loi Pet&Cng Station "
+            },
+            {
+                "id": "1578",
+                "name": " NEW BOLAN PETROLEUM SERVICE "
+            },
+            {
+                "id": "1850",
+                "name": " NEW GREEN STAR PETROLEUM "
+            },
+            {
+                "id": "1546",
+                "name": " New Hasan P\/S "
+            },
+            {
+                "id": "1676",
+                "name": " NEW INDUS FILLING STATION "
+            },
+            {
+                "id": "1543",
+                "name": " New Jam Petroleum Service "
+            },
+            {
+                "id": "1786",
+                "name": " New Kandiaro Filling Station "
+            },
+            {
+                "id": "1844",
+                "name": " New Mehran Pet. Service "
+            },
+            {
+                "id": "1351",
+                "name": " New Saddar Petroleum Service "
+            },
+            {
+                "id": "1384",
+                "name": " New Shah Zaman Filling Station "
+            },
+            {
+                "id": "1309",
+                "name": " New Waiz Filling Station "
+            },
+            {
+                "id": "1355",
+                "name": " Noon F\/S "
+            },
+            {
+                "id": "1387",
+                "name": " Noor Awan Filling Station "
+            },
+            {
+                "id": "1760",
+                "name": " NOOR CNG & FILLING STATION (GRW) "
+            },
+            {
+                "id": "1851",
+                "name": " Noor Cng (Mianwali) "
+            },
+            {
+                "id": "1860",
+                "name": " NOOR F\/S "
+            },
+            {
+                "id": "1634",
+                "name": " Noor Filling Station (Kasur) "
+            },
+            {
+                "id": "1538",
+                "name": " NOOR FILLING STATION (MORO CITY - SINDH) "
+            },
+            {
+                "id": "1336",
+                "name": " NOOR MUSTAFA PET. SERVICE "
+            },
+            {
+                "id": "1443",
+                "name": " NOOR PETROLEUM (GULYANA) "
+            },
+            {
+                "id": "1411",
+                "name": " NOOR PETROLEUM SERVICES "
+            },
+            {
+                "id": "1735",
+                "name": " NOOR SATTAR FILLING STATION "
+            },
+            {
+                "id": "1359",
+                "name": " Noorani Trucking Station "
+            },
+            {
+                "id": "1346",
+                "name": " Noorpur Filling Station "
+            },
+            {
+                "id": "1651",
+                "name": " NORAIZ CNG & FILLING STATION "
+            },
+            {
+                "id": "1597",
+                "name": " Ntm Cng "
+            },
+            {
+                "id": "1883",
+                "name": " Oasis Filling Station "
+            },
+            {
+                "id": "1911",
+                "name": " Obaid Filling Station "
+            },
+            {
+                "id": "1868",
+                "name": " Omer Petroleum "
+            },
+            {
+                "id": "1650",
+                "name": " OMER PETROLEUM TOBA TAKSING "
+            },
+            {
+                "id": "1896",
+                "name": " ORAKZAI CNG FILLING STATION "
+            },
+            {
+                "id": "1870",
+                "name": " ORANGE PETROLEUM SERVICE "
+            },
+            {
+                "id": "1887",
+                "name": " OSAMA FILLING STATION "
+            },
+            {
+                "id": "1372",
+                "name": " Pak Cng & Filling Station "
+            },
+            {
+                "id": "1631",
+                "name": " PAK CNG PABBI "
+            },
+            {
+                "id": "1864",
+                "name": " PAK FILLING STATION - SANGHAR "
+            },
+            {
+                "id": "1734",
+                "name": " PAKISTAN CNG  "
+            },
+            {
+                "id": "1545",
+                "name": " PAKISTAN CNG FILLING STATION "
+            },
+            {
+                "id": "1767",
+                "name": " Panorama "
+            },
+            {
+                "id": "1591",
+                "name": " Paradise P\/S "
+            },
+            {
+                "id": "1275",
+                "name": " Park 1 Filling Station "
+            },
+            {
+                "id": "1415",
+                "name": " Pc Petroleum Service "
+            },
+            {
+                "id": "1813",
+                "name": " PEARL CITY PETROLEUM SERVICE "
+            },
+            {
+                "id": "1709",
+                "name": " PERVAIZ BRO "
+            },
+            {
+                "id": "1306",
+                "name": " Pervaiz Filling Station "
+            },
+            {
+                "id": "1321",
+                "name": " Petaro Filling Station "
+            },
+            {
+                "id": "1332",
+                "name": " Petro pak energy "
+            },
+            {
+                "id": "1439",
+                "name": " PUNHAL FILLING STATION "
+            },
+            {
+                "id": "1719",
+                "name": " Qalandri - Ii Petroelum Service "
+            },
+            {
+                "id": "1429",
+                "name": " Qalandri Petroleum & Cng Station (Seh) "
+            },
+            {
+                "id": "1872",
+                "name": " QAZI ABAD FILLING STATION "
+            },
+            {
+                "id": "1779",
+                "name": " Qazi Filling Station "
+            },
+            {
+                "id": "1694",
+                "name": " Qiblabandi Filling Station "
+            },
+            {
+                "id": "1329",
+                "name": " Quality Gurmani "
+            },
+            {
+                "id": "1451",
+                "name": " RABNAWAZ FILLING STATION "
+            },
+            {
+                "id": "1480",
+                "name": " Raheel Petroleum & Cng Station "
+            },
+            {
+                "id": "1714",
+                "name": " RAJA "
+            },
+            {
+                "id": "1288",
+                "name": " Ramzan Filling Station "
+            },
+            {
+                "id": "1738",
+                "name": " RAO SALEEM PETROLEUM SERVICES "
+            },
+            {
+                "id": "1472",
+                "name": " RASHEED PET "
+            },
+            {
+                "id": "1416",
+                "name": " Rashid Petroleum Service "
+            },
+            {
+                "id": "1879",
+                "name": " RASHID-UL-HASSAN FILLING STATION "
+            },
+            {
+                "id": "1680",
+                "name": " Raza Mahar Filling Station "
+            },
+            {
+                "id": "1484",
+                "name": " RAZA PETROLEUM SERVICE "
+            },
+            {
+                "id": "1319",
+                "name": " Really Service Station "
+            },
+            {
+                "id": "1638",
+                "name": " REHAN PET "
+            },
+            {
+                "id": "1424",
+                "name": " REHMAN CNG & FILLING STATION ( "
+            },
+            {
+                "id": "1928",
+                "name": " Rehman Sons Filling Station  "
+            },
+            {
+                "id": "1461",
+                "name": " Reliance Cng "
+            },
+            {
+                "id": "1937",
+                "name": " Rohi Petroleum "
+            },
+            {
+                "id": "1504",
+                "name": " ROMAN FILLING STATION "
+            },
+            {
+                "id": "1599",
+                "name": " ROSE GARDEN FILLING STATION "
+            },
+            {
+                "id": "1273",
+                "name": " Roshan Filling Station "
+            },
+            {
+                "id": "1322",
+                "name": " Royal Awan Filling Station "
+            },
+            {
+                "id": "1655",
+                "name": " Royal Fuel Station "
+            },
+            {
+                "id": "1334",
+                "name": " Royal Petroleum Service "
+            },
+            {
+                "id": "1842",
+                "name": " RUSTAM PETROLEUM SERVICE "
+            },
+            {
+                "id": "1313",
+                "name": " S&S Cng Station "
+            },
+            {
+                "id": "1892",
+                "name": " S-KHAN PETROLEUM SERVICE "
+            },
+            {
+                "id": "1339",
+                "name": " Saad Filling Station "
+            },
+            {
+                "id": "1831",
+                "name": " SAAD UR REHMAN "
+            },
+            {
+                "id": "1859",
+                "name": " SABIR PETROLEUM "
+            },
+            {
+                "id": "1612",
+                "name": " SABRI CNG & PET "
+            },
+            {
+                "id": "1811",
+                "name": " SADA BAHAR FILLING STATION "
+            },
+            {
+                "id": "1282",
+                "name": " Sadiq Petroleum Service "
+            },
+            {
+                "id": "1771",
+                "name": " SAEED FILLING STATION "
+            },
+            {
+                "id": "1523",
+                "name": " Safdar Petroleum Services "
+            },
+            {
+                "id": "1566",
+                "name": " SAGHAR FILLING STATION "
+            },
+            {
+                "id": "1422",
+                "name": " SAHAR PETROLEUM SERVICES "
+            },
+            {
+                "id": "1815",
+                "name": " SAIF CHEEMA FILLING STATION "
+            },
+            {
+                "id": "1536",
+                "name": " SAJEEL PET "
+            },
+            {
+                "id": "1658",
+                "name": " SALAR JATOI FILLING STATION "
+            },
+            {
+                "id": "1885",
+                "name": " SALMAN SHAHID P\/S "
+            },
+            {
+                "id": "1419",
+                "name": " SAMADHA PETROLEUM SERVICE "
+            },
+            {
+                "id": "1757",
+                "name": " Samandar Khan  "
+            },
+            {
+                "id": "1898",
+                "name": " Samor Petroleum Service "
+            },
+            {
+                "id": "1381",
+                "name": " Sanga "
+            },
+            {
+                "id": "1867",
+                "name": " SANGLA "
+            },
+            {
+                "id": "1910",
+                "name": " Sangum "
+            },
+            {
+                "id": "1460",
+                "name": " Saqib Trucking Station "
+            },
+            {
+                "id": "1828",
+                "name": " SARDAR PETROLEUM "
+            },
+            {
+                "id": "1457",
+                "name": " SARMAD PETROLEUM "
+            },
+            {
+                "id": "1716",
+                "name": " SEYAL BROTHERS "
+            },
+            {
+                "id": "1666",
+                "name": " SHAFI PETROLEUM SERVICE (SIALKOT) "
+            },
+            {
+                "id": "1664",
+                "name": " Shah Filling Station "
+            },
+            {
+                "id": "1754",
+                "name": " Shah fs "
+            },
+            {
+                "id": "1438",
+                "name": " SHAH LATIF PETROLEUM SERVICE "
+            },
+            {
+                "id": "1632",
+                "name": " Shah Murad Filling Station "
+            },
+            {
+                "id": "1893",
+                "name": " SHAH NARI FILLING STATION "
+            },
+            {
+                "id": "1718",
+                "name": " Shah Rukn-E-Alam "
+            },
+            {
+                "id": "1494",
+                "name": " SHAHEED ALI ASGHAR DAHRI P\/S "
+            },
+            {
+                "id": "1594",
+                "name": " Shaheen F\/S "
+            },
+            {
+                "id": "1330",
+                "name": " SHAHEEN FILLING STATION "
+            },
+            {
+                "id": "1312",
+                "name": " Shaheen Pet "
+            },
+            {
+                "id": "1854",
+                "name": " Shaheer Petroleum Service "
+            },
+            {
+                "id": "1399",
+                "name": " SHAHNAWAZ PETROLEUM SERVICE "
+            },
+            {
+                "id": "1510",
+                "name": " SHAHRA-I-AZAM "
+            },
+            {
+                "id": "1350",
+                "name": " Shahzaib Filling Station "
+            },
+            {
+                "id": "1703",
+                "name": " SHAIKH PETROLEUM SERVICE "
+            },
+            {
+                "id": "1572",
+                "name": " SHAKEEL BROTHERS "
+            },
+            {
+                "id": "1759",
+                "name": " Shakeel Pet "
+            },
+            {
+                "id": "1804",
+                "name": " SHAN-E-MUSTAFA PETROLEUM SERVICE "
+            },
+            {
+                "id": "1678",
+                "name": " Sharif Petroleum "
+            },
+            {
+                "id": "1496",
+                "name": " SHARIQ PETROLEUM SERVICE "
+            },
+            {
+                "id": "1370",
+                "name": " SHAWAL PET SERVICE CNG STATION "
+            },
+            {
+                "id": "1413",
+                "name": " Shazly Petroleum Service "
+            },
+            {
+                "id": "1762",
+                "name": " Shehryar Filling Station "
+            },
+            {
+                "id": "1333",
+                "name": " SHER FILLING STATION "
+            },
+            {
+                "id": "1361",
+                "name": " SHERGARH FILLING STATION "
+            },
+            {
+                "id": "1647",
+                "name": " Shirazi "
+            },
+            {
+                "id": "1940",
+                "name": " SHUJABAD PET "
+            },
+            {
+                "id": "1886",
+                "name": " SIDDIQUE FILLING STATION "
+            },
+            {
+                "id": "1633",
+                "name": " Sindh Petroleum Service (Naukot) "
+            },
+            {
+                "id": "1559",
+                "name": " Sitara E Hilal Trucking Station "
+            },
+            {
+                "id": "1829",
+                "name": " Sk Petroleum Limited "
+            },
+            {
+                "id": "1833",
+                "name": " SQUAIRE FILLING STATION "
+            },
+            {
+                "id": "1311",
+                "name": " Star Cng & Filling Station ( Karachi) "
+            },
+            {
+                "id": "1756",
+                "name": " Star Petroleum  "
+            },
+            {
+                "id": "1649",
+                "name": " SUBHAN ALLAH CNG & FILLING STATION "
+            },
+            {
+                "id": "1845",
+                "name": " SUHAIB PETROLEUM SERVICE "
+            },
+            {
+                "id": "1318",
+                "name": " Sulheri Filling Station "
+            },
+            {
+                "id": "1610",
+                "name": " SULTAN  "
+            },
+            {
+                "id": "1752",
+                "name": " Sultan Bahoo Petroleum Service "
+            },
+            {
+                "id": "1674",
+                "name": " Sultan Cng "
+            },
+            {
+                "id": "1437",
+                "name": " SULTAN PETROLEUM "
+            },
+            {
+                "id": "1352",
+                "name": " Sultan Petroleum Service "
+            },
+            {
+                "id": "1531",
+                "name": " SUN SHINE PETROLEUM SERVICE \/ KRISHNA "
+            },
+            {
+                "id": "1684",
+                "name": " SUNTRUST CNG "
+            },
+            {
+                "id": "1358",
+                "name": " Super Awan P\/S "
+            },
+            {
+                "id": "1602",
+                "name": " Super Jam Petroleum Service "
+            },
+            {
+                "id": "1378",
+                "name": " Surjani Petroleum Service "
+            },
+            {
+                "id": "1338",
+                "name": " Syed Farman Ali Petroleum Service "
+            },
+            {
+                "id": "1792",
+                "name": " Syed Petroleum (Umerkot) "
+            },
+            {
+                "id": "1621",
+                "name": " Taha Petroleum Service "
+            },
+            {
+                "id": "1728",
+                "name": " TAHIR & BROTHER PETROLEUM SERVICE "
+            },
+            {
+                "id": "1721",
+                "name": " Taj Din Cng  "
+            },
+            {
+                "id": "1343",
+                "name": " Taj Filling "
+            },
+            {
+                "id": "1446",
+                "name": " TAJ PETROLEUM SERVICE "
+            },
+            {
+                "id": "1489",
+                "name": " TAJDAR-E-MADINA FILLING STATION "
+            },
+            {
+                "id": "1530",
+                "name": " Tamman Awan Petroleum Service "
+            },
+            {
+                "id": "1790",
+                "name": " Tamman Petroleum Service "
+            },
+            {
+                "id": "1396",
+                "name": " Tando Allahyar Filling Station "
+            },
+            {
+                "id": "1588",
+                "name": " TARAR PETROLEUM "
+            },
+            {
+                "id": "1420",
+                "name": " TARIQ FILLING STATION "
+            },
+            {
+                "id": "1748",
+                "name": " TARIQ PETROLEUM SERVICE "
+            },
+            {
+                "id": "1944",
+                "name": " TEHLAR "
+            },
+            {
+                "id": "1544",
+                "name": " Tehsin Petroleum Service "
+            },
+            {
+                "id": "1753",
+                "name": " Thakot Filling Station "
+            },
+            {
+                "id": "1450",
+                "name": " The Awan (Musa-20237) "
+            },
+            {
+                "id": "1447",
+                "name": " The Awan Petroleum  "
+            },
+            {
+                "id": "1482",
+                "name": " TOPWAY "
+            },
+            {
+                "id": "1453",
+                "name": " TRANSLINK F\/S "
+            },
+            {
+                "id": "1659",
+                "name": " UJALA PETROLEUM SERVICE "
+            },
+            {
+                "id": "1869",
+                "name": " Ultra Filling Station "
+            },
+            {
+                "id": "1465",
+                "name": " UMAIR PETROLEUM SERVICE "
+            },
+            {
+                "id": "1400",
+                "name": " UMER DIN FILLING STATION "
+            },
+            {
+                "id": "1470",
+                "name": " Umer Shah Petroleum "
+            },
+            {
+                "id": "1458",
+                "name": " Umma Enterprises "
+            },
+            {
+                "id": "1280",
+                "name": " Ummi Service Station "
+            },
+            {
+                "id": "1476",
+                "name": " United Petroleum "
+            },
+            {
+                "id": "1382",
+                "name": " Usman Cng & Petroleum Service "
+            },
+            {
+                "id": "1849",
+                "name": " USMAN IQBAL PETROLEUM SERVICE "
+            },
+            {
+                "id": "1765",
+                "name": " USMAN KHAN PETROLEUM "
+            },
+            {
+                "id": "1603",
+                "name": " Usman Nauman Filling Station "
+            },
+            {
+                "id": "1682",
+                "name": " USMAN PETROLEUM SERVICE "
+            },
+            {
+                "id": "1423",
+                "name": " UTTRA F\/S "
+            },
+            {
+                "id": "1455",
+                "name": " Uzair Petroleum Service "
+            },
+            {
+                "id": "1816",
+                "name": " Uzair Petroleum Service  "
+            },
+            {
+                "id": "1272",
+                "name": " V Petroleum Service "
+            },
+            {
+                "id": "1773",
+                "name": " Valley Filling Station "
+            },
+            {
+                "id": "1593",
+                "name": " Vicky Petroleum "
+            },
+            {
+                "id": "1303",
+                "name": " Vip Petroleum Service "
+            },
+            {
+                "id": "1587",
+                "name": " Vision 2 Cng "
+            },
+            {
+                "id": "1323",
+                "name": " Vital  "
+            },
+            {
+                "id": "1555",
+                "name": " WAHEED PETROLEUM SERVICE "
+            },
+            {
+                "id": "1685",
+                "name": " WALI PETROLEUM SERVICE "
+            },
+            {
+                "id": "1799",
+                "name": " WAQAS & SULTAN PET. SERVICE "
+            },
+            {
+                "id": "1837",
+                "name": " WARAICH PET "
+            },
+            {
+                "id": "1669",
+                "name": " WARRAICH FILLING STATION "
+            },
+            {
+                "id": "1405",
+                "name": " Warraich Iii "
+            },
+            {
+                "id": "1449",
+                "name": " Warraich-Ii "
+            },
+            {
+                "id": "1737",
+                "name": " WARSI CHEEMA\u00a0 F\/S "
+            },
+            {
+                "id": "1564",
+                "name": " Yak Allah Filling Station "
+            },
+            {
+                "id": "1724",
+                "name": " YAQOOB CNG & FILLING STATION "
+            },
+            {
+                "id": "1547",
+                "name": " Yasrab Petroleum \/ Cng "
+            },
+            {
+                "id": "1656",
+                "name": " Z.A Jatoi Filling Station "
+            },
+            {
+                "id": "1884",
+                "name": " ZAILDAR PETROLEUM "
+            },
+            {
+                "id": "1822",
+                "name": " Zain Gas Cng Station "
+            },
+            {
+                "id": "1839",
+                "name": " Zam Zam Cng "
+            },
+            {
+                "id": "1846",
+                "name": " Zam Zam Petroleum "
+            },
+            {
+                "id": "1286",
+                "name": " Zaman Filling Station "
+            },
+            {
+                "id": "1569",
+                "name": " ZARDARI PETROLEUM SERVICE "
+            },
+            {
+                "id": "1493",
+                "name": " ZAREEF FILLING STATION "
+            },
+            {
+                "id": "1502",
+                "name": " ZEB PETROLEUM SERVICE "
+            },
+            {
+                "id": "1391",
+                "name": " Zohaib Fuel Station "
+            },
+            {
+                "id": "1648",
+                "name": " ZUBAIR PET "
+            },
+            {
+                "id": "1927",
+                "name": " ZUBAIR PETROLEUM SERVICE "
+            },
+            {
+                "id": "1625",
+                "name": "Abu Ibrahim "
+            },
+            {
+                "id": "1219",
+                "name": "AL BARQ PETROLEUM SERVICE               "
+            },
+            {
+                "id": "1955",
+                "name": "Al Raza Petroleum"
+            },
+            {
+                "id": "1982",
+                "name": "Al Wahid Petroleum"
+            },
+            {
+                "id": "1977",
+                "name": "Al-Murtaza Petroleum Service"
+            },
+            {
+                "id": "1976",
+                "name": "Al-Nafay Filling Station"
+            },
+            {
+                "id": "1995",
+                "name": "Al-Qadir Petroleum Service"
+            },
+            {
+                "id": "1331",
+                "name": "Al-Rahim Cng "
+            },
+            {
+                "id": "1952",
+                "name": "Arslan Hafeez"
+            },
+            {
+                "id": "1347",
+                "name": "ASKARI CNG"
+            },
+            {
+                "id": "1195",
+                "name": "BHERA NORTH                             "
+            },
+            {
+                "id": "1196",
+                "name": "BHERA SOUTH                             "
+            },
+            {
+                "id": "1264",
+                "name": "Chakri North"
+            },
+            {
+                "id": "1199",
+                "name": "CHAKRI SOUTH                            "
+            },
+            {
+                "id": "1960",
+                "name": "chiniot fs"
+            },
+            {
+                "id": "1672",
+                "name": "DANISH PET "
+            },
+            {
+                "id": "1949",
+                "name": "Data Testing"
+            },
+            {
+                "id": "1249",
+                "name": "DHA CITY PETROLEUM SERVICE              "
+            },
+            {
+                "id": "1978",
+                "name": "DHA Rahbar"
+            },
+            {
+                "id": "1956",
+                "name": "EMPIRE PETROLEUM"
+            },
+            {
+                "id": "1992",
+                "name": "HASCOL 10"
+            },
+            {
+                "id": "1981",
+                "name": "Hascol 11 AJK"
+            },
+            {
+                "id": "1991",
+                "name": "Hascol 12"
+            },
+            {
+                "id": "1980",
+                "name": "Hascol 12 Taxila"
+            },
+            {
+                "id": "1220",
+                "name": "HASCOL 3                                "
+            },
+            {
+                "id": "1223",
+                "name": "HASCOL 4                                "
+            },
+            {
+                "id": "1200",
+                "name": "HASCOL 5                                "
+            },
+            {
+                "id": "1192",
+                "name": "HASCOL 6 (BARAKAHU FS)                  "
+            },
+            {
+                "id": "1230",
+                "name": "HASCOL 7 (PANO AQIL CANTT)              "
+            },
+            {
+                "id": "1961",
+                "name": "Hascol 8 Naval Anchorage"
+            },
+            {
+                "id": "1990",
+                "name": "Hascol 9"
+            },
+            {
+                "id": "1236",
+                "name": "HASCOL ONE                              "
+            },
+            {
+                "id": "1933",
+                "name": "Hasnain hafeez"
+            },
+            {
+                "id": "1954",
+                "name": "Highway Gasoline"
+            },
+            {
+                "id": "1989",
+                "name": "humber petroleum"
+            },
+            {
+                "id": "1988",
+                "name": "Humber Petroleum"
+            },
+            {
+                "id": "1657",
+                "name": "Ibrahim Pet "
+            },
+            {
+                "id": "1987",
+                "name": "Ideal Petroleum"
+            },
+            {
+                "id": "1996",
+                "name": "Imran Petroleum Service"
+            },
+            {
+                "id": "1957",
+                "name": "INFINITY PETROLEUM"
+            },
+            {
+                "id": "1197",
+                "name": "KALAR KAHAR NORTH                       "
+            },
+            {
+                "id": "1198",
+                "name": "KALAR KAHAR SOUTH                       "
+            },
+            {
+                "id": "1994",
+                "name": "Kiwik cng"
+            },
+            {
+                "id": "1964",
+                "name": "Koh e Suleman P\/S"
+            },
+            {
+                "id": "1962",
+                "name": "M\/s. Elahi Cng"
+            },
+            {
+                "id": "1968",
+                "name": "Malik PS"
+            },
+            {
+                "id": "1950",
+                "name": "Manzoor p\/s"
+            },
+            {
+                "id": "1969",
+                "name": "Mir Hazar Filling Station"
+            },
+            {
+                "id": "1934",
+                "name": "Muhammad Petroleum Service"
+            },
+            {
+                "id": "1973",
+                "name": "NASEER PETROLEUM SERVICE"
+            },
+            {
+                "id": "1983",
+                "name": "New Super Waziristan"
+            },
+            {
+                "id": "1985",
+                "name": "Petro Server CNG"
+            },
+            {
+                "id": "1251",
+                "name": "POLWEL II FILLING STATION "
+            },
+            {
+                "id": "1250",
+                "name": "POLWEL MULTAN FILLING STATION           "
+            },
+            {
+                "id": "1966",
+                "name": "Rehman 2"
+            },
+            {
+                "id": "1967",
+                "name": "Shahanshah PS"
+            },
+            {
+                "id": "1193",
+                "name": "SIAL MORE NORTH                         "
+            },
+            {
+                "id": "1194",
+                "name": "SIAL MORE SOUTH                         "
+            },
+            {
+                "id": "1965",
+                "name": "SS CNG"
+            },
+            {
+                "id": "1164",
+                "name": "SUKHEKII NORTH                          "
+            },
+            {
+                "id": "1165",
+                "name": "SUKHEKII SOUTH                          "
+            },
+            {
+                "id": "1993",
+                "name": "Sun star"
+            },
+            {
+                "id": "1986",
+                "name": "The Fuel Expert"
+            },
+            {
+                "id": "1613",
+                "name": "UMER PETROLEUM SERVICE "
+            },
+            {
+                "id": "1953",
+                "name": "WALI BHAI CNG"
+            },
+            {
+                "id": "1959",
+                "name": "YASIR FILLING STATION"
+            },
+            {
+                "id": "1958",
+                "name": "ZAM ZAM PETROLEUM SERVICES"
+            }
+        ],
+        "products": [
+            "HASRON",
+            "HSD",
+            "LPG",
+            "PMG"
+        ]
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-07-31",
+        "date_to": "2026-08-24",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-08-24 16:46:35",
+        "duration": 0.06,
+        "api_url": "http:\/\/localhost:8080\/hascol_dashboard\/api\/filter_options.php?date_from=2026-07-31&date_to=2026-08-24&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "success": true,
+    "data": {
+        "distribution": [
+            15,
+            6,
+            6,
+            20
+        ],
+        "top_sites": [
+            {
+                "site": " GHAFFAR JAVED F\/S ",
+                "variance": 2903203,
+                "stock_loss": 2903203
+            },
+            {
+                "site": " WAQAS & SULTAN PET. SERVICE ",
+                "variance": 666193,
+                "stock_loss": 666193
+            },
+            {
+                "site": " Noor Filling Station (Kasur) ",
+                "variance": 532051,
+                "stock_loss": 532051
+            },
+            {
+                "site": " ZUBAIR PETROLEUM SERVICE ",
+                "variance": 347942,
+                "stock_loss": 347942
+            },
+            {
+                "site": " Noorpur Filling Station ",
+                "variance": 322219,
+                "stock_loss": 322219
+            }
+        ],
+        "total_stock_loss": 2674767,
+        "variance_sites": 26,
+        "critical_sites": 20
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-05-31",
+        "date_to": "2026-06-30",
+        "region": "all",
+        "territory": "Lahore",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-06-30 16:03:29",
+        "duration": 4.48,
+        "api_url": "http:\/\/localhost\/hascol_dashboard\/api\/variance_data.php?date_from=2026-05-31&date_to=2026-06-30&region=all&territory=Lahore&tm=all&site=all&product=all"
+    }
+}

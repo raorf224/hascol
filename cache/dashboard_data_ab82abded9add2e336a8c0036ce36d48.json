@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "data": {
+        "total_sites": 43,
+        "site_coverage": 72,
+        "total_recons_all": 38,
+        "recons_completed": 31,
+        "recons_pending": 7,
+        "total_uplift": "4,343.2M",
+        "total_uplift_raw": 4343153,
+        "total_dumping": "2,674.8M",
+        "total_dumping_raw": 2674767,
+        "stock_loss": "2,674,767",
+        "stock_loss_raw": 2674767,
+        "avg_health_score": 56,
+        "changes": {
+            "uplift": 727,
+            "dumping": 346,
+            "recons": 288,
+            "loss": 11251,
+            "coverage": 8,
+            "health": 4
+        },
+        "health_distribution": {
+            "healthy": 0,
+            "warning": 0,
+            "critical": 31,
+            "not_visited": 41
+        }
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-05-31",
+        "date_to": "2026-06-30",
+        "region": "all",
+        "territory": "Lahore",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-06-30 16:03:26",
+        "duration": 1.69,
+        "api_url": "http:\/\/localhost\/hascol_dashboard\/api\/dashboard_data.php?date_from=2026-05-31&date_to=2026-06-30&region=all&territory=Lahore&tm=all&site=all&product=all"
+    }
+}

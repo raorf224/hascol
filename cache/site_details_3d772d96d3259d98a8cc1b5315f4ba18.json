@@ -1,0 +1,25 @@
+{
+    "success": true,
+    "data": {
+        "total_sites": 0,
+        "visited_sites": 0,
+        "avg_health_score": 0,
+        "health_distribution": [],
+        "recent_visits": []
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-07-31",
+        "date_to": "2026-08-19",
+        "region": "Faisalabad",
+        "territory": "Gujranwala",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-08-19 13:44:33",
+        "duration": 0.08,
+        "api_url": "http:\/\/localhost:8080\/hascol_dashboard\/api\/site_details.php?date_from=2026-07-31&date_to=2026-08-19&region=Faisalabad&territory=Gujranwala&tm=all&site=all&product=all"
+    }
+}

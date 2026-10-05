@@ -1,0 +1,52 @@
+{
+    "success": true,
+    "data": [
+        {
+            "rank": 1,
+            "name": "Subhan Ilahi",
+            "coverage": 19,
+            "recons": 8,
+            "variance_caught": 3,
+            "score": 10
+        },
+        {
+            "rank": 2,
+            "name": "Sohaib Ayaz",
+            "coverage": 26,
+            "recons": 11,
+            "variance_caught": 16,
+            "score": 10
+        },
+        {
+            "rank": 3,
+            "name": "Tariq Razzaq",
+            "coverage": 14,
+            "recons": 6,
+            "variance_caught": 4,
+            "score": 10
+        },
+        {
+            "rank": 4,
+            "name": "Zahid Hussain",
+            "coverage": 14,
+            "recons": 6,
+            "variance_caught": 9,
+            "score": 10
+        }
+    ],
+    "message": "",
+    "filters": {
+        "date_from": "2026-05-31",
+        "date_to": "2026-06-30",
+        "region": "all",
+        "territory": "Lahore",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-06-30 16:03:25",
+        "duration": 0.34,
+        "api_url": "http:\/\/localhost\/hascol_dashboard\/api\/tm_performance.php?date_from=2026-05-31&date_to=2026-06-30&region=all&territory=Lahore&tm=all&site=all&product=all"
+    }
+}

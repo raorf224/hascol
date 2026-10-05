@@ -1,0 +1,60 @@
+{
+    "success": true,
+    "data": [
+        {
+            "rank": 1,
+            "name": "Hassan",
+            "coverage": 3,
+            "recons": 18,
+            "variance_caught": 4,
+            "score": 10
+        },
+        {
+            "rank": 2,
+            "name": "Umair Javaid",
+            "coverage": 1,
+            "recons": 6,
+            "variance_caught": 2,
+            "score": 10
+        },
+        {
+            "rank": 3,
+            "name": "Rizwan Sheikh",
+            "coverage": 2,
+            "recons": 14,
+            "variance_caught": 20,
+            "score": 10
+        },
+        {
+            "rank": 4,
+            "name": "Naveed ur Rehman",
+            "coverage": 2,
+            "recons": 17,
+            "variance_caught": 0,
+            "score": 10
+        },
+        {
+            "rank": 5,
+            "name": "Abid Hussain",
+            "coverage": 3,
+            "recons": 21,
+            "variance_caught": 4,
+            "score": 10
+        }
+    ],
+    "message": "",
+    "filters": {
+        "date_from": "2026-05-31",
+        "date_to": "2026-06-30",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-06-30 12:58:12",
+        "duration": 12.21,
+        "api_url": "http:\/\/localhost\/hascol_dashboard\/api\/tm_performance.php?date_from=2026-05-31&date_to=2026-06-30&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

@@ -1,0 +1,84 @@
+{
+    "success": true,
+    "data": {
+        "best_sites": [
+            {
+                "site": " Choondiko Petroleum Service ",
+                "health_score": 90,
+                "variance": 0,
+                "regularity": "Regular"
+            },
+            {
+                "site": " New Saddar Petroleum Service ",
+                "health_score": 90,
+                "variance": 0,
+                "regularity": "Regular"
+            },
+            {
+                "site": " SHAHEED ALI ASGHAR DAHRI P\/S ",
+                "health_score": 90,
+                "variance": 0,
+                "regularity": "Regular"
+            },
+            {
+                "site": " Ilyas Filling Station ",
+                "health_score": 90,
+                "variance": 0,
+                "regularity": "Regular"
+            },
+            {
+                "site": " LUND KHAWAR FILLING STATION ",
+                "health_score": 90,
+                "variance": 0,
+                "regularity": "Regular"
+            }
+        ],
+        "risky_sites": [
+            {
+                "site": " GHAFFAR JAVED F\/S ",
+                "health_score": 0,
+                "variance": 1495164.5,
+                "last_visit": "69 Days Ago"
+            },
+            {
+                "site": " WAQAS & SULTAN PET. SERVICE ",
+                "health_score": 0,
+                "variance": 395370,
+                "last_visit": "74 Days Ago"
+            },
+            {
+                "site": " Noor Filling Station (Kasur) ",
+                "health_score": 0,
+                "variance": 288638,
+                "last_visit": "69 Days Ago"
+            },
+            {
+                "site": " ZUBAIR PETROLEUM SERVICE ",
+                "health_score": 0,
+                "variance": 175282.5,
+                "last_visit": "69 Days Ago"
+            },
+            {
+                "site": " D. G. Petrolem & Cng Station ",
+                "health_score": 0,
+                "variance": 172871.5,
+                "last_visit": "75 Days Ago"
+            }
+        ]
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-06-01",
+        "date_to": "2026-08-18",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-08-18 15:15:08",
+        "duration": 1.46,
+        "api_url": "http:\/\/localhost\/hascol_dashboard\/api\/top_sites.php?date_from=2026-06-01&date_to=2026-08-18&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

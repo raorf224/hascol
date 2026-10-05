@@ -1,0 +1,19 @@
+{
+    "success": true,
+    "data": [],
+    "message": "",
+    "filters": {
+        "date_from": "2026-08-01",
+        "date_to": "2026-08-18",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-08-18 15:14:05",
+        "duration": 0.05,
+        "api_url": "http:\/\/localhost\/hascol_dashboard\/api\/tm_performance.php?date_from=2026-08-01&date_to=2026-08-18&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "success": true,
+    "data": {
+        "avg_duration": -0.1,
+        "overdue": 62,
+        "completion_rate": 100,
+        "same_day_completion": 96,
+        "pipeline": {
+            "initiated": 0,
+            "under_review": 0,
+            "rm_approved": 0,
+            "completed": 445
+        },
+        "backlog_trend": [
+            55,
+            122,
+            93,
+            62
+        ],
+        "total_recons": 445
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-06-01",
+        "date_to": "2026-08-18",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-08-18 15:15:12",
+        "duration": 6.13,
+        "api_url": "http:\/\/localhost\/hascol_dashboard\/api\/recon_efficiency.php?date_from=2026-06-01&date_to=2026-08-18&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

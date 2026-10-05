@@ -1,0 +1,60 @@
+{
+    "success": true,
+    "data": [
+        {
+            "id": "high_variance",
+            "title": "High Variance Sites",
+            "description": "Variance more than 2%",
+            "count": 35,
+            "severity": "critical",
+            "icon": "fa-triangle-exclamation"
+        },
+        {
+            "id": "overdue_recons",
+            "title": "Overdue Recons",
+            "description": "Recons past due date",
+            "count": 0,
+            "severity": "warning",
+            "icon": "fa-clock-rotate-left"
+        },
+        {
+            "id": "sites_not_visited",
+            "title": "Sites Not Visited",
+            "description": "Not visited in last 60 days",
+            "count": 0,
+            "severity": "warning",
+            "icon": "fa-eye-slash"
+        },
+        {
+            "id": "tm_inactive",
+            "title": "TM Inactive",
+            "description": "No activity in last 7 days",
+            "count": 2,
+            "severity": "orange",
+            "icon": "fa-user-xmark"
+        },
+        {
+            "id": "possible_pilferage",
+            "title": "Possible Pilferage",
+            "description": "Uplift > Dumping (High Gap)",
+            "count": 10,
+            "severity": "critical",
+            "icon": "fa-receipt"
+        }
+    ],
+    "message": "",
+    "filters": {
+        "date_from": "2026-05-31",
+        "date_to": "2026-06-30",
+        "region": "all",
+        "territory": "Faisalabad",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-06-30 16:03:09",
+        "duration": 0.7,
+        "api_url": "http:\/\/localhost\/hascol_dashboard\/api\/alerts_data.php?date_from=2026-05-31&date_to=2026-06-30&region=all&territory=Faisalabad&tm=all&site=all&product=all"
+    }
+}

@@ -1,0 +1,84 @@
+{
+    "success": true,
+    "data": {
+        "best_sites": [
+            {
+                "site": " AL-HARMAIN CNG & FS ",
+                "health_score": 30,
+                "variance": 1562,
+                "regularity": "Regular"
+            },
+            {
+                "site": " NAIMAT PETROLEUM SERVICE ",
+                "health_score": 30,
+                "variance": 1582.5,
+                "regularity": "Regular"
+            },
+            {
+                "site": " AFREEN PETROLEUM SERVICE ",
+                "health_score": 30,
+                "variance": 1727.5,
+                "regularity": "Regular"
+            },
+            {
+                "site": " AL MUSTAFA CNG ",
+                "health_score": 30,
+                "variance": 2556,
+                "regularity": "Regular"
+            },
+            {
+                "site": " NASIR PETROLEUM SERVICE ",
+                "health_score": 30,
+                "variance": 2839.5,
+                "regularity": "Regular"
+            }
+        ],
+        "risky_sites": [
+            {
+                "site": " Zam Zam Petroleum ",
+                "health_score": 0,
+                "variance": 49584,
+                "last_visit": "20 Days Ago"
+            },
+            {
+                "site": " National Cng & F\/S ",
+                "health_score": 0,
+                "variance": 42781.5,
+                "last_visit": "11 Days Ago"
+            },
+            {
+                "site": "chiniot fs",
+                "health_score": 0,
+                "variance": 29598.5,
+                "last_visit": "13 Days Ago"
+            },
+            {
+                "site": " Ghulam Hussain Petroleum Service ",
+                "health_score": 0,
+                "variance": 25423.5,
+                "last_visit": "14 Days Ago"
+            },
+            {
+                "site": " Abdullah Gulzar Petroleum Service ",
+                "health_score": 0,
+                "variance": 24649,
+                "last_visit": "15 Days Ago"
+            }
+        ]
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-05-31",
+        "date_to": "2026-06-30",
+        "region": "all",
+        "territory": "Faisalabad",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-06-30 16:03:10",
+        "duration": 0.57,
+        "api_url": "http:\/\/localhost\/hascol_dashboard\/api\/top_sites.php?date_from=2026-05-31&date_to=2026-06-30&region=all&territory=Faisalabad&tm=all&site=all&product=all"
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "data": {
+        "total_sites": 58,
+        "site_coverage": 60,
+        "total_recons_all": 49,
+        "recons_completed": 35,
+        "recons_pending": 14,
+        "total_uplift": "90.2M",
+        "total_uplift_raw": 90154,
+        "total_dumping": "791.1M",
+        "total_dumping_raw": 791062,
+        "stock_loss": "791,062",
+        "stock_loss_raw": 791062,
+        "avg_health_score": 53,
+        "changes": {
+            "uplift": -97,
+            "dumping": -83,
+            "recons": -10,
+            "loss": -34,
+            "coverage": 8,
+            "health": 4
+        },
+        "health_distribution": {
+            "healthy": 0,
+            "warning": 0,
+            "critical": 35,
+            "not_visited": 58
+        }
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-05-31",
+        "date_to": "2026-06-30",
+        "region": "all",
+        "territory": "Faisalabad",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-06-30 16:03:11",
+        "duration": 2.1,
+        "api_url": "http:\/\/localhost\/hascol_dashboard\/api\/dashboard_data.php?date_from=2026-05-31&date_to=2026-06-30&region=all&territory=Faisalabad&tm=all&site=all&product=all"
+    }
+}

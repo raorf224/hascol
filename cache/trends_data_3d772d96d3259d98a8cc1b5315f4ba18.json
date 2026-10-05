@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "data": {
+        "months": [
+            "Mar 26",
+            "Apr 26",
+            "May 26",
+            "Jun 26",
+            "Jul 26",
+            "Aug 26"
+        ],
+        "uplift": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "dumping": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "total_uplift": 0,
+        "total_dumping": 0
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-07-31",
+        "date_to": "2026-08-19",
+        "region": "Faisalabad",
+        "territory": "Gujranwala",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-08-19 13:44:33",
+        "duration": 0.07,
+        "api_url": "http:\/\/localhost:8080\/hascol_dashboard\/api\/trends_data.php?date_from=2026-07-31&date_to=2026-08-19&region=Faisalabad&territory=Gujranwala&tm=all&site=all&product=all"
+    }
+}

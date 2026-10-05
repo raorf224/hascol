@@ -1,0 +1,36 @@
+{
+    "success": true,
+    "data": [
+        {
+            "rank": 1,
+            "name": "Waqar ul Imran Zahid",
+            "coverage": 29,
+            "recons": 17,
+            "variance_caught": 12,
+            "score": 10
+        },
+        {
+            "rank": 2,
+            "name": "Hassan",
+            "coverage": 31,
+            "recons": 18,
+            "variance_caught": 4,
+            "score": 10
+        }
+    ],
+    "message": "",
+    "filters": {
+        "date_from": "2026-05-31",
+        "date_to": "2026-06-30",
+        "region": "all",
+        "territory": "Faisalabad",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-06-30 16:03:09",
+        "duration": 0.59,
+        "api_url": "http:\/\/localhost\/hascol_dashboard\/api\/tm_performance.php?date_from=2026-05-31&date_to=2026-06-30&region=all&territory=Faisalabad&tm=all&site=all&product=all"
+    }
+}

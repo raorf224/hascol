@@ -1,0 +1,22 @@
+{
+    "success": true,
+    "data": {
+        "best_sites": [],
+        "risky_sites": []
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-07-31",
+        "date_to": "2026-08-24",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-08-24 16:46:37",
+        "duration": 0.15,
+        "api_url": "http:\/\/localhost:8080\/hascol_dashboard\/api\/top_sites.php?date_from=2026-07-31&date_to=2026-08-24&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

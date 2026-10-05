@@ -1,0 +1,91 @@
+{
+    "success": true,
+    "data": {
+        "total_sites": 445,
+        "visited_sites": 445,
+        "avg_health_score": 37,
+        "health_distribution": [
+            {
+                "status": "Excellent",
+                "count": "445"
+            }
+        ],
+        "recent_visits": [
+            {
+                "site": " Qalandri - Ii Petroelum Service ",
+                "date": "2026-06-22 17:29:48",
+                "variance": -9,
+                "tm": "Abid Hussain"
+            },
+            {
+                "site": " Qalandri - Ii Petroelum Service ",
+                "date": "2026-06-22 17:29:48",
+                "variance": 0,
+                "tm": "Abid Hussain"
+            },
+            {
+                "site": " GUJRAT FILLING STATION ",
+                "date": "2026-06-22 17:21:32",
+                "variance": -47118,
+                "tm": "Sohaib Ayaz"
+            },
+            {
+                "site": " GUJRAT FILLING STATION ",
+                "date": "2026-06-22 17:21:32",
+                "variance": 108824,
+                "tm": "Sohaib Ayaz"
+            },
+            {
+                "site": " GUJRAT FILLING STATION ",
+                "date": "2026-06-22 17:21:32",
+                "variance": 0,
+                "tm": "Sohaib Ayaz"
+            },
+            {
+                "site": " Ar Cng & Petroleum Service ",
+                "date": "2026-06-22 16:39:01",
+                "variance": 47122,
+                "tm": "Sohaib Ayaz"
+            },
+            {
+                "site": " Ar Cng & Petroleum Service ",
+                "date": "2026-06-22 16:39:01",
+                "variance": 134499,
+                "tm": "Sohaib Ayaz"
+            },
+            {
+                "site": " Shah fs ",
+                "date": "2026-06-22 14:17:44",
+                "variance": 61612,
+                "tm": "Shahzaib"
+            },
+            {
+                "site": " Shah fs ",
+                "date": "2026-06-22 14:17:44",
+                "variance": 67001,
+                "tm": "Shahzaib"
+            },
+            {
+                "site": " Sulheri Filling Station ",
+                "date": "2026-06-22 13:36:36",
+                "variance": 0,
+                "tm": "Zeeshan Kashmiri"
+            }
+        ]
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-05-31",
+        "date_to": "2026-06-30",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-06-30 16:03:01",
+        "duration": 7.16,
+        "api_url": "http:\/\/localhost\/hascol_dashboard\/api\/site_details.php?date_from=2026-05-31&date_to=2026-06-30&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

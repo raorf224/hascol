@@ -1,0 +1,84 @@
+{
+    "success": true,
+    "data": {
+        "best_sites": [
+            {
+                "site": " Khalid Petroleum ",
+                "health_score": 30,
+                "variance": 263.5,
+                "regularity": "Regular"
+            },
+            {
+                "site": "HASCOL 5                                ",
+                "health_score": 30,
+                "variance": 299,
+                "regularity": "Regular"
+            },
+            {
+                "site": "HASCOL 4                                ",
+                "health_score": 30,
+                "variance": 338.67,
+                "regularity": "Regular"
+            },
+            {
+                "site": " Al-Hammad Cng ",
+                "health_score": 30,
+                "variance": 417.5,
+                "regularity": "Regular"
+            },
+            {
+                "site": " Rehman Sons Filling Station  ",
+                "health_score": 30,
+                "variance": 424,
+                "regularity": "Regular"
+            }
+        ],
+        "risky_sites": [
+            {
+                "site": " GHAFFAR JAVED F\/S ",
+                "health_score": 0,
+                "variance": 1495164.5,
+                "last_visit": "20 Days Ago"
+            },
+            {
+                "site": " WAQAS & SULTAN PET. SERVICE ",
+                "health_score": 0,
+                "variance": 395370,
+                "last_visit": "25 Days Ago"
+            },
+            {
+                "site": " Noor Filling Station (Kasur) ",
+                "health_score": 0,
+                "variance": 288638,
+                "last_visit": "20 Days Ago"
+            },
+            {
+                "site": " ZUBAIR PETROLEUM SERVICE ",
+                "health_score": 0,
+                "variance": 175282.5,
+                "last_visit": "20 Days Ago"
+            },
+            {
+                "site": " Noorpur Filling Station ",
+                "health_score": 0,
+                "variance": 170083.5,
+                "last_visit": "20 Days Ago"
+            }
+        ]
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-05-31",
+        "date_to": "2026-06-30",
+        "region": "all",
+        "territory": "Lahore",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-06-30 16:03:26",
+        "duration": 0.53,
+        "api_url": "http:\/\/localhost\/hascol_dashboard\/api\/top_sites.php?date_from=2026-05-31&date_to=2026-06-30&region=all&territory=Lahore&tm=all&site=all&product=all"
+    }
+}

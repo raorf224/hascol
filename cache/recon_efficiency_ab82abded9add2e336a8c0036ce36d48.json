@@ -1,0 +1,37 @@
+{
+    "success": true,
+    "data": {
+        "avg_duration": 0,
+        "overdue": 0,
+        "completion_rate": 100,
+        "same_day_completion": 97,
+        "pipeline": {
+            "initiated": 0,
+            "under_review": 0,
+            "rm_approved": 29,
+            "completed": 0
+        },
+        "backlog_trend": [
+            0,
+            0,
+            6,
+            6
+        ],
+        "total_recons": 31
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-05-31",
+        "date_to": "2026-06-30",
+        "region": "all",
+        "territory": "Lahore",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-06-30 16:03:25",
+        "duration": 0.67,
+        "api_url": "http:\/\/localhost\/hascol_dashboard\/api\/recon_efficiency.php?date_from=2026-05-31&date_to=2026-06-30&region=all&territory=Lahore&tm=all&site=all&product=all"
+    }
+}

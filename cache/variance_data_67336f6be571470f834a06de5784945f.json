@@ -1,0 +1,30 @@
+{
+    "success": true,
+    "data": {
+        "distribution": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "top_sites": [],
+        "total_stock_loss": 0,
+        "variance_sites": 0,
+        "critical_sites": 0
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-08-31",
+        "date_to": "2026-09-23",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-09-23 08:32:17",
+        "duration": 1.65,
+        "api_url": "http:\/\/localhost:8080\/hascol_dashboard\/api\/variance_data.php?date_from=2026-08-31&date_to=2026-09-23&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

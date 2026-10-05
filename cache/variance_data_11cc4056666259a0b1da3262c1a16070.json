@@ -1,0 +1,56 @@
+{
+    "success": true,
+    "data": {
+        "distribution": [
+            7,
+            19,
+            13,
+            22
+        ],
+        "top_sites": [
+            {
+                "site": " Zam Zam Petroleum ",
+                "variance": 90874,
+                "stock_loss": 90874
+            },
+            {
+                "site": " National Cng & F\/S ",
+                "variance": 75626,
+                "stock_loss": 75626
+            },
+            {
+                "site": " Chan Petroleum Service ",
+                "variance": 46929,
+                "stock_loss": 46929
+            },
+            {
+                "site": " Ghulam Hussain Petroleum Service ",
+                "variance": 38292,
+                "stock_loss": 38292
+            },
+            {
+                "site": "chiniot fs",
+                "variance": 36195,
+                "stock_loss": 36195
+            }
+        ],
+        "total_stock_loss": 791062,
+        "variance_sites": 35,
+        "critical_sites": 22
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-05-31",
+        "date_to": "2026-06-30",
+        "region": "all",
+        "territory": "Faisalabad",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-06-30 16:03:14",
+        "duration": 5.59,
+        "api_url": "http:\/\/localhost\/hascol_dashboard\/api\/variance_data.php?date_from=2026-05-31&date_to=2026-06-30&region=all&territory=Faisalabad&tm=all&site=all&product=all"
+    }
+}
