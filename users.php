@@ -53,6 +53,7 @@
             }
         }
     </script>
+    
     <style>
         :root {
             --bg-body: #f4f6fa;
@@ -194,6 +195,10 @@
             border-bottom: 1px solid var(--border-color);
             color: var(--table-row-text);
             vertical-align: middle;
+        }
+
+        .table-container table tbody tr {
+            cursor: pointer;
         }
 
         .table-container table tbody tr:hover {
@@ -426,6 +431,14 @@
 
         .form-input::placeholder {
             color: var(--text-muted);
+        }
+
+        .form-input:read-only,
+        .form-input:disabled,
+        .form-select:disabled {
+            background-color: var(--hover-bg);
+            cursor: not-allowed;
+            opacity: 0.85;
         }
 
         .form-label {
@@ -866,6 +879,29 @@
             background: var(--scrollbar-thumb);
             border-radius: 4px;
         }
+
+        .edit-confirmation-box {
+            background: var(--hover-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 0.375rem;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .edit-confirmation-box .confirm-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-heading);
+        }
+
+        .edit-confirmation-box .confirm-subtext {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
     </style>
 </head>
 
@@ -957,12 +993,11 @@
                                 <th>Contact No</th>
                                 <th>Status</th>
                                 <th>Delete</th>
-                                <th>Edit</th>
                             </tr>
                         </thead>
                         <tbody id="usersTableBody">
                             <tr>
-                                <td colspan="10" class="text-center py-8 text-gray-500">
+                                <td colspan="9" class="text-center py-8 text-gray-500">
                                     <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i>
                                     Loading users...
                                 </td>
@@ -1021,7 +1056,7 @@
 
                 <div class="form-group">
                     <label class="form-label">Contact No</label>
-                    <input type="text" id="contactNo" class="form-input" placeholder="Enter Contact No" required>
+                    <input type="number" id="contactNo" class="form-input" placeholder="Enter Contact No" required>
                 </div>
 
                 <div class="form-group">
@@ -1088,13 +1123,27 @@
             </form>
         </div>
 
-        <div class="flex gap-3 p-4 border-t flex-shrink-0" style="border-color: var(--border-color);">
-            <button type="submit" form="userForm" class="btn-primary flex-1">
-                <i class="fa-regular fa-floppy-disk mr-1"></i> Save
-            </button>
-            <button type="button" onclick="closeOffcanvas()" class="btn-secondary">
-                <i class="fa-regular fa-xmark mr-1"></i> Cancel
-            </button>
+        <div class="flex flex-col gap-3 p-4 border-t flex-shrink-0" style="border-color: var(--border-color);">
+            <!-- Edit Confirmation Section -->
+            <div id="editConfirmationSection" class="edit-confirmation-box" style="display: none;">
+                <div>
+                    <div class="confirm-text">Do you want to edit?</div>
+                    <div class="confirm-subtext">Click Yes to enable editing</div>
+                </div>
+                <button type="button" onclick="enableEditMode()" class="btn-primary" style="padding: 6px 20px;">
+                    <i class="fa-regular fa-pen-to-square mr-1"></i> Yes
+                </button>
+            </div>
+
+            <!-- Save/Cancel Section -->
+            <div id="saveCancelSection" class="flex gap-3" style="display: none;">
+                <button type="submit" form="userForm" class="btn-primary flex-1">
+                    <i class="fa-regular fa-floppy-disk mr-1"></i> Save
+                </button>
+                <button type="button" onclick="closeOffcanvas()" class="btn-secondary">
+                    <i class="fa-regular fa-xmark mr-1"></i> Cancel
+                </button>
+            </div>
         </div>
     </div>
 
@@ -1180,8 +1229,7 @@
             { idx: 5, label: 'Privilege' },
             { idx: 6, label: 'Contact No' },
             { idx: 7, label: 'Status' },
-            { idx: 8, label: 'Delete' },
-            { idx: 9, label: 'Edit' }
+            { idx: 8, label: 'Delete' }
         ];
 
         function validatePassword() {
@@ -1262,7 +1310,7 @@
         function loadUsers() {
             $('#usersTableBody').html(`
                 <tr>
-                    <td colspan="10" class="text-center py-8 text-gray-500">
+                    <td colspan="9" class="text-center py-8 text-gray-500">
                         <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i>
                         Loading users...
                     </td>
@@ -1368,7 +1416,7 @@
             const roleClass = getRoleBadgeClass(user.role);
 
             const toggleHtml = `
-                <label class="toggle-switch" title="Toggle status">
+                <label class="toggle-switch" title="Toggle status" onclick="event.stopPropagation();">
                     <input type="checkbox" id="toggle-${user.id}" 
                            ${isActive ? 'checked' : ''} 
                            onchange="toggleUserStatus(${user.id}, '${user.status}')">
@@ -1388,8 +1436,7 @@
                 `<span class="badge ${roleClass}">${user.role}</span>`,
                 user.contact,
                 toggleHtml,
-                `<button onclick="openDeleteModal(${user.id})" class="action-btn delete"><i class="fa-solid fa-trash-can"></i></button>`,
-                `<button onclick="openEditOffcanvas(${user.id})" class="action-btn edit"><i class="fa-solid fa-pen-to-square"></i></button>`
+                `<button onclick="event.stopPropagation(); openDeleteModal(${user.id})" class="action-btn delete"><i class="fa-solid fa-trash-can"></i></button>`
             ];
         }
 
@@ -1411,8 +1458,7 @@
                     { title: 'Privilege' },
                     { title: 'Contact No' },
                     { title: 'Status', orderable: false, searchable: false },
-                    { title: 'Delete', orderable: false, searchable: false },
-                    { title: 'Edit', orderable: false, searchable: false }
+                    { title: 'Delete', orderable: false, searchable: false }
                 ],
                 dom: 'Bfrtip',
                 buttons: [
@@ -1470,6 +1516,21 @@
                 },
                 drawCallback: function() {
                     $('.dt-buttons .dt-button').addClass('toolbar-btn');
+                    
+                    // Bind row click event
+                    $('#usersTable tbody tr').off('click').on('click', function(e) {
+                        // Delete button ya toggle pe click ho to ignore karo
+                        if ($(e.target).closest('.action-btn.delete').length || 
+                            $(e.target).closest('.toggle-switch').length) {
+                            return;
+                        }
+                        
+                        var rowData = dataTable.row(this).data();
+                        if (rowData && rowData[1]) {
+                            var userId = rowData[1];
+                            openEditOffcanvas(userId);
+                        }
+                    });
                 },
                 initComplete: function() {
                     $('.dt-buttons').appendTo('#exportButtonsContainer');
@@ -1596,6 +1657,42 @@
             $('#offcanvasForm').removeClass('active');
             $('body').removeClass('offcanvas-open');
             $('#zmRoleWrapper, #tmRoleWrapper, #salesRoleWrapper, #logisticsRoleWrapper').hide();
+            
+            // Reset edit/save sections
+            $('#editConfirmationSection').hide();
+            $('#saveCancelSection').hide();
+            
+            // Reset form
+            $('#userForm')[0].reset();
+            setFormReadOnly(false);
+        }
+
+        // Set form fields read-only or editable
+        function setFormReadOnly(isReadOnly) {
+            $('#userForm input, #userForm select').each(function() {
+                if (isReadOnly) {
+                    $(this).prop('disabled', true).prop('readonly', true);
+                } else {
+                    $(this).prop('disabled', false).prop('readonly', false);
+                }
+            });
+        }
+
+        // Enable edit mode - fields become editable and Save button shows
+        function enableEditMode() {
+            setFormReadOnly(false);
+            
+            // Hide confirmation, show save/cancel
+            $('#editConfirmationSection').hide();
+            $('#saveCancelSection').show();
+            
+            // Update title
+            $('#offcanvasTitle').html('<i class="fa-solid fa-user-pen mr-2 text-blue-500"></i>Edit User');
+            
+            // Clear password fields so user can enter new password
+            $('#password').val('');
+            $('#confirmPassword').val('');
+            $('#passwordMessage').html('');
         }
 
         function openCreateOffcanvas() {
@@ -1617,6 +1714,12 @@
             $('#salesRoleWrapper, #zmRoleWrapper, #tmRoleWrapper, #logisticsRoleWrapper').hide();
             $('#passwordMessage').html('');
             $('#userForm')[0].reset();
+            
+            // Create mode: fields editable, save button shown
+            setFormReadOnly(false);
+            $('#editConfirmationSection').hide();
+            $('#saveCancelSection').show();
+            
             openOffcanvas();
         }
 
@@ -1629,7 +1732,7 @@
                     if (response && response.length > 0) {
                         var user = response[0];
                         
-                        $('#offcanvasTitle').html('<i class="fa-solid fa-user-pen mr-2 text-blue-500"></i>Edit User');
+                        $('#offcanvasTitle').html('<i class="fa-solid fa-user-eye mr-2 text-blue-500"></i>View User');
                         $('#userId').val(user.id);
                         $('#username').val(user.name || '');
                         $('#email').val(user.email || '');
@@ -1689,6 +1792,13 @@
                                 }
                             });
                         }
+                        
+                        // Set all fields read-only initially
+                        setFormReadOnly(true);
+                        
+                        // Show confirmation, hide save button
+                        $('#editConfirmationSection').show();
+                        $('#saveCancelSection').hide();
                         
                         openOffcanvas();
                     } else {
