@@ -1,5 +1,5 @@
 <?php
-// Hascol OMC Operations Command Center - Users Management
+require_once __DIR__ . '/session/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -1918,32 +1918,34 @@
                 formData.append('zm_hide', zmId || '');
                 formData.append('tm_hide', tmId || '');
 
-                $.ajax({
-                    url: API_BASE_URL + 'create/users.php',
-                    type: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    dataType: 'json',
-                    success: function(response) {
-                        submitBtn.prop('disabled', false);
-                        submitBtn.html('<i class="fa-regular fa-floppy-disk mr-1"></i> Save');
-                        
-                        if (response === 1) {
-                            showToast('User created successfully!', 'success');
-                            closeOffcanvas();
-                            loadUsers();
-                        } else {
-                            showToast('Failed to create user. Please try again.', 'error');
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        submitBtn.prop('disabled', false);
-                        submitBtn.html('<i class="fa-regular fa-floppy-disk mr-1"></i> Save');
-                        console.error('Create Error:', status, error);
-                        showToast('Error creating user: ' + status, 'error');
-                    }
-                });
+$.ajax({
+    url: API_BASE_URL + 'create/users.php',
+    type: 'POST',
+    data: formData,
+    processData: false,
+    contentType: false,
+    dataType: 'json',   // ← 'text' se 'json' karein
+    success: function(response) {
+        submitBtn.prop('disabled', false);
+        submitBtn.html('<i class="fa-regular fa-floppy-disk mr-1"></i> Save');
+        
+        // JSON response check
+        if (response.status === 1) {
+            showToast(response.message || 'User created successfully!', 'success');
+            closeOffcanvas();
+            loadUsers();
+        } else {
+            showToast(response.message || 'Failed to create user.', 'error');
+        }
+    },
+    error: function(xhr, status, error) {
+        submitBtn.prop('disabled', false);
+        submitBtn.html('<i class="fa-regular fa-floppy-disk mr-1"></i> Save');
+        console.error('Create Error:', status, error);
+        console.error('Raw response:', xhr.responseText);
+        showToast('Error creating user: ' + status, 'error');
+    }
+});
             }
         }
 
