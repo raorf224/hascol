@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$login    = isset($_POST['login']) ? trim($_POST['login']) : '';
+$login = isset($_POST['login']) ? trim($_POST['login']) : '';
 $password = isset($_POST['password']) ? trim($_POST['password']) : '';
 
 if ($login === '' || $password === '') {
@@ -52,7 +52,6 @@ if (password_verify($password, $storedHash)) {
 } elseif (sha1($password) === $storedHash) {
     $passwordOk = true;
 } elseif ($password === $storedHash) {
-    // fallback: plain match (agar description mein plain ho)
     $passwordOk = true;
 }
 
@@ -74,15 +73,48 @@ $logStmt->execute();
 $logStmt->close();
 
 // Set session
-$_SESSION['user_id']   = $user['id'];
+$_SESSION['user_id'] = $user['id'];
 $_SESSION['user_name'] = $user['name'];
 $_SESSION['privilege'] = $user['privilege'];
-$_SESSION['login']     = $user['login'];
+$_SESSION['login'] = $user['login'];
+
+// ✅ Load privilege ki permissions
+$userPrivilege = $user['privilege'];
+$allowedPages = [];
+
+$permStmt = $db->prepare("
+    SELECT p.page_url 
+    FROM pages p
+    INNER JOIN privilege_permissions pp ON pp.page_id = p.id
+    WHERE pp.privilege = ? AND p.status = 1
+    ORDER BY p.id ASC
+");
+$permStmt->bind_param('s', $userPrivilege);
+$permStmt->execute();
+$permResult = $permStmt->get_result();
+
+while ($row = $permResult->fetch_assoc()) {
+    $allowedPages[] = $row['page_url'];
+}
+$permStmt->close();
+
+$_SESSION['allowed_pages'] = $allowedPages;
+
+// ✅ Redirect: pehla allowed page
+if (!empty($allowedPages)) {
+    $redirectUrl = $allowedPages[0];
+} else {
+    echo json_encode([
+        'status'  => 0,
+        'message' => 'Your account has no page permissions assigned. Please contact the administrator.'
+    ]);
+    exit;
+}
 
 echo json_encode([
     'status'   => 1,
     'message'  => 'Login successful',
-    'redirect' => 'users.php',
+    'redirect' => $redirectUrl,
     'user'     => [
         'id'        => $user['id'],
         'name'      => $user['name'],
