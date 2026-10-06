@@ -1,5 +1,5 @@
 <?php
-// Hascol OMC Operations Command Center - TM Monthly Targets
+require_once __DIR__ . '/session/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -1298,13 +1298,14 @@
             submitBtn.prop('disabled', true);
             submitBtn.html('<i class="fa-solid fa-spinner fa-spin mr-1"></i> Saving...');
 
-            const formData = new FormData();
+            const formData = new FormData();    
             formData.append('asm', tm);
             formData.append('month_name', month);
             formData.append('targeted_amount', target);
             formData.append('targeted_product', product);
             formData.append('products_description', description || 'target');
             formData.append('user_id', userId);
+            formData.append('row_id', '');
 
             $.ajax({
                 url: API_BASE_URL + 'create/create_monthly_target_for_tm.php',

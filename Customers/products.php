@@ -1,5 +1,5 @@
 <?php
-// Hascol Customer - Product Management (Category + Sub Category + Lube Products)
+require_once __DIR__ . '/../session/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -504,6 +504,7 @@
                                     <th>Image</th>
                                     <th>Status</th>
                                     <th style="width:120px;">Action</th>
+                                    <!-- Hello world! -->
                                 </tr>
                             </thead>
                             <tbody></tbody>

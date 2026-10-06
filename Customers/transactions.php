@@ -1,5 +1,5 @@
 <?php
-// Hascol Customer - Transactions Management
+require_once __DIR__ . '/../session/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

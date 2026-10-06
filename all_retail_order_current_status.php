@@ -1,5 +1,5 @@
 <?php
-// Hascol OMC - All Retail Order Current Status
+require_once __DIR__ . '/session/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

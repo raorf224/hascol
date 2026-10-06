@@ -1,5 +1,5 @@
 <?php
-// Hascol OMC Operations Command Center - JD Order Dashboard
+require_once __DIR__ . '/session/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

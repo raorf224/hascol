@@ -1,5 +1,5 @@
 <?php
-// Hascol OMC Operations Command Center - Local All Pending App Orders
+require_once __DIR__ . '/session/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
