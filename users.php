@@ -1968,19 +1968,21 @@ $.ajax({
 
 $.ajax({
     url: API_BASE_URL + 'delete/delete_users.php?key=03201232927&id=' + userId,
-    type: 'GET',
+    type: 'DELETE',
     timeout: 30000,
-    dataType: 'json',   // ✅ JSON
+    dataType: 'text',   // ← 'json' se 'text'
     success: function(response) {
         deleteBtn.prop('disabled', false);
         deleteBtn.html('Delete');
         
-        if (response.status === 1) {
-            showToast(response.message || 'User deleted successfully!', 'success');
+        var res = response.trim();
+        
+        if (res === '1') {
+            showToast('User deleted successfully!', 'success');
             closeDeleteModal();
             loadUsers();
         } else {
-            showToast(response.message || 'Failed to delete user.', 'error');
+            showToast('Failed: ' + res, 'error');
         }
     },
     error: function(xhr, status, error) {
