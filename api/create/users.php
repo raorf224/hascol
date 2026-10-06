@@ -6,15 +6,15 @@ header('Content-Type: application/json');
 
 if (isset($_POST)) {
 
-    $user_id    = $_POST['user_id'];
-    $name       = mysqli_real_escape_string($db, $_POST['name']);
-    $email      = mysqli_real_escape_string($db, $_POST['email']);
-    $password   = mysqli_real_escape_string($db, $_POST['confirm_password']);
+    $user_id      = $_POST['user_id'];
+    $name         = mysqli_real_escape_string($db, $_POST['name']);
+    $email        = mysqli_real_escape_string($db, $_POST['email']);
+    $password     = mysqli_real_escape_string($db, $_POST['confirm_password']); // plain
     $password_enc = mysqli_real_escape_string($db, $_POST['confirm_password']);
-    $encriped   = md5($password_enc);
-    $number     = mysqli_real_escape_string($db, $_POST['number']);
-    $role       = mysqli_real_escape_string($db, $_POST['role']);
-    $sales_role = mysqli_real_escape_string($db, $_POST['sales_role']);
+    $encriped     = md5($password_enc); // hashed
+    $number       = mysqli_real_escape_string($db, $_POST['number']);
+    $role         = mysqli_real_escape_string($db, $_POST['role']);
+    $sales_role   = mysqli_real_escape_string($db, $_POST['sales_role']);
 
     // $depots = mysqli_real_escape_string($db, $_POST['depots']); // Future use
     $depots = '';
@@ -117,6 +117,8 @@ if (isset($_POST)) {
             $parent_id = mysqli_real_escape_string($db, $_POST['tm']);
         }
 
+        // ✅ password column = hashed ($encriped)
+        // ✅ description column = plain ($password)
         $query = "INSERT INTO users (`name`,`privilege`,`login`, `password`,`usersettings_id`,`status`,`description`,`email`,`telephone`,`subacc_id`,`image`)
         VALUES ('$name', '$sales_role', '$email', '$encriped','1','1','$password','$email','$number','$parent_id','$depots')";
 
@@ -163,7 +165,6 @@ if (isset($_POST)) {
             } elseif ($sales_role == 'ASM') {
                 $success = true;
             } else {
-                // Koi bhi other role
                 $success = true;
             }
 

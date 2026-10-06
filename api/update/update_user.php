@@ -42,13 +42,16 @@ if (isset($_POST)) {
         email='$email'
      WHERE id='$id'";
 
-
     if (mysqli_query($db, $query)) {
+
+        // ✅ Main update successful — default success set karo
+        $output = "1";
 
         if ($sales_role_hide == 'TM') {
 
             $delete_tm = "DELETE FROM `users_zm_tm` WHERE `tm_id`='$id' AND zm_id='$zm_hide' ";
             if (mysqli_query($db, $delete_tm)) {
+                // ok
             } else {
                 echo '0';
                 exit;
@@ -57,8 +60,10 @@ if (isset($_POST)) {
 
             $delete_asm = "DELETE FROM `users_asm_tm` WHERE `asm_id`='$id' AND tm_id='$tm_hide'";
             if (mysqli_query($db, $delete_asm)) {
+                // ok
             }
         }
+
         if ($sales_role == 'ZM') {
             $privilege = "UPDATE `users` SET `privilege`='$sales_role' WHERE id='$id'";
             if (mysqli_query($db, $privilege)) {
@@ -89,8 +94,8 @@ if (isset($_POST)) {
                 exit;
             }
         }
-         else if ($sales_role == 'ASM')
-          {
+        else if ($sales_role == 'ASM')
+        {
             $tm = isset($_POST['tm']) ? $_POST['tm'] : '';
             $query2 = "INSERT INTO `users_asm_tm`
                         (`tm_id`,
@@ -107,7 +112,7 @@ if (isset($_POST)) {
             {
                 $output = "1";
             }
-             else 
+            else 
             {
                 echo '0';
                 exit;

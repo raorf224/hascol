@@ -1880,32 +1880,36 @@ require_once __DIR__ . '/session/session.php';
                 formData.append('zm_hide', zmId || '');
                 formData.append('tm_hide', tmId || '');
 
-                $.ajax({
-                    url: API_BASE_URL + 'update/update_user.php',
-                    type: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    dataType: 'json',
-                    success: function(response) {
-                        submitBtn.prop('disabled', false);
-                        submitBtn.html('<i class="fa-regular fa-floppy-disk mr-1"></i> Save');
-                        
-                        if (response === 1) {
-                            showToast('User updated successfully!', 'success');
-                            closeOffcanvas();
-                            loadUsers();
-                        } else {
-                            showToast('Failed to update user. Please try again.', 'error');
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        submitBtn.prop('disabled', false);
-                        submitBtn.html('<i class="fa-regular fa-floppy-disk mr-1"></i> Save');
-                        console.error('Update Error:', status, error);
-                        showToast('Error updating user: ' + status, 'error');
-                    }
-                });
+$.ajax({
+    url: API_BASE_URL + 'update/update_user.php',
+    type: 'POST',
+    data: formData,
+    processData: false,
+    contentType: false,
+    dataType: 'text',   // ← 'json' se 'text' karein
+    success: function(response) {
+        submitBtn.prop('disabled', false);
+        submitBtn.html('<i class="fa-regular fa-floppy-disk mr-1"></i> Save');
+        
+        // Trim spaces (kyunke PHP ke end mein extra whitespace ho sakti hai)
+        var res = response.trim();
+        
+        if (res === '1') {
+            showToast('User updated successfully!', 'success');
+            closeOffcanvas();
+            loadUsers();
+        } else {
+            showToast('Failed to update user. Response: ' + res, 'error');
+        }
+    },
+    error: function(xhr, status, error) {
+        submitBtn.prop('disabled', false);
+        submitBtn.html('<i class="fa-regular fa-floppy-disk mr-1"></i> Save');
+        console.error('Update Error:', status, error);
+        console.error('Raw response:', xhr.responseText);
+        showToast('Error updating user: ' + status, 'error');
+    }
+});
             } else {
                 const formData = new FormData();
                 formData.append('name', username);
@@ -1962,29 +1966,31 @@ require_once __DIR__ . '/session/session.php';
             deleteBtn.prop('disabled', true);
             deleteBtn.html('<i class="fa-solid fa-spinner fa-spin mr-1"></i> Deleting...');
 
-            $.ajax({
-                url: API_BASE_URL + 'delete/delete_users.php?key=03201232927&id=' + userId,
-                type: 'DELETE',
-                timeout: 30000,
-                success: function(response) {
-                    deleteBtn.prop('disabled', false);
-                    deleteBtn.html('Delete');
-                    
-                    if (response === 1) {
-                        showToast('User deleted successfully!', 'success');
-                        closeDeleteModal();
-                        loadUsers();
-                    } else {
-                        showToast('Failed to delete user. Please try again.', 'error');
-                    }
-                },
-                error: function(xhr, status, error) {
-                    deleteBtn.prop('disabled', false);
-                    deleteBtn.html('Delete');
-                    console.error('Delete Error:', status, error);
-                    showToast('Error deleting user: ' + status, 'error');
-                }
-            });
+$.ajax({
+    url: API_BASE_URL + 'delete/delete_users.php?key=03201232927&id=' + userId,
+    type: 'DELETE',
+    timeout: 30000,
+    dataType: 'json',   // ✅ JSON
+    success: function(response) {
+        deleteBtn.prop('disabled', false);
+        deleteBtn.html('Delete');
+        
+        if (response.status === 1) {
+            showToast(response.message || 'User deleted successfully!', 'success');
+            closeDeleteModal();
+            loadUsers();
+        } else {
+            showToast(response.message || 'Failed to delete user.', 'error');
+        }
+    },
+    error: function(xhr, status, error) {
+        deleteBtn.prop('disabled', false);
+        deleteBtn.html('Delete');
+        console.error('Delete Error:', status, error);
+        showToast('Error deleting user: ' + status, 'error');
+    }
+});
+
         }
 
         $(document).on('keydown', function(e) {
