@@ -112,7 +112,7 @@ $topbar_user_initial   = strtoupper(substr($topbar_user_name, 0, 1));
                 </div>
 
                 <!-- Logout -->
-                <a href="/hascol/api/auth/logout.php" 
+                <a href="api/auth/logout.php" 
                    class="flex items-center gap-2.5 px-4 py-2.5 transition-colors duration-150"
                    style="color: #ef4444;"
                    onmouseover="this.style.backgroundColor='var(--hover-bg)'"
