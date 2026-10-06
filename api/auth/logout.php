@@ -7,6 +7,6 @@ $_SESSION = [];
 session_unset();
 session_destroy();
 
-// Redirect to login
-header('Location: ../../login.php');
+// Redirect to logout confirmation screen
+header('Location: ../../logout.php');
 exit;
