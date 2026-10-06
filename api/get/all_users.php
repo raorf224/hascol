@@ -14,7 +14,7 @@ if ($pass != '') {
             die("Database connection failed");
         }
         
-        $sql_query1 = "SELECT * FROM users where privilege!='Admin' order by id desc";
+        $sql_query1 = "SELECT * FROM users order by id desc";
 
         $result1 = $db->query($sql_query1) or die("Error :" . mysqli_error($db));
 

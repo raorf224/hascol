@@ -1,4 +1,15 @@
 <!-- includes/topbar.php -->
+
+<?php
+// Session se user data fetch karo (agar session already include nahi hua)
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$topbar_user_name      = $_SESSION['user_name']  ?? 'User';
+$topbar_user_privilege = $_SESSION['privilege']  ?? '';
+$topbar_user_initial   = strtoupper(substr($topbar_user_name, 0, 1));
+?>
+
 <header class="h-auto flex flex-wrap items-center justify-between px-4 py-3 border-b flex-shrink-0 gap-2" 
         style="background-color: var(--topbar-bg); border-color: var(--border-color);">
     
@@ -74,10 +85,43 @@
 
         <span class="w-px h-8" style="background-color: var(--border-color);"></span>
 
-        <span class="text-[11px] hidden sm:inline-block" style="color: var(--text-muted);">Welcome back,</span>
-        <span class="text-[11px] font-medium" style="color: var(--text-heading);">Abdul Basit</span>
-        <img src="https://ui-avatars.com/api/?name=Abdul+Basit&background=334155&color=fff&rounded=true&size=32" 
-             alt="User" class="w-8 h-8 rounded-full border" style="border-color: var(--border-color);">
+        <!-- ===== USER DROPDOWN ===== -->
+        <div class="user-dropdown relative">
+            <button id="userDropdownBtn" 
+                onclick="toggleUserDropdown()"
+                class="user-dropdown-btn flex items-center gap-2 px-2 py-1.5 rounded-md transition-all duration-200 focus:outline-none"
+                style="color: var(--text-body);">
+                <span class="text-[11px] hidden sm:inline-block" style="color: var(--text-muted);">Welcome back,</span>
+                <span class="text-[11px] font-medium" style="color: var(--text-heading);"><?php echo htmlspecialchars($topbar_user_name); ?></span>
+                <img src="https://ui-avatars.com/api/?name=<?php echo urlencode($topbar_user_name); ?>&background=334155&color=fff&rounded=true&size=32" 
+                     alt="User" class="w-8 h-8 rounded-full border" style="border-color: var(--border-color);">
+                <i class="fa-solid fa-chevron-down text-[9px]" style="color: var(--text-muted);"></i>
+            </button>
+
+            <!-- User Dropdown Menu -->
+            <div id="userDropdownMenu" 
+                class="user-dropdown-menu absolute right-0 mt-1.5 min-w-[200px] rounded-lg border shadow-lg overflow-hidden opacity-0 invisible transition-all duration-200 z-50"
+                style="background-color: var(--bg-panel); border-color: var(--border-color); transform: translateY(-8px) scale(0.98);">
+                
+                <!-- User Info Header -->
+                <div class="px-4 py-3 border-b" style="border-color: var(--border-color);">
+                    <p class="text-[12px] font-semibold" style="color: var(--text-heading);"><?php echo htmlspecialchars($topbar_user_name); ?></p>
+                    <?php if (!empty($topbar_user_privilege)): ?>
+                        <p class="text-[10px] mt-0.5" style="color: var(--text-muted);"><?php echo htmlspecialchars($topbar_user_privilege); ?></p>
+                    <?php endif; ?>
+                </div>
+
+                <!-- Logout -->
+                <a href="/hascol/api/auth/logout.php" 
+                   class="flex items-center gap-2.5 px-4 py-2.5 transition-colors duration-150"
+                   style="color: #ef4444;"
+                   onmouseover="this.style.backgroundColor='var(--hover-bg)'"
+                   onmouseout="this.style.backgroundColor='transparent'">
+                    <i class="fa-solid fa-right-from-bracket text-[13px]"></i>
+                    <span class="text-[12px] font-medium">Logout</span>
+                </a>
+            </div>
+        </div>
     </div>
 </header>
 
@@ -178,6 +222,40 @@ html.dark-mode .theme-dropdown-menu {
     font-weight: 500;
 }
 
+/* ===== USER DROPDOWN STYLES ===== */
+.user-dropdown {
+    position: relative;
+}
+
+.user-dropdown-btn {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.user-dropdown-btn:hover {
+    background-color: var(--hover-bg) !important;
+}
+
+.user-dropdown-btn:active {
+    transform: scale(0.98);
+}
+
+.user-dropdown-menu {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(8px);
+    transform-origin: top right;
+}
+
+html.dark-mode .user-dropdown-menu {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.user-dropdown-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 640px) {
     .theme-dropdown-btn {
@@ -189,7 +267,8 @@ html.dark-mode .theme-dropdown-menu {
         font-size: 11px;
     }
     
-    .theme-dropdown-menu {
+    .theme-dropdown-menu,
+    .user-dropdown-menu {
         min-width: 120px;
         right: -8px;
     }
@@ -214,7 +293,8 @@ html.dark-mode .theme-dropdown-menu {
         font-size: 10px;
     }
     
-    .theme-dropdown-menu {
+    .theme-dropdown-menu,
+    .user-dropdown-menu {
         min-width: 100px;
         right: -4px;
     }
@@ -243,7 +323,7 @@ html.dark-mode .theme-dropdown-menu {
 </style>
 
 <!-- Dropdown Overlay -->
-<div id="themeDropdownOverlay" class="theme-dropdown-overlay" onclick="closeThemeDropdown()"></div>
+<div id="themeDropdownOverlay" class="theme-dropdown-overlay" onclick="closeThemeDropdown(); closeUserDropdown();"></div>
 
 <script>
 // ===== Sidebar toggle handler for Topbar =====
@@ -270,11 +350,10 @@ document.addEventListener('keydown', function(e) {
 // ============================================
 // THEME DROPDOWN FUNCTIONS
 // ============================================
-
-// Toggle dropdown
 function toggleThemeDropdown() {
     const menu = document.getElementById('themeDropdownMenu');
     const overlay = document.getElementById('themeDropdownOverlay');
+    closeUserDropdown();
     
     if (menu.classList.contains('open')) {
         closeThemeDropdown();
@@ -284,21 +363,16 @@ function toggleThemeDropdown() {
     }
 }
 
-// Close dropdown
 function closeThemeDropdown() {
     const menu = document.getElementById('themeDropdownMenu');
     const overlay = document.getElementById('themeDropdownOverlay');
-    
-    menu.classList.remove('open');
-    overlay.classList.remove('active');
+    if (menu) menu.classList.remove('open');
+    if (overlay) overlay.classList.remove('active');
 }
 
-// Select theme
 function selectTheme(theme) {
-    // Close dropdown
     closeThemeDropdown();
     
-    // Update active state in dropdown
     document.querySelectorAll('.theme-option').forEach(option => {
         option.classList.remove('active');
         if (option.dataset.theme === theme) {
@@ -306,31 +380,29 @@ function selectTheme(theme) {
         }
     });
     
-    // Apply theme
     if (theme === 'system') {
-        // Check system preference
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         applyThemeMode(prefersDark);
-        localStorage.removeItem('themeMode'); // Remove manual preference
-        localStorage.setItem('darkMode', prefersDark ? 'true' : 'false'); // Sync with users.php
+        localStorage.removeItem('themeMode');
+        localStorage.setItem('darkMode', prefersDark ? 'true' : 'false');
         updateDropdownIcon('system');
     } else if (theme === 'dark') {
         applyThemeMode(true);
         localStorage.setItem('themeMode', 'dark');
-        localStorage.setItem('darkMode', 'true'); // Sync with users.php
+        localStorage.setItem('darkMode', 'true');
         updateDropdownIcon('dark');
     } else {
         applyThemeMode(false);
         localStorage.setItem('themeMode', 'light');
-        localStorage.setItem('darkMode', 'false'); // Sync with users.php
+        localStorage.setItem('darkMode', 'false');
         updateDropdownIcon('light');
     }
 }
 
-// Update dropdown button icon and text
 function updateDropdownIcon(theme) {
     const icon = document.getElementById('themeDropdownIcon');
     const text = document.getElementById('themeDropdownText');
+    if (!icon || !text) return;
     
     if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         icon.className = 'fa-solid fa-moon text-[12px]';
@@ -338,37 +410,41 @@ function updateDropdownIcon(theme) {
     } else if (theme === 'light' || (theme === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         icon.className = 'fa-solid fa-sun text-[12px]';
         text.textContent = 'Light';
-    } else if (theme === 'system') {
-        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        icon.className = isDark ? 'fa-solid fa-moon text-[12px]' : 'fa-solid fa-sun text-[12px]';
-        text.textContent = isDark ? 'Dark' : 'Light';
     }
+}
+
+// ============================================
+// USER DROPDOWN FUNCTIONS
+// ============================================
+function toggleUserDropdown() {
+    const menu = document.getElementById('userDropdownMenu');
+    const overlay = document.getElementById('themeDropdownOverlay');
+    closeThemeDropdown();
+    
+    if (menu.classList.contains('open')) {
+        closeUserDropdown();
+    } else {
+        menu.classList.add('open');
+        overlay.classList.add('active');
+    }
+}
+
+function closeUserDropdown() {
+    const menu = document.getElementById('userDropdownMenu');
+    if (menu) menu.classList.remove('open');
 }
 
 // ============================================
 // DARK / LIGHT MODE TOGGLE CORE
 // ============================================
-
 function applyThemeMode(isDark) {
     const html = document.documentElement;
-    const moonIcon = document.getElementById('themeIconMoon');
-    const sunIcon = document.getElementById('themeIconSun');
-
-    // Add no-transition class to prevent flash
     html.classList.add('no-transition');
     setTimeout(function() {
         html.classList.remove('no-transition');
     }, 50);
-
     html.classList.toggle('dark-mode', isDark);
-
-    // Update icons (if they exist - for backward compatibility)
-    if (moonIcon && sunIcon) {
-        moonIcon.classList.toggle('hidden', isDark);
-        sunIcon.classList.toggle('hidden', !isDark);
-    }
-
-    // Update dropdown button
+    
     const icon = document.getElementById('themeDropdownIcon');
     const text = document.getElementById('themeDropdownText');
     if (icon && text) {
@@ -382,52 +458,19 @@ function applyThemeMode(isDark) {
     }
 }
 
-function toggleThemeMode() {
-    const isCurrentlyDark = document.documentElement.classList.contains('dark-mode');
-    const newTheme = !isCurrentlyDark;
-    applyThemeMode(newTheme);
-    localStorage.setItem('themeMode', newTheme ? 'dark' : 'light');
-    localStorage.setItem('darkMode', newTheme ? 'true' : 'false'); // Sync with users.php
-    
-    // Update dropdown active state
-    document.querySelectorAll('.theme-option').forEach(option => {
-        option.classList.remove('active');
-        if (option.dataset.theme === (newTheme ? 'dark' : 'light')) {
-            option.classList.add('active');
-        }
-    });
-}
-
 // ============================================
 // RESTORE SAVED PREFERENCE
 // ============================================
-
-function getStoredTheme() {
-    try {
-        return localStorage.getItem('themeMode');
-    } catch (e) {
-        return null;
-    }
-}
-
-// ============================================
-// INITIALIZE THEME - EARLY EXECUTION
-// ============================================
-
-// IMPORTANT: Yeh function DOMContentLoaded se pehle run hoga
 (function initThemeEarly() {
-    // Check localStorage
     let saved = localStorage.getItem('themeMode');
     let darkMode = localStorage.getItem('darkMode');
     
-    // If darkMode exists in localStorage, use it (for users.php compatibility)
     if (darkMode !== null) {
         const isDark = darkMode === 'true';
         applyThemeMode(isDark);
         return;
     }
     
-    // Otherwise use themeMode
     if (saved === 'dark') {
         applyThemeMode(true);
         localStorage.setItem('darkMode', 'true');
@@ -435,7 +478,6 @@ function getStoredTheme() {
         applyThemeMode(false);
         localStorage.setItem('darkMode', 'false');
     } else {
-        // System preference
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         applyThemeMode(prefersDark);
         localStorage.setItem('darkMode', prefersDark ? 'true' : 'false');
@@ -443,12 +485,10 @@ function getStoredTheme() {
 })();
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Remove no-transition after initial render
     setTimeout(function() {
         document.documentElement.classList.remove('no-transition');
     }, 100);
     
-    // Set active theme in dropdown
     let activeTheme = 'system';
     const saved = localStorage.getItem('themeMode');
     if (saved === 'dark') activeTheme = 'dark';
@@ -461,10 +501,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Update dropdown button
     updateDropdownIcon(activeTheme);
 
-    // Listen for system theme changes (only if no manual preference set)
     try {
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
         mediaQuery.addEventListener('change', function(e) {
@@ -477,10 +515,11 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch (e) {}
 });
 
-// Close dropdown on Escape key
+// Close dropdowns on Escape key
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeThemeDropdown();
+        closeUserDropdown();
     }
 });
 </script>
