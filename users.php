@@ -1968,7 +1968,7 @@ $.ajax({
 
 $.ajax({
     url: API_BASE_URL + 'delete/delete_users.php?key=03201232927&id=' + userId,
-    type: 'DELETE',
+    type: 'GET',
     timeout: 30000,
     dataType: 'json',   // ✅ JSON
     success: function(response) {
