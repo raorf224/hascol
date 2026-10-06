@@ -1970,17 +1970,20 @@ $.ajax({
     url: API_BASE_URL + 'delete/delete_users.php?key=03201232927&id=' + userId,
     type: 'GET',
     timeout: 30000,
-    dataType: 'text',   // ✅ JSON
+    dataType: 'text',
     success: function(response) {
         deleteBtn.prop('disabled', false);
         deleteBtn.html('Delete');
         
-        if (response.status === 1) {
-            showToast(response.message || 'User deleted successfully!', 'success');
+        // ✅ Plain text response handle karein
+        var res = response.trim();
+        
+        if (res === '1') {
+            showToast('User deleted successfully!', 'success');
             closeDeleteModal();
             loadUsers();
         } else {
-            showToast(response.message || 'Failed to delete user.', 'error');
+            showToast('Failed: ' + res, 'error');
         }
     },
     error: function(xhr, status, error) {
