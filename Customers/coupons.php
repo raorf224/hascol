@@ -1,5 +1,5 @@
 <?php
-// Hascol Customer - Coupons Management (Read-Only)
+require_once __DIR__ . '/../session/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,7 +1,5 @@
 <?php
-// Inspection Report - Themed Version (FINAL - last_vists_dates API Removed)
-// APIs sourced from live inspection_report.php
-// UI/Theme sourced from reference php.txt
+require_once __DIR__ . '/session/session.php';
 ?>
 <!doctype html>
 <html lang="en">

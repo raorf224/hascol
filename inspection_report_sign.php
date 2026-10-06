@@ -1,8 +1,5 @@
 <?php
-session_start();
-// Incomplete Visits - Themed Version (Localhost API)
-// APIs sourced from live incomplete_visits.php
-// UI/Theme sourced from reference php.txt
+require_once __DIR__ . '/session/session.php';
 ?>
 <!doctype html>
 <html lang="en">

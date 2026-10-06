@@ -1,5 +1,5 @@
 <?php
-// Hascol OMC Operations Command Center - Dealer Profile
+require_once __DIR__ . '/session/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -1957,7 +1957,7 @@
         let nozzleData = [];
         let tankData = [];
 
-        // Back to Dealers: dealers.php wale original tab ko active karo aur ye user_profile.php tab band karo
+        // Back to Dealers: dealers.php wale original tab ko active karo aur ye dealer_profile.php tab band karo
         function closeTabAndRedirect() {
             // 1) Agar ye tab dealers.php se khuli hai to opener (dealers.php tab) ko focus do
             try {
@@ -1968,7 +1968,7 @@
                 console.log('Opener focus not allowed:', e);
             }
 
-            // 2) Current user_profile.php tab band karo (band hote hi browser opener tab ko active kar deta hai)
+            // 2) Current dealer_profile.php tab band karo (band hote hi browser opener tab ko active kar deta hai)
             try {
                 window.close();
             } catch (e) {
