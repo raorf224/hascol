@@ -52,11 +52,7 @@
     </script>
 
     <style>
-        /* ============================================ */
-        /* THEME VARIABLES                               */
-        /* Default = LIGHT theme.                        */
-        /* html.dark-mode (set by topbar toggle) = DARK   */
-        /* ============================================ */
+        /* THEME VARIABLES */
         :root {
             --bg-body: #f4f6fa;
             --bg-panel: #ffffff;
@@ -81,9 +77,6 @@
             --modal-bg: #ffffff;
             --modal-border: #e2e8f0;
             --dropdown-bg: #ffffff;
-            --dropdown-hover: #f1f5f9;
-            --tab-bg: #ffffff;
-            --tab-border: #e2e8f0;
             --tab-active: #1d4ed8;
             --tab-inactive: #64748b;
         }
@@ -112,9 +105,6 @@
             --modal-bg: #0d1520;
             --modal-border: #1a2635;
             --dropdown-bg: #0d1520;
-            --dropdown-hover: #1a2635;
-            --tab-bg: #0a121c;
-            --tab-border: #1a2635;
             --tab-active: #3b82f6;
             --tab-inactive: #94a3b8;
         }
@@ -196,7 +186,7 @@
             transition: all 0.3s ease-in-out;
         }
 
-        /* ===== NAV TABS - PILL BACKED SEGMENTED CONTAINER ===== */
+        /* NAV TABS - PILL BACKED SEGMENTED CONTAINER */
         .nav-tabs-custom {
             display: flex;
             flex-wrap: wrap;
@@ -234,7 +224,6 @@
             gap: 6px;
             width: 100%;
             white-space: nowrap;
-            font-family: var(--body);
         }
 
         .nav-tabs-custom .nav-link i {
@@ -253,21 +242,20 @@
         }
 
         .nav-tabs-custom .nav-link.active {
-            background: var(--bg-panel);
-            color: var(--tab-active);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+            background: var(--tab-active);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(29, 78, 216, 0.25);
             font-weight: 700;
         }
 
         html.dark-mode .nav-tabs-custom .nav-link.active {
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(255, 255, 255, 0.04);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
         }
 
         .nav-tabs-custom .nav-link.active i {
             opacity: 1;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 1024px) {
             .nav-tabs-custom .nav-link {
                 font-size: 10px;
@@ -322,16 +310,6 @@
             .nav-tabs-custom .nav-link i {
                 font-size: 8px;
             }
-        }
-
-        .nav-tabs-custom .nav-link.active {
-            background: var(--tab-active);
-            color: #ffffff;
-            box-shadow: 0 2px 8px rgba(29, 78, 216, 0.25);
-        }
-
-        html.dark-mode .nav-tabs-custom .nav-link.active {
-            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
         }
 
         /* Table Styles */
@@ -400,10 +378,7 @@
         }
 
         /* DataTables Custom Styles */
-        .dataTables_wrapper .dataTables_filter {
-            display: none !important;
-        }
-
+        .dataTables_wrapper .dataTables_filter,
         .dataTables_wrapper .dataTables_length {
             display: none !important;
         }
@@ -543,6 +518,36 @@
             background-color: #dc2626;
         }
 
+        /* BACK BUTTON STYLES */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-panel);
+            color: var(--text-body);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 11.5px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+            transition: all 0.15s ease;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-1px);
+            border-color: rgba(29, 78, 216, 0.28);
+            background: var(--hover-bg);
+            color: var(--text-heading);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        html.dark-mode .back-btn:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
         /* Badge */
         .badge {
             padding: 2px 8px;
@@ -576,7 +581,7 @@
             border: 1px solid #3b82f640;
         }
 
-        /* ===== MODAL STYLES ===== */
+        /* MODAL STYLES */
         #modalOverlay {
             position: fixed;
             top: 0;
@@ -761,24 +766,10 @@
 
 <body class="flex h-screen overflow-hidden text-xs">
 
-    <!-- ============================================ -->
-    <!-- SIDEBAR - Included from includes/sidebar.php  -->
-    <!-- ============================================ -->
-    <?php include 'includes/sidebar.php'; ?>
-
-    <!-- ============================================ -->
-    <!-- MAIN CONTENT                                  -->
-    <!-- ============================================ -->
     <main id="mainContent" class="flex-1 flex flex-col overflow-hidden">
 
-        <!-- ============================================ -->
-        <!-- TOPBAR - Included from includes/topbar.php   -->
-        <!-- ============================================ -->
         <?php include 'includes/topbar.php'; ?>
 
-        <!-- ============================================ -->
-        <!-- PAGE CONTENT                                 -->
-        <!-- ============================================ -->
         <div class="flex-1 overflow-y-auto p-4" id="pageContent">
 
             <!-- Page Header -->
@@ -788,8 +779,14 @@
                     <p class="text-[10px] text-gray-500">Manage facilities, products, tanks, dispensers, nozzles and
                         users</p>
                 </div>
+                <!-- Back to Dealers button -->
+                <button type="button" class="back-btn" onclick="closeTabAndRedirect()">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to Dealers
+                </button>
             </div>
-            <!-- NAV TABS - PILL BACKED SEGMENTED CONTAINER  -->
+
+            <!-- NAV TABS -->
             <div class="panel-card overflow-hidden mb-4">
                 <div class="p-3">
                     <ul class="nav-tabs-custom" id="setupTabs" role="tablist">
@@ -832,14 +829,10 @@
                 </div>
             </div>
 
-            <!-- ============================================ -->
-            <!-- TAB CONTENT                                   -->
-            <!-- ============================================ -->
+            <!-- TAB CONTENT -->
             <div class="tab-content">
 
-                <!-- ========================================== -->
-                <!-- FACILITIES TAB                             -->
-                <!-- ========================================== -->
+                <!-- FACILITIES TAB -->
                 <div class="tab-pane active" id="facilities">
                     <div class="panel-card overflow-hidden">
                         <div class="p-3 border-b flex justify-between items-center"
@@ -881,9 +874,7 @@
                     </div>
                 </div>
 
-                <!-- ========================================== -->
-                <!-- PRODUCTS TAB                               -->
-                <!-- ========================================== -->
+                <!-- PRODUCTS TAB -->
                 <div class="tab-pane hidden" id="products">
                     <div class="panel-card overflow-hidden">
                         <div class="p-3 border-b flex justify-between items-center"
@@ -929,9 +920,7 @@
                     </div>
                 </div>
 
-                <!-- ========================================== -->
-                <!-- TANKS TAB                                  -->
-                <!-- ========================================== -->
+                <!-- TANKS TAB -->
                 <div class="tab-pane hidden" id="tanks">
                     <div class="panel-card overflow-hidden">
                         <div class="p-3 border-b flex justify-between items-center"
@@ -975,9 +964,7 @@
                     </div>
                 </div>
 
-                <!-- ========================================== -->
-                <!-- DISPENSER TAB                              -->
-                <!-- ========================================== -->
+                <!-- DISPENSER TAB -->
                 <div class="tab-pane hidden" id="dispenser">
                     <div class="panel-card overflow-hidden">
                         <div class="p-3 border-b flex justify-between items-center"
@@ -1021,9 +1008,7 @@
                     </div>
                 </div>
 
-                <!-- ========================================== -->
-                <!-- NOZZLE TAB                                 -->
-                <!-- ========================================== -->
+                <!-- NOZZLE TAB -->
                 <div class="tab-pane hidden" id="nozzle">
                     <div class="panel-card overflow-hidden">
                         <div class="p-3 border-b flex justify-between items-center"
@@ -1069,9 +1054,7 @@
                     </div>
                 </div>
 
-                <!-- ========================================== -->
-                <!-- USERS TAB                                 -->
-                <!-- ========================================== -->
+                <!-- USERS TAB -->
                 <div class="tab-pane hidden" id="users">
                     <div class="panel-card overflow-hidden">
                         <div class="p-3 border-b flex justify-between items-center"
@@ -1116,9 +1099,7 @@
                     </div>
                 </div>
 
-                <!-- ========================================== -->
-                <!-- UPDATE LAST RECON TAB                      -->
-                <!-- ========================================== -->
+                <!-- UPDATE LAST RECON TAB -->
                 <div class="tab-pane hidden" id="last_recon">
                     <div class="panel-card overflow-hidden">
                         <div class="p-3 border-b" style="border-color: var(--border-color);">
@@ -1166,9 +1147,7 @@
         </div><!-- end pageContent -->
     </main>
 
-    <!-- ============================================ -->
-    <!-- MODAL OVERLAY                               -->
-    <!-- ============================================ -->
+    <!-- MODAL OVERLAY -->
     <div id="modalOverlay">
         <div id="editModal">
             <div class="modal-header">
@@ -1183,9 +1162,7 @@
                     <input type="hidden" id="recordType" value="">
                     <input type="hidden" id="dealerId" value="">
 
-                    <div id="formFields">
-                        <!-- Dynamic form fields will be loaded here -->
-                    </div>
+                    <div id="formFields"></div>
                 </form>
             </div>
             <div class="modal-footer">
@@ -1195,9 +1172,7 @@
         </div>
     </div>
 
-    <!-- ============================================ -->
-    <!-- TOAST NOTIFICATION                           -->
-    <!-- ============================================ -->
+    <!-- TOAST NOTIFICATION -->
     <div id="toast"
         class="fixed bottom-6 right-6 bg-panel border border-border rounded-md px-5 py-3 shadow-lg z-[9999] transform translate-y-24 opacity-0 transition-all duration-300"
         style="background: var(--bg-panel); border-color: var(--border-color);">
@@ -1205,12 +1180,9 @@
         <span id="toastMessage" style="color: var(--text-body);">Success!</span>
     </div>
 
-    <!-- ============================================ -->
-    <!-- JAVASCRIPT                                   -->
-    <!-- ============================================ -->
     <script>
         // ============================================
-        // Encryption Function
+        // Encryption Functions
         // ============================================
         function encryptId(originalId) {
             const key = 'Hamza Ansari';
@@ -1249,10 +1221,40 @@
         const encryptedId = getUrlParameter('id');
         const dealerId = encryptedId ? decryptId(encryptedId) : 0;
 
+        // Return URL (context from which this page was opened)
+        const returnUrl = getUrlParameter('return_url') || getUrlParameter('dealer_url');
+
         // ============================================
         // Data Stores
         // ============================================
         let dataTables = {};
+
+        // ============================================
+        // Close current tab and redirect to the same Dealer page
+        // ============================================
+        function closeTabAndRedirect() {
+            // Try to close the current tab first
+            try {
+                window.open('', '_self', '');
+                window.close();
+            } catch (e) {
+                console.log('Tab close not allowed by browser:', e);
+            }
+
+            // Then redirect back to the original dealer page
+            setTimeout(function () {
+                if (returnUrl) {
+                    // Decode the URL in case it was encoded
+                    window.location.href = decodeURIComponent(returnUrl);
+                } else if (encryptedId) {
+                    // Fallback: go to dealer profile with this dealer context
+                    window.location.href = 'dealer_profile.php?id=' + encodeURIComponent(encryptedId);
+                } else {
+                    // Last fallback: go to dealers list
+                    window.location.href = 'dealers.php';
+                }
+            }, 100);
+        }
 
         // ============================================
         // Modal Functions
@@ -1263,7 +1265,6 @@
             $('#modalTitle').text(id ? 'Edit ' + type.charAt(0).toUpperCase() + type.slice(1) : 'Add ' + type.charAt(0)
                 .toUpperCase() + type.slice(1));
 
-            // Build form based on type
             let html = '';
             switch (type) {
                 case 'facility':
@@ -1445,14 +1446,12 @@
             $('#modalOverlay').removeClass('active');
         }
 
-        // Close modal on overlay click
         $('#modalOverlay').on('click', function (e) {
             if (e.target === this) {
                 closeModal();
             }
         });
 
-        // Close modal on ESC key
         $(document).on('keydown', function (e) {
             if (e.key === 'Escape') {
                 if ($('#modalOverlay').hasClass('active')) {
@@ -1465,7 +1464,6 @@
         // Tabs
         // ============================================
         $(document).ready(function () {
-            // Sidebar Toggle
             $('#sidebarToggle').on('click', function () {
                 $('#sidebar').toggleClass('collapsed');
                 const isCollapsed = $('#sidebar').hasClass('collapsed');
@@ -1477,7 +1475,6 @@
                 $('#sidebar').addClass('collapsed');
             }
 
-            // Tab switching
             $('.nav-tabs-custom .nav-link').on('click', function () {
                 $('.nav-tabs-custom .nav-link').removeClass('active');
                 $(this).addClass('active');
@@ -1486,11 +1483,9 @@
                 $('.tab-pane').addClass('hidden');
                 $('#' + target).removeClass('hidden');
 
-                // Load data for the selected tab
                 loadTabData(target);
             });
 
-            // Load initial tab
             loadTabData('facilities');
         });
 
@@ -2097,7 +2092,6 @@
         // ============================================
         function editRecord(type, id) {
             openModal(type, id);
-            // Load data based on type - would require additional API calls
             showToast('Edit functionality for ' + type + ' - ID: ' + id, 'info');
         }
 

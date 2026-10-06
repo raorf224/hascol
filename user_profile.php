@@ -13,14 +13,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- CryptoJS for encryption/decryption -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
-
-    <!-- Leaflet CSS & JS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <!-- DataTables CSS & JS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
@@ -52,7 +48,6 @@
     </script>
 
     <style>
-        /* THEME VARIABLES                               */
         :root {
             --paper: #f4f6fa;
             --card: #ffffff;
@@ -71,26 +66,19 @@
             --amber-soft: rgba(255, 159, 10, .13);
             --red: #ff3b30;
             --red-soft: rgba(255, 59, 48, .11);
-            --purple: #7a4fb5;
             --shadow: 0 1px 3px rgba(0, 0, 0, .055);
             --shadow-lg: 0 10px 30px rgba(16, 24, 40, .07);
             --radius: 16px;
-            --radius-sm: 10px;
             --display: -apple-system, "SF Pro Display", "Space Grotesk", "Inter", sans-serif;
             --body: -apple-system, "SF Pro Text", "Inter", sans-serif;
             --mono: "SF Mono", "JetBrains Mono", monospace;
             --tank-bg: #f8fafc;
             --tank-border: #e2e8f0;
-            --dataTables-bg: #ffffff;
             --dataTables-header: #f8fafc;
             --workspace-bg: #ffffff;
             --section-tab-bg: #f1f5f9;
-            --section-tab-hover: #e2e8f0;
             --section-tab-active: #ffffff;
             --nozzle-card-bg: #ffffff;
-            --toast-bg: #ffffff;
-            --toast-border: #e2e8f0;
-            --toast-text: #1e293b;
             --cover-overlay: rgba(0, 0, 0, 0.18);
             --badge-bg: rgba(120, 120, 128, .10);
             --badge-text: #62646b;
@@ -118,16 +106,11 @@
             --shadow-lg: 0 10px 30px rgba(0, 0, 0, .5);
             --tank-bg: #0a121c;
             --tank-border: #1a2635;
-            --dataTables-bg: #0d1520;
             --dataTables-header: #0a121c;
             --workspace-bg: #0d1520;
             --section-tab-bg: #0a121c;
-            --section-tab-hover: #1a2635;
             --section-tab-active: #0d1520;
             --nozzle-card-bg: #0a121c;
-            --toast-bg: #0d1520;
-            --toast-border: #1a2635;
-            --toast-text: #e5e7eb;
             --cover-overlay: rgba(0, 0, 0, .35);
             --badge-bg: rgba(255, 255, 255, .08);
             --badge-text: #94a3b8;
@@ -175,26 +158,6 @@
             margin-bottom: 18px;
         }
 
-        .eyebrow {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            color: var(--tx-3);
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-        }
-
-        .eyebrow .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--green);
-            box-shadow: 0 0 0 4px var(--green-soft);
-        }
-
         .page-heading h1 {
             margin: 0;
             color: var(--ink);
@@ -230,6 +193,7 @@
             text-decoration: none;
             box-shadow: var(--shadow);
             transition: .15s ease;
+            cursor: pointer;
         }
 
         .back-btn:hover {
@@ -238,7 +202,7 @@
             box-shadow: var(--shadow-lg)
         }
 
-        /* ===== Dealer identity / hero ===== */
+        /* Dealer hero */
         .dealer-profile-card {
             position: relative;
             overflow: hidden;
@@ -431,7 +395,7 @@
             background: var(--blue-soft)
         }
 
-        /* ===== KPI strip ===== */
+        /* KPI */
         .kpi-strip {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -496,16 +460,7 @@
             color: var(--red)
         }
 
-        .kpi-success .kpi-icon {
-            background: var(--green-soft);
-            color: #169447
-        }
-
-        html.dark-mode .kpi-success .kpi-icon {
-            color: #34d399
-        }
-
-        /* ===== Cards / sections ===== */
+        /* Cards / sections */
         .section-grid {
             display: grid;
             grid-template-columns: 1.05fr .95fr;
@@ -594,22 +549,6 @@
             transition: color .25s ease;
         }
 
-        .balance-negative {
-            color: var(--red) !important
-        }
-
-        .grm-pill {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3px 8px;
-            border-radius: 6px;
-            background: var(--blue-soft);
-            color: var(--blue-2);
-            font-size: 9.5px;
-            font-weight: 700;
-        }
-
         .map-card-body {
             padding: 14px
         }
@@ -642,7 +581,7 @@
             color: var(--blue)
         }
 
-        /* ===== Operational panels ===== */
+        /* Ops panels */
         .ops-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -654,7 +593,6 @@
             padding: 13px 18px 16px
         }
 
-        /* Nozzle cards */
         .nozzle-card {
             margin: 0 0 8px !important;
             padding: 11px 12px !important;
@@ -695,7 +633,7 @@
             color: #34d399 !important
         }
 
-        /* ===== TANK READINGS ===== */
+        /* Tanks */
         .tank-list {
             display: flex;
             flex-direction: column;
@@ -795,7 +733,6 @@
             transition: background-color .25s ease, border-color .25s ease;
         }
 
-        /* ===== RESPONSIVE TANK ===== */
         @media (max-width:768px) {
             .tank-item {
                 grid-template-columns: 34px 1fr auto;
@@ -847,7 +784,7 @@
             }
         }
 
-        /* ===== Workspace / Tabs ===== */
+        /* Workspace / Tabs */
         .workspace {
             background: var(--workspace-bg);
             border: 1px solid var(--line-soft);
@@ -1040,7 +977,8 @@
             color: var(--blue) !important;
         }
 
-        #ordersTable thead th {
+        #ordersTable thead th,
+        #salesTable thead th {
             background: var(--dataTables-header) !important;
             color: var(--tx-3) !important;
             border-bottom: 1px solid var(--line) !important;
@@ -1052,7 +990,8 @@
             transition: background-color .25s ease, border-color .25s ease, color .25s ease;
         }
 
-        #ordersTable tbody td {
+        #ordersTable tbody td,
+        #salesTable tbody td {
             padding: 10px 11px !important;
             border-bottom: 1px solid var(--line-soft) !important;
             color: var(--tx) !important;
@@ -1060,7 +999,8 @@
             transition: border-color .25s ease, color .25s ease;
         }
 
-        #ordersTable tbody tr:hover {
+        #ordersTable tbody tr:hover,
+        #salesTable tbody tr:hover {
             background: var(--dataTables-header) !important;
         }
 
@@ -1093,32 +1033,7 @@
             color: var(--blue) !important
         }
 
-        /* Sales Performance Table Styles */
-        #salesTable thead th {
-            background: var(--dataTables-header) !important;
-            color: var(--tx-3) !important;
-            border-bottom: 1px solid var(--line) !important;
-            padding: 10px 11px !important;
-            font-size: 8.5px !important;
-            letter-spacing: .06em !important;
-            text-transform: uppercase !important;
-            font-weight: 700 !important;
-            transition: background-color .25s ease, border-color .25s ease, color .25s ease;
-        }
-
-        #salesTable tbody td {
-            padding: 10px 11px !important;
-            border-bottom: 1px solid var(--line-soft) !important;
-            color: var(--tx) !important;
-            font-size: 10.5px !important;
-            transition: border-color .25s ease, color .25s ease;
-        }
-
-        #salesTable tbody tr:hover {
-            background: var(--dataTables-header) !important;
-        }
-
-        /* ===== Responsive ===== */
+        /* Responsive */
         @media (max-width:1100px) {
             .kpi-strip {
                 grid-template-columns: repeat(2, 1fr)
@@ -1227,7 +1142,7 @@
             }
         }
 
-        /* ===== SWEETALERT THEME FIX ===== */
+        /* SweetAlert dark theme */
         html.dark-mode .swal2-popup {
             background: var(--card) !important;
             color: var(--tx) !important;
@@ -1250,28 +1165,16 @@
             color: var(--tx) !important;
         }
 
-        /* ============================================ */
-        /* SETUP TOOLTIP - FIXED VISIBILITY             */
-        /* ============================================ */
+        /* Setup tooltip */
         .setup-tooltip-wrapper {
             position: relative;
             display: inline-block;
             z-index: 9999;
         }
 
-        /* Ensure parent containers don't clip the tooltip */
-        .detail-list {
-            overflow: visible !important;
-        }
-
-        .detail-row {
-            overflow: visible !important;
-        }
-
-        .premium-card {
-            overflow: visible !important;
-        }
-
+        .detail-list,
+        .detail-row,
+        .premium-card,
         .card-head {
             overflow: visible !important;
         }
@@ -1316,7 +1219,6 @@
             transform: translateX(-50%) translateY(0);
         }
 
-        /* Dark mode override */
         html.dark-mode .setup-tooltip-wrapper .setup-tooltip {
             background: #334155;
             color: #f1f5f9;
@@ -1327,7 +1229,6 @@
             border-top-color: #334155;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .setup-tooltip-wrapper .setup-tooltip {
                 font-size: 10px;
@@ -1345,10 +1246,7 @@
             }
         }
 
-        /* ============================================ */
-        /* CUSTOMER LEDGER HISTORY MODAL                 */
-        /* Premium enterprise vertical timeline           */
-        /* ============================================ */
+        /* Ledger History Modal */
         #ledger_backlog_modal .cl-modal-box {
             background: var(--card);
             border-radius: 16px;
@@ -1362,7 +1260,6 @@
             border: 1px solid var(--line-soft);
         }
 
-        /* ---- Header ---- */
         #ledger_backlog_modal .cl-header {
             display: flex;
             align-items: center;
@@ -1429,7 +1326,6 @@
             background: var(--red-soft);
         }
 
-        /* ---- Scroll body ---- */
         #ledgerLogsContainer {
             padding: 24px 26px 20px;
             overflow-y: auto;
@@ -1446,7 +1342,6 @@
             border-radius: 4px;
         }
 
-        /* ---- Timeline shell ---- */
         .cl-timeline {
             position: relative;
             list-style: none;
@@ -1465,7 +1360,6 @@
             z-index: 0;
         }
 
-        /* ---- Start endpoint (big circular badge centered on the line) ---- */
         .cl-start-row {
             display: flex;
             justify-content: flex-start;
@@ -1491,7 +1385,6 @@
             box-shadow: 0 8px 18px rgba(10, 132, 255, .32), 0 0 0 5px var(--card);
         }
 
-        /* ---- End endpoint ---- */
         .cl-end-row {
             display: flex;
             justify-content: flex-start;
@@ -1505,7 +1398,6 @@
             height: 52px;
             margin-left: 0;
             border-radius: 50%;
-            /* background: var(--card); */
             background: linear-gradient(180deg, var(--blue), var(--blue-2));
             border: 2px solid var(--line);
             color: #fff;
@@ -1519,7 +1411,6 @@
             box-shadow: 0 0 0 5px var(--card);
         }
 
-        /* ---- Single event row: icon | dot-on-line | card+ribbon ---- */
         .cl-event {
             position: relative;
             display: flex;
@@ -1564,7 +1455,6 @@
             z-index: 1;
         }
 
-        /* ---- Card + ribbon wrapper ---- */
         .cl-content {
             position: relative;
             flex: 1;
@@ -1627,7 +1517,6 @@
             border-top: 1px dashed var(--line-soft);
         }
 
-        /* ---- Ribbon-style date badge (pointed bottom) ---- */
         .cl-ribbon {
             position: absolute;
             top: -6px;
@@ -1660,7 +1549,6 @@
             margin-top: 1px;
         }
 
-        /* ---- Empty / error states ---- */
         .cl-empty-state,
         .cl-error-state {
             text-align: center;
@@ -1688,7 +1576,6 @@
             font-weight: 600;
         }
 
-        /* ---- Responsive ---- */
         @media (max-width: 640px) {
             #ledger_backlog_modal .cl-modal-box {
                 max-width: 96%;
@@ -1749,13 +1636,9 @@
             }
         }
     </style>
-
 </head>
 
-
 <body class="flex h-screen overflow-hidden text-xs">
-
-    <?php include 'includes/sidebar.php'; ?>
 
     <main id="mainContent" class="flex-1 flex flex-col overflow-hidden">
         <?php include 'includes/topbar.php'; ?>
@@ -1769,24 +1652,22 @@
                         <h1>Dealer Profile</h1>
                         <p>Operational identity, station configuration, location intelligence and order activity.</p>
                     </div>
-                    <a href="dealers.php" class="back-btn">
+                    <button type="button" class="back-btn" onclick="closeTabAndRedirect()">
                         <i class="fa-solid fa-arrow-left"></i>
                         Back to Dealers
-                    </a>
+                    </button>
                 </div>
 
                 <!-- DEALER IDENTITY -->
                 <section class="dealer-profile-card">
                     <div class="dealer-cover">
-                        <img src="assets/images/banner.png" alt="Station"
-                            id="bannerImg">
+                        <img src="assets/images/banner.png" alt="Station" id="bannerImg">
                         <div class="cover-chip"><i class="fa-solid fa-circle"></i> Station profile</div>
                     </div>
 
                     <div class="dealer-identity">
                         <div class="dealer-logo">
-                            <img src="assets/images/system.png" alt="Hascol"
-                                id="profileLogo">
+                            <img src="assets/images/system.png" alt="Hascol" id="profileLogo">
                         </div>
 
                         <div class="dealer-title">
@@ -1872,7 +1753,6 @@
                             </div>
                             <div class="detail-row">
                                 <span class="detail-label">Ledger Balance</span>
-
                                 <span class="detail-value"
                                     style="display: flex; gap: 8px; justify-content: flex-end; align-items: center;">
                                     <i class="fas fa-history backlog_ledgers"
@@ -1944,7 +1824,6 @@
                         <div class="workspace-note">Dealer-level activity workspace</div>
                     </div>
 
-                    <!-- Orders Section -->
                     <div id="ordersSection">
                         <div class="panel-card overflow-hidden">
                             <div class="p-3 border-b" style="border-color: var(--line);">
@@ -1981,7 +1860,6 @@
                         </div>
                     </div>
 
-                    <!-- Sales Performance Section -->
                     <div id="salesSection" class="hidden">
                         <div class="panel-card overflow-hidden">
                             <div class="p-3 border-b" style="border-color: var(--line);">
@@ -2018,9 +1896,7 @@
         </div>
     </main>
 
-    <!-- ============================================ -->
-    <!-- CUSTOMER LEDGER HISTORY MODAL                -->
-    <!-- ============================================ -->
+    <!-- CUSTOMER LEDGER HISTORY MODAL -->
     <div id="ledger_backlog_modal" class="modal fade" tabindex="-1" aria-labelledby="ledgerModalLabel"
         aria-hidden="true"
         style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,23,42,0.55); z-index: 99999; align-items: center; justify-content: center;">
@@ -2044,15 +1920,9 @@
     </div>
 
     <script>
-        // ============================================
-        // API Configuration - LOCALHOST
-        // ============================================
         const API_BASE_URL = 'api/';
         const ENCRYPTION_KEY = 'Hamza Ansari';
 
-        // ============================================
-        // Encryption/Decryption Functions
-        // ============================================
         function decryptId(encryptedId) {
             try {
                 const bytes = CryptoJS.AES.decrypt(decodeURIComponent(encryptedId), ENCRYPTION_KEY);
@@ -2075,24 +1945,49 @@
             return urlParams.get(name);
         }
 
-        // ============================================
-        // Get Dealer ID from URL
-        // ============================================
         const encryptedId = getUrlParameter('id');
         const dealerId = encryptedId ? decryptId(encryptedId) : 0;
 
-        // ============================================
-        // Data Stores
-        // ============================================
+        // Context: original dealer page URL (passed from opener)
+        const returnUrl = getUrlParameter('return_url') || getUrlParameter('dealer_url');
+
         let dealerProfile = {};
         let ordersData = [];
         let salesData = [];
         let nozzleData = [];
         let tankData = [];
 
-        // ============================================
-        // Load Dealer Profile
-        // ============================================
+        // Back to Dealers: dealers.php wale original tab ko active karo aur ye user_profile.php tab band karo
+        function closeTabAndRedirect() {
+            // 1) Agar ye tab dealers.php se khuli hai to opener (dealers.php tab) ko focus do
+            try {
+                if (window.opener && !window.opener.closed) {
+                    window.opener.focus();
+                }
+            } catch (e) {
+                console.log('Opener focus not allowed:', e);
+            }
+
+            // 2) Current user_profile.php tab band karo (band hote hi browser opener tab ko active kar deta hai)
+            try {
+                window.close();
+            } catch (e) {
+                console.log('Tab close not allowed by browser:', e);
+            }
+
+            // 3) Fallback: sirf tab tab chalega jab browser ne tab band nahi ki
+            //    (matlab ye tab script se open nahi hui thi). Is surat mein dealers.php par le jao.
+            setTimeout(function () {
+                if (!window.closed) {
+                    if (returnUrl) {
+                        window.location.href = decodeURIComponent(returnUrl);
+                    } else {
+                        window.location.href = 'dealers.php';
+                    }
+                }
+            }, 300);
+        }
+
         function loadDealerProfile() {
             $.ajax({
                 url: API_BASE_URL + 'get/dealer_profile.php?id=' + dealerId + '&key=03201232927',
@@ -2113,22 +2008,14 @@
             });
         }
 
-        // ============================================
-        // Load Products (Nozzle Status)
-        // ============================================
         function loadProducts() {
             $.ajax({
                 url: API_BASE_URL + 'get/dealers_products.php?key=03201232927&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
-                    if (response && response.length > 0) {
-                        nozzleData = response;
-                        populateNozzles();
-                    } else {
-                        nozzleData = [];
-                        populateNozzles();
-                    }
+                    nozzleData = (response && response.length > 0) ? response : [];
+                    populateNozzles();
                 },
                 error: function () {
                     nozzleData = [];
@@ -2137,22 +2024,14 @@
             });
         }
 
-        // ============================================
-        // Load Tanks
-        // ============================================
         function loadTanks() {
             $.ajax({
                 url: API_BASE_URL + 'get/get_dealers_tanks.php?key=03201232927&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
-                    if (response && response.length > 0) {
-                        tankData = response;
-                        populateTanks();
-                    } else {
-                        tankData = [];
-                        populateTanks();
-                    }
+                    tankData = (response && response.length > 0) ? response : [];
+                    populateTanks();
                 },
                 error: function () {
                     tankData = [];
@@ -2161,9 +2040,6 @@
             });
         }
 
-        // ============================================
-        // Load Orders - API: dealers_syb_orders.php
-        // ============================================
         function loadOrders() {
             $('#ordersTableBody').html(`
                 <tr>
@@ -2179,13 +2055,8 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
-                    if (response && response.length > 0) {
-                        ordersData = response;
-                        initializeOrdersTable();
-                    } else {
-                        ordersData = [];
-                        initializeOrdersTable();
-                    }
+                    ordersData = (response && response.length > 0) ? response : [];
+                    initializeOrdersTable();
                 },
                 error: function () {
                     ordersData = [];
@@ -2194,9 +2065,6 @@
             });
         }
 
-        // ============================================
-        // Load Sales Performance - API: get_dealers_product_target.php
-        // ============================================
         function loadSalesPerformance() {
             $('#salesTableBody').html(`
                 <tr>
@@ -2212,13 +2080,8 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
-                    if (response && response.length > 0) {
-                        salesData = response;
-                        initializeSalesTable();
-                    } else {
-                        salesData = [];
-                        initializeSalesTable();
-                    }
+                    salesData = (response && response.length > 0) ? response : [];
+                    initializeSalesTable();
                 },
                 error: function () {
                     salesData = [];
@@ -2227,9 +2090,6 @@
             });
         }
 
-        // ============================================
-        // Populate Dealer Info
-        // ============================================
         function populateDealerInfo() {
             const data = dealerProfile;
 
@@ -2244,9 +2104,6 @@
             $('#coordinates2').text(data['co-ordinates'] || 'N/A');
         }
 
-        // ============================================
-        // Populate Nozzle Status
-        // ============================================
         function populateNozzles() {
             let html = '';
             if (nozzleData.length > 0) {
@@ -2287,9 +2144,6 @@
             $('#nozzleList').html(html);
         }
 
-        // ============================================
-        // Populate Tanks
-        // ============================================
         function populateTanks() {
             let html = '';
             if (tankData.length > 0) {
@@ -2331,9 +2185,6 @@
             $('#tankList').html(html);
         }
 
-        // ============================================
-        // Initialize Orders DataTable
-        // ============================================
         function initializeOrdersTable() {
             if ($.fn.DataTable.isDataTable('#ordersTable')) {
                 $('#ordersTable').DataTable().destroy();
@@ -2415,9 +2266,6 @@
             }
         }
 
-        // ============================================
-        // Initialize Sales Performance DataTable
-        // ============================================
         function initializeSalesTable() {
             if ($.fn.DataTable.isDataTable('#salesTable')) {
                 $('#salesTable').DataTable().destroy();
@@ -2477,9 +2325,6 @@
             }
         }
 
-        // ============================================
-        // View Order - Sub Orders
-        // ============================================
         function viewOrder(orderId) {
             if (!orderId) return;
 
@@ -2539,9 +2384,6 @@
             });
         }
 
-        // ============================================
-        // Initialize Map - Leaflet
-        // ============================================
         function initMap() {
             const mapContainer = document.getElementById('map-container');
             if (!mapContainer) return;
@@ -2566,9 +2408,6 @@
             }, 100);
         }
 
-        // ============================================
-        // Tabs: Orders / Sales Performance
-        // ============================================
         function initTabs() {
             $('.section-tab').on('click', function () {
                 if ($(this).hasClass('active')) return;
@@ -2582,9 +2421,6 @@
             });
         }
 
-        // ============================================
-        // Toast Notification
-        // ============================================
         function showToast(message, type = 'success') {
             const bgColor = document.documentElement.classList.contains('dark-mode') ? '#0d1520' : '#ffffff';
             const textColor = document.documentElement.classList.contains('dark-mode') ? '#e5e7eb' : '#1d1d1f';
@@ -2601,9 +2437,6 @@
             });
         }
 
-        // ============================================
-        // Tooltip Positioning
-        // ============================================
         function positionTooltip() {
             const wrappers = document.querySelectorAll('.setup-tooltip-wrapper');
 
@@ -2640,13 +2473,7 @@
             });
         }
 
-        // ============================================
-        // Get Ledger Backlog - API Call
-        // (Only the rendered HTML markup was redesigned;
-        //  AJAX URL, params and data source are unchanged)
-        // ============================================
         function get_ledger_backlog() {
-            // Show modal
             $('#ledger_backlog_modal').css('display', 'flex');
             $('#ledger_logs').html(`
                 <li class="cl-empty-state" style="list-style:none;">
@@ -2664,7 +2491,6 @@
                     $('#ledger_logs').empty();
 
                     if (response && response.length > 0) {
-                        // ---- Start endpoint (circular badge on the line) ----
                         $('#ledger_logs').append(`
                             <li class="cl-start-row">
                                 <span class="cl-start-badge">Start</span>
@@ -2672,31 +2498,19 @@
                         `);
 
                         $.each(response, function (index, data) {
-                            // ============================================
-                            // DATE FORMAT: day number + short month (e.g. 16 / May)
-                            // ============================================
                             var originalDate = data.datetime || data.created_at;
                             var dateObject = new Date(originalDate);
                             var dayNum = isNaN(dateObject) ? '--' : dateObject.getDate();
                             var monShort = isNaN(dateObject) ? '' : dateObject.toLocaleString('en-US', { month: 'short' });
 
-                            // ============================================
-                            // LEDGER VALUE with commas (647,514,744.66)
-                            // ============================================
                             var ledgerValue = parseFloat(data.new_ledger || 0).toLocaleString('en-US', {
                                 minimumFractionDigits: 2,
                                 maximumFractionDigits: 2
                             });
 
-                            // ============================================
-                            // FORMAT DATES: "2024-05-16 12:12:22"
-                            // ============================================
                             var dateTime = data.datetime || 'N/A';
                             var recordTime = data.created_at || 'N/A';
 
-                            // ============================================
-                            // TIMELINE EVENT - icon + dot + card + ribbon
-                            // ============================================
                             $('#ledger_logs').append(`
                                 <li class="cl-event">
                                     <span class="cl-event-dot"></span>
@@ -2717,7 +2531,6 @@
                             `);
                         });
 
-                        // ---- End endpoint (circular badge on the line) ----
                         $('#ledger_logs').append(`
                             <li class="cl-end-row">
                                 <span class="cl-end-badge">End</span>
@@ -2743,21 +2556,16 @@
             });
         }
 
-        // ============================================
-        // Close Ledger Modal
-        // ============================================
         function closeLedgerModal() {
             $('#ledger_backlog_modal').css('display', 'none');
         }
 
-        // Close modal on outside click
         $(document).on('click', '#ledger_backlog_modal', function (e) {
             if (e.target === this) {
                 closeLedgerModal();
             }
         });
 
-        // Close modal on ESC key
         $(document).on('keydown', function (e) {
             if (e.key === 'Escape') {
                 if ($('#ledger_backlog_modal').css('display') === 'flex') {
@@ -2766,24 +2574,9 @@
             }
         });
 
-        // ============================================
-        // Call after DOM is ready
-        // ============================================
         $(document).ready(function () {
-            // Initialize tooltip positioning
             setTimeout(positionTooltip, 100);
-        });
 
-        // Also reposition on window resize
-        $(window).on('resize', function () {
-            positionTooltip();
-        });
-
-        // ============================================
-        // Document Ready
-        // ============================================
-        $(document).ready(function () {
-            // Sidebar Toggle
             $('#sidebarToggle').on('click', function () {
                 $('#sidebar').toggleClass('collapsed');
                 const isCollapsed = $('#sidebar').hasClass('collapsed');
@@ -2795,13 +2588,16 @@
                 $('#sidebar').addClass('collapsed');
             }
 
-            // Load all data
             loadDealerProfile();
             loadProducts();
             loadTanks();
             loadOrders();
             loadSalesPerformance();
             initTabs();
+        });
+
+        $(window).on('resize', function () {
+            positionTooltip();
         });
     </script>
 
