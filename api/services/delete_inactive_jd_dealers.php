@@ -7,7 +7,7 @@ ini_set('max_execution_time', -1); // Allow infinite execution time (not recomme
 date_default_timezone_set("Asia/Karachi");
 
 // Access key for validation
-$access_key = '03201232927';  
+$access_key = '2170';  
 $pass = $_GET["key"];  // Get the key from the query string
 $date = date('Y-m-d H:i:s');  // Current date and time
 

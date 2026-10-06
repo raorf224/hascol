@@ -667,7 +667,7 @@ require_once __DIR__ . '/session/session.php';
             $('#myTable').hide();
             $('.table-container').html('<div class="table-loader"><i class="fa-solid fa-spinner fa-spin text-blue-500 text-2xl"></i><span class="loader-text">Loading data...</span></div>');
 
-            fetch(API_BASE_URL + 'get/current_data_coco_orders.php?key=03201232927&id=1&from=' + fromdate + '&rettype=' + rettypes)
+            fetch(API_BASE_URL + 'get/current_data_coco_orders.php?key=2170&id=1&from=' + fromdate + '&rettype=' + rettypes)
                 .then(response => response.json())
                 .then(data => {
                     // Remove loader and show table

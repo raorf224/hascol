@@ -4,7 +4,7 @@ header("Content-Type: application/json");
 // Connect to your MySQL database
 include("../config.php");
 
-$access_key = '03201232927';
+$access_key = '2170';
 $pass = $_GET["key"] ?? '';
 $from = $_GET["from"] ?? '';
 $rettype = $_GET["rettype"];

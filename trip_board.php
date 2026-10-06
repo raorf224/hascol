@@ -560,7 +560,7 @@ require_once __DIR__ . '/session/session.php';
             return;
         }
 
-        var url = API_BASE_URL + '/get_sap_order_data.php?key=03201232927&from=' + fromdate + '&to=' + todate;
+        var url = API_BASE_URL + '/get_sap_order_data.php?key=2170&from=' + fromdate + '&to=' + todate;
         console.log('Loading trips from:', url);
 
         $('#tripList').html(`
@@ -698,7 +698,7 @@ require_once __DIR__ . '/session/session.php';
 
         $('#tripDetailsContainer').show();
 
-        var url = API_BASE_URL + '/get_sap_order_subtripdata.php?key=03201232927&order_no=' + catId;
+        var url = API_BASE_URL + '/get_sap_order_subtripdata.php?key=2170&order_no=' + catId;
 
         $('#tripDetailsBody').html(`<tr><td colspan="18" class="text-center text-gray-500"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Loading details...</td></tr>`);
 
@@ -815,7 +815,7 @@ require_once __DIR__ . '/session/session.php';
             return;
         }
 
-        var url = API_BASE_URL + '/get_order_co.php?key=03201232927&id=' + subId;
+        var url = API_BASE_URL + '/get_order_co.php?key=2170&id=' + subId;
 
         $.ajax({
             url: url,
@@ -915,7 +915,7 @@ require_once __DIR__ . '/session/session.php';
             return;
         }
 
-        var url = API_BASE_URL + '/get_delivered_trip.php?key=03201232927&salesOrders=' + orderNo + '&id=' + id;
+        var url = API_BASE_URL + '/get_delivered_trip.php?key=2170&salesOrders=' + orderNo + '&id=' + id;
 
         $.ajax({
             url: url,
@@ -947,7 +947,7 @@ require_once __DIR__ . '/session/session.php';
     }
 
     function drawRoute(vehiId, startTime, endTime) {
-        var url = API_BASE_URL + '/get_trip_routes.php?key=03201232927&vehicle_id=' + vehiId +
+        var url = API_BASE_URL + '/get_trip_routes.php?key=2170&vehicle_id=' + vehiId +
             '&start_time=' + startTime + '&end_time=' + endTime;
 
         $.ajax({

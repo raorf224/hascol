@@ -760,7 +760,7 @@ require_once __DIR__ . '/session/session.php';
                 </div>
             `);
 
-            fetch(API_BASE_URL + 'get/all_salesOrders.php?key=03201232927&pre=Admin&user_id=1&from=' + fromdate + '&to=' + todate + '&rettype=' + rettypes)
+            fetch(API_BASE_URL + 'get/all_salesOrders.php?key=2170&pre=Admin&user_id=1&from=' + fromdate + '&to=' + todate + '&rettype=' + rettypes)
                 .then(response => response.json())
                 .then(response => {
                     // Remove loader and reinitialize DataTable

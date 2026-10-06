@@ -4,7 +4,7 @@ date_default_timezone_set('Asia/Karachi');
 // === STEP 1: Fetch data from API ===
 $curl = curl_init();
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'http://151.106.17.246:8080/hascolBridgeApis/get/get_last_updated_record.php?key=03201232927',
+  CURLOPT_URL => 'http://151.106.17.246:8080/hascolBridgeApis/get/get_last_updated_record.php?key=2170',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_FOLLOWLOCATION => true,

@@ -7,8 +7,8 @@ include("../../config.php");
 $url1 = $_SERVER['REQUEST_URI'];
 header("Refresh: 20; URL=$url1");
 
-$access_key = '03201232927';
-$pass = '03201232927';
+$access_key = '2170';
+$pass = '2170';
 
 echo "<h1>Primary SAP Trip ETA Check Service</h1><br>";
 

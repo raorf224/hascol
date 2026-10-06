@@ -2,7 +2,7 @@
 // total_stats.php  
 include("../../config.php");
 
-$access_key = '03201232927';
+$access_key = '2170';
 
 $pass = $_GET["key"] ?? '';
 $from_date = $_GET["from_date"] ?? '2026-01-01 00:00:00';

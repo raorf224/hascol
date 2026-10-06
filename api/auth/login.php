@@ -5,7 +5,7 @@ session_start();
 
 include("../../config.php");
 
-$API_KEY = '03201232927';
+$API_KEY = '2170';
 
 // Validate API key
 if (!isset($_GET['key']) || $_GET['key'] !== $API_KEY) {

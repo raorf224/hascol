@@ -1529,7 +1529,7 @@
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/facilities_get.php?key=03201232927&dealer_id=' + dealerId,
+                url: API_BASE_URL + 'get/facilities_get.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
@@ -1603,7 +1603,7 @@
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/dealers_products.php?key=03201232927&dealer_id=' + dealerId,
+                url: API_BASE_URL + 'get/dealers_products.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
@@ -1688,7 +1688,7 @@
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/get_dealers_tanks.php?key=03201232927&dealer_id=' + dealerId,
+                url: API_BASE_URL + 'get/get_dealers_tanks.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
@@ -1769,7 +1769,7 @@
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/get_dealers_dispenser.php?key=03201232927&dealer_id=' + dealerId,
+                url: API_BASE_URL + 'get/get_dealers_dispenser.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
@@ -1848,7 +1848,7 @@
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/get_dealers_nozels.php?key=03201232927&dealer_id=' + dealerId,
+                url: API_BASE_URL + 'get/get_dealers_nozels.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
@@ -1933,7 +1933,7 @@
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/dealer_users.php?key=03201232927&dealer_id=' + dealerId,
+                url: API_BASE_URL + 'get/dealer_users.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
@@ -2016,7 +2016,7 @@
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/get_dealer_last_recons.php?key=03201232927&dealer_id=' + dealerId,
+                url: API_BASE_URL + 'get/get_dealer_last_recons.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
@@ -2114,22 +2114,22 @@
                     let url = '';
                     switch (type) {
                         case 'facility':
-                            url = API_BASE_URL + 'delete/delete_facility.php?key=03201232927&id=' + id;
+                            url = API_BASE_URL + 'delete/delete_facility.php?key=2170&id=' + id;
                             break;
                         case 'product':
-                            url = API_BASE_URL + 'delete/delete_dealer_product.php?key=03201232927&id=' + id;
+                            url = API_BASE_URL + 'delete/delete_dealer_product.php?key=2170&id=' + id;
                             break;
                         case 'tank':
-                            url = API_BASE_URL + 'delete/delete_tank.php?key=03201232927&id=' + id;
+                            url = API_BASE_URL + 'delete/delete_tank.php?key=2170&id=' + id;
                             break;
                         case 'dispenser':
-                            url = API_BASE_URL + 'delete/delete_despensor.php?key=03201232927&id=' + id;
+                            url = API_BASE_URL + 'delete/delete_despensor.php?key=2170&id=' + id;
                             break;
                         case 'nozzle':
-                            url = API_BASE_URL + 'delete/delete_nozzels.php?key=03201232927&id=' + id;
+                            url = API_BASE_URL + 'delete/delete_nozzels.php?key=2170&id=' + id;
                             break;
                         case 'user':
-                            url = API_BASE_URL + 'delete/delete_user.php?key=03201232927&id=' + id;
+                            url = API_BASE_URL + 'delete/delete_user.php?key=2170&id=' + id;
                             break;
                         default:
                             showToast('Invalid type.', 'error');

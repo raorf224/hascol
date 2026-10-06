@@ -5,7 +5,7 @@ header("Refresh: 20; URL=$url1");
 include("../../config.php");
 set_time_limit(5000);
 
-$access_key = '03201232927';
+$access_key = '2170';
 
 $pass = isset($_GET["key"]) ? $_GET["key"] : '';
 $date = date('Y-m-d H:i:s');

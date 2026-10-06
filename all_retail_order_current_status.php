@@ -949,7 +949,7 @@ require_once __DIR__ . '/session/session.php';
             });
 
             // Load Depots for Approved Modal
-            fetch(API_BASE_URL + 'get/geo_depot.php?key=03201232927')
+            fetch(API_BASE_URL + 'get/geo_depot.php?key=2170')
                 .then(response => response.json())
                 .then(response => {
                     $('#s_depot').empty().append('<option value="">Choose...</option>');
@@ -1070,7 +1070,7 @@ require_once __DIR__ . '/session/session.php';
             let rettypes = "RT";
             let fromdate = $('#fromdate').val();
 
-            fetch(API_BASE_URL + 'get/get_all_order_current_status.php?key=03201232927&pre=Admin&user_id=1&rettype=' + rettypes + '&from=' + fromdate)
+            fetch(API_BASE_URL + 'get/get_all_order_current_status.php?key=2170&pre=Admin&user_id=1&rettype=' + rettypes + '&from=' + fromdate)
                 .then(response => response.json())
                 .then(response => {
                     table.clear().draw();
@@ -1133,7 +1133,7 @@ require_once __DIR__ . '/session/session.php';
         }
 
         function get_orders_log(id) {
-            fetch(API_BASE_URL + 'get/get_order_backlog.php?key=03201232927&order_id=' + id)
+            fetch(API_BASE_URL + 'get/get_order_backlog.php?key=2170&order_id=' + id)
                 .then(response => response.json())
                 .then(response => {
                     $('#order_logs').empty();

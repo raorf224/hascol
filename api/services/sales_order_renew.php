@@ -10,7 +10,7 @@ date_default_timezone_set("Asia/Karachi");
 $url1 = $_SERVER['REQUEST_URI'];
 header("Refresh: 30; URL=$url1");
 echo 'Renew Sales order start time => ' . date('Y-m-d H:i:s') . '<br>';
-$access_key = '03201232927';
+$access_key = '2170';
 $pass = $_GET["key"];
 $date = date('Y-m-d H:i:s');
 

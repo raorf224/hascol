@@ -5,7 +5,7 @@ set_time_limit(500); //
 
 // $url1 = $_SERVER['REQUEST_URI'];
 // header("Refresh: 120; URL=$url1");
-$access_key = '03201232927';
+$access_key = '2170';
 
 $pass = $_GET["key"];
 $date = date('Y-m-d H:i:s');

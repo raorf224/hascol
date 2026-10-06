@@ -1273,7 +1273,7 @@ require_once __DIR__ . '/session/session.php';
 
         function loadZMList() {
             $.ajax({
-                url: API_BASE_URL + 'get/get_zm.php?key=03201232927',
+                url: API_BASE_URL + 'get/get_zm.php?key=2170',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
@@ -1291,7 +1291,7 @@ require_once __DIR__ . '/session/session.php';
 
         function loadTMList() {
             $.ajax({
-                url: API_BASE_URL + 'get/get_tm.php?key=03201232927',
+                url: API_BASE_URL + 'get/get_tm.php?key=2170',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
@@ -1318,7 +1318,7 @@ require_once __DIR__ . '/session/session.php';
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/all_users.php?key=03201232927',
+                url: API_BASE_URL + 'get/all_users.php?key=2170',
                 type: 'GET',
                 dataType: 'json',
                 timeout: 30000,
@@ -1725,7 +1725,7 @@ require_once __DIR__ . '/session/session.php';
 
         function openEditOffcanvas(userId) {
             $.ajax({
-                url: API_BASE_URL + 'get/view_user.php?key=03201232927&id=' + userId,
+                url: API_BASE_URL + 'get/view_user.php?key=2170&id=' + userId,
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
@@ -1750,7 +1750,7 @@ require_once __DIR__ . '/session/session.php';
                             $('#salesRoleWrapper').show();
                             $('#salesRole').val('ZM');
                             $.ajax({
-                                url: API_BASE_URL + 'get/get_zm_tm.php?key=03201232927&id=' + userId,
+                                url: API_BASE_URL + 'get/get_zm_tm.php?key=2170&id=' + userId,
                                 type: 'GET',
                                 dataType: 'json',
                                 success: function(zmData) {
@@ -1766,7 +1766,7 @@ require_once __DIR__ . '/session/session.php';
                             $('#salesRole').val('TM');
                             $('#zmRoleWrapper').show();
                             $.ajax({
-                                url: API_BASE_URL + 'get/get_zm_tm.php?key=03201232927&id=' + userId,
+                                url: API_BASE_URL + 'get/get_zm_tm.php?key=2170&id=' + userId,
                                 type: 'GET',
                                 dataType: 'json',
                                 success: function(zmData) {
@@ -1781,7 +1781,7 @@ require_once __DIR__ . '/session/session.php';
                             $('#salesRole').val(privilege);
                             $('#tmRoleWrapper').show();
                             $.ajax({
-                                url: API_BASE_URL + 'get/get_asm_tm.php?key=03201232927&id=' + userId,
+                                url: API_BASE_URL + 'get/get_asm_tm.php?key=2170&id=' + userId,
                                 type: 'GET',
                                 dataType: 'json',
                                 success: function(tmData) {
@@ -1967,7 +1967,7 @@ $.ajax({
             deleteBtn.html('<i class="fa-solid fa-spinner fa-spin mr-1"></i> Deleting...');
 
 $.ajax({
-    url: API_BASE_URL + 'delete/delete_users.php?key=03201232927&id=' + userId,
+    url: API_BASE_URL + 'delete/delete_users.php?key=2170&id=' + userId,
     type: 'GET',
     timeout: 30000,
     dataType: 'text',

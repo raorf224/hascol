@@ -2,7 +2,7 @@
 //fetch.php
 include("../config.php");
 
-$access_key = '03201232927';
+$access_key = '2170';
 
 // Sanitize inputs
 $pass = isset($_GET["key"]) ? mysqli_real_escape_string($db, $_GET["key"]) : '';

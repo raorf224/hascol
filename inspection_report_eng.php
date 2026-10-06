@@ -935,7 +935,7 @@ require_once __DIR__ . '/session/session.php';
         // ✅ Images ke liye base
         const IMAGE_BASE = 'http://151.106.17.246:8080/hascolBridge_files/uploads/';
 
-        const API_KEY = '03201232927';
+        const API_KEY = '2170';
 
         let lubes_table = null;
         let sale_table = null;

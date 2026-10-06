@@ -714,7 +714,7 @@ require_once __DIR__ . '/session/session.php';
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/all_salesOrders.php?key=03201232927&pre=Admin&user_id=1&from=' + fromdate + '&to=' + todate + '&rettype=' + rettypes,
+                url: API_BASE_URL + 'get/all_salesOrders.php?key=2170&pre=Admin&user_id=1&from=' + fromdate + '&to=' + todate + '&rettype=' + rettypes,
                 type: 'GET',
                 dataType: 'json',
                 timeout: 30000,

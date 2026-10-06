@@ -562,7 +562,7 @@ require_once __DIR__ . '/session/session.php';
         // ============================================
         var API_BASE = "api/";
         var FILES_BASE = "http://localhost/hascolBridge_files/";
-        var API_KEY = "03201232927";
+        var API_KEY = "2170";
         var PRIVILEGE = "<?php echo isset($_SESSION['privilege']) ? $_SESSION['privilege'] : 'Admin'; ?>";
         var USER_ID = "<?php echo isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '1'; ?>";
 

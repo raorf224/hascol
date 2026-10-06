@@ -9,7 +9,7 @@ set_time_limit(5000); //
 // file_put_contents('reload_log.txt', 'Page reloaded at ' . date('Y-m-d H:i:s') . PHP_EOL, FILE_APPEND);
 
 
-$access_key = '03201232927';
+$access_key = '2170';
 
 $pass = $_GET["key"];
 $date = date('Y-m-d H:i:s');

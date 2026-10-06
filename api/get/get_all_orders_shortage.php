@@ -3,7 +3,7 @@
 include("../../config.php");
 
 
-$access_key = '03201232927';
+$access_key = '2170';
 $rettype = $_GET["rettype"];
 
 $pass = $_GET["key"];

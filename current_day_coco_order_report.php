@@ -698,7 +698,7 @@ require_once __DIR__ . '/session/session.php';
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/current_data_coco_orders.php?key=03201232927&id=1&from=' + fromdate + '&rettype=' + rettypes,
+                url: API_BASE_URL + 'get/current_data_coco_orders.php?key=2170&id=1&from=' + fromdate + '&rettype=' + rettypes,
                 type: 'GET',
                 dataType: 'json',
                 timeout: 30000,

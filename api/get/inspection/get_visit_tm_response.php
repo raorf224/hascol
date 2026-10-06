@@ -3,7 +3,7 @@
 include("../../config.php");
 
 // Define the access key
-$access_key = '03201232927';
+$access_key = '2170';
 
 // Retrieve and validate the key
 $pass = $_GET["key"] ?? '';

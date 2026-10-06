@@ -1036,7 +1036,7 @@ require_once __DIR__ . '/session/session.php';
 
         function loadDepots() {
             $.ajax({
-                url: API_BASE_URL + 'get/geo_depot.php?key=03201232927',
+                url: API_BASE_URL + 'get/geo_depot.php?key=2170',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
@@ -1067,7 +1067,7 @@ require_once __DIR__ . '/session/session.php';
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/get_all_app_orders.php?key=03201232927&pre=Admin&user_id=1&from=' + fromdate + '&to=' + todate + '&rettype=' + rettypes,
+                url: API_BASE_URL + 'get/get_all_app_orders.php?key=2170&pre=Admin&user_id=1&from=' + fromdate + '&to=' + todate + '&rettype=' + rettypes,
                 type: 'GET',
                 dataType: 'json',
                 timeout: 30000,
@@ -1140,7 +1140,7 @@ require_once __DIR__ . '/session/session.php';
                             allRows.push(mainRow);
 
                             $.ajax({
-                                url: API_BASE_URL + 'get/get_main_sub_orders.php?key=03201232927&id=' + data.id,
+                                url: API_BASE_URL + 'get/get_main_sub_orders.php?key=2170&id=' + data.id,
                                 type: 'GET',
                                 dataType: 'json',
                                 async: false,
@@ -1311,7 +1311,7 @@ require_once __DIR__ . '/session/session.php';
         function viewOrderDetails(id) {
             if (!id) return;
             $.ajax({
-                url: API_BASE_URL + 'get/get_main_sub_orders.php?key=03201232927&id=' + id,
+                url: API_BASE_URL + 'get/get_main_sub_orders.php?key=2170&id=' + id,
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
@@ -1370,7 +1370,7 @@ require_once __DIR__ . '/session/session.php';
         function viewOrderBacklog(id) {
             if (!id) return;
             $.ajax({
-                url: API_BASE_URL + 'get/get_order_backlog.php?key=03201232927&order_id=' + id,
+                url: API_BASE_URL + 'get/get_order_backlog.php?key=2170&order_id=' + id,
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {

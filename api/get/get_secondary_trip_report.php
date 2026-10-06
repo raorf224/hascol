@@ -2,7 +2,7 @@
 // api/get_secondary_trip_report.php
 include("../config.php");
 
-$access_key = '03201232927';
+$access_key = '2170';
 $pass = isset($_GET["key"]) ? $_GET["key"] : '';
 
 if ($pass != '') {

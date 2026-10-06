@@ -7,7 +7,7 @@ header("Refresh: 7200; URL=$url1");
 include("../config.php");
 set_time_limit(5000); // Set time limit for long-running queries
 
-$access_key = '03201232927';
+$access_key = '2170';
 
 echo 'Start TIme ' . date('Y-m-d H:i:s');
 

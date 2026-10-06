@@ -836,7 +836,7 @@ require_once __DIR__ . '/session/session.php';
 
         function loadRegionDistrictCityProvince() {
             $.ajax({
-                url: API_BASE_URL + 'get/get_region_district_dealers.php?key=03201232927&pre=' + PRE + '&user_id=' + USER_ID,
+                url: API_BASE_URL + 'get/get_region_district_dealers.php?key=2170&pre=' + PRE + '&user_id=' + USER_ID,
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
@@ -891,7 +891,7 @@ require_once __DIR__ . '/session/session.php';
 
         function loadDepots() {
             $.ajax({
-                url: API_BASE_URL + 'get/depotes.php?key=03201232927',
+                url: API_BASE_URL + 'get/depotes.php?key=2170',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
@@ -913,7 +913,7 @@ require_once __DIR__ . '/session/session.php';
 
         function loadGRMList() {
             $.ajax({
-                url: API_BASE_URL + 'get/get_zm.php?key=03201232927',
+                url: API_BASE_URL + 'get/get_zm.php?key=2170',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
@@ -938,7 +938,7 @@ require_once __DIR__ . '/session/session.php';
                 return;
             }
             $.ajax({
-                url: API_BASE_URL + 'get/individual_tm_of_zm.php?key=03201232927&zm_id=' + grmId,
+                url: API_BASE_URL + 'get/individual_tm_of_zm.php?key=2170&zm_id=' + grmId,
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
@@ -966,7 +966,7 @@ require_once __DIR__ . '/session/session.php';
                 return;
             }
             $.ajax({
-                url: API_BASE_URL + 'get/individual_asm_of_tm.php?key=03201232927&tm_id=' + rmId,
+                url: API_BASE_URL + 'get/individual_asm_of_tm.php?key=2170&tm_id=' + rmId,
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
@@ -995,7 +995,7 @@ require_once __DIR__ . '/session/session.php';
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/dealers.php?key=03201232927&pre=' + PRE + '&user_id=' + USER_ID,
+                url: API_BASE_URL + 'get/dealers.php?key=2170&pre=' + PRE + '&user_id=' + USER_ID,
                 type: 'GET',
                 dataType: 'json',
                 timeout: 30000,
@@ -1287,7 +1287,7 @@ require_once __DIR__ . '/session/session.php';
 
         function loadDealerProfile(dealerId, callback) {
             $.ajax({
-                url: API_BASE_URL + 'get/dealer_profile.php?key=03201232927&id=' + dealerId,
+                url: API_BASE_URL + 'get/dealer_profile.php?key=2170&id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
@@ -1300,7 +1300,7 @@ require_once __DIR__ . '/session/session.php';
 
         function loadDealerDepots(dealerId, callback) {
             $.ajax({
-                url: API_BASE_URL + 'get/dealer_depot.php?key=03201232927&dealer_id=' + dealerId,
+                url: API_BASE_URL + 'get/dealer_depot.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
@@ -1460,7 +1460,7 @@ require_once __DIR__ . '/session/session.php';
 
         function loadRMReadOnly(grmId, rmId, tmId) {
             $.ajax({
-                url: API_BASE_URL + 'get/individual_tm_of_zm.php?key=03201232927&zm_id=' + grmId,
+                url: API_BASE_URL + 'get/individual_tm_of_zm.php?key=2170&zm_id=' + grmId,
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
@@ -1475,7 +1475,7 @@ require_once __DIR__ . '/session/session.php';
                         if (rmId) {
                             select.prop('disabled', false).val(rmId).prop('disabled', true);
                             $.ajax({
-                                url: API_BASE_URL + 'get/individual_asm_of_tm.php?key=03201232927&tm_id=' + rmId,
+                                url: API_BASE_URL + 'get/individual_asm_of_tm.php?key=2170&tm_id=' + rmId,
                                 type: 'GET',
                                 dataType: 'json',
                                 success: function(tmData) {

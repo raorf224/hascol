@@ -4,7 +4,7 @@ include("../config.php");
 set_time_limit(500); // 
 
 
-$access_key = '03201232927';
+$access_key = '2170';
 
 $pass = $_GET["key"];
 $date = date('Y-m-d H:i:s');

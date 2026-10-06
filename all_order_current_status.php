@@ -1535,7 +1535,7 @@ require_once __DIR__ . '/session/session.php';
 
         function loadDepots() {
             $.ajax({
-                url: API_BASE_URL + 'get/geo_depot.php?key=03201232927',
+                url: API_BASE_URL + 'get/geo_depot.php?key=2170',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
@@ -1565,7 +1565,7 @@ require_once __DIR__ . '/session/session.php';
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/get_all_order_current_status.php?key=03201232927&pre=Admin&user_id=1&rettype=' + rettypes + '&from=' + fromdate,
+                url: API_BASE_URL + 'get/get_all_order_current_status.php?key=2170&pre=Admin&user_id=1&rettype=' + rettypes + '&from=' + fromdate,
                 type: 'GET',
                 dataType: 'json',
                 timeout: 30000,
@@ -1764,7 +1764,7 @@ require_once __DIR__ . '/session/session.php';
 
         function get_orders_log(id) {
             $.ajax({
-                url: API_BASE_URL + 'get/get_order_backlog.php?key=03201232927&order_id=' + id,
+                url: API_BASE_URL + 'get/get_order_backlog.php?key=2170&order_id=' + id,
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {

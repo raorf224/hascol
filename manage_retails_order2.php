@@ -837,7 +837,7 @@ require_once __DIR__ . '/session/session.php';
             let todate = $('#todate').val();
             let rettypes = "RT";
 
-            fetch(API_BASE_URL + 'get/get_all_main_orders.php?key=03201232927&pre=Admin&user_id=1&from=' + fromdate + '&to=' + todate + '&rettype=' + rettypes)
+            fetch(API_BASE_URL + 'get/get_all_main_orders.php?key=2170&pre=Admin&user_id=1&from=' + fromdate + '&to=' + todate + '&rettype=' + rettypes)
                 .then(response => response.json())
                 .then(response => {
                     table.clear().draw();

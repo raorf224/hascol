@@ -5,7 +5,7 @@ $url1 = $_SERVER['REQUEST_URI'];
 header("Refresh: 70; URL=$url1"); // Refresh the page every 70 seconds
 include("../config.php");
 
-$access_key = '03201232927'; // Define the access key
+$access_key = '2170'; // Define the access key
 
 $pass = $_GET["key"] ?? ''; // Get the 'key' parameter from the URL
 if ($pass != '') {

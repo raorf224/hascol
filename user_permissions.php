@@ -251,7 +251,7 @@ require_once __DIR__ . '/session/session.php';
 
     <script>
         const API_BASE = 'api/permissions/';
-        const API_KEY = '03201232927';
+        const API_KEY = '2170';
 
         let allPages = [];
         let currentPrivilege = null;
@@ -401,4 +401,4 @@ require_once __DIR__ . '/session/session.php';
 
 </body>
 
-</html>
+</html

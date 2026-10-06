@@ -2,7 +2,7 @@
 // fetch.php
 include("../config.php");
 
-$access_key = '03201232927';
+$access_key = '2170';
 
 // Validate the access key
 $pass = $_GET["key"];

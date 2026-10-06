@@ -804,7 +804,7 @@ require_once __DIR__ . '/session/session.php';
 
         function openEditOffcanvas(id) {
             var settings = {
-                "url": API_BASE_URL + "get/get_container_sizes.php?key=03201232927&id=" + id + "",
+                "url": API_BASE_URL + "get/get_container_sizes.php?key=2170&id=" + id + "",
                 "method": "GET",
                 "timeout": 0,
             };
@@ -832,7 +832,7 @@ require_once __DIR__ . '/session/session.php';
 
         function deleteData(id) {
             var settings = {
-                "url": API_BASE_URL + "delete/delete_container_size.php?key=03201232927&id=" + id + "",
+                "url": API_BASE_URL + "delete/delete_container_size.php?key=2170&id=" + id + "",
                 "method": "GET",
                 "timeout": 0,
             };
@@ -904,7 +904,7 @@ require_once __DIR__ . '/session/session.php';
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/get_all_orders_shortage.php?key=03201232927&id=1&rettype=' + rettypes,
+                url: API_BASE_URL + 'get/get_all_orders_shortage.php?key=2170&id=1&rettype=' + rettypes,
                 type: 'GET',
                 dataType: 'json',
                 timeout: 30000,

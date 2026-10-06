@@ -435,7 +435,7 @@ require_once __DIR__ . '/session/session.php';
 
         // API Configuration
         const API_BASE_URL = 'api/';
-        const API_KEY = '03201232927';
+        const API_KEY = '2170';
         const USER_ID = '1';
 
         // Global variables for map

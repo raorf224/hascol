@@ -11,7 +11,7 @@ if (!$db) {
     exit();
 }
 
-$access_key = '03201232927';
+$access_key = '2170';
 $pass = $_GET["key"] ?? '';
 
 if (!empty($pass) && $pass === $access_key) {

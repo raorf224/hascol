@@ -1990,7 +1990,7 @@ require_once __DIR__ . '/session/session.php';
 
         function loadDealerProfile() {
             $.ajax({
-                url: API_BASE_URL + 'get/dealer_profile.php?id=' + dealerId + '&key=03201232927',
+                url: API_BASE_URL + 'get/dealer_profile.php?id=' + dealerId + '&key=2170',
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
@@ -2010,7 +2010,7 @@ require_once __DIR__ . '/session/session.php';
 
         function loadProducts() {
             $.ajax({
-                url: API_BASE_URL + 'get/dealers_products.php?key=03201232927&dealer_id=' + dealerId,
+                url: API_BASE_URL + 'get/dealers_products.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
@@ -2026,7 +2026,7 @@ require_once __DIR__ . '/session/session.php';
 
         function loadTanks() {
             $.ajax({
-                url: API_BASE_URL + 'get/get_dealers_tanks.php?key=03201232927&dealer_id=' + dealerId,
+                url: API_BASE_URL + 'get/get_dealers_tanks.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
@@ -2051,7 +2051,7 @@ require_once __DIR__ . '/session/session.php';
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/dealers_syb_orders.php?id=' + dealerId + '&key=03201232927',
+                url: API_BASE_URL + 'get/dealers_syb_orders.php?id=' + dealerId + '&key=2170',
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
@@ -2076,7 +2076,7 @@ require_once __DIR__ . '/session/session.php';
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/get_dealers_product_target.php?key=03201232927&dealer_id=' + dealerId,
+                url: API_BASE_URL + 'get/get_dealers_product_target.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
@@ -2340,7 +2340,7 @@ require_once __DIR__ . '/session/session.php';
             });
 
             $.ajax({
-                url: API_BASE_URL + 'get/get_main_sub_orders.php?key=03201232927&id=' + orderId,
+                url: API_BASE_URL + 'get/get_main_sub_orders.php?key=2170&id=' + orderId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
@@ -2483,7 +2483,7 @@ require_once __DIR__ . '/session/session.php';
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/get_dealer_ledger_log.php?key=03201232927&dealer_id=' + dealerId,
+                url: API_BASE_URL + 'get/get_dealer_ledger_log.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {

@@ -12,7 +12,7 @@ ini_set('memory_limit', '2048M');
 // ============================================
 include("../../../config.php");
 
-$access_key = '03201232927';
+$access_key = '2170';
 $pass = isset($_GET["key"]) ? $_GET["key"] : '';
 
 if ($pass != '') {

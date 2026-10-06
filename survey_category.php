@@ -669,7 +669,7 @@ require_once __DIR__ . '/session/session.php';
         }
 
         const API_BASE = 'api/';
-        const API_KEY = '03201232927';
+        const API_KEY = '2170';
 
         let dataTable = null;
 

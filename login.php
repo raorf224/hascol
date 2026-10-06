@@ -433,7 +433,7 @@ if (isset($_SESSION['user_id'])) {
 
     <script>
         const API_BASE = 'api/auth/';
-        const API_KEY = '03201232927';
+        const API_KEY = '2170';
 
         $(document).ready(function () {
 

@@ -1371,7 +1371,7 @@ require_once __DIR__ . '/session/session.php';
         // Load Cart Users
         function loadCartUsers() {
             $.ajax({
-                url: API_BASE_URL + 'get/get_cart_users.php?key=03201232927&pre=Admin&user_id=1',
+                url: API_BASE_URL + 'get/get_cart_users.php?key=2170&pre=Admin&user_id=1',
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
@@ -1411,7 +1411,7 @@ require_once __DIR__ . '/session/session.php';
                 </tr>
             `);
 
-            const url = API_BASE_URL + 'get/get_all_sales_invoices.php?key=03201232927&pre=Admin&user_id=1&from=' + fromDate + '&to=' + toDate + '&rettype=CO%20';
+            const url = API_BASE_URL + 'get/get_all_sales_invoices.php?key=2170&pre=Admin&user_id=1&from=' + fromDate + '&to=' + toDate + '&rettype=CO%20';
 
             $.ajax({
                 url: url,

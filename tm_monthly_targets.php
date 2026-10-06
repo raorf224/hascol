@@ -873,7 +873,7 @@ require_once __DIR__ . '/session/session.php';
         // Load TM List - FIXED with pre and user_id
         // ============================================
         function loadTMList() {
-            const url = API_BASE_URL + 'get/get_asm.php?key=03201232927&pre=Admin&user_id=1';
+            const url = API_BASE_URL + 'get/get_asm.php?key=2170&pre=Admin&user_id=1';
             
             $.ajax({
                 url: url,
@@ -906,7 +906,7 @@ require_once __DIR__ . '/session/session.php';
         // ============================================
         function loadTMListFallback() {
             $.ajax({
-                url: API_BASE_URL + 'get/get_tm.php?key=03201232927',
+                url: API_BASE_URL + 'get/get_tm.php?key=2170',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
@@ -936,7 +936,7 @@ require_once __DIR__ . '/session/session.php';
         // ============================================
         function loadProductsList() {
             $.ajax({
-                url: API_BASE_URL + 'get/get_all_products.php?key=03201232927',
+                url: API_BASE_URL + 'get/get_all_products.php?key=2170',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
@@ -983,7 +983,7 @@ require_once __DIR__ . '/session/session.php';
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/get_tm_monthly_target.php?key=03201232927&id=1',
+                url: API_BASE_URL + 'get/get_tm_monthly_target.php?key=2170&id=1',
                 type: 'GET',
                 dataType: 'json',
                 timeout: 30000,

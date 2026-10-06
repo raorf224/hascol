@@ -685,7 +685,7 @@ require_once __DIR__ . '/session/session.php';
         // ============================================
         var API_BASE = "http://151.106.17.246:8080/hascolbridgeApis/";
         var FILES_BASE = "http://151.106.17.246:8080/hascolBridge_files/";
-        var API_KEY = "03201232927";
+        var API_KEY = "2170";
 
         var dataTable = null;
 

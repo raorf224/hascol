@@ -636,7 +636,7 @@ require_once __DIR__ . '/session/session.php';
 
         function loadDepots() {
             $.ajax({
-                url: API_BASE_URL + 'get/geo_depot.php?key=03201232927',
+                url: API_BASE_URL + 'get/geo_depot.php?key=2170',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
@@ -672,7 +672,7 @@ require_once __DIR__ . '/session/session.php';
                 </tr>
             `);
 
-            var url = API_BASE_URL + 'get/get_all_app_orders.php?key=03201232927&pre=Admin&user_id=1&from=' + fromdate + '&to=' + todate + '&rettype=' + rettypes;
+            var url = API_BASE_URL + 'get/get_all_app_orders.php?key=2170&pre=Admin&user_id=1&from=' + fromdate + '&to=' + todate + '&rettype=' + rettypes;
 
             $.ajax({
                 url: url,

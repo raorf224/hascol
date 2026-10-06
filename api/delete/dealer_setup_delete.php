@@ -3,7 +3,7 @@
 include("../config.php");
 
 // Access key for validation
-$access_key = '03201232927';
+$access_key = '2170';
 
 // Get key and dealer_id from the GET request
 $pass = isset($_GET["key"]) ? $_GET["key"] : '';

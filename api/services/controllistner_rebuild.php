@@ -154,7 +154,7 @@ function trip_close() {
 function trip_eta() {
     $curl = curl_init();
     curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://' . $_SERVER['HTTP_HOST'] . '/hascolbridgeApis/services/orders/sap_trip_eta.php?key=03201232927',
+        CURLOPT_URL => 'http://' . $_SERVER['HTTP_HOST'] . '/hascolbridgeApis/services/orders/sap_trip_eta.php?key=2170',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_FOLLOWLOCATION => true,
     ));

@@ -3,7 +3,7 @@
 include("../config.php");
 
 
-$access_key = '03201232927';
+$access_key = '2170';
 
 $pass = $_GET["key"];
 if ($pass != '') {
@@ -14,7 +14,7 @@ if ($pass != '') {
         curl_setopt_array(
             $curl,
             array(
-                CURLOPT_URL => 'http://151.106.17.246:8080/hascolbridgeApis/get/get_nozel_indent_price_api.php?key=03201232927',
+                CURLOPT_URL => 'http://151.106.17.246:8080/hascolbridgeApis/get/get_nozel_indent_price_api.php?key=2170',
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,

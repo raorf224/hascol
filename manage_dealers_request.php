@@ -1058,7 +1058,7 @@ require_once __DIR__ . '/session/session.php';
             `);
 
             $.ajax({
-                url: API_BASE_URL + 'get/get_dealer_verification.php?key=03201232927&id=1',
+                url: API_BASE_URL + 'get/get_dealer_verification.php?key=2170&id=1',
                 type: 'GET',
                 dataType: 'json',
                 timeout: 30000,
@@ -1205,7 +1205,7 @@ require_once __DIR__ . '/session/session.php';
 
         function openVerifyModal(id) {
             $.ajax({
-                url: API_BASE_URL + 'get/get_verify_request_by_id.php?key=03201232927&id=' + id,
+                url: API_BASE_URL + 'get/get_verify_request_by_id.php?key=2170&id=' + id,
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
@@ -1312,7 +1312,7 @@ require_once __DIR__ . '/session/session.php';
             deleteBtn.html('<i class="fa-solid fa-spinner fa-spin mr-1"></i> Deleting...');
 
             $.ajax({
-                url: API_BASE_URL + 'delete/delete_verify_request.php?key=03201232927&id=' + id,
+                url: API_BASE_URL + 'delete/delete_verify_request.php?key=2170&id=' + id,
                 type: 'GET',
                 timeout: 30000,
                 success: function(response) {

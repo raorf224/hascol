@@ -2,7 +2,7 @@
 //fetch.php  
 include("../../config.php");
 
-$access_key = '03201232927';
+$access_key = '2170';
 $pass = $_GET["key"];
 ini_set('max_execution_time', 0);
 ini_set('max_input_time', 0);

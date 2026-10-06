@@ -2,7 +2,7 @@
 // api/get/delete_user_handler.php
 include("../../config.php");
 
-$access_key = '03201232927';
+$access_key = '2170';
 $pass = $_GET["key"] ?? '';
 
 if ($pass !== $access_key) {
