@@ -123,7 +123,7 @@ if (isset($_SESSION['user_id'])) {
                 <form id="loginForm" autocomplete="off">
 
                     <div class="mb-3">
-                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Username</label>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Email</label>
                         <input type="text" id="login" name="login" class="login-input"
                             placeholder="Enter your username" required autocomplete="off">
                     </div>
