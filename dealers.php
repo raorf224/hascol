@@ -2403,6 +2403,7 @@ require_once __DIR__ . '/session/session.php';
                 closeColumnDropdown();
             }
         });
+        // Hello
 
         $('#bannerUploadBox').on('click', function () {
             if (isEditMode) {
