@@ -83,493 +83,538 @@ function sectionHasAccess($pages_array)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Sidebar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        :root {
-            --rail-bg-1: rgba(255, 255, 255, .95);
-            --rail-bg-2: rgba(242, 244, 248, .94);
-            --rail-bg-3: rgba(238, 241, 246, .96);
-            --rail-bg-solid: #EEF1F6;
-            --rail-border: rgba(15, 36, 64, .08);
-            --rail-shadow: rgba(15, 36, 64, .2);
-            --rail-text: #334660;
-            --rail-text-muted: rgba(15, 36, 64, .45);
-            --rail-text-hover: rgba(15, 36, 64, .7);
-            --rail-icon-bg: rgba(120, 120, 128, .12);
-            --rail-icon-bg-hover: rgba(120, 120, 128, .18);
-            --rail-icon-stroke: #5A6B84;
-            --rail-hover-bg: rgba(15, 36, 64, .05);
-            --rail-active-bg: #ffffff;
-            --rail-active-text: #0F2440;
-            --rail-active-shadow: 0 1px 4px rgba(15, 36, 64, .1), 0 0 0 1px rgba(15, 36, 64, .05);
-            --rail-active-icon-bg: #0F2440;
-            --rail-active-bar: #D11F2A;
-            --rail-close-border: rgba(15, 36, 64, .12);
-            --rail-close-stroke: rgba(15, 36, 64, .6);
-            --rail-scrim: rgba(11, 18, 32, .5);
-            --rail-scrollbar-thumb: rgba(15, 36, 64, .15);
-            --rail-scrollbar-thumb-hover: rgba(15, 36, 64, .25);
-            --rail-logo-bg: #ffffff;
-        }
+<style>
+    :root {
+        /* Hascol Brand Colors */
+        --hascol-red: #D11F2A;
+        --hascol-orange: #F58220;
+        --hascol-yellow: #FFC72C;
+        --hascol-navy: #1B3A6B;
 
-        html.dark-mode {
-            --rail-bg-1: rgba(13, 21, 32, .97);
-            --rail-bg-2: rgba(10, 17, 27, .96);
-            --rail-bg-3: rgba(6, 11, 19, .98);
-            --rail-bg-solid: #0d1520;
-            --rail-border: #1a2635;
-            --rail-shadow: rgba(0, 0, 0, .4);
-            --rail-text: #94a3b8;
-            --rail-text-muted: #64748b;
-            --rail-text-hover: #e5e7eb;
-            --rail-icon-bg: rgba(148, 163, 184, .12);
-            --rail-icon-bg-hover: rgba(148, 163, 184, .18);
-            --rail-icon-stroke: #94a3b8;
-            --rail-hover-bg: #1a2635;
-            --rail-active-bg: #060b13;
-            --rail-active-text: #ffffff;
-            --rail-active-shadow: 0 1px 4px rgba(0, 0, 0, .4), 0 0 0 1px #1a2635;
-            --rail-active-icon-bg: #1d4ed8;
-            --rail-active-bar: #ef4444;
-            --rail-close-border: #1a2635;
-            --rail-close-stroke: #94a3b8;
-            --rail-scrim: rgba(0, 0, 0, .6);
-            --rail-scrollbar-thumb: #1a2635;
-            --rail-scrollbar-thumb-hover: #26364a;
-            --rail-logo-bg: #0d1520;
+        /* Sidebar base */
+        --rail-bg-1: rgba(255, 255, 255, .95);
+        --rail-bg-2: rgba(252, 250, 248, .94);
+        --rail-bg-3: rgba(250, 246, 242, .96);
+        --rail-bg-solid: #FAF7F3;
+        --rail-border: rgba(209, 31, 42, .10);
+        --rail-shadow: rgba(15, 36, 64, .2);
+
+        /* Text */
+        --rail-text: #334660;
+        --rail-text-muted: rgba(15, 36, 64, .45);
+        --rail-text-hover: var(--hascol-red);
+
+        /* Icons */
+        --rail-icon-bg: rgba(245, 130, 32, .10);
+        --rail-icon-bg-hover: rgba(245, 130, 32, .18);
+        --rail-icon-stroke: #5A6B84;
+
+        /* Hover / Active */
+        --rail-hover-bg: rgba(245, 130, 32, .08);
+        --rail-active-bg: linear-gradient(90deg, rgba(209, 31, 42, .08), rgba(245, 130, 32, .06));
+        --rail-active-text: var(--hascol-red);
+        --rail-active-shadow: 0 1px 4px rgba(209, 31, 42, .10), 0 0 0 1px rgba(245, 130, 32, .15);
+        --rail-active-icon-bg: linear-gradient(135deg, var(--hascol-red), var(--hascol-orange));
+        --rail-active-bar: linear-gradient(180deg, var(--hascol-red), var(--hascol-orange), var(--hascol-yellow));
+
+        /* Misc */
+        --rail-close-border: rgba(209, 31, 42, .15);
+        --rail-close-stroke: rgba(209, 31, 42, .6);
+        --rail-scrim: rgba(11, 18, 32, .5);
+        --rail-scrollbar-thumb: linear-gradient(180deg, var(--hascol-red), var(--hascol-orange));
+        --rail-scrollbar-thumb-hover: linear-gradient(180deg, var(--hascol-orange), var(--hascol-yellow));
+        --rail-logo-bg: #ffffff;
+    }
+
+    html.dark-mode {
+        --rail-bg-1: rgba(13, 21, 32, .97);
+        --rail-bg-2: rgba(10, 17, 27, .96);
+        --rail-bg-3: rgba(6, 11, 19, .98);
+        --rail-bg-solid: #0d1520;
+        --rail-border: rgba(245, 130, 32, .12);
+        --rail-shadow: rgba(0, 0, 0, .4);
+
+        --rail-text: #94a3b8;
+        --rail-text-muted: #64748b;
+        --rail-text-hover: var(--hascol-yellow);
+
+        --rail-icon-bg: rgba(245, 130, 32, .12);
+        --rail-icon-bg-hover: rgba(245, 130, 32, .22);
+        --rail-icon-stroke: #94a3b8;
+
+        --rail-hover-bg: rgba(245, 130, 32, .10);
+        --rail-active-bg: linear-gradient(90deg, rgba(209, 31, 42, .15), rgba(245, 130, 32, .10));
+        --rail-active-text: var(--hascol-yellow);
+        --rail-active-shadow: 0 1px 4px rgba(0, 0, 0, .4), 0 0 0 1px rgba(245, 130, 32, .25);
+        --rail-active-icon-bg: linear-gradient(135deg, var(--hascol-red), var(--hascol-orange));
+        --rail-active-bar: linear-gradient(180deg, var(--hascol-red), var(--hascol-orange), var(--hascol-yellow));
+
+        --rail-close-border: rgba(245, 130, 32, .2);
+        --rail-close-stroke: #94a3b8;
+        --rail-scrim: rgba(0, 0, 0, .6);
+        --rail-scrollbar-thumb: linear-gradient(180deg, var(--hascol-red), var(--hascol-orange));
+        --rail-scrollbar-thumb-hover: linear-gradient(180deg, var(--hascol-orange), var(--hascol-yellow));
+        --rail-logo-bg: #0d1520;
+    }
+
+    .rail {
+        background: linear-gradient(180deg, var(--rail-bg-1), var(--rail-bg-2) 20%, var(--rail-bg-3)),
+            repeating-linear-gradient(45deg, rgba(209, 31, 42, .015) 0 1px, transparent 1px 8px),
+            repeating-linear-gradient(-45deg, rgba(245, 130, 32, .012) 0 1px, transparent 1px 8px),
+            var(--rail-bg-solid);
+        border-right: 1px solid var(--rail-border);
+        box-shadow: inset -6px 0 20px -18px var(--rail-shadow);
+        width: 230px;
+        min-width: 230px;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        max-height: 100vh;
+        position: sticky;
+        top: 0;
+        overflow: hidden;
+        transition: width .25s cubic-bezier(.2, .8, .3, 1), transform .3s cubic-bezier(.4, 0, .2, 1),
+            background .25s ease, border-color .25s ease;
+    }
+
+    .rail .logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px 8px 16px;
+        border-bottom: 1px solid var(--rail-border);
+        min-height: 60px;
+        flex-shrink: 0;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: var(--rail-logo-bg, #ffffff);
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    /* ✅ Hascol gradient underline on logo area */
+    .rail .logo::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--hascol-red), var(--hascol-orange), var(--hascol-yellow));
+        opacity: 0.85;
+    }
+
+    .rail .scroll-wrapper {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 4px 16px 20px 16px;
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: var(--hascol-orange) transparent;
+    }
+
+    .rail .scroll-wrapper::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .rail .scroll-wrapper::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .rail .scroll-wrapper::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, var(--hascol-red), var(--hascol-orange));
+        border-radius: 3px;
+    }
+
+    .rail .scroll-wrapper::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, var(--hascol-orange), var(--hascol-yellow));
+    }
+
+    .rail .brandchip {
+        display: flex;
+        align-items: center;
+        padding: 0;
+    }
+
+    .rail .brandchip .logo-img {
+        max-width: 130px;
+        max-height: 40px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+    }
+
+    html.dark-mode .rail .brandchip .logo-img {
+        mix-blend-mode: normal;
+    }
+
+    .rail .brandchip-slim {
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rail .brandchip-slim .logo-img-slim {
+        max-width: 32px;
+        max-height: 32px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+    }
+
+    html.dark-mode .rail .brandchip-slim .logo-img-slim {
+        mix-blend-mode: normal;
+    }
+
+    .rail .railclose {
+        display: none;
+        flex-shrink: 0;
+        background: transparent;
+        border: 1px solid var(--rail-close-border);
+        border-radius: 4px;
+        width: 28px;
+        height: 28px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .rail .railclose svg {
+        width: 13px;
+        height: 13px;
+        stroke: var(--rail-close-stroke);
+        fill: none;
+        stroke-width: 2.2;
+    }
+
+    .rail .grp,
+    .rail .grp-tog {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: .4px;
+        color: var(--rail-text);
+        padding: 8px 4px 3px 4px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        font-family: inherit;
+    }
+
+    .rail .grp-tog {
+        padding: 6px 4px 2px 4px;
+    }
+
+    .rail .grp-tog:hover {
+        color: var(--hascol-red);
+    }
+
+    .rail .grp-tog .caret {
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--hascol-orange);
+        transition: transform .15s;
+        width: 14px;
+        display: inline-block;
+    }
+
+    .rail .grp-tog .grp-icon {
+        font-size: 16px;
+        flex-shrink: 0;
+        color: var(--hascol-red);
+        width: 20px;
+        text-align: center;
+        opacity: 0.85;
+        transition: opacity .15s;
+    }
+
+    .rail .grp-tog:hover .grp-icon {
+        opacity: 1;
+    }
+
+    .rail .nav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 8px 5px 6px;
+        margin: 1px 4px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--rail-text);
+        text-decoration: none;
+        cursor: pointer;
+        transition: background .15s, transform .12s, color .15s;
+        position: relative;
+        background: transparent;
+        border: none;
+        width: calc(100% - 8px);
+        flex-shrink: 0;
+        font-family: inherit;
+    }
+
+    .rail .nav .ic {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        background: var(--rail-icon-bg);
+        transition: background .15s;
+    }
+
+    .rail .nav .ic svg {
+        width: 13px;
+        height: 13px;
+        stroke: var(--rail-icon-stroke);
+        stroke-width: 1.8;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: stroke .15s;
+    }
+
+    .rail .nav:hover {
+        background: var(--rail-hover-bg);
+        transform: translateX(3px);
+        color: var(--hascol-red);
+    }
+
+    .rail .nav:hover .ic {
+        background: var(--rail-icon-bg-hover);
+    }
+
+    .rail .nav:hover .ic svg {
+        stroke: var(--hascol-orange);
+    }
+
+    .rail .nav.active {
+        background: var(--rail-active-bg);
+        color: var(--rail-active-text);
+        font-weight: 600;
+        box-shadow: var(--rail-active-shadow);
+    }
+
+    .rail .nav.active .ic {
+        background: var(--rail-active-icon-bg);
+    }
+
+    .rail .nav.active .ic svg {
+        stroke: #ffffff;
+    }
+
+    .rail .nav.active::before {
+        content: '';
+        position: absolute;
+        left: -4px;
+        top: 20%;
+        bottom: 20%;
+        width: 3px;
+        border-radius: 0 3px 3px 0;
+        background: var(--rail-active-bar);
+        box-shadow: 0 0 8px rgba(245, 130, 32, .5);
+    }
+
+    .navsec {
+        overflow: hidden;
+        transition: max-height .25s ease;
+        max-height: 1000px;
+        flex-shrink: 0;
+    }
+
+    .navsec.collapsed {
+        max-height: 0;
+    }
+
+    .rail .spacer {
+        flex: 0;
+        min-height: 4px;
+    }
+
+    .rail.slim {
+        width: 60px;
+        min-width: 60px;
+    }
+
+    .rail.slim .brandchip {
+        display: none !important;
+    }
+
+    .rail.slim .brandchip-slim {
+        display: flex !important;
+    }
+
+    .rail.slim .grp,
+    .rail.slim .grp-tog {
+        display: flex !important;
+        justify-content: center;
+        padding: 8px 4px;
+        font-size: 0;
+        gap: 0;
+    }
+
+    .rail.slim .grp-tog .caret {
+        display: none !important;
+    }
+
+    .rail.slim .grp-tog .grp-label {
+        display: none !important;
+    }
+
+    .rail.slim .grp-tog .grp-icon {
+        font-size: 18px;
+        width: 20px;
+    }
+
+    .rail.slim .logo {
+        justify-content: center;
+        padding: 8px 16px;
+        border-bottom: none;
+        gap: 0;
+        min-height: 50px;
+        background: var(--rail-logo-bg, #ffffff);
+    }
+
+    .rail.slim .nav {
+        justify-content: center;
+        padding: 5px 4px;
+        font-size: 0;
+        gap: 0;
+        width: auto;
+        margin: 1px 6px;
+    }
+
+    .rail.slim .nav.active::before {
+        left: -6px;
+    }
+
+    .railScrim {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: var(--rail-scrim);
+        backdrop-filter: blur(1px);
+        z-index: 75;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .25s ease;
+    }
+
+    .railScrim.on {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    @media(max-width:820px) {
+        .railScrim {
+            display: block;
         }
 
         .rail {
-            background: linear-gradient(180deg, var(--rail-bg-1), var(--rail-bg-2) 20%, var(--rail-bg-3)),
-                repeating-linear-gradient(45deg, rgba(15, 36, 64, .02) 0 1px, transparent 1px 8px),
-                repeating-linear-gradient(-45deg, rgba(15, 36, 64, .012) 0 1px, transparent 1px 8px),
-                var(--rail-bg-solid);
-            border-right: 1px solid var(--rail-border);
-            box-shadow: inset -6px 0 20px -18px var(--rail-shadow);
-            width: 230px;
-            min-width: 230px;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            max-height: 100vh;
-            position: sticky;
+            position: fixed;
+            left: 0;
             top: 0;
-            overflow: hidden;
-            transition: width .25s cubic-bezier(.2, .8, .3, 1), transform .3s cubic-bezier(.4, 0, .2, 1),
-                background .25s ease, border-color .25s ease;
+            bottom: 0;
+            width: 280px;
+            min-width: 280px;
+            z-index: 80;
+            transform: translateX(-100%);
+            box-shadow: 8px 0 30px rgba(0, 0, 0, .25);
         }
 
-        .rail .logo {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 16px 8px 16px;
-            border-bottom: 1px solid var(--rail-border);
-            min-height: 60px;
-            flex-shrink: 0;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background: var(--rail-logo-bg, #ffffff);
-            box-sizing: border-box;
-        }
-
-        .rail .scroll-wrapper {
-            flex: 1;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding: 4px 16px 20px 16px;
-            scroll-behavior: smooth;
-            scrollbar-width: thin;
-            scrollbar-color: var(--rail-scrollbar-thumb) transparent;
-        }
-
-        .rail .scroll-wrapper::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        .rail .scroll-wrapper::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .rail .scroll-wrapper::-webkit-scrollbar-thumb {
-            background: var(--rail-scrollbar-thumb);
-            border-radius: 3px;
-        }
-
-        .rail .scroll-wrapper::-webkit-scrollbar-thumb:hover {
-            background: var(--rail-scrollbar-thumb-hover);
-        }
-
-        .rail .brandchip {
-            display: flex;
-            align-items: center;
-            padding: 0;
-        }
-
-        .rail .brandchip .logo-img {
-            max-width: 130px;
-            max-height: 40px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            mix-blend-mode: multiply;
-        }
-
-        html.dark-mode .rail .brandchip .logo-img {
-            mix-blend-mode: normal;
-        }
-
-        .rail .brandchip-slim {
-            display: none;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .rail .brandchip-slim .logo-img-slim {
-            max-width: 32px;
-            max-height: 32px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            mix-blend-mode: multiply;
-        }
-
-        html.dark-mode .rail .brandchip-slim .logo-img-slim {
-            mix-blend-mode: normal;
+        .rail.open {
+            transform: translateX(0);
         }
 
         .rail .railclose {
-            display: none;
-            flex-shrink: 0;
-            background: transparent;
-            border: 1px solid var(--rail-close-border);
-            border-radius: 4px;
-            width: 28px;
-            height: 28px;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+            display: flex !important;
         }
 
-        .rail .railclose svg {
-            width: 13px;
-            height: 13px;
-            stroke: var(--rail-close-stroke);
-            fill: none;
-            stroke-width: 2.2;
+        .rail .brandchip {
+            display: flex !important;
         }
 
-        .rail .grp,
-        .rail .grp-tog {
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: .4px;
-            color: var(--rail-text);
-            padding: 8px 4px 3px 4px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            text-align: left;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-shrink: 0;
-            font-family: inherit;
-        }
-
-        .rail .grp-tog {
-            padding: 6px 4px 2px 4px;
-        }
-
-        .rail .grp-tog:hover {
-            color: var(--rail-text-hover);
-        }
-
-        .rail .grp-tog .caret {
-            font-size: 10px;
-            font-weight: 600;
-            color: var(--rail-text-muted);
-            transition: transform .15s;
-            width: 14px;
-            display: inline-block;
-        }
-
-        .rail .grp-tog .grp-icon {
-            font-size: 16px;
-            flex-shrink: 0;
-            color: var(--rail-icon-stroke);
-            width: 20px;
-            text-align: center;
-        }
-
-        .rail .nav {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 5px 8px 5px 6px;
-            margin: 1px 4px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--rail-text);
-            text-decoration: none;
-            cursor: pointer;
-            transition: background .15s, transform .12s, color .15s;
-            position: relative;
-            background: transparent;
-            border: none;
-            width: calc(100% - 8px);
-            flex-shrink: 0;
-            font-family: inherit;
-        }
-
-        .rail .nav .ic {
-            width: 22px;
-            height: 22px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 4px;
-            background: var(--rail-icon-bg);
-            transition: background .15s;
-        }
-
-        .rail .nav .ic svg {
-            width: 13px;
-            height: 13px;
-            stroke: var(--rail-icon-stroke);
-            stroke-width: 1.8;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            transition: stroke .15s;
-        }
-
-        .rail .nav:hover {
-            background: var(--rail-hover-bg);
-            transform: translateX(3px);
-        }
-
-        .rail .nav:hover .ic {
-            background: var(--rail-icon-bg-hover);
-        }
-
-        .rail .nav.active {
-            background: var(--rail-active-bg);
-            color: var(--rail-active-text);
-            font-weight: 600;
-            box-shadow: var(--rail-active-shadow);
-        }
-
-        .rail .nav.active .ic {
-            background: var(--rail-active-icon-bg);
-        }
-
-        .rail .nav.active .ic svg {
-            stroke: #ffffff;
-        }
-
-        .rail .nav.active::before {
-            content: '';
-            position: absolute;
-            left: -4px;
-            top: 20%;
-            bottom: 20%;
-            width: 3px;
-            border-radius: 0 3px 3px 0;
-            background: var(--rail-active-bar);
-        }
-
-        .navsec {
-            overflow: hidden;
-            transition: max-height .25s ease;
-            max-height: 1000px;
-            flex-shrink: 0;
-        }
-
-        .navsec.collapsed {
-            max-height: 0;
-        }
-
-        .rail .spacer {
-            flex: 0;
-            min-height: 4px;
-        }
-
-        .rail.slim {
-            width: 60px;
-            min-width: 60px;
-        }
-
-        .rail.slim .brandchip {
+        .rail .brandchip-slim {
             display: none !important;
         }
 
-        .rail.slim .brandchip-slim {
+        .rail .logo {
+            background: var(--rail-logo-bg, #ffffff) !important;
+            padding: 12px 16px 8px 16px !important;
+            min-height: 60px !important;
+            border-bottom: 1px solid var(--rail-border) !important;
+        }
+
+        .rail.slim {
+            width: 280px;
+            min-width: 280px;
+        }
+
+        .rail.slim .brandchip {
             display: flex !important;
+        }
+
+        .rail.slim .brandchip-slim {
+            display: none !important;
         }
 
         .rail.slim .grp,
         .rail.slim .grp-tog {
-            display: flex !important;
-            justify-content: center;
-            padding: 8px 4px;
-            font-size: 0;
-            gap: 0;
-        }
-
-        .rail.slim .grp-tog .caret {
-            display: none !important;
+            font-size: 12px !important;
+            gap: 8px !important;
+            justify-content: flex-start !important;
         }
 
         .rail.slim .grp-tog .grp-label {
-            display: none !important;
+            display: inline !important;
         }
 
-        .rail.slim .grp-tog .grp-icon {
-            font-size: 18px;
-            width: 20px;
-        }
-
-        .rail.slim .logo {
-            justify-content: center;
-            padding: 8px 16px;
-            border-bottom: none;
-            gap: 0;
-            min-height: 50px;
-            background: var(--rail-logo-bg, #ffffff);
+        .rail.slim .grp-tog .caret {
+            display: inline-block !important;
         }
 
         .rail.slim .nav {
-            justify-content: center;
-            padding: 5px 4px;
-            font-size: 0;
-            gap: 0;
-            width: auto;
-            margin: 1px 6px;
+            font-size: 12px !important;
+            gap: 8px !important;
+            width: calc(100% - 8px) !important;
+            justify-content: flex-start !important;
+            padding: 5px 8px 5px 6px !important;
         }
 
-        .rail.slim .nav.active::before {
-            left: -6px;
+        .rail.slim .logo {
+            gap: 8px !important;
+            border-bottom: 1px solid var(--rail-border) !important;
+            justify-content: space-between !important;
+            padding: 12px 16px 8px 16px !important;
+            min-height: 60px !important;
+            background: var(--rail-logo-bg, #ffffff) !important;
         }
+    }
 
+    @media(min-width:821px) {
         .railScrim {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: var(--rail-scrim);
-            backdrop-filter: blur(1px);
-            z-index: 75;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity .25s ease;
+            display: none !important;
         }
 
-        .railScrim.on {
-            opacity: 1;
-            pointer-events: auto;
+        .rail .railclose {
+            display: none !important;
         }
-
-        @media(max-width:820px) {
-            .railScrim {
-                display: block;
-            }
-
-            .rail {
-                position: fixed;
-                left: 0;
-                top: 0;
-                bottom: 0;
-                width: 280px;
-                min-width: 280px;
-                z-index: 80;
-                transform: translateX(-100%);
-                box-shadow: 8px 0 30px rgba(0, 0, 0, .25);
-            }
-
-            .rail.open {
-                transform: translateX(0);
-            }
-
-            .rail .railclose {
-                display: flex !important;
-            }
-
-            .rail .brandchip {
-                display: flex !important;
-            }
-
-            .rail .brandchip-slim {
-                display: none !important;
-            }
-
-            .rail .logo {
-                background: var(--rail-logo-bg, #ffffff) !important;
-                padding: 12px 16px 8px 16px !important;
-                min-height: 60px !important;
-                border-bottom: 1px solid var(--rail-border) !important;
-            }
-
-            .rail.slim {
-                width: 280px;
-                min-width: 280px;
-            }
-
-            .rail.slim .brandchip {
-                display: flex !important;
-            }
-
-            .rail.slim .brandchip-slim {
-                display: none !important;
-            }
-
-            .rail.slim .grp,
-            .rail.slim .grp-tog {
-                font-size: 12px !important;
-                gap: 8px !important;
-                justify-content: flex-start !important;
-            }
-
-            .rail.slim .grp-tog .grp-label {
-                display: inline !important;
-            }
-
-            .rail.slim .grp-tog .caret {
-                display: inline-block !important;
-            }
-
-            .rail.slim .nav {
-                font-size: 12px !important;
-                gap: 8px !important;
-                width: calc(100% - 8px) !important;
-                justify-content: flex-start !important;
-                padding: 5px 8px 5px 6px !important;
-            }
-
-            .rail.slim .logo {
-                gap: 8px !important;
-                border-bottom: 1px solid var(--rail-border) !important;
-                justify-content: space-between !important;
-                padding: 12px 16px 8px 16px !important;
-                min-height: 60px !important;
-                background: var(--rail-logo-bg, #ffffff) !important;
-            }
-        }
-
-        @media(min-width:821px) {
-            .railScrim {
-                display: none !important;
-            }
-
-            .rail .railclose {
-                display: none !important;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
