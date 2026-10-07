@@ -9583,3 +9583,38 @@ l
 [2026-10-06 16:30:32] [INFO] Calling API: http://localhost/hascol_dashboard/api/recon_efficiency.php?date_from=2026-09-30&date_to=2026-10-06&region=all&territory=all&tm=all&site=all&product=all
 [2026-10-06 16:30:32] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-06, region=all
 [2026-10-06 16:30:32] [INFO] API Response: recon_efficiency - HTTP: 404, Duration: 0s
+[2026-10-06 19:11:10] [INFO] READ: filter_options - Filters: date_from=2026-09-30, date_to=2026-10-06, region=all
+[2026-10-06 19:11:10] [INFO] Cache stale (age: 20634s), returning stale data for: filter_options_23c2f94f7dc6c65faf4e3281e38460e5
+[2026-10-06 19:11:10] [INFO] Background update triggered: filter_options with filters
+[2026-10-06 19:11:11] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-06, region=all
+[2026-10-06 19:11:11] [INFO] Cache stale (age: 20634s), returning stale data for: dashboard_data_23c2f94f7dc6c65faf4e3281e38460e5
+[2026-10-06 19:11:11] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-06 19:11:11] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-06, region=all
+[2026-10-06 19:11:11] [INFO] Cache stale (age: 20634s), returning stale data for: recon_efficiency_23c2f94f7dc6c65faf4e3281e38460e5
+[2026-10-06 19:11:11] [INFO] Background update triggered: recon_efficiency with filters
+[2026-10-06 19:11:11] [INFO] READ: trends_data - Filters: date_from=2026-09-30, date_to=2026-10-06, region=all
+[2026-10-06 19:11:11] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-06, region=all
+[2026-10-06 19:11:11] [INFO] Cache stale (age: 20628s), returning stale data for: trends_data_23c2f94f7dc6c65faf4e3281e38460e5
+[2026-10-06 19:11:11] [INFO] Cache stale (age: 20634s), returning stale data for: tm_performance_23c2f94f7dc6c65faf4e3281e38460e5
+[2026-10-06 19:11:11] [INFO] Background update triggered: tm_performance with filters
+[2026-10-06 19:11:11] [INFO] READ: variance_data - Filters: date_from=2026-09-30, date_to=2026-10-06, region=all
+[2026-10-06 19:11:11] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-06, region=all
+[2026-10-06 19:11:11] [INFO] Cache stale (age: 20634s), returning stale data for: dashboard_data_23c2f94f7dc6c65faf4e3281e38460e5
+[2026-10-06 19:11:11] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-06, region=all
+[2026-10-06 19:11:11] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-06 19:11:11] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-06, region=all
+[2026-10-06 19:11:11] [INFO] Cache stale (age: 20634s), returning stale data for: variance_data_23c2f94f7dc6c65faf4e3281e38460e5
+[2026-10-06 19:11:11] [INFO] Background update triggered: variance_data with filters
+[2026-10-06 19:11:11] [INFO] Cache stale (age: 20634s), returning stale data for: alerts_data_23c2f94f7dc6c65faf4e3281e38460e5
+[2026-10-06 19:11:11] [INFO] Background update triggered: alerts_data with filters
+[2026-10-06 19:11:11] [INFO] Cache stale (age: 20634s), returning stale data for: map_data_23c2f94f7dc6c65faf4e3281e38460e5
+[2026-10-06 19:11:11] [INFO] Background update triggered: map_data with filters
+[2026-10-06 19:11:11] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-06, region=all
+[2026-10-06 19:11:11] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-06, region=all
+[2026-10-06 19:11:11] [INFO] Cache stale (age: 20634s), returning stale data for: dashboard_data_23c2f94f7dc6c65faf4e3281e38460e5
+[2026-10-06 19:11:11] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-06 19:11:11] [INFO] Cache stale (age: 20634s), returning stale data for: top_sites_23c2f94f7dc6c65faf4e3281e38460e5
+[2026-10-06 19:11:11] [INFO] Background update triggered: top_sites with filters
+[2026-10-06 19:11:11] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-06, region=all
+[2026-10-06 19:11:11] [INFO] Cache stale (age: 20634s), returning stale data for: dashboard_data_23c2f94f7dc6c65faf4e3281e38460e5
+[2026-10-06 19:11:11] [INFO] Background update triggered: dashboard_data with filters

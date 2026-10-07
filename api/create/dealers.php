@@ -71,7 +71,7 @@ if (isset($_POST)) {
     $type             = mysqli_real_escape_string($db, $type);
 
     // ============================================
-    // ✅ DUPLICATE CHECK — Same Name + SAP No + Contact
+    // DUPLICATE CHECK — Same Name + SAP No + Contact
     // ============================================
     $checkQuery = "SELECT id FROM `dealers` 
                    WHERE `name` = '$dealer_name' 
@@ -81,18 +81,18 @@ if (isset($_POST)) {
     $checkResult = mysqli_query($db, $checkQuery);
 
     if ($checkResult && mysqli_num_rows($checkResult) > 0) {
-        // Record pehle se maujood hai
+        // Record already exists
         $existingRow = mysqli_fetch_assoc($checkResult);
         echo json_encode([
             'status'  => 'duplicate',
-            'message' => 'Ye dealer pehle se maujood hai (ID: ' . $existingRow['id'] . '). Same Site Name, SAP No, aur Contact ke saath naya record nahi ban sakta. Please alag SAP No ya Contact use karein.',
+            'message' => 'This dealer already exists (ID: ' . $existingRow['id'] . '). A new record cannot be created with the same Site Name, SAP No, and Contact. Please use a different SAP No or Contact.',
             'existing_id' => $existingRow['id']
         ]);
         exit;
     }
 
     // ============================================
-    // ✅ SECONDARY CHECK — Sirf SAP No
+    // SECONDARY CHECK — SAP No Only
     // ============================================
     $checkSapQuery = "SELECT id, name FROM `dealers` 
                       WHERE `sap_no` = '$dealer_sap_no' 
@@ -103,14 +103,14 @@ if (isset($_POST)) {
         $existingSapRow = mysqli_fetch_assoc($checkSapResult);
         echo json_encode([
             'status'  => 'duplicate',
-            'message' => 'Ye SAP No (' . $dealer_sap_no . ') pehle se dealer "' . $existingSapRow['name'] . '" (ID: ' . $existingSapRow['id'] . ') ke saath registered hai. Har dealer ka SAP No unique hona chahiye.',
+            'message' => 'This SAP No (' . $dealer_sap_no . ') is already registered with dealer "' . $existingSapRow['name'] . '" (ID: ' . $existingSapRow['id'] . '). Each dealer must have a unique SAP No.',
             'existing_id' => $existingSapRow['id']
         ]);
         exit;
     }
 
     // ============================================
-    // ✅ TERTIARY CHECK — Sirf Contact
+    // TERTIARY CHECK — Contact Only
     // ============================================
     $checkContactQuery = "SELECT id, name FROM `dealers` 
                           WHERE `contact` = '$call_no' 
@@ -121,7 +121,7 @@ if (isset($_POST)) {
         $existingContactRow = mysqli_fetch_assoc($checkContactResult);
         echo json_encode([
             'status'  => 'duplicate',
-            'message' => 'Ye Contact No (' . $call_no . ') pehle se dealer "' . $existingContactRow['name'] . '" (ID: ' . $existingContactRow['id'] . ') ke saath registered hai. Har dealer ka contact unique hona chahiye.',
+            'message' => 'This Contact No (' . $call_no . ') is already registered with dealer "' . $existingContactRow['name'] . '" (ID: ' . $existingContactRow['id'] . '). Each dealer must have a unique contact number.',
             'existing_id' => $existingContactRow['id']
         ]);
         exit;
@@ -214,7 +214,7 @@ if (isset($_POST)) {
             if (strpos($errMsg, 'Duplicate entry') !== false) {
                 $response = [
                     'status'  => 'duplicate',
-                    'message' => 'Ye record pehle se maujood hai. Please unique Site Name, SAP No, aur Contact use karein.'
+                    'message' => 'This record already exists. Please use a unique Site Name, SAP No, and Contact.'
                 ];
             } else {
                 $response = [

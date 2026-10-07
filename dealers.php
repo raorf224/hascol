@@ -13,10 +13,20 @@ require_once __DIR__ . '/session/session.php';
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+
+    <!-- Leaflet CSS & JS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Leaflet Draw CSS & JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+    <!-- Select2 CSS & JS -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <!-- DataTables CSS & JS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
@@ -29,7 +39,7 @@ require_once __DIR__ . '/session/session.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-        (function() {
+        (function () {
             const isDarkMode = localStorage.getItem('darkMode') === 'true';
             if (isDarkMode) {
                 document.documentElement.classList.add('dark-mode');
@@ -182,7 +192,12 @@ require_once __DIR__ . '/session/session.php';
         .search-input:focus { border-color: #1d4ed8; box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.2); }
         .search-input::placeholder { color: var(--text-muted); }
 
-        #passwordModal { background: var(--modal-overlay); backdrop-filter: blur(8px); }
+        #passwordModal {
+            background: var(--modal-overlay);
+            backdrop-filter: blur(8px);
+            z-index: 99999 !important;
+        }
+
         #passwordModalWrapper { background-color: var(--bg-panel) !important; border-color: var(--border-color) !important; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35); }
         html.dark-mode #passwordModalWrapper { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8); }
 
@@ -229,7 +244,7 @@ require_once __DIR__ . '/session/session.php';
 
         .section-title { color: var(--text-muted); font-size: 9px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border-color); }
 
-        #map-canvas { width: 100%; height: 300px; border-radius: 0.375rem; border: 1px solid var(--border-color); z-index: 1; background: #e8e8e8; }
+        #map-canvas { width: 100%; height: 400px; border-radius: 0.375rem; border: 1px solid var(--border-color); z-index: 1; background: #e8e8e8; }
         html.dark-mode .leaflet-tile-pane { filter: var(--map-tiles-filter); }
 
         .map-search-container { position: relative; margin-bottom: 8px; }
@@ -245,6 +260,99 @@ require_once __DIR__ . '/session/session.php';
         .map-search-container #mapSearchInput:focus { border-color: #1d4ed8; box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.2); }
         .map-search-container #mapSearchInput::placeholder { color: var(--text-muted); }
         .map-search-container .search-icon { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 13px; }
+
+        /* Leaflet Draw Custom Styles */
+        .leaflet-draw-toolbar a { background-color: var(--bg-panel) !important; border-color: var(--border-color) !important; }
+        .leaflet-draw-toolbar a:hover { background-color: var(--hover-bg) !important; }
+        .leaflet-draw-actions a { background-color: #1d4ed8 !important; color: #ffffff !important; }
+        .leaflet-draw-actions a:hover { background-color: #2563eb !important; }
+        .leaflet-draw-tooltip { background-color: var(--bg-panel) !important; color: var(--text-body) !important; border: 1px solid var(--border-color) !important; }
+        html.dark-mode .leaflet-draw-tooltip { background-color: #0d1520 !important; color: #e5e7eb !important; }
+
+        #coordinatesPolygon { cursor: pointer; font-size: 11px; }
+
+        .polygon-info { font-size: 9px; color: var(--text-muted); margin-top: 3px; display: block; }
+
+        /* ✅ Shape Toolbar as Leaflet Control */
+        .leaflet-shape-control {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 0.375rem;
+            padding: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .leaflet-shape-control .shape-btn {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 0.25rem;
+            color: var(--text-muted);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            padding: 0;
+            position: relative;
+        }
+
+        .leaflet-shape-control .shape-btn:hover {
+            background: var(--hover-bg);
+            color: var(--text-heading);
+            border-color: #1d4ed8;
+        }
+
+        .leaflet-shape-control .shape-btn.active {
+            background: #1d4ed8;
+            color: #ffffff;
+            border-color: #1d4ed8;
+            box-shadow: 0 2px 8px rgba(29, 78, 216, 0.4);
+        }
+
+        .leaflet-shape-control .shape-btn::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: 8px;
+            background: var(--bg-panel);
+            color: var(--text-body);
+            border: 1px solid var(--border-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            z-index: 99999;
+        }
+
+        .leaflet-shape-control .shape-btn:hover::after {
+            opacity: 1;
+        }
+
+        /* Resize/Transform Handles */
+        .leaflet-editing-icon {
+            background-color: #1d4ed8 !important;
+            border: 2px solid #ffffff !important;
+            width: 12px !important;
+            height: 12px !important;
+            border-radius: 50% !important;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        html.dark-mode .leaflet-editing-icon {
+            background-color: #3b82f6 !important;
+            border-color: #060b13 !important;
+        }
 
         .toast { position: fixed; bottom: 30px; right: 30px; background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 0.375rem; padding: 12px 20px; color: var(--text-body); font-size: 12px; z-index: 9999; transform: translateY(100px); opacity: 0; transition: all 0.3s ease-in-out; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); }
         .toast.show { transform: translateY(0); opacity: 1; }
@@ -425,20 +533,20 @@ require_once __DIR__ . '/session/session.php';
                     </div>
                     <div>
                         <label class="form-label">Password</label>
-                        <input type="text" id="dealerPassword" class="form-input" placeholder="Click 'Edit Password' to change" readonly>
+                        <input type="text" id="dealerPassword" class="form-input" placeholder="Enter Password" readonly>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-3 mb-3">
                     <div>
                         <label class="form-label">Contact No</label>
-                        <input type="tel" id="dealerContact" class="form-input" placeholder="Enter Contact" 
-                               pattern="[0-9+\-\s]*" maxlength="15" inputmode="numeric" readonly>
+                        <input type="tel" id="dealerContact" class="form-input" placeholder="Enter Contact"
+                            pattern="[0-9+\-\s]*" maxlength="15" inputmode="numeric" readonly>
                     </div>
                     <div>
                         <label class="form-label">Account Balance</label>
-                        <input type="number" id="accountBalance" class="form-input" placeholder="Enter Balance" 
-                               step="0.01" min="0" readonly>
+                        <input type="number" id="accountBalance" class="form-input" placeholder="Enter Balance"
+                            step="0.01" min="0" readonly>
                     </div>
                 </div>
 
@@ -449,7 +557,9 @@ require_once __DIR__ . '/session/session.php';
                     </div>
                     <div>
                         <label class="form-label">Co-Ordinates (Polygon)</label>
-                        <input type="text" id="coordinatesPolygon" class="form-input" placeholder="Polygon data" readonly>
+                        <input type="text" id="coordinatesPolygon" class="form-input" placeholder="Draw polygon on map"
+                            readonly>
+                        <span class="polygon-info"><i class="fa-solid fa-info-circle"></i> Use shape tools on map</span>
                     </div>
                 </div>
 
@@ -505,13 +615,13 @@ require_once __DIR__ . '/session/session.php';
                 <div class="grid grid-cols-3 gap-3 mb-3">
                     <div>
                         <label class="form-label">GRM</label>
-                        <select id="grm" class="form-select" disabled>
+                        <select id="grm" class="form-select" disabled onchange="loadRM(this.value)">
                             <option value="">Select GRM</option>
                         </select>
                     </div>
                     <div>
                         <label class="form-label">RM</label>
-                        <select id="rm" class="form-select" disabled>
+                        <select id="rm" class="form-select" disabled onchange="loadTM(this.value)">
                             <option value="">Select RM</option>
                         </select>
                     </div>
@@ -526,11 +636,16 @@ require_once __DIR__ . '/session/session.php';
                 <div class="section-title mt-4">Location Map</div>
                 <div class="mb-4">
                     <div class="map-search-container" id="mapSearchWrapper">
-                        <input id="mapSearchInput" type="text" placeholder="Search any location worldwide..." autocomplete="off">
+                        <input id="mapSearchInput" type="text" placeholder="Search any location worldwide..."
+                            autocomplete="off">
                         <i class="fa-solid fa-search search-icon"></i>
                         <div class="search-results" id="searchResults"></div>
                     </div>
                     <div id="map-canvas"></div>
+                    <div class="polygon-info mt-1">
+                        <i class="fa-solid fa-info-circle"></i>
+                        <strong>Shape Tool:</strong> Use shape buttons on map. Drag corners to resize.
+                    </div>
                 </div>
 
                 <div class="section-title mt-4">Banner & Logo</div>
@@ -541,7 +656,8 @@ require_once __DIR__ . '/session/session.php';
                         <i class="fa-regular fa-image text-2xl text-gray-500 block mb-2"></i>
                         <p class="text-gray-500 text-xs">Choose file or drag & drop</p>
                         <p class="text-gray-600 text-[9px] mt-1">Image must be 1200x200</p>
-                        <input type="file" id="bannerInput" accept="image/*" style="display:none;" onchange="previewImage(this, 'bannerPreview', 'bannerHidden')">
+                        <input type="file" id="bannerInput" accept="image/*" style="display:none;"
+                            onchange="previewImage(this, 'bannerPreview', 'bannerHidden')">
                         <img id="bannerPreview" class="preview-img" src="" alt="Banner Preview">
                         <span id="bannerFileName" class="text-blue-400 text-xs mt-2 block">No file chosen</span>
                     </div>
@@ -553,7 +669,8 @@ require_once __DIR__ . '/session/session.php';
                         <i class="fa-regular fa-image text-2xl text-gray-500 block mb-2"></i>
                         <p class="text-gray-500 text-xs">Choose file or drag & drop</p>
                         <p class="text-gray-600 text-[9px] mt-1">Image must be 96x96</p>
-                        <input type="file" id="logoInput" accept="image/*" style="display:none;" onchange="previewImage(this, 'logoPreview', 'logoHidden')">
+                        <input type="file" id="logoInput" accept="image/*" style="display:none;"
+                            onchange="previewImage(this, 'logoPreview', 'logoHidden')">
                         <img id="logoPreview" class="preview-img" src="" alt="Logo Preview">
                         <span id="logoFileName" class="text-blue-400 text-xs mt-2 block">No file chosen</span>
                     </div>
@@ -591,7 +708,8 @@ require_once __DIR__ . '/session/session.php';
                     </div>
                 </div>
 
-                <div class="flex gap-3 mt-4 pt-3 border-t" id="formButtons" style="border-color: var(--border-color); display: none;">
+                <div class="flex gap-3 mt-4 pt-3 border-t" id="formButtons"
+                    style="border-color: var(--border-color); display: none;">
                     <button type="submit" class="btn-primary flex-1">Save Changes</button>
                     <button type="button" onclick="closeOffcanvas()" class="btn-secondary">Cancel</button>
                 </div>
@@ -600,7 +718,7 @@ require_once __DIR__ . '/session/session.php';
     </div>
 
     <div id="passwordModal"
-        class="fixed inset-0 z-50 hidden backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 opacity-0">
+        class="fixed inset-0 z-[99999] hidden backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 opacity-0">
         <div class="border rounded-lg shadow-2xl w-full max-w-sm transform scale-95 transition-transform duration-300"
             id="passwordModalWrapper">
             <div class="p-6">
@@ -614,7 +732,8 @@ require_once __DIR__ . '/session/session.php';
                     <input type="hidden" id="passwordDealerId" value="">
                     <div class="mb-4">
                         <label class="form-label">Password</label>
-                        <input type="text" id="newPassword" class="form-input" placeholder="Enter new password" required>
+                        <input type="text" id="newPassword" class="form-input" placeholder="Enter new password"
+                            required>
                     </div>
                     <div class="flex gap-3">
                         <button type="submit" class="btn-primary flex-1">Save</button>
@@ -666,7 +785,81 @@ require_once __DIR__ . '/session/session.php';
         let marker;
         let mapInitialized = false;
         let searchTimeout;
+        let drawnItems;
+        let drawControl;
+        let currentPolygonLayer = null;
+        let activeShape = 'freehand';
+        let shapeControlInstance = null;
 
+        // ============================================
+        // ✅ Custom Leaflet Control for Shapes
+        // ============================================
+        const ShapeControl = L.Control.extend({
+            options: { position: 'topleft' },
+
+            onAdd: function (map) {
+                const container = L.DomUtil.create('div', 'leaflet-shape-control');
+                L.DomEvent.disableClickPropagation(container);
+                L.DomEvent.disableScrollPropagation(container);
+
+                const shapes = [
+                    { id: 'freehand', icon: 'fa-draw-polygon', label: 'Free Draw' },
+                    { id: 'pentagon', icon: 'fa-star', label: 'Pentagon' },
+                    { id: 'hexagon', icon: 'fa-star', label: 'Hexagon' },
+                    { id: 'square', icon: 'fa-square', label: 'Square' },
+                    { id: 'triangle', icon: 'fa-play', label: 'Triangle' }
+                ];
+
+                shapes.forEach(function (shape) {
+                    const btn = L.DomUtil.create('button', 'shape-btn' + (shape.id === 'freehand' ? ' active' : ''), container);
+                    btn.type = 'button';
+                    btn.setAttribute('data-shape', shape.id);
+                    btn.setAttribute('data-tooltip', shape.label);
+                    btn.innerHTML = '<i class="fa-solid ' + shape.icon + '"></i>';
+
+                    // ✅ Use L.DomEvent.on for reliable click handling
+                    L.DomEvent.on(btn, 'click', function (e) {
+                        L.DomEvent.stopPropagation(e);
+                        L.DomEvent.preventDefault(e);
+                        selectShape(shape.id);
+                    });
+                });
+
+                return container;
+            }
+        });
+
+        // ============================================
+        // ✅ Shape Selection Handler
+        // ============================================
+        function selectShape(shapeId) {
+            // Update active state
+            $('.shape-btn').removeClass('active');
+            $('.shape-btn[data-shape="' + shapeId + '"]').addClass('active');
+            activeShape = shapeId;
+
+            if (!map) return;
+
+            if (shapeId === 'freehand') {
+                if (drawControl && !map.hasLayer(drawControl)) {
+                    map.addControl(drawControl);
+                }
+                showToast('Free Draw mode. Use polygon icon to draw.', 'success');
+            } else {
+                if (drawControl && map.hasLayer(drawControl)) {
+                    map.removeControl(drawControl);
+                }
+                showToast(
+                    shapeId.charAt(0).toUpperCase() + shapeId.slice(1) +
+                    ' mode. Click on map to place shape.',
+                    'success'
+                );
+            }
+        }
+
+        // ============================================
+        // Initialize Map with Draw Control
+        // ============================================
         function initMap() {
             if (mapInitialized) return;
             const defaultCenter = [30.3753, 69.3451];
@@ -675,7 +868,224 @@ require_once __DIR__ . '/session/session.php';
                 maxZoom: 19,
                 attribution: '© OpenStreetMap contributors'
             }).addTo(map);
+
+            drawnItems = new L.FeatureGroup();
+            map.addLayer(drawnItems);
+
+            drawControl = new L.Control.Draw({
+                position: 'topleft',
+                draw: {
+                    polygon: {
+                        allowIntersection: false,
+                        showArea: true,
+                        shapeOptions: {
+                            color: '#1d4ed8',
+                            weight: 2,
+                            fillColor: '#1d4ed8',
+                            fillOpacity: 0.2
+                        }
+                    },
+                    polyline: false,
+                    rectangle: false,
+                    circle: false,
+                    circlemarker: false,
+                    marker: false
+                },
+                edit: {
+                    featureGroup: drawnItems,
+                    remove: true
+                }
+            });
+
+            // Add Custom Shape Control
+            shapeControlInstance = new ShapeControl();
+            map.addControl(shapeControlInstance);
+
+            // Free-hand Polygon Created
+            map.on(L.Draw.Event.CREATED, function (e) {
+                const layer = e.layer;
+                drawnItems.clearLayers();
+                drawnItems.addLayer(layer);
+                currentPolygonLayer = layer;
+
+                layer.editing.enable({
+                    allowSelfIntersection: false,
+                    preventMarkerRemoval: false,
+                    removeVertexOnClick: true
+                });
+
+                layer.on('edit', function () {
+                    const coords = layer.getLatLngs()[0];
+                    let polygonString = '';
+                    coords.forEach(function (latlng) {
+                        polygonString += latlng.lat.toFixed(6) + ',' + latlng.lng.toFixed(6) + ';';
+                    });
+                    $('#coordinatesPolygon').val(polygonString);
+                });
+
+                const coords = layer.getLatLngs()[0];
+                let polygonString = '';
+                coords.forEach(function (latlng) {
+                    polygonString += latlng.lat.toFixed(6) + ',' + latlng.lng.toFixed(6) + ';';
+                });
+                $('#coordinatesPolygon').val(polygonString);
+                showToast('Polygon created! Drag points to edit.', 'success');
+            });
+
+            // Polygon Edited
+            map.on(L.Draw.Event.EDITED, function (e) {
+                const layers = e.layers;
+                layers.eachLayer(function (layer) {
+                    const coords = layer.getLatLngs()[0];
+                    let polygonString = '';
+                    coords.forEach(function (latlng) {
+                        polygonString += latlng.lat.toFixed(6) + ',' + latlng.lng.toFixed(6) + ';';
+                    });
+                    $('#coordinatesPolygon').val(polygonString);
+                });
+                showToast('Polygon updated!', 'success');
+            });
+
+            // Polygon Deleted
+            map.on(L.Draw.Event.DELETED, function () {
+                $('#coordinatesPolygon').val('');
+                currentPolygonLayer = null;
+                showToast('Polygon deleted.', 'success');
+            });
+
+            // Custom shape click handler
+            map.on('click', function (e) {
+                if (!isEditMode) return;
+                if (activeShape === 'freehand') return;
+                handleCustomShapeClick(e);
+            });
+
+            // Right-click on vertex -> delete
+            map.on('contextmenu', function (e) {
+                if (!currentPolygonLayer) return;
+
+                const latlngs = currentPolygonLayer.getLatLngs()[0];
+                const clickPoint = e.latlng;
+
+                for (let i = 0; i < latlngs.length; i++) {
+                    const vertex = latlngs[i];
+                    const distance = map.distance(clickPoint, vertex);
+
+                    if (distance < 20) {
+                        if (latlngs.length > 3) {
+                            latlngs.splice(i, 1);
+                            currentPolygonLayer.setLatLngs([latlngs]);
+                            currentPolygonLayer.redraw();
+
+                            let polygonString = '';
+                            latlngs.forEach(function (latlng) {
+                                polygonString += latlng.lat.toFixed(6) + ',' + latlng.lng.toFixed(6) + ';';
+                            });
+                            $('#coordinatesPolygon').val(polygonString);
+
+                            showToast('Point deleted!', 'success');
+                        } else {
+                            showToast('Minimum 3 points required.', 'error');
+                        }
+                        break;
+                    }
+                }
+            });
+
             mapInitialized = true;
+        }
+
+        // ============================================
+        // Shape Generator
+        // ============================================
+        function generateShapePoints(centerLat, centerLng, shape, radiusMeters) {
+            const points = [];
+            let sides = 0;
+            let rotation = 0;
+
+            switch (shape) {
+                case 'pentagon': sides = 5; rotation = -Math.PI / 2; break;
+                case 'hexagon': sides = 6; rotation = -Math.PI / 2; break;
+                case 'square': sides = 4; rotation = Math.PI / 4; break;
+                case 'triangle': sides = 3; rotation = -Math.PI / 2; break;
+                default: return null;
+            }
+
+            const latDegPerMeter = 1 / 111320;
+            const lngDegPerMeter = 1 / (111320 * Math.cos(centerLat * Math.PI / 180));
+            const latRadius = radiusMeters * latDegPerMeter;
+            const lngRadius = radiusMeters * lngDegPerMeter;
+
+            for (let i = 0; i < sides; i++) {
+                const angle = rotation + (2 * Math.PI * i / sides);
+                const lat = centerLat + (latRadius * Math.sin(angle));
+                const lng = centerLng + (lngRadius * Math.cos(angle));
+                points.push([lat, lng]);
+            }
+
+            return points;
+        }
+
+        // ============================================
+        // Custom Shape Draw
+        // ============================================
+        function handleCustomShapeClick(e) {
+            const centerLat = e.latlng.lat;
+            const centerLng = e.latlng.lng;
+            const defaultRadius = 500;
+
+            const points = generateShapePoints(centerLat, centerLng, activeShape, defaultRadius);
+            if (!points) return;
+
+            if (currentPolygonLayer && map) {
+                map.removeLayer(currentPolygonLayer);
+                currentPolygonLayer = null;
+            }
+            drawnItems.clearLayers();
+
+            const polygon = L.polygon(points, {
+                color: '#1d4ed8',
+                weight: 2,
+                fillColor: '#1d4ed8',
+                fillOpacity: 0.2
+            });
+            drawnItems.addLayer(polygon);
+            currentPolygonLayer = polygon;
+
+            updatePolygonField(points);
+            map.fitBounds(polygon.getBounds());
+
+            polygon.editing.enable({
+                allowSelfIntersection: false,
+                preventMarkerRemoval: false,
+                removeVertexOnClick: true
+            });
+
+            polygon.on('edit', function () {
+                const updatedCoords = polygon.getLatLngs()[0];
+                updatePolygonField(updatedCoords);
+            });
+
+            polygon.on('dragend', function () {
+                const updatedCoords = polygon.getLatLngs()[0];
+                updatePolygonField(updatedCoords);
+            });
+
+            showToast(
+                activeShape.charAt(0).toUpperCase() + activeShape.slice(1) +
+                ' created! Drag corners to resize.',
+                'success'
+            );
+        }
+
+        function updatePolygonField(latlngs) {
+            let polygonString = '';
+            latlngs.forEach(function (latlng) {
+                const lat = latlng.lat !== undefined ? latlng.lat : latlng[0];
+                const lng = latlng.lng !== undefined ? latlng.lng : latlng[1];
+                polygonString += parseFloat(lat).toFixed(6) + ',' + parseFloat(lng).toFixed(6) + ';';
+            });
+            $('#coordinatesPolygon').val(polygonString);
         }
 
         function safeVal(selector) {
@@ -702,7 +1112,6 @@ require_once __DIR__ . '/session/session.php';
 
         function fillLocationFields(lat, lng, displayName) {
             $('#coordinatesCircle').val(lat + ', ' + lng);
-            $('#coordinatesPolygon').val(lat + ', ' + lng);
             $('#location').val(displayName || '');
         }
 
@@ -717,52 +1126,47 @@ require_once __DIR__ . '/session/session.php';
 
             const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=10&addressdetails=1`;
 
-            fetch(url, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(function(response) { return response.json(); })
-            .then(function(data) {
-                resultsContainer.empty();
+            fetch(url, { method: 'GET', headers: { 'Accept': 'application/json' } })
+                .then(function (response) { return response.json(); })
+                .then(function (data) {
+                    resultsContainer.empty();
 
-                if (data && data.length > 0) {
-                    $.each(data, function(index, item) {
-                        const resultItem = `
+                    if (data && data.length > 0) {
+                        $.each(data, function (index, item) {
+                            const resultItem = `
                             <div class="result-item" data-lat="${item.lat}" data-lon="${item.lon}" data-name="${item.display_name.replace(/"/g, '&quot;')}">
                                 <div class="result-label">${item.display_name}</div>
                                 <div class="result-address">${item.class || ''} ${item.type || ''}</div>
                             </div>
                         `;
-                        resultsContainer.append(resultItem);
-                    });
+                            resultsContainer.append(resultItem);
+                        });
 
-                    resultsContainer.find('.result-item').on('click', function() {
-                        const lat = $(this).data('lat');
-                        const lon = $(this).data('lon');
-                        const name = $(this).data('name');
+                        resultsContainer.find('.result-item').on('click', function () {
+                            const lat = $(this).data('lat');
+                            const lon = $(this).data('lon');
+                            const name = $(this).data('name');
 
-                        placeMarkerOnMap(lat, lon, 15);
-                        fillLocationFields(lat, lon, name);
+                            placeMarkerOnMap(lat, lon, 15);
+                            fillLocationFields(lat, lon, name);
 
-                        resultsContainer.removeClass('show').empty();
-                        $('#mapSearchInput').val(name);
-                        showToast('Location selected successfully!', 'success');
-                    });
+                            resultsContainer.removeClass('show').empty();
+                            $('#mapSearchInput').val(name);
+                            showToast('Location selected successfully!', 'success');
+                        });
 
-                    resultsContainer.addClass('show');
-                } else {
-                    resultsContainer.html('<div class="result-item loading">No results found</div>').addClass('show');
-                }
-            })
-            .catch(function(error) {
-                console.error('Search error:', error);
-                resultsContainer.html('<div class="result-item loading">Search failed. Try again.</div>').addClass('show');
-            });
+                        resultsContainer.addClass('show');
+                    } else {
+                        resultsContainer.html('<div class="result-item loading">No results found</div>').addClass('show');
+                    }
+                })
+                .catch(function (error) {
+                    console.error('Search error:', error);
+                    resultsContainer.html('<div class="result-item loading">Search failed. Try again.</div>').addClass('show');
+                });
         }
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#depot').select2({
                 placeholder: 'Select Depot(s)',
                 allowClear: true,
@@ -770,7 +1174,7 @@ require_once __DIR__ . '/session/session.php';
                 dropdownParent: $('#editOffcanvas')
             });
 
-            $('#sidebarToggle').on('click', function() {
+            $('#sidebarToggle').on('click', function () {
                 $('#sidebar').toggleClass('collapsed');
                 const isCollapsed = $('#sidebar').hasClass('collapsed');
                 localStorage.setItem('sidebarCollapsed', isCollapsed);
@@ -779,24 +1183,24 @@ require_once __DIR__ . '/session/session.php';
             const savedState = localStorage.getItem('sidebarCollapsed');
             if (savedState === 'true') { $('#sidebar').addClass('collapsed'); }
 
-            $('#customSearchInput').on('keyup', function() {
+            $('#customSearchInput').on('keyup', function () {
                 const searchTerm = $(this).val();
                 if ($.fn.DataTable.isDataTable('#dealersTable')) {
                     $('#dealersTable').DataTable().search(searchTerm).draw();
                 }
             });
 
-            $('#mapSearchInput').on('input', function() {
+            $('#mapSearchInput').on('input', function () {
                 clearTimeout(searchTimeout);
                 const query = $(this).val();
                 if (query.length < 2) {
                     $('#searchResults').removeClass('show').empty();
                     return;
                 }
-                searchTimeout = setTimeout(function() { searchLocation(query); }, 400);
+                searchTimeout = setTimeout(function () { searchLocation(query); }, 400);
             });
 
-            $('#mapSearchInput').on('keydown', function(e) {
+            $('#mapSearchInput').on('keydown', function (e) {
                 if (e.key === 'Enter') {
                     e.preventDefault();
                     const firstResult = $('#searchResults .result-item').not('.loading').first();
@@ -806,7 +1210,7 @@ require_once __DIR__ . '/session/session.php';
                 }
             });
 
-            $(document).on('click', function(e) {
+            $(document).on('click', function (e) {
                 if (!$(e.target).closest('.map-search-container').length) {
                     $('#searchResults').removeClass('show').empty();
                 }
@@ -817,17 +1221,17 @@ require_once __DIR__ . '/session/session.php';
             loadDepots();
             loadDealers();
 
-            $(document).on('click', function(e) {
+            $(document).on('click', function (e) {
                 if (!$(e.target).closest('.column-visibility-dropdown').length) {
                     closeColumnDropdown();
                 }
             });
 
-            const observer = new MutationObserver(function() {
+            const observer = new MutationObserver(function () {
                 if ($('#editOffcanvas').hasClass('open') && !mapInitialized) {
-                    setTimeout(function() {
+                    setTimeout(function () {
                         initMap();
-                        setTimeout(function() { if (map) { map.invalidateSize(); } }, 100);
+                        setTimeout(function () { if (map) { map.invalidateSize(); } }, 100);
                     }, 300);
                 }
             });
@@ -839,7 +1243,7 @@ require_once __DIR__ . '/session/session.php';
                 url: API_BASE_URL + 'get/get_region_district_dealers.php?key=2170&pre=' + PRE + '&user_id=' + USER_ID,
                 type: 'GET',
                 dataType: 'json',
-                success: function(data) {
+                success: function (data) {
                     if (data && data.length > 0) {
                         try {
                             var districtData = JSON.parse(data[0]['district']);
@@ -849,7 +1253,7 @@ require_once __DIR__ . '/session/session.php';
 
                             var districtSelect = $('#district');
                             districtSelect.empty().append('<option value="">Select District</option>');
-                            $.each(districtData, function(index, item) {
+                            $.each(districtData, function (index, item) {
                                 if (item.district && item.district.trim() !== '') {
                                     districtSelect.append($('<option>', { value: item.district, text: item.district }));
                                 }
@@ -857,7 +1261,7 @@ require_once __DIR__ . '/session/session.php';
 
                             var citySelect = $('#city');
                             citySelect.empty().append('<option value="">Select City</option>');
-                            $.each(cityData, function(index, item) {
+                            $.each(cityData, function (index, item) {
                                 if (item.city && item.city.trim() !== '') {
                                     citySelect.append($('<option>', { value: item.city, text: item.city }));
                                 }
@@ -865,7 +1269,7 @@ require_once __DIR__ . '/session/session.php';
 
                             var provinceSelect = $('#province');
                             provinceSelect.empty().append('<option value="">Select Province</option>');
-                            $.each(provinceData, function(index, item) {
+                            $.each(provinceData, function (index, item) {
                                 if (item.province && item.province.trim() !== '') {
                                     provinceSelect.append($('<option>', { value: item.province, text: item.province }));
                                 }
@@ -873,19 +1277,17 @@ require_once __DIR__ . '/session/session.php';
 
                             var regionSelect = $('#region');
                             regionSelect.empty().append('<option value="">Select Region</option>');
-                            $.each(regionData, function(index, item) {
+                            $.each(regionData, function (index, item) {
                                 if (item.region && item.region.trim() !== '') {
                                     regionSelect.append($('<option>', { value: item.region, text: item.region }));
                                 }
                             });
-
-                            console.log('Region/District/City/Province loaded successfully');
-                        } catch(e) {
+                        } catch (e) {
                             console.error('Parse error:', e);
                         }
                     }
                 },
-                error: function() { console.log('Failed to load region/district/city/province'); }
+                error: function () { console.log('Failed to load region/district/city/province'); }
             });
         }
 
@@ -894,11 +1296,11 @@ require_once __DIR__ . '/session/session.php';
                 url: API_BASE_URL + 'get/depotes.php?key=2170',
                 type: 'GET',
                 dataType: 'json',
-                success: function(data) {
+                success: function (data) {
                     var select = $('#depot');
                     select.empty().append('<option value="">Select Depot</option>');
                     if (data && data.length > 0) {
-                        $.each(data, function(index, item) {
+                        $.each(data, function (index, item) {
                             var depotName = item.consignee_name || item.name || '';
                             if (depotName && depotName.trim() !== '') {
                                 select.append($('<option>', { value: item.id, text: depotName }));
@@ -907,7 +1309,7 @@ require_once __DIR__ . '/session/session.php';
                     }
                     $('#depot').trigger('change');
                 },
-                error: function() { console.log('Failed to load depots'); }
+                error: function () { console.log('Failed to load depots'); }
             });
         }
 
@@ -916,18 +1318,18 @@ require_once __DIR__ . '/session/session.php';
                 url: API_BASE_URL + 'get/get_zm.php?key=2170',
                 type: 'GET',
                 dataType: 'json',
-                success: function(data) {
+                success: function (data) {
                     var select = $('#grm');
                     select.empty().append('<option value="">Select GRM</option>');
                     if (data && data.length > 0) {
-                        $.each(data, function(index, item) {
+                        $.each(data, function (index, item) {
                             if (item.name && item.name.trim() !== '') {
                                 select.append($('<option>', { value: item.id, text: item.name }));
                             }
                         });
                     }
                 },
-                error: function() { console.log('Failed to load GRM list'); }
+                error: function () { console.log('Failed to load GRM list'); }
             });
         }
 
@@ -941,11 +1343,11 @@ require_once __DIR__ . '/session/session.php';
                 url: API_BASE_URL + 'get/individual_tm_of_zm.php?key=2170&zm_id=' + grmId,
                 type: 'GET',
                 dataType: 'json',
-                success: function(data) {
+                success: function (data) {
                     var select = $('#rm');
                     select.empty().append('<option value="">Select RM</option>');
                     if (data && data.length > 0) {
-                        $.each(data, function(index, item) {
+                        $.each(data, function (index, item) {
                             if (item.name && item.name.trim() !== '') {
                                 select.append($('<option>', { value: item.id, text: item.name }));
                             }
@@ -953,7 +1355,7 @@ require_once __DIR__ . '/session/session.php';
                     }
                     $('#tm').empty().append('<option value="">Select TM</option>');
                 },
-                error: function() {
+                error: function () {
                     $('#rm').empty().append('<option value="">Select RM</option>');
                     $('#tm').empty().append('<option value="">Select TM</option>');
                 }
@@ -969,22 +1371,29 @@ require_once __DIR__ . '/session/session.php';
                 url: API_BASE_URL + 'get/individual_asm_of_tm.php?key=2170&tm_id=' + rmId,
                 type: 'GET',
                 dataType: 'json',
-                success: function(data) {
+                success: function (data) {
                     var select = $('#tm');
                     select.empty().append('<option value="">Select TM</option>');
                     if (data && data.length > 0) {
-                        $.each(data, function(index, item) {
+                        $.each(data, function (index, item) {
                             if (item.name && item.name.trim() !== '') {
                                 select.append($('<option>', { value: item.id, text: item.name }));
                             }
                         });
                     }
                 },
-                error: function() { $('#tm').empty().append('<option value="">Select TM</option>'); }
+                error: function () { $('#tm').empty().append('<option value="">Select TM</option>'); }
             });
         }
 
         function loadDealers() {
+            if ($.fn.DataTable.isDataTable('#dealersTable')) {
+                $('#dealersTable').DataTable().destroy();
+                $('#dealersTable tbody').empty();
+            }
+
+            dealersData = [];
+
             $('#dealersTableBody').html(`
                 <tr>
                     <td colspan="12" class="text-center py-8 text-gray-500">
@@ -998,10 +1407,11 @@ require_once __DIR__ . '/session/session.php';
                 url: API_BASE_URL + 'get/dealers.php?key=2170&pre=' + PRE + '&user_id=' + USER_ID,
                 type: 'GET',
                 dataType: 'json',
+                cache: false,
                 timeout: 30000,
-                success: function(response) {
+                success: function (response) {
                     if (response && Array.isArray(response) && response.length > 0) {
-                        dealersData = response.map(function(item) {
+                        dealersData = response.map(function (item) {
                             return {
                                 id: parseInt(item.id) || 0,
                                 siteName: item.name || 'N/A',
@@ -1027,9 +1437,11 @@ require_once __DIR__ . '/session/session.php';
                                 tm_id: item.tm || '',
                                 asm: item.asm || '',
                                 sap_no: item.sap_no || '',
-                                account: item.acount || 0
+                                account: item.acount || 0,
+                                polygon: item.form_status || ''
                             };
                         });
+
                         initializeDataTable();
                         showToast('Dealers loaded successfully!', 'success');
                     } else {
@@ -1038,7 +1450,7 @@ require_once __DIR__ . '/session/session.php';
                         initializeDataTable();
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.error('API Error:', status, error);
                     showToast('Failed to load dealers. Please refresh.', 'error');
                     dealersData = [];
@@ -1047,19 +1459,12 @@ require_once __DIR__ . '/session/session.php';
             });
         }
 
-        function formatBalance(value) {
-            if (value >= 1000000000) return (value / 1000000000).toFixed(2) + 'B';
-            if (value >= 1000000) return (value / 1000000).toFixed(2) + 'M';
-            if (value >= 1000) return (value / 1000).toFixed(2) + 'K';
-            return value.toFixed(2);
-        }
-
         function populateColumnDropdown() {
             const container = $('#columnListItems');
             container.empty();
-            columnConfig.forEach(function(col) {
+            columnConfig.forEach(function (col) {
                 let isVisible = true;
-                try { isVisible = dataTable.column(col.idx).visible(); } catch(e) { isVisible = true; }
+                try { isVisible = dataTable.column(col.idx).visible(); } catch (e) { isVisible = true; }
                 const item = `
                     <div class="dropdown-item" onclick="toggleColumnVisibility(${col.idx})">
                         <input type="checkbox" id="col-checkbox-${col.idx}" 
@@ -1078,29 +1483,29 @@ require_once __DIR__ . '/session/session.php';
                 const isVisible = dataTable.column(colIdx).visible();
                 dataTable.column(colIdx).visible(!isVisible);
                 $(`#col-checkbox-${colIdx}`).prop('checked', !isVisible);
-            } catch(e) { console.warn('Column visibility toggle error:', e); }
+            } catch (e) { console.warn('Column visibility toggle error:', e); }
         }
 
         function selectAllColumns() {
             if (!dataTable) return;
             try {
-                columnConfig.forEach(function(col) {
+                columnConfig.forEach(function (col) {
                     if (!dataTable.column(col.idx).visible()) { dataTable.column(col.idx).visible(true); }
                     $(`#col-checkbox-${col.idx}`).prop('checked', true);
                 });
                 showToast('All columns selected!', 'success');
-            } catch(e) { showToast('Error selecting columns', 'error'); }
+            } catch (e) { showToast('Error selecting columns', 'error'); }
         }
 
         function deselectAllColumns() {
             if (!dataTable) return;
             try {
-                columnConfig.forEach(function(col) {
+                columnConfig.forEach(function (col) {
                     if (dataTable.column(col.idx).visible()) { dataTable.column(col.idx).visible(false); }
                     $(`#col-checkbox-${col.idx}`).prop('checked', false);
                 });
                 showToast('All columns deselected!', 'success');
-            } catch(e) { showToast('Error deselecting columns', 'error'); }
+            } catch (e) { showToast('Error deselecting columns', 'error'); }
         }
 
         function toggleColumnDropdown() {
@@ -1135,7 +1540,7 @@ require_once __DIR__ . '/session/session.php';
                     dealer.contact,
                     dealer.password,
                     dealer.coordinates,
-                    formatBalance(dealer.ledgerBalance),
+                    parseFloat(dealer.ledgerBalance).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
                     `<span class="badge badge-grm">${dealer.grm}</span>`,
                     dealer.rm,
                     dealer.tm,
@@ -1164,7 +1569,7 @@ require_once __DIR__ . '/session/session.php';
                     { extend: 'copy', text: '<i class="fa-regular fa-copy"></i> Copy', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] } },
                     { extend: 'excelHtml5', text: '<i class="fa-regular fa-file-excel"></i> Excel', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }, title: 'Dealers_Export' },
                     { extend: 'csvHtml5', text: '<i class="fa-regular fa-file-csv"></i> CSV', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }, title: 'Dealers_Export' },
-                    { extend: 'pdfHtml5', text: '<i class="fa-regular fa-file-pdf"></i> PDF', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }, title: 'Dealers Report', orientation: 'landscape', pageSize: 'A4', customize: function(doc) { doc.defaultStyle.fontSize = 8; doc.styles.tableHeader.fontSize = 9; doc.styles.tableHeader.fillColor = '#0a121c'; doc.styles.tableHeader.color = '#ffffff'; } },
+                    { extend: 'pdfHtml5', text: '<i class="fa-regular fa-file-pdf"></i> PDF', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }, title: 'Dealers Report', orientation: 'landscape', pageSize: 'A4', customize: function (doc) { doc.defaultStyle.fontSize = 8; doc.styles.tableHeader.fontSize = 9; doc.styles.tableHeader.fillColor = '#0a121c'; doc.styles.tableHeader.color = '#ffffff'; } },
                     { extend: 'print', text: '<i class="fa-solid fa-print"></i> Print', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] } }
                 ],
                 pageLength: 10,
@@ -1177,15 +1582,15 @@ require_once __DIR__ . '/session/session.php';
                     infoEmpty: 'Showing 0 to 0 of 0 entries',
                     infoFiltered: '(filtered from _MAX_ total entries)'
                 },
-                drawCallback: function() {
-                    $('.dt-buttons .dt-button').each(function() { $(this).addClass('toolbar-btn'); });
+                drawCallback: function () {
+                    $('.dt-buttons .dt-button').each(function () { $(this).addClass('toolbar-btn'); });
                 },
-                initComplete: function() {
+                initComplete: function () {
                     const buttonsContainer = $('#exportButtonsContainer');
                     $('.dt-buttons').appendTo(buttonsContainer);
                     populateColumnDropdown();
 
-                    $('#dealersTable tbody').on('click', 'tr', function(e) {
+                    $('#dealersTable tbody').on('click', 'tr', function (e) {
                         if ($(e.target).closest('.toggle-switch').length > 0) { return; }
                         const rowData = dataTable.row(this).data();
                         if (rowData) {
@@ -1195,7 +1600,7 @@ require_once __DIR__ . '/session/session.php';
                         }
                     });
 
-                    $('#dealersTable tbody').on('mouseenter', 'tr', function() {
+                    $('#dealersTable tbody').on('mouseenter', 'tr', function () {
                         $(this).css('cursor', 'pointer');
                     });
                 }
@@ -1210,7 +1615,7 @@ require_once __DIR__ . '/session/session.php';
                 type: 'POST',
                 data: { checkboxValue: checked ? 1 : 0, id: id },
                 dataType: 'json',
-                success: function(response) {
+                success: function (response) {
                     if (response === 1) {
                         dealer.verified = checked;
                         showToast(`Dealer ${dealer.siteName} ${checked ? 'verified' : 'unverified'}!`, 'success');
@@ -1219,7 +1624,7 @@ require_once __DIR__ . '/session/session.php';
                         initializeDataTable();
                     }
                 },
-                error: function() {
+                error: function () {
                     showToast('Error updating verification status.', 'error');
                     initializeDataTable();
                 }
@@ -1231,7 +1636,7 @@ require_once __DIR__ . '/session/session.php';
             $('#newPassword').val('');
             const modal = $('#passwordModal');
             modal.removeClass('hidden').addClass('flex');
-            setTimeout(function() {
+            setTimeout(function () {
                 modal.removeClass('opacity-0');
                 $('#passwordModalWrapper').removeClass('scale-95').addClass('scale-100');
             }, 10);
@@ -1241,7 +1646,7 @@ require_once __DIR__ . '/session/session.php';
             const modal = $('#passwordModal');
             modal.addClass('opacity-0');
             $('#passwordModalWrapper').removeClass('scale-100').addClass('scale-95');
-            setTimeout(function() { modal.addClass('hidden').removeClass('flex'); }, 300);
+            setTimeout(function () { modal.addClass('hidden').removeClass('flex'); }, 300);
         }
 
         function openPasswordModalFromOffcanvas() {
@@ -1263,7 +1668,7 @@ require_once __DIR__ . '/session/session.php';
                 type: 'POST',
                 data: { row_id: id, edit_password: newPassword },
                 dataType: 'json',
-                success: function(response) {
+                success: function (response) {
                     submitBtn.prop('disabled', false);
                     submitBtn.html('Save');
                     if (response === 1) {
@@ -1277,7 +1682,7 @@ require_once __DIR__ . '/session/session.php';
                         showToast('Failed to update password.', 'error');
                     }
                 },
-                error: function() {
+                error: function () {
                     submitBtn.prop('disabled', false);
                     submitBtn.html('Save');
                     showToast('Error updating password.', 'error');
@@ -1290,11 +1695,11 @@ require_once __DIR__ . '/session/session.php';
                 url: API_BASE_URL + 'get/dealer_profile.php?key=2170&id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
-                success: function(response) {
+                success: function (response) {
                     if (response && response.length > 0) { callback(response[0]); }
                     else { showToast('Dealer not found.', 'error'); }
                 },
-                error: function() { showToast('Failed to load dealer details.', 'error'); }
+                error: function () { showToast('Failed to load dealer details.', 'error'); }
             });
         }
 
@@ -1303,14 +1708,14 @@ require_once __DIR__ . '/session/session.php';
                 url: API_BASE_URL + 'get/dealer_depot.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
-                success: function(response) {
+                success: function (response) {
                     if (response && response.length > 0) {
                         var defaultValues = [];
-                        $.each(response, function(index, item) { defaultValues.push(item.depot_id); });
+                        $.each(response, function (index, item) { defaultValues.push(item.depot_id); });
                         callback(defaultValues);
                     } else { callback([]); }
                 },
-                error: function() { callback([]); }
+                error: function () { callback([]); }
             });
         }
 
@@ -1321,23 +1726,36 @@ require_once __DIR__ . '/session/session.php';
             $('#dealerForm select[disabled]').prop('disabled', false);
             $('#mapSearchInput').prop('readonly', false);
             $('#dealerPassword').prop('readonly', true);
+            $('#coordinatesPolygon').prop('readonly', true);
 
             if (map) {
                 map.off('click');
-                map.on('click', function(e) {
+
+                // Circle marker click
+                map.on('click', function (e) {
+                    if (activeShape !== 'freehand') return;
                     const lat = e.latlng.lat.toFixed(6);
                     const lng = e.latlng.lng.toFixed(6);
                     $('#coordinatesCircle').val(lat + ', ' + lng);
-                    $('#coordinatesPolygon').val(lat + ', ' + lng);
                     if (marker) { marker.setLatLng([lat, lng]); } else { marker = L.marker([lat, lng]).addTo(map); }
                     reverseGeocode(lat, lng);
                 });
+
+                // Custom shape click
+                map.on('click', function (e) {
+                    if (activeShape === 'freehand') return;
+                    handleCustomShapeClick(e);
+                });
+
+                if (activeShape === 'freehand' && drawControl && !map.hasLayer(drawControl)) {
+                    map.addControl(drawControl);
+                }
             }
 
             $('#depot').prop('disabled', false).trigger('change.select2');
             $('#formButtons').slideDown(300);
             $('#offcanvasTitle').text('Edit Station');
-            showToast('Edit mode enabled. You can now modify the fields.', 'success');
+            showToast('Edit mode enabled. Choose a shape and click on map.', 'success');
         }
 
         function resetEditMode() {
@@ -1349,7 +1767,12 @@ require_once __DIR__ . '/session/session.php';
             $('#mapSearchInput').prop('readonly', true);
             $('#formButtons').hide();
             $('#offcanvasTitle').text('View Station');
-            if (map) { map.off('click'); }
+            if (map) {
+                map.off('click');
+                if (drawControl && map.hasLayer(drawControl)) {
+                    map.removeControl(drawControl);
+                }
+            }
             if ($('#depot').data('select2')) {
                 $('#depot').prop('disabled', true).trigger('change.select2');
             }
@@ -1358,13 +1781,13 @@ require_once __DIR__ . '/session/session.php';
         function reverseGeocode(lat, lng) {
             const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`;
             fetch(url, { headers: { 'Accept': 'application/json' } })
-                .then(function(response) { return response.json(); })
-                .then(function(data) {
+                .then(function (response) { return response.json(); })
+                .then(function (data) {
                     if (data && data.display_name) {
                         $('#location').val(data.display_name);
                     }
                 })
-                .catch(function() { console.log('Reverse geocode failed'); });
+                .catch(function () { console.log('Reverse geocode failed'); });
         }
 
         function openEditOffcanvas(id) {
@@ -1379,12 +1802,12 @@ require_once __DIR__ . '/session/session.php';
             $('#overlay').addClass('active');
             $('#editOffcanvas').addClass('open');
 
-            setTimeout(function() {
+            setTimeout(function () {
                 if (!mapInitialized) { initMap(); }
-                setTimeout(function() { if (map) { map.invalidateSize(); } }, 100);
+                setTimeout(function () { if (map) { map.invalidateSize(); } }, 100);
             }, 300);
 
-            loadDealerProfile(id, function(dealer) {
+            loadDealerProfile(id, function (dealer) {
                 $('#offcanvasTitle').text('View Station');
                 $('#dealerId').val(dealer.id);
                 $('#siteName').val(dealer.name || '');
@@ -1394,11 +1817,51 @@ require_once __DIR__ . '/session/session.php';
                 $('#dealerContact').val(dealer.contact || '');
                 $('#accountBalance').val(dealer.acount || '');
                 $('#coordinatesCircle').val(dealer['co-ordinates'] || '');
-                $('#coordinatesPolygon').val(dealer['co-ordinates'] || '');
                 $('#location').val(dealer.location || '');
 
                 const encId = encryptId(dealer.id);
                 $('#viewProfileBtn').attr('href', 'user_profile.php?id=' + encodeURIComponent(encId));
+
+                const polygonData = dealer.form_status || '';
+                $('#coordinatesPolygon').val(polygonData);
+
+                if (polygonData && polygonData.trim() !== '' && polygonData.trim() !== '0') {
+                    try {
+                        const latlngs = [];
+                        const points = polygonData.split(';');
+                        points.forEach(function (point) {
+                            if (point.trim() !== '') {
+                                const parts = point.split(',');
+                                if (parts.length === 2) {
+                                    const lat = parseFloat(parts[0].trim());
+                                    const lng = parseFloat(parts[1].trim());
+                                    if (!isNaN(lat) && !isNaN(lng)) {
+                                        latlngs.push([lat, lng]);
+                                    }
+                                }
+                            }
+                        });
+
+                        if (latlngs.length > 0) {
+                            setTimeout(function () {
+                                if (map && drawnItems) {
+                                    drawnItems.clearLayers();
+                                    const polygon = L.polygon(latlngs, {
+                                        color: '#1d4ed8',
+                                        weight: 2,
+                                        fillColor: '#1d4ed8',
+                                        fillOpacity: 0.2
+                                    });
+                                    drawnItems.addLayer(polygon);
+                                    currentPolygonLayer = polygon;
+                                    map.fitBounds(polygon.getBounds());
+                                }
+                            }, 600);
+                        }
+                    } catch (e) {
+                        console.log('Polygon parse error:', e);
+                    }
+                }
 
                 if (dealer['co-ordinates'] && dealer['co-ordinates'] !== 'N/A' && dealer['co-ordinates'] !== '0, 0') {
                     const coords = dealer['co-ordinates'].split(',');
@@ -1406,7 +1869,7 @@ require_once __DIR__ . '/session/session.php';
                         const lat = parseFloat(coords[0].trim());
                         const lng = parseFloat(coords[1].trim());
                         if (!isNaN(lat) && !isNaN(lng)) {
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 if (map) {
                                     const latLng = [lat, lng];
                                     map.setView(latLng, 15);
@@ -1447,10 +1910,10 @@ require_once __DIR__ . '/session/session.php';
                     loadRMReadOnly(dealer.zm, dealer.tm, dealer.asm);
                 }
 
-                loadDealerDepots(id, function(depots) {
+                loadDealerDepots(id, function (depots) {
                     if (depots.length > 0) {
                         $('#depot').prop('disabled', false).val(depots).trigger('change');
-                        setTimeout(function() {
+                        setTimeout(function () {
                             $('#depot').prop('disabled', true).trigger('change.select2');
                         }, 100);
                     }
@@ -1463,11 +1926,11 @@ require_once __DIR__ . '/session/session.php';
                 url: API_BASE_URL + 'get/individual_tm_of_zm.php?key=2170&zm_id=' + grmId,
                 type: 'GET',
                 dataType: 'json',
-                success: function(data) {
+                success: function (data) {
                     var select = $('#rm');
                     select.empty().append('<option value="">Select RM</option>');
                     if (data && data.length > 0) {
-                        $.each(data, function(index, item) {
+                        $.each(data, function (index, item) {
                             if (item.name && item.name.trim() !== '') {
                                 select.append($('<option>', { value: item.id, text: item.name }));
                             }
@@ -1478,11 +1941,11 @@ require_once __DIR__ . '/session/session.php';
                                 url: API_BASE_URL + 'get/individual_asm_of_tm.php?key=2170&tm_id=' + rmId,
                                 type: 'GET',
                                 dataType: 'json',
-                                success: function(tmData) {
+                                success: function (tmData) {
                                     var tmSelect = $('#tm');
                                     tmSelect.empty().append('<option value="">Select TM</option>');
                                     if (tmData && tmData.length > 0) {
-                                        $.each(tmData, function(index, item) {
+                                        $.each(tmData, function (index, item) {
                                             if (item.name && item.name.trim() !== '') {
                                                 tmSelect.append($('<option>', { value: item.id, text: item.name }));
                                             }
@@ -1503,7 +1966,7 @@ require_once __DIR__ . '/session/session.php';
             resetEditMode();
             currentDealerId = null;
             $('#editOffcanvas').removeClass('open');
-            setTimeout(function() { $('#overlay').removeClass('active'); }, 350);
+            setTimeout(function () { $('#overlay').removeClass('active'); }, 350);
         }
 
         function openCreateModal() {
@@ -1544,24 +2007,33 @@ require_once __DIR__ . '/session/session.php';
             $('#mapSearchInput').val('');
             $('#searchResults').removeClass('show').empty();
 
+            activeShape = 'freehand';
+            $('.shape-btn').removeClass('active');
+            $('.shape-btn[data-shape="freehand"]').addClass('active');
+
             $('#dealerForm input[readonly]').prop('readonly', false);
             $('#dealerForm select[disabled]').prop('disabled', false);
             $('#mapSearchInput').prop('readonly', false);
             $('#formButtons').show();
 
-            setTimeout(function() {
+            setTimeout(function () {
                 if (map) {
                     map.setView([30.3753, 69.3451], 5);
                     if (marker) { marker.remove(); marker = null; }
+                    if (drawnItems) { drawnItems.clearLayers(); }
+                    currentPolygonLayer = null;
+                    if (drawControl && !map.hasLayer(drawControl)) {
+                        map.addControl(drawControl);
+                    }
                 }
             }, 300);
 
             $('#overlay').addClass('active');
             $('#editOffcanvas').addClass('open');
 
-            setTimeout(function() {
+            setTimeout(function () {
                 if (!mapInitialized) { initMap(); }
-                setTimeout(function() { if (map) { map.invalidateSize(); } }, 100);
+                setTimeout(function () { if (map) { map.invalidateSize(); } }, 100);
             }, 300);
         }
 
@@ -1569,7 +2041,7 @@ require_once __DIR__ . '/session/session.php';
             const file = input.files[0];
             if (!file) return;
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 $('#' + previewId).attr('src', e.target.result).addClass('show');
                 $('#' + previewId.replace('Preview', 'FileName')).text(file.name);
             };
@@ -1577,140 +2049,184 @@ require_once __DIR__ . '/session/session.php';
             $('#' + hiddenId).val(file.name);
         }
 
-function saveDealer(event) {
-    event.preventDefault();
+        function saveDealer(event) {
+            event.preventDefault();
 
-    const id = safeTrim('#dealerId');
-    const siteName = safeTrim('#siteName');
-    const sapNo = safeTrim('#dealerSap');
-    const email = safeTrim('#dealerEmail');
-    const password = safeTrim('#dealerPassword');
-    const contact = safeTrim('#dealerContact');
-    const account = safeTrim('#accountBalance') || '0';
-    const coordinates = safeTrim('#coordinatesCircle');
-    const location = safeTrim('#location');
-    const district = safeVal('#district');
-    const city = safeVal('#city');
-    const region = safeVal('#region');
-    const province = safeVal('#province');
-    const subscription = safeVal('#subscription');
-    const grm = safeVal('#grm');
-    const rm = safeVal('#rm');
-    const tm = safeVal('#tm');
-    const bannerFile = $('#bannerInput')[0] ? $('#bannerInput')[0].files[0] : null;
-    const logoFile = $('#logoInput')[0] ? $('#logoInput')[0].files[0] : null;
-    const bannerHidden = safeTrim('#bannerHidden');
-    const logoHidden = safeTrim('#logoHidden');
+            const id = safeTrim('#dealerId');
+            const siteName = safeTrim('#siteName');
+            const sapNo = safeTrim('#dealerSap');
+            const email = safeTrim('#dealerEmail');
+            const password = safeTrim('#dealerPassword');
+            const contact = safeTrim('#dealerContact');
+            const account = safeTrim('#accountBalance') || '0';
+            const coordinates = safeTrim('#coordinatesCircle');
+            const polygonData = safeTrim('#coordinatesPolygon');
+            const location = safeTrim('#location');
+            const district = safeVal('#district');
+            const city = safeVal('#city');
+            const region = safeVal('#region');
+            const province = safeVal('#province');
+            const subscription = safeVal('#subscription');
+            const grm = safeVal('#grm');
+            const rm = safeVal('#rm');
+            const tm = safeVal('#tm');
+            const bannerFile = $('#bannerInput')[0] ? $('#bannerInput')[0].files[0] : null;
+            const logoFile = $('#logoInput')[0] ? $('#logoInput')[0].files[0] : null;
+            const bannerHidden = safeTrim('#bannerHidden');
+            const logoHidden = safeTrim('#logoHidden');
 
-    if (!siteName || !sapNo || !email || !contact) {
-        showToast('Please fill in all required fields.', 'error');
-        return;
-    }
-
-    const submitBtn = $('#dealerForm button[type="submit"]');
-    submitBtn.prop('disabled', true);
-    submitBtn.html('<i class="fa-solid fa-spinner fa-spin mr-1"></i> Saving...');
-
-    const formData = new FormData();
-
-    // ✅ ID (update ke liye)
-    if (id) {
-        formData.append('row_id', id);
-        formData.append('id', id);
-    }
-
-    // ✅ Saari fields
-    formData.append('dealer_name', siteName);
-    formData.append('dealer_sap_no', sapNo);
-    formData.append('emails', email);
-    if (password) formData.append('password', password);
-    formData.append('call_no', contact);
-    formData.append('account_balanced', account);
-    formData.append('lati', coordinates);
-    formData.append('poly', coordinates);
-    formData.append('location', location);
-    formData.append('district', district);
-    formData.append('city', city);
-    formData.append('region', region);
-    formData.append('province', province);
-    formData.append('housekeeping', subscription);
-    formData.append('zm', grm);
-    formData.append('tm', rm);
-    formData.append('asm', tm);
-    formData.append('user_id', USER_ID);
-
-    // ✅ NEW: type field bhejein (API ke liye zaroori hai)
-    formData.append('type', 'Dealer');
-
-    // ✅ Banner
-    if (bannerFile) {
-        formData.append('banner_img', bannerFile);
-    } else if (bannerHidden) {
-        formData.append('banner_img_hidden', bannerHidden);
-    }
-
-    // ✅ Logo
-    if (logoFile) {
-        formData.append('logo_img', logoFile);
-    } else if (logoHidden) {
-        formData.append('logo_img_hidden', logoHidden);
-    }
-
-    // ✅ Depots
-    const depots = $('#depot').val();
-    if (depots && depots.length > 0) {
-        $.each(depots, function(i, val) {
-            formData.append('depots[]', val);
-        });
-    }
-
-    const url = id
-        ? API_BASE_URL + 'update/dealer_update.php'
-        : API_BASE_URL + 'create/dealers.php';
-
-    $.ajax({
-        url: url,
-        type: 'POST',
-        data: formData,
-        processData: false,
-        contentType: false,
-        dataType: 'json',
-        success: function(response) {
-            submitBtn.prop('disabled', false);
-            submitBtn.html('Save Changes');
-
-            // ✅ JSON response check
-            if (response && response.status === 'success') {
-                showToast(
-                    id ? 'Dealer updated successfully!' : 'Dealer created successfully!',
-                    'success'
-                );
-                closeOffcanvas();
-                loadDealers();
-            } else {
-                showToast(
-                    (response && response.message) ? response.message : 'Failed to save dealer.',
-                    'error'
-                );
+            if (!siteName || !sapNo || !email || !contact) {
+                showToast('Please fill in all required fields.', 'error');
+                return;
             }
-        },
-        error: function(xhr, status, error) {
-            submitBtn.prop('disabled', false);
-            submitBtn.html('Save Changes');
-            console.error('Save Error:', status, error);
-            console.error('Response Text:', xhr.responseText);
 
-            // ✅ Agar HTML warnings aayen to console mein dikhayein
-            let errorMsg = 'Error saving dealer: ' + status;
-            if (xhr.responseText) {
-                // HTML tags strip karke message banayein
-                const stripped = xhr.responseText.replace(/<[^>]*>/g, ' ').trim();
-                if (stripped) errorMsg = stripped.substring(0, 200);
+            const submitBtn = $('#dealerForm button[type="submit"]');
+            submitBtn.prop('disabled', true);
+            submitBtn.html('<i class="fa-solid fa-spinner fa-spin mr-1"></i> Saving...');
+
+            const formData = new FormData();
+
+            if (id) {
+                formData.append('row_id', id);
+                formData.append('id', id);
             }
-            showToast(errorMsg, 'error');
+
+            formData.append('dealer_name', siteName);
+            formData.append('dealer_sap_no', sapNo);
+            formData.append('emails', email);
+            if (password) formData.append('password', password);
+            formData.append('call_no', contact);
+            formData.append('account_balanced', account);
+            formData.append('lati', coordinates);
+            formData.append('poly', polygonData);
+            formData.append('location', location);
+            formData.append('district', district);
+            formData.append('city', city);
+            formData.append('region', region);
+            formData.append('province', province);
+            formData.append('housekeeping', subscription);
+            formData.append('zm', grm);
+            formData.append('tm', rm);
+            formData.append('asm', tm);
+            formData.append('user_id', USER_ID);
+            formData.append('type', 'Dealer');
+
+            if (bannerFile) {
+                formData.append('banner_img', bannerFile);
+            } else if (bannerHidden) {
+                formData.append('banner_img_hidden', bannerHidden);
+            }
+
+            if (logoFile) {
+                formData.append('logo_img', logoFile);
+            } else if (logoHidden) {
+                formData.append('logo_img_hidden', logoHidden);
+            }
+
+            const depots = $('#depot').val();
+            if (depots && depots.length > 0) {
+                $.each(depots, function (i, val) {
+                    formData.append('depots[]', val);
+                });
+            }
+
+            const url = id
+                ? API_BASE_URL + 'update/dealer_update.php'
+                : API_BASE_URL + 'create/dealers.php';
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: 'text',
+                success: function (rawResponse) {
+                    submitBtn.prop('disabled', false);
+                    submitBtn.html('Save Changes');
+
+                    console.log('RAW RESPONSE:', rawResponse);
+
+                    let response = null;
+                    try {
+                        response = typeof rawResponse === 'string' ? JSON.parse(rawResponse) : rawResponse;
+                    } catch (e) {
+                        console.error('JSON Parse Error:', e);
+                        console.error('Raw Response:', rawResponse);
+
+                        const stripped = String(rawResponse).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+                        if (stripped.indexOf('Duplicate entry') !== -1) {
+                            showDuplicateAlert('This dealer already exists. Please use a different SAP No or Contact.');
+                        } else {
+                            showToast(stripped.substring(0, 200) || 'Failed to save dealer.', 'error');
+                        }
+                        return;
+                    }
+
+                    console.log('PARSED RESPONSE:', response);
+
+                    if (!response || typeof response !== 'object') {
+                        showToast('Invalid response from server.', 'error');
+                        return;
+                    }
+
+                    if (response.status === 'success') {
+                        showToast(
+                            id ? 'Dealer updated successfully!' : 'Dealer created successfully!',
+                            'success'
+                        );
+                        closeOffcanvas();
+                        loadDealers();
+                    }
+                    else if (response.status === 'duplicate') {
+                        showDuplicateAlert(response.message);
+                    }
+                    else {
+                        showToast(
+                            response.message || 'Failed to save dealer. Please try again.',
+                            'error'
+                        );
+                    }
+                },
+                error: function (xhr, status, error) {
+                    submitBtn.prop('disabled', false);
+                    submitBtn.html('Save Changes');
+                    console.error('Save Error:', status, error);
+                    console.error('Response Text:', xhr.responseText);
+
+                    const respText = xhr.responseText || '';
+                    const stripped = respText.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+
+                    if (stripped.indexOf('Duplicate entry') !== -1) {
+                        showDuplicateAlert('This dealer already exists. Please use a different SAP No or Contact.');
+                    } else if (stripped) {
+                        showToast(stripped.substring(0, 200), 'error');
+                    } else {
+                        showToast('Error saving dealer: ' + status, 'error');
+                    }
+                }
+            });
         }
-    });
-}
+
+        function showDuplicateAlert(message) {
+            const finalMessage = message || 'This dealer already exists. Please use a different SAP No or Contact.';
+
+            showToast(finalMessage, 'error');
+
+            if (typeof Swal !== 'undefined') {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Duplicate Entry Detected',
+                    html: finalMessage,
+                    confirmButtonColor: '#1d4ed8',
+                    confirmButtonText: 'OK',
+                    background: document.documentElement.classList.contains('dark-mode') ? '#0d1520' : '#ffffff',
+                    color: document.documentElement.classList.contains('dark-mode') ? '#e5e7eb' : '#334155'
+                });
+            } else {
+                alert('Duplicate Entry: ' + finalMessage);
+            }
+        }
 
         function showToast(message, type = 'success') {
             const toast = $('#toast');
@@ -1723,11 +2239,11 @@ function saveDealer(event) {
             window.toastTimeout = setTimeout(() => { toast.removeClass('show'); }, 3000);
         }
 
-        $(document).on('click', '#passwordModal', function(e) {
+        $(document).on('click', '#passwordModal', function (e) {
             if (e.target === this) closePasswordModal();
         });
 
-        $(document).on('keydown', function(e) {
+        $(document).on('keydown', function (e) {
             if (e.key === 'Escape') {
                 if ($('#editOffcanvas').hasClass('open')) { closeOffcanvas(); }
                 if (!$('#passwordModal').hasClass('hidden')) { closePasswordModal(); }
@@ -1735,13 +2251,13 @@ function saveDealer(event) {
             }
         });
 
-        $('#bannerUploadBox').on('click', function() {
+        $('#bannerUploadBox').on('click', function () {
             if (isEditMode) {
                 document.getElementById('bannerInput').click();
             }
         });
 
-        $('#logoUploadBox').on('click', function() {
+        $('#logoUploadBox').on('click', function () {
             if (isEditMode) {
                 document.getElementById('logoInput').click();
             }

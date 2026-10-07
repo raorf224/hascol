@@ -40,7 +40,8 @@ FROM dealers AS dl
 LEFT JOIN users AS usz ON usz.id = dl.zm
 LEFT JOIN users AS ust ON ust.id = dl.tm
 LEFT JOIN users AS usa ON usa.id = dl.asm
-WHERE dl.privilege = 'Dealer' AND indent_price=1 AND $where_clause 
+-- WHERE dl.privilege = 'Dealer' AND indent_price=1 AND $where_clause
+WHERE dl.privilege = 'Dealer' AND $where_clause 
 ORDER BY dl.id DESC;";
 
 $result1 = $db->query($sql_query1) or die("Error: " . mysqli_error($db));
