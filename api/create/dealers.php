@@ -5,6 +5,12 @@
 header('Content-Type: application/json');
 
 // ============================================
+// ✅ FIX 1: mysqli_report enable karein
+// (Iske bina catch block kabhi execute nahi hoga)
+// ============================================
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+// ============================================
 // Config Include
 // ============================================
 include("../../config.php");
@@ -51,14 +57,14 @@ if (isset($_POST)) {
     // ============================================
     // Escape All Values
     // ============================================
-    $dealer_name      = mysqli_real_escape_string($db, $dealer_name);
-    $emails           = mysqli_real_escape_string($db, $emails);
-    $call_no          = mysqli_real_escape_string($db, $call_no);
+    $dealer_name      = mysqli_real_escape_string($db, trim($dealer_name));
+    $emails           = mysqli_real_escape_string($db, trim($emails));
+    $call_no          = mysqli_real_escape_string($db, trim($call_no));
     $location         = mysqli_real_escape_string($db, $location);
     $lati             = mysqli_real_escape_string($db, $lati);
     $housekeeping     = mysqli_real_escape_string($db, $housekeeping);
     $password         = mysqli_real_escape_string($db, $password);
-    $dealer_sap_no    = mysqli_real_escape_string($db, $dealer_sap_no);
+    $dealer_sap_no    = mysqli_real_escape_string($db, trim($dealer_sap_no));
     $account_balanced = mysqli_real_escape_string($db, $account_balanced);
     $district         = mysqli_real_escape_string($db, $district);
     $city             = mysqli_real_escape_string($db, $city);
@@ -71,60 +77,28 @@ if (isset($_POST)) {
     $type             = mysqli_real_escape_string($db, $type);
 
     // ============================================
-    // DUPLICATE CHECK — Same Name + SAP No + Contact
+    // ✅ FIX 2: SIRF 1 DUPLICATE CHECK
+    // (Database unique_index ke mutabiq: name + sap_no + contact)
+    // Check 2 (sap_no only) aur Check 3 (contact only) HATA DIYE HAIN
     // ============================================
-    $checkQuery = "SELECT id FROM `dealers` 
-                   WHERE `name` = '$dealer_name' 
-                     AND `sap_no` = '$dealer_sap_no' 
-                     AND `contact` = '$call_no' 
-                   LIMIT 1";
-    $checkResult = mysqli_query($db, $checkQuery);
+    if ($row_id == '') {
+        // Sirf CREATE ke waqt duplicate check karein
+        $checkQuery = "SELECT id FROM `dealers` 
+                       WHERE `name` = '$dealer_name' 
+                         AND `sap_no` = '$dealer_sap_no' 
+                         AND `contact` = '$call_no' 
+                       LIMIT 1";
+        $checkResult = mysqli_query($db, $checkQuery);
 
-    if ($checkResult && mysqli_num_rows($checkResult) > 0) {
-        // Record already exists
-        $existingRow = mysqli_fetch_assoc($checkResult);
-        echo json_encode([
-            'status'  => 'duplicate',
-            'message' => 'This dealer already exists (ID: ' . $existingRow['id'] . '). A new record cannot be created with the same Site Name, SAP No, and Contact. Please use a different SAP No or Contact.',
-            'existing_id' => $existingRow['id']
-        ]);
-        exit;
-    }
-
-    // ============================================
-    // SECONDARY CHECK — SAP No Only
-    // ============================================
-    $checkSapQuery = "SELECT id, name FROM `dealers` 
-                      WHERE `sap_no` = '$dealer_sap_no' 
-                      LIMIT 1";
-    $checkSapResult = mysqli_query($db, $checkSapQuery);
-
-    if ($checkSapResult && mysqli_num_rows($checkSapResult) > 0) {
-        $existingSapRow = mysqli_fetch_assoc($checkSapResult);
-        echo json_encode([
-            'status'  => 'duplicate',
-            'message' => 'This SAP No (' . $dealer_sap_no . ') is already registered with dealer "' . $existingSapRow['name'] . '" (ID: ' . $existingSapRow['id'] . '). Each dealer must have a unique SAP No.',
-            'existing_id' => $existingSapRow['id']
-        ]);
-        exit;
-    }
-
-    // ============================================
-    // TERTIARY CHECK — Contact Only
-    // ============================================
-    $checkContactQuery = "SELECT id, name FROM `dealers` 
-                          WHERE `contact` = '$call_no' 
-                          LIMIT 1";
-    $checkContactResult = mysqli_query($db, $checkContactQuery);
-
-    if ($checkContactResult && mysqli_num_rows($checkContactResult) > 0) {
-        $existingContactRow = mysqli_fetch_assoc($checkContactResult);
-        echo json_encode([
-            'status'  => 'duplicate',
-            'message' => 'This Contact No (' . $call_no . ') is already registered with dealer "' . $existingContactRow['name'] . '" (ID: ' . $existingContactRow['id'] . '). Each dealer must have a unique contact number.',
-            'existing_id' => $existingContactRow['id']
-        ]);
-        exit;
+        if ($checkResult && mysqli_num_rows($checkResult) > 0) {
+            $existingRow = mysqli_fetch_assoc($checkResult);
+            echo json_encode([
+                'status'      => 'duplicate',
+                'message'     => 'This dealer already exists (ID: ' . $existingRow['id'] . '). Please use a different Site Name, SAP No, or Contact.',
+                'existing_id' => $existingRow['id']
+            ]);
+            exit;
+        }
     }
 
     // ============================================
@@ -145,6 +119,9 @@ if (isset($_POST)) {
         if (!move_uploaded_file($file_loc, $folder . $file)) {
             $file = '';
         }
+    } elseif (isset($_POST['banner_img_hidden']) && !empty($_POST['banner_img_hidden'])) {
+        // Existing banner preserve karein (update case)
+        $file = mysqli_real_escape_string($db, $_POST['banner_img_hidden']);
     }
 
     // ============================================
@@ -157,17 +134,27 @@ if (isset($_POST)) {
         if (!move_uploaded_file($file_loc1, $folder . $file1)) {
             $file1 = '';
         }
+    } elseif (isset($_POST['logo_img_hidden']) && !empty($_POST['logo_img_hidden'])) {
+        // Existing logo preserve karein (update case)
+        $file1 = mysqli_real_escape_string($db, $_POST['logo_img_hidden']);
     }
 
     $tdate = date('Y-m-d H:i:s');
 
     // ============================================
-    // Insert or Update
+    // ✅ FIX 3: INSERT with try-catch
+    // (Ab catch block kaam karega kyunki mysqli_report set hai)
     // ============================================
     if ($row_id != '') {
+        // ---------------------------
+        // UPDATE (agar future mein implement karna ho)
+        // ---------------------------
         $response = ['status' => 'error', 'message' => 'Update not implemented yet'];
-    } else {
 
+    } else {
+        // ---------------------------
+        // INSERT
+        // ---------------------------
         $query_main = "INSERT INTO `dealers`
             (`name`, `contact`, `email`, `password`, `location`, `co-ordinates`,
              `housekeeping`, `no_lorries`, `sap_no`, `type`, `zm`, `tm`, `asm`,
@@ -185,10 +172,13 @@ if (isset($_POST)) {
             if ($insertResult) {
                 $active = mysqli_insert_id($db);
 
+                // ============================================
                 // Depots insert
+                // ============================================
                 if (!empty($carss) && is_array($carss)) {
                     $start_time = date("Y-m-d H:i:s");
                     foreach ($carss as $assign) {
+                        if (empty($assign)) continue;
                         $assign_safe = mysqli_real_escape_string($db, $assign);
                         $sql1 = "INSERT INTO `dealers_depots`
                             (`dealers_id`, `depot_id`, `created_at`, `created_by`)
@@ -209,8 +199,9 @@ if (isset($_POST)) {
                 ];
             }
         } catch (mysqli_sql_exception $e) {
-            // Duplicate entry error catch
+            // ✅ Ab ye catch block KAAM KAREGA
             $errMsg = $e->getMessage();
+
             if (strpos($errMsg, 'Duplicate entry') !== false) {
                 $response = [
                     'status'  => 'duplicate',

@@ -315,6 +315,23 @@ require_once __DIR__ . '/session/session.php';
             box-shadow: 0 2px 8px rgba(29, 78, 216, 0.4);
         }
 
+        /* ✅ Action buttons (Delete last point / Finish) */
+        .leaflet-shape-control .shape-divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 2px 0;
+        }
+
+        .leaflet-shape-control .shape-btn.action-btn[data-action="undo"]:hover {
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+
+        .leaflet-shape-control .shape-btn.action-btn[data-action="finish"]:hover {
+            border-color: #10b981;
+            color: #10b981;
+        }
+
         .leaflet-shape-control .shape-btn::after {
             content: attr(data-tooltip);
             position: absolute;
@@ -509,7 +526,7 @@ require_once __DIR__ . '/session/session.php';
             </button>
         </div>
         <div class="offcanvas-body">
-            <form id="dealerForm" onsubmit="saveDealer(event)" enctype="multipart/form-data">
+            <form id="dealerForm" enctype="multipart/form-data">
                 <input type="hidden" id="dealerId" value="">
                 <input type="hidden" id="bannerHidden" value="">
                 <input type="hidden" id="logoHidden" value="">
@@ -645,6 +662,9 @@ require_once __DIR__ . '/session/session.php';
                     <div class="polygon-info mt-1">
                         <i class="fa-solid fa-info-circle"></i>
                         <strong>Shape Tool:</strong> Use shape buttons on map. Drag corners to resize.
+                        Last point delete karne ke liye <i class="fa-solid fa-rotate-left"></i> button ya
+                        <strong>Backspace</strong> use karein. Finish ke liye <i class="fa-solid fa-check"></i> button ya double-click.
+                        Kisi bhi point par click ya right-click karke usay delete kar sakte hain.
                     </div>
                 </div>
 
@@ -710,7 +730,7 @@ require_once __DIR__ . '/session/session.php';
 
                 <div class="flex gap-3 mt-4 pt-3 border-t" id="formButtons"
                     style="border-color: var(--border-color); display: none;">
-                    <button type="submit" class="btn-primary flex-1">Save Changes</button>
+                    <button type="button" onclick="saveDealer(event)" class="btn-primary flex-1">Save Changes</button>
                     <button type="button" onclick="closeOffcanvas()" class="btn-secondary">Cancel</button>
                 </div>
             </form>
@@ -728,7 +748,7 @@ require_once __DIR__ . '/session/session.php';
                         <i class="fa-solid fa-xmark text-lg"></i>
                     </button>
                 </div>
-                <form id="passwordForm" onsubmit="savePassword(event)">
+                <form id="passwordForm">
                     <input type="hidden" id="passwordDealerId" value="">
                     <div class="mb-4">
                         <label class="form-label">Password</label>
@@ -736,7 +756,7 @@ require_once __DIR__ . '/session/session.php';
                             required>
                     </div>
                     <div class="flex gap-3">
-                        <button type="submit" class="btn-primary flex-1">Save</button>
+                        <button type="button" onclick="savePassword(event)" class="btn-primary flex-1">Save</button>
                         <button type="button" onclick="closePasswordModal()" class="btn-secondary">Close</button>
                     </div>
                 </form>
@@ -766,6 +786,10 @@ require_once __DIR__ . '/session/session.php';
         let isEditMode = false;
         let currentDealerId = null;
 
+        // ✅ FIX: Double submit rokne ke liye flags
+        let isSavingDealer = false;
+        let isSavingPassword = false;
+
         const columnConfig = [
             { idx: 0, label: 'S.No' },
             { idx: 1, label: 'Site Name' },
@@ -790,6 +814,7 @@ require_once __DIR__ . '/session/session.php';
         let currentPolygonLayer = null;
         let activeShape = 'freehand';
         let shapeControlInstance = null;
+        let activeDrawHandler = null;
 
         // ============================================
         // ✅ Custom Leaflet Control for Shapes
@@ -803,11 +828,8 @@ require_once __DIR__ . '/session/session.php';
                 L.DomEvent.disableScrollPropagation(container);
 
                 const shapes = [
-                    { id: 'freehand', icon: 'fa-draw-polygon', label: 'Free Draw' },
-                    { id: 'pentagon', icon: 'fa-star', label: 'Pentagon' },
-                    { id: 'hexagon', icon: 'fa-star', label: 'Hexagon' },
-                    { id: 'square', icon: 'fa-square', label: 'Square' },
-                    { id: 'triangle', icon: 'fa-play', label: 'Triangle' }
+                    { id: 'freehand', icon: 'fa-draw-polygon', label: 'Polygon (Free Draw)' },
+                    { id: 'circle', icon: 'fa-circle', label: 'Circle' }
                 ];
 
                 shapes.forEach(function (shape) {
@@ -817,7 +839,6 @@ require_once __DIR__ . '/session/session.php';
                     btn.setAttribute('data-tooltip', shape.label);
                     btn.innerHTML = '<i class="fa-solid ' + shape.icon + '"></i>';
 
-                    // ✅ Use L.DomEvent.on for reliable click handling
                     L.DomEvent.on(btn, 'click', function (e) {
                         L.DomEvent.stopPropagation(e);
                         L.DomEvent.preventDefault(e);
@@ -825,41 +846,164 @@ require_once __DIR__ . '/session/session.php';
                     });
                 });
 
+                L.DomUtil.create('div', 'shape-divider', container);
+
+                const actions = [
+                    { id: 'undo', icon: 'fa-rotate-left', label: 'Delete Last Point (Backspace)', handler: deleteLastPoint },
+                    { id: 'finish', icon: 'fa-check', label: 'Finish Polygon', handler: finishDrawing }
+                ];
+
+                actions.forEach(function (action) {
+                    const btn = L.DomUtil.create('button', 'shape-btn action-btn', container);
+                    btn.type = 'button';
+                    btn.setAttribute('data-action', action.id);
+                    btn.setAttribute('data-tooltip', action.label);
+                    btn.innerHTML = '<i class="fa-solid ' + action.icon + '"></i>';
+
+                    L.DomEvent.on(btn, 'click', function (e) {
+                        L.DomEvent.stopPropagation(e);
+                        L.DomEvent.preventDefault(e);
+                        action.handler();
+                    });
+                });
+
                 return container;
             }
         });
 
-        // ============================================
-        // ✅ Shape Selection Handler
-        // ============================================
-        function selectShape(shapeId) {
-            // Update active state
-            $('.shape-btn').removeClass('active');
+        function isPolygonLayer(layer) {
+            return !!layer && (layer instanceof L.Polygon) && typeof layer.getLatLngs === 'function';
+        }
+
+        function getPolygonRing(layer) {
+            if (!isPolygonLayer(layer)) return null;
+            const latlngs = layer.getLatLngs();
+            if (!latlngs || !latlngs.length) return null;
+            return Array.isArray(latlngs[0]) ? latlngs[0] : latlngs;
+        }
+
+        function syncPolygonField(layer) {
+            const ring = getPolygonRing(layer);
+            if (!ring) return;
+            let polygonString = '';
+            ring.forEach(function (latlng) {
+                polygonString += latlng.lat.toFixed(6) + ',' + latlng.lng.toFixed(6) + ';';
+            });
+            $('#coordinatesPolygon').val(polygonString);
+        }
+
+        function bindPolygonEvents(layer) {
+            if (!isPolygonLayer(layer) || layer._syncBound) return;
+            layer._syncBound = true;
+            layer.on('edit', function () {
+                syncPolygonField(layer);
+            });
+        }
+
+        function stopActiveDraw() {
+            if (activeDrawHandler) {
+                const handler = activeDrawHandler;
+                activeDrawHandler = null;
+                try { handler.disable(); } catch (e) { }
+            }
+        }
+
+        function removeVertexFromLayer(layer, index) {
+            const ring = getPolygonRing(layer);
+            if (!ring) return false;
+
+            if (ring.length <= 3) {
+                showToast('Minimum 3 points required.', 'error');
+                return false;
+            }
+
+            const wasEditing = !!(layer.editing && layer.editing.enabled && layer.editing.enabled());
+            if (wasEditing) layer.editing.disable();
+
+            const newRing = ring.slice();
+            const removeAt = index < 0 ? newRing.length - 1 : index;
+            newRing.splice(removeAt, 1);
+
+            layer.setLatLngs([newRing]);
+            if (layer.redraw) layer.redraw();
+
+            if (wasEditing) layer.editing.enable();
+
+            syncPolygonField(layer);
+            return true;
+        }
+
+        function deleteLastPoint() {
+            if (!map) return;
+
+            if (activeDrawHandler && activeDrawHandler instanceof L.Draw.Polygon) {
+                const count = activeDrawHandler._markers ? activeDrawHandler._markers.length : 0;
+
+                if (count > 1) {
+                    activeDrawHandler.deleteLastVertex();
+                    showToast('Last point deleted.', 'success');
+                } else if (count === 1) {
+                    stopActiveDraw();
+                    selectShape('freehand', true);
+                    showToast('Point deleted. Draw again.', 'success');
+                } else {
+                    showToast('No point to delete.', 'error');
+                }
+                return;
+            }
+
+            if (activeDrawHandler) {
+                showToast('Circle ke liye points nahi hote. Esc se cancel karein.', 'error');
+                return;
+            }
+
+            if (isPolygonLayer(currentPolygonLayer)) {
+                if (removeVertexFromLayer(currentPolygonLayer, -1)) {
+                    showToast('Last point deleted.', 'success');
+                }
+                return;
+            }
+
+            showToast('No polygon to edit.', 'error');
+        }
+
+        function finishDrawing() {
+            if (activeDrawHandler && activeDrawHandler instanceof L.Draw.Polygon) {
+                const count = activeDrawHandler._markers ? activeDrawHandler._markers.length : 0;
+                if (count < 3) {
+                    showToast('Minimum 3 points required to finish.', 'error');
+                    return;
+                }
+                activeDrawHandler.completeShape();
+                return;
+            }
+            showToast('Koi polygon draw nahi ho raha.', 'error');
+        }
+
+        function selectShape(shapeId, silent) {
+            $('.shape-btn[data-shape]').removeClass('active');
             $('.shape-btn[data-shape="' + shapeId + '"]').addClass('active');
             activeShape = shapeId;
 
             if (!map) return;
 
+            stopActiveDraw();
+
+            if (drawControl && !map.hasLayer(drawControl)) {
+                map.addControl(drawControl);
+            }
+
             if (shapeId === 'freehand') {
-                if (drawControl && !map.hasLayer(drawControl)) {
-                    map.addControl(drawControl);
-                }
-                showToast('Free Draw mode. Use polygon icon to draw.', 'success');
-            } else {
-                if (drawControl && map.hasLayer(drawControl)) {
-                    map.removeControl(drawControl);
-                }
-                showToast(
-                    shapeId.charAt(0).toUpperCase() + shapeId.slice(1) +
-                    ' mode. Click on map to place shape.',
-                    'success'
-                );
+                activeDrawHandler = new L.Draw.Polygon(map, drawControl.options.draw.polygon);
+                activeDrawHandler.enable();
+                if (!silent) showToast('Polygon mode. Click to add points, ↶ ya Backspace se last point delete, ✓ ya double-click se finish.', 'success');
+            } else if (shapeId === 'circle') {
+                activeDrawHandler = new L.Draw.Circle(map, drawControl.options.draw.circle);
+                activeDrawHandler.enable();
+                if (!silent) showToast('Circle mode. Click on map to set center, drag to set radius.', 'success');
             }
         }
 
-        // ============================================
-        // Initialize Map with Draw Control
-        // ============================================
         function initMap() {
             if (mapInitialized) return;
             const defaultCenter = [30.3753, 69.3451];
@@ -887,7 +1031,14 @@ require_once __DIR__ . '/session/session.php';
                     },
                     polyline: false,
                     rectangle: false,
-                    circle: false,
+                    circle: {
+                        shapeOptions: {
+                            color: '#10b981',
+                            weight: 2,
+                            fillColor: '#10b981',
+                            fillOpacity: 0.2
+                        }
+                    },
                     circlemarker: false,
                     marker: false
                 },
@@ -897,185 +1048,96 @@ require_once __DIR__ . '/session/session.php';
                 }
             });
 
-            // Add Custom Shape Control
             shapeControlInstance = new ShapeControl();
             map.addControl(shapeControlInstance);
 
-            // Free-hand Polygon Created
+            map.on(L.Draw.Event.DRAWSTOP, function () {
+                activeDrawHandler = null;
+            });
+
             map.on(L.Draw.Event.CREATED, function (e) {
                 const layer = e.layer;
+                const type = e.layerType;
+
                 drawnItems.clearLayers();
                 drawnItems.addLayer(layer);
                 currentPolygonLayer = layer;
 
-                layer.editing.enable({
-                    allowSelfIntersection: false,
-                    preventMarkerRemoval: false,
-                    removeVertexOnClick: true
-                });
+                if (type === 'circle') {
+                    const center = layer.getLatLng();
+                    const radius = layer.getRadius();
 
-                layer.on('edit', function () {
-                    const coords = layer.getLatLngs()[0];
-                    let polygonString = '';
-                    coords.forEach(function (latlng) {
-                        polygonString += latlng.lat.toFixed(6) + ',' + latlng.lng.toFixed(6) + ';';
-                    });
-                    $('#coordinatesPolygon').val(polygonString);
-                });
+                    const points = [];
+                    const numPoints = 32;
+                    for (let i = 0; i < numPoints; i++) {
+                        const angle = (2 * Math.PI * i) / numPoints;
+                        const lat = center.lat + (radius / 111320) * Math.sin(angle);
+                        const lng = center.lng + (radius / (111320 * Math.cos(center.lat * Math.PI / 180))) * Math.cos(angle);
+                        points.push([lat, lng]);
+                    }
 
-                const coords = layer.getLatLngs()[0];
-                let polygonString = '';
-                coords.forEach(function (latlng) {
-                    polygonString += latlng.lat.toFixed(6) + ',' + latlng.lng.toFixed(6) + ';';
-                });
-                $('#coordinatesPolygon').val(polygonString);
-                showToast('Polygon created! Drag points to edit.', 'success');
+                    updatePolygonField(points);
+                    $('#coordinatesCircle').val(center.lat.toFixed(6) + ', ' + center.lng.toFixed(6));
+                    showToast('Circle created! Radius: ' + Math.round(radius) + 'm', 'success');
+
+                } else if (type === 'polygon') {
+                    bindPolygonEvents(layer);
+                    if (layer.editing) layer.editing.enable();
+                    syncPolygonField(layer);
+                    showToast('Polygon created! Point par click/right-click karke delete karein, ya drag karke edit karein.', 'success');
+                }
             });
 
-            // Polygon Edited
+            map.on(L.Draw.Event.EDITVERTEX, function (e) {
+                if (e && e.poly && isPolygonLayer(e.poly)) {
+                    syncPolygonField(e.poly);
+                }
+            });
+
             map.on(L.Draw.Event.EDITED, function (e) {
                 const layers = e.layers;
                 layers.eachLayer(function (layer) {
-                    const coords = layer.getLatLngs()[0];
-                    let polygonString = '';
-                    coords.forEach(function (latlng) {
-                        polygonString += latlng.lat.toFixed(6) + ',' + latlng.lng.toFixed(6) + ';';
-                    });
-                    $('#coordinatesPolygon').val(polygonString);
+                    if (isPolygonLayer(layer)) {
+                        syncPolygonField(layer);
+                    }
                 });
-                showToast('Polygon updated!', 'success');
+                showToast('Shape updated!', 'success');
             });
 
-            // Polygon Deleted
             map.on(L.Draw.Event.DELETED, function () {
                 $('#coordinatesPolygon').val('');
                 currentPolygonLayer = null;
-                showToast('Polygon deleted.', 'success');
+                showToast('Shape deleted.', 'success');
             });
 
-            // Custom shape click handler
-            map.on('click', function (e) {
-                if (!isEditMode) return;
-                if (activeShape === 'freehand') return;
-                handleCustomShapeClick(e);
-            });
-
-            // Right-click on vertex -> delete
             map.on('contextmenu', function (e) {
-                if (!currentPolygonLayer) return;
+                if (!isEditMode) return;
+                if (!isPolygonLayer(currentPolygonLayer)) return;
 
-                const latlngs = currentPolygonLayer.getLatLngs()[0];
-                const clickPoint = e.latlng;
+                const ring = getPolygonRing(currentPolygonLayer);
+                if (!ring || !ring.length) return;
 
-                for (let i = 0; i < latlngs.length; i++) {
-                    const vertex = latlngs[i];
-                    const distance = map.distance(clickPoint, vertex);
+                const clickPt = map.latLngToContainerPoint(e.latlng);
+                let nearestIdx = -1;
+                let nearestDist = Infinity;
 
-                    if (distance < 20) {
-                        if (latlngs.length > 3) {
-                            latlngs.splice(i, 1);
-                            currentPolygonLayer.setLatLngs([latlngs]);
-                            currentPolygonLayer.redraw();
+                for (let i = 0; i < ring.length; i++) {
+                    const vPt = map.latLngToContainerPoint(ring[i]);
+                    const d = clickPt.distanceTo(vPt);
+                    if (d < nearestDist) {
+                        nearestDist = d;
+                        nearestIdx = i;
+                    }
+                }
 
-                            let polygonString = '';
-                            latlngs.forEach(function (latlng) {
-                                polygonString += latlng.lat.toFixed(6) + ',' + latlng.lng.toFixed(6) + ';';
-                            });
-                            $('#coordinatesPolygon').val(polygonString);
-
-                            showToast('Point deleted!', 'success');
-                        } else {
-                            showToast('Minimum 3 points required.', 'error');
-                        }
-                        break;
+                if (nearestIdx !== -1 && nearestDist <= 15) {
+                    if (removeVertexFromLayer(currentPolygonLayer, nearestIdx)) {
+                        showToast('Point deleted!', 'success');
                     }
                 }
             });
 
             mapInitialized = true;
-        }
-
-        // ============================================
-        // Shape Generator
-        // ============================================
-        function generateShapePoints(centerLat, centerLng, shape, radiusMeters) {
-            const points = [];
-            let sides = 0;
-            let rotation = 0;
-
-            switch (shape) {
-                case 'pentagon': sides = 5; rotation = -Math.PI / 2; break;
-                case 'hexagon': sides = 6; rotation = -Math.PI / 2; break;
-                case 'square': sides = 4; rotation = Math.PI / 4; break;
-                case 'triangle': sides = 3; rotation = -Math.PI / 2; break;
-                default: return null;
-            }
-
-            const latDegPerMeter = 1 / 111320;
-            const lngDegPerMeter = 1 / (111320 * Math.cos(centerLat * Math.PI / 180));
-            const latRadius = radiusMeters * latDegPerMeter;
-            const lngRadius = radiusMeters * lngDegPerMeter;
-
-            for (let i = 0; i < sides; i++) {
-                const angle = rotation + (2 * Math.PI * i / sides);
-                const lat = centerLat + (latRadius * Math.sin(angle));
-                const lng = centerLng + (lngRadius * Math.cos(angle));
-                points.push([lat, lng]);
-            }
-
-            return points;
-        }
-
-        // ============================================
-        // Custom Shape Draw
-        // ============================================
-        function handleCustomShapeClick(e) {
-            const centerLat = e.latlng.lat;
-            const centerLng = e.latlng.lng;
-            const defaultRadius = 500;
-
-            const points = generateShapePoints(centerLat, centerLng, activeShape, defaultRadius);
-            if (!points) return;
-
-            if (currentPolygonLayer && map) {
-                map.removeLayer(currentPolygonLayer);
-                currentPolygonLayer = null;
-            }
-            drawnItems.clearLayers();
-
-            const polygon = L.polygon(points, {
-                color: '#1d4ed8',
-                weight: 2,
-                fillColor: '#1d4ed8',
-                fillOpacity: 0.2
-            });
-            drawnItems.addLayer(polygon);
-            currentPolygonLayer = polygon;
-
-            updatePolygonField(points);
-            map.fitBounds(polygon.getBounds());
-
-            polygon.editing.enable({
-                allowSelfIntersection: false,
-                preventMarkerRemoval: false,
-                removeVertexOnClick: true
-            });
-
-            polygon.on('edit', function () {
-                const updatedCoords = polygon.getLatLngs()[0];
-                updatePolygonField(updatedCoords);
-            });
-
-            polygon.on('dragend', function () {
-                const updatedCoords = polygon.getLatLngs()[0];
-                updatePolygonField(updatedCoords);
-            });
-
-            showToast(
-                activeShape.charAt(0).toUpperCase() + activeShape.slice(1) +
-                ' created! Drag corners to resize.',
-                'success'
-            );
         }
 
         function updatePolygonField(latlngs) {
@@ -1653,13 +1715,22 @@ require_once __DIR__ . '/session/session.php';
             if (currentDealerId) { openPasswordModal(currentDealerId); }
         }
 
+        // ✅ FIX: savePassword mein isSavingPassword flag
         function savePassword(event) {
-            event.preventDefault();
+            if (event) event.preventDefault();
+
+            if (isSavingPassword) return;
+            isSavingPassword = true;
+
             const id = parseInt($('#passwordDealerId').val());
             const newPassword = $('#newPassword').val().trim();
-            if (!newPassword) { showToast('Please enter a password.', 'error'); return; }
+            if (!newPassword) {
+                showToast('Please enter a password.', 'error');
+                isSavingPassword = false;
+                return;
+            }
 
-            const submitBtn = $('#passwordForm button[type="submit"]');
+            const submitBtn = $('#passwordForm button[type="button"]');
             submitBtn.prop('disabled', true);
             submitBtn.html('<i class="fa-solid fa-spinner fa-spin mr-1"></i> Saving...');
 
@@ -1669,6 +1740,7 @@ require_once __DIR__ . '/session/session.php';
                 data: { row_id: id, edit_password: newPassword },
                 dataType: 'json',
                 success: function (response) {
+                    isSavingPassword = false;
                     submitBtn.prop('disabled', false);
                     submitBtn.html('Save');
                     if (response === 1) {
@@ -1683,6 +1755,7 @@ require_once __DIR__ . '/session/session.php';
                     }
                 },
                 error: function () {
+                    isSavingPassword = false;
                     submitBtn.prop('disabled', false);
                     submitBtn.html('Save');
                     showToast('Error updating password.', 'error');
@@ -1731,24 +1804,23 @@ require_once __DIR__ . '/session/session.php';
             if (map) {
                 map.off('click');
 
-                // Circle marker click
                 map.on('click', function (e) {
-                    if (activeShape !== 'freehand') return;
                     const lat = e.latlng.lat.toFixed(6);
                     const lng = e.latlng.lng.toFixed(6);
-                    $('#coordinatesCircle').val(lat + ', ' + lng);
-                    if (marker) { marker.setLatLng([lat, lng]); } else { marker = L.marker([lat, lng]).addTo(map); }
-                    reverseGeocode(lat, lng);
+                    if (activeShape === 'freehand') {
+                        $('#coordinatesCircle').val(lat + ', ' + lng);
+                        if (marker) { marker.setLatLng([lat, lng]); } else { marker = L.marker([lat, lng]).addTo(map); }
+                        reverseGeocode(lat, lng);
+                    }
                 });
 
-                // Custom shape click
-                map.on('click', function (e) {
-                    if (activeShape === 'freehand') return;
-                    handleCustomShapeClick(e);
-                });
-
-                if (activeShape === 'freehand' && drawControl && !map.hasLayer(drawControl)) {
+                if (drawControl && !map.hasLayer(drawControl)) {
                     map.addControl(drawControl);
+                }
+
+                if (isPolygonLayer(currentPolygonLayer) && currentPolygonLayer.editing) {
+                    bindPolygonEvents(currentPolygonLayer);
+                    currentPolygonLayer.editing.enable();
                 }
             }
 
@@ -1760,6 +1832,7 @@ require_once __DIR__ . '/session/session.php';
 
         function resetEditMode() {
             isEditMode = false;
+            stopActiveDraw();
             $('#editModeBanner').show();
             $('#dealerForm input').prop('readonly', true);
             $('#dealerForm input[type="file"]').prop('readonly', false);
@@ -1772,6 +1845,9 @@ require_once __DIR__ . '/session/session.php';
                 if (drawControl && map.hasLayer(drawControl)) {
                     map.removeControl(drawControl);
                 }
+            }
+            if (isPolygonLayer(currentPolygonLayer) && currentPolygonLayer.editing && currentPolygonLayer.editing.enabled && currentPolygonLayer.editing.enabled()) {
+                currentPolygonLayer.editing.disable();
             }
             if ($('#depot').data('select2')) {
                 $('#depot').prop('disabled', true).trigger('change.select2');
@@ -1793,6 +1869,9 @@ require_once __DIR__ . '/session/session.php';
         function openEditOffcanvas(id) {
             currentDealerId = id;
             resetEditMode();
+
+            if (drawnItems) { drawnItems.clearLayers(); }
+            currentPolygonLayer = null;
 
             $('#actionBannersWrapper').show();
             $('#viewProfileBanner').show();
@@ -1854,7 +1933,12 @@ require_once __DIR__ . '/session/session.php';
                                     });
                                     drawnItems.addLayer(polygon);
                                     currentPolygonLayer = polygon;
+                                    bindPolygonEvents(polygon);
                                     map.fitBounds(polygon.getBounds());
+
+                                    if (isEditMode && polygon.editing) {
+                                        polygon.editing.enable();
+                                    }
                                 }
                             }, 600);
                         }
@@ -1972,6 +2056,7 @@ require_once __DIR__ . '/session/session.php';
         function openCreateModal() {
             currentDealerId = null;
             isEditMode = true;
+            stopActiveDraw();
 
             $('#actionBannersWrapper').hide();
             $('#viewProfileBanner').hide();
@@ -2008,7 +2093,7 @@ require_once __DIR__ . '/session/session.php';
             $('#searchResults').removeClass('show').empty();
 
             activeShape = 'freehand';
-            $('.shape-btn').removeClass('active');
+            $('.shape-btn[data-shape]').removeClass('active');
             $('.shape-btn[data-shape="freehand"]').addClass('active');
 
             $('#dealerForm input[readonly]').prop('readonly', false);
@@ -2049,8 +2134,18 @@ require_once __DIR__ . '/session/session.php';
             $('#' + hiddenId).val(file.name);
         }
 
+        // ============================================
+        // ✅ FIXED: saveDealer with isSavingDealer flag
+        // ============================================
         function saveDealer(event) {
-            event.preventDefault();
+            if (event) event.preventDefault();
+
+            // ✅ Double submit roko
+            if (isSavingDealer) {
+                console.log('Already saving, please wait...');
+                return;
+            }
+            isSavingDealer = true;
 
             const id = safeTrim('#dealerId');
             const siteName = safeTrim('#siteName');
@@ -2077,10 +2172,11 @@ require_once __DIR__ . '/session/session.php';
 
             if (!siteName || !sapNo || !email || !contact) {
                 showToast('Please fill in all required fields.', 'error');
+                isSavingDealer = false;
                 return;
             }
 
-            const submitBtn = $('#dealerForm button[type="submit"]');
+            const submitBtn = $('#formButtons button.btn-primary');
             submitBtn.prop('disabled', true);
             submitBtn.html('<i class="fa-solid fa-spinner fa-spin mr-1"></i> Saving...');
 
@@ -2142,21 +2238,37 @@ require_once __DIR__ . '/session/session.php';
                 contentType: false,
                 dataType: 'text',
                 success: function (rawResponse) {
+                    isSavingDealer = false;
                     submitBtn.prop('disabled', false);
                     submitBtn.html('Save Changes');
 
                     console.log('RAW RESPONSE:', rawResponse);
 
+                    // ✅ Response clean karein
+                    let cleanedResponse = String(rawResponse).trim();
+                    cleanedResponse = cleanedResponse.replace(/<[^>]*>/g, '').trim();
+
                     let response = null;
                     try {
-                        response = typeof rawResponse === 'string' ? JSON.parse(rawResponse) : rawResponse;
+                        response = JSON.parse(cleanedResponse);
                     } catch (e) {
                         console.error('JSON Parse Error:', e);
                         console.error('Raw Response:', rawResponse);
 
                         const stripped = String(rawResponse).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+
+                        // ✅ Fallback: agar response mein "success" hai
+                        if (stripped.indexOf('"status":"success"') !== -1 ||
+                            stripped.indexOf('"status": "success"') !== -1 ||
+                            stripped.indexOf('Dealer created successfully') !== -1) {
+                            showToast('Dealer created successfully!', 'success');
+                            closeOffcanvas();
+                            loadDealers();
+                            return;
+                        }
+
                         if (stripped.indexOf('Duplicate entry') !== -1) {
-                            showDuplicateAlert('This dealer already exists. Please use a different SAP No or Contact.');
+                            showDuplicateAlert('This dealer already exists. Please use a different Site Name, SAP No, or Contact.');
                         } else {
                             showToast(stripped.substring(0, 200) || 'Failed to save dealer.', 'error');
                         }
@@ -2170,6 +2282,7 @@ require_once __DIR__ . '/session/session.php';
                         return;
                     }
 
+                    // ✅ SUCCESS
                     if (response.status === 'success') {
                         showToast(
                             id ? 'Dealer updated successfully!' : 'Dealer created successfully!',
@@ -2178,9 +2291,11 @@ require_once __DIR__ . '/session/session.php';
                         closeOffcanvas();
                         loadDealers();
                     }
+                    // ✅ DUPLICATE
                     else if (response.status === 'duplicate') {
                         showDuplicateAlert(response.message);
                     }
+                    // ✅ ERROR
                     else {
                         showToast(
                             response.message || 'Failed to save dealer. Please try again.',
@@ -2189,6 +2304,7 @@ require_once __DIR__ . '/session/session.php';
                     }
                 },
                 error: function (xhr, status, error) {
+                    isSavingDealer = false;
                     submitBtn.prop('disabled', false);
                     submitBtn.html('Save Changes');
                     console.error('Save Error:', status, error);
@@ -2197,8 +2313,18 @@ require_once __DIR__ . '/session/session.php';
                     const respText = xhr.responseText || '';
                     const stripped = respText.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 
+                    // ✅ Fallback: agar response mein success hai
+                    if (stripped.indexOf('"status":"success"') !== -1 ||
+                        stripped.indexOf('"status": "success"') !== -1 ||
+                        stripped.indexOf('Dealer created successfully') !== -1) {
+                        showToast('Dealer created successfully!', 'success');
+                        closeOffcanvas();
+                        loadDealers();
+                        return;
+                    }
+
                     if (stripped.indexOf('Duplicate entry') !== -1) {
-                        showDuplicateAlert('This dealer already exists. Please use a different SAP No or Contact.');
+                        showDuplicateAlert('This dealer already exists. Please use a different Site Name, SAP No, or Contact.');
                     } else if (stripped) {
                         showToast(stripped.substring(0, 200), 'error');
                     } else {
@@ -2208,8 +2334,21 @@ require_once __DIR__ . '/session/session.php';
             });
         }
 
+        // ============================================
+        // ✅ FIXED: showDuplicateAlert — clean message
+        // ============================================
         function showDuplicateAlert(message) {
-            const finalMessage = message || 'This dealer already exists. Please use a different SAP No or Contact.';
+            let finalMessage = (message && message.trim() !== '')
+                ? message
+                : 'This dealer already exists. Please use a different Site Name, SAP No, or Contact.';
+
+            // ID part hata dein
+            finalMessage = finalMessage.replace(/\s*\(ID:\s*\d+\)\.?\s*/g, ' ').trim();
+            finalMessage = finalMessage.replace(/existing_id[^,]*/gi, '').trim();
+
+            if (!finalMessage || finalMessage.trim() === '') {
+                finalMessage = 'This dealer already exists. Please use a different Site Name, SAP No, or Contact.';
+            }
 
             showToast(finalMessage, 'error');
 
@@ -2244,7 +2383,21 @@ require_once __DIR__ . '/session/session.php';
         });
 
         $(document).on('keydown', function (e) {
+            const isTyping = $(e.target).is('input, textarea, select') || $(e.target).closest('.select2-container').length > 0;
+
+            if (activeDrawHandler && !isTyping &&
+                (e.key === 'Backspace' || (e.ctrlKey && String(e.key).toLowerCase() === 'z'))) {
+                e.preventDefault();
+                deleteLastPoint();
+                return;
+            }
+
             if (e.key === 'Escape') {
+                if (activeDrawHandler) {
+                    stopActiveDraw();
+                    showToast('Drawing cancelled.', 'success');
+                    return;
+                }
                 if ($('#editOffcanvas').hasClass('open')) { closeOffcanvas(); }
                 if (!$('#passwordModal').hasClass('hidden')) { closePasswordModal(); }
                 closeColumnDropdown();
