@@ -1,5 +1,5 @@
 <?php
-include("../config.php");
+include("../../config.php");
 session_start();
 if (isset($_POST)) {
     $user_id = $_POST['user_id'];
@@ -12,7 +12,9 @@ if (isset($_POST)) {
     $date = date('Y-m-d H:i:s');
 
     // echo 'HAmza';
-    if ($_POST["row_id"] != '') {
+       $row_id = isset($_POST["row_id"]) ? $_POST["row_id"] : '';
+
+    if ($row_id != '') {
 
 
     } else {

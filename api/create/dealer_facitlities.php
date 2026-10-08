@@ -1,6 +1,8 @@
 <?php
-include("../config.php");
+include("../../config.php");
 session_start();
+header('Content-Type: application/json');
+
 if (isset($_POST)) {
     $user_id = $_POST['user_id'];
     $dealer_id = mysqli_real_escape_string($db, $_POST["dealer_id"]);
@@ -8,7 +10,9 @@ if (isset($_POST)) {
     $date = date('Y-m-d H:i:s');
 
     // echo 'HAmza';
-    if ($_POST["row_id"] != '') {
+    $row_id = isset($_POST["row_id"]) ? $_POST["row_id"] : '';
+
+    if ($row_id != '') {
 
 
     } else {

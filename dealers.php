@@ -6,6 +6,7 @@ require_once __DIR__ . '/session/session.php';
 
 <head>
     <meta charset="UTF-8">
+    <?php include 'includes/head.php'; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hascol OMC - Dealers Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -1899,7 +1900,7 @@ require_once __DIR__ . '/session/session.php';
                 $('#location').val(dealer.location || '');
 
                 const encId = encryptId(dealer.id);
-                $('#viewProfileBtn').attr('href', 'user_profile.php?id=' + encodeURIComponent(encId));
+                $('#viewProfileBtn').attr('href', 'dealer_profile.php?id=' + encodeURIComponent(encId));
 
                 const polygonData = dealer.form_status || '';
                 $('#coordinatesPolygon').val(polygonData);

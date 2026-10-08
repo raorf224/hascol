@@ -6,6 +6,7 @@ require_once __DIR__ . '/session/session.php';
 
 <head>
     <meta charset="UTF-8">
+    <?php include 'includes/head.php'; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hascol OMC - Dealer Profile</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -1743,7 +1744,7 @@ require_once __DIR__ . '/session/session.php';
                             <div class="detail-row">
                                 <span class="detail-label">Setups</span>
                                 <span class="detail-value">
-                                    <a href="user_setup.php?id=U2FsdGVkX1%2B3RayuVEN%2FRew62tyzKRGjN35ECbpUVZY%3D"
+                                    <a href="dealer_setup.php?id=U2FsdGVkX1%2B3RayuVEN%2FRew62tyzKRGjN35ECbpUVZY%3D"
                                         id="setup_tag" target="_blank" rel="noopener noreferrer"
                                         class="setup-tooltip-wrapper">
                                         <i class="fas fa-users-cog" style="cursor:pointer;font-size: 20px;"></i>

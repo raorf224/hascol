@@ -1,6 +1,8 @@
 <?php
-include ("../config.php");
+include("../../config.php");
 session_start();
+header('Content-Type: application/json');
+
 if (isset($_POST)) {
     $user_id = $_POST['user_id'];
     $dealer_id = mysqli_real_escape_string($db, $_POST["dealer_id"]);
@@ -8,12 +10,20 @@ if (isset($_POST)) {
     $products = mysqli_real_escape_string($db, $_POST["products"]);
     $min_limit = mysqli_real_escape_string($db, $_POST["min_limit"]);
     $max_limit = mysqli_real_escape_string($db, $_POST["max_limit"]);
-    $current_reading = mysqli_real_escape_string($db, $_POST["current_reading"]);
-    $current_dip = mysqli_real_escape_string($db, $_POST["current_dip"]);
+    // $current_reading = mysqli_real_escape_string($db, $_POST["current_reading"]);
+    // $current_dip = mysqli_real_escape_string($db, $_POST["current_dip"]);
+    $min_limit = mysqli_real_escape_string($db, $_POST["min_limit"] ?? '0');
+    $max_limit = mysqli_real_escape_string($db, $_POST["max_limit"] ?? '0');
+
+    // ✅ Ye frontend se nahi aa rahe — default 0 set karo
+    $current_reading = mysqli_real_escape_string($db, $_POST["current_reading"] ?? '0');
+    $current_dip = mysqli_real_escape_string($db, $_POST["current_dip"] ?? '0');
+
     $date = date('Y-m-d H:i:s');
 
     // echo 'HAmza';
-    if ($_POST["row_id"] != '') {
+    $row_id = isset($_POST["row_id"]) ? $_POST["row_id"] : '';
+    if ($row_id != '') {
 
 
     } else {

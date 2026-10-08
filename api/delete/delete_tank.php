@@ -1,6 +1,6 @@
 <?php
 //fetch.php  
-include("../config.php");
+include("../../config.php");
 
 
 $access_key = '2170';

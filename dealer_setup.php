@@ -5,8 +5,8 @@ require_once __DIR__ . '/session/session.php';
 <html lang="en">
 
 <head>
-    // ac
     <meta charset="UTF-8">
+    <?php include 'includes/head.php'; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hascol OMC - User Setup</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -53,7 +53,6 @@ require_once __DIR__ . '/session/session.php';
     </script>
 
     <style>
-        /* THEME VARIABLES */
         :root {
             --bg-body: #f4f6fa;
             --bg-panel: #ffffff;
@@ -72,9 +71,6 @@ require_once __DIR__ . '/session/session.php';
             --modal-overlay: rgba(15, 23, 42, 0.5);
             --btn-secondary-bg: #e2e8f0;
             --btn-secondary-text: #334155;
-            --btn-secondary-hover-bg: #cbd5e1;
-            --btn-secondary-hover-text: #0f2440;
-            --toolbar-btn-bg: #ffffff;
             --modal-bg: #ffffff;
             --modal-border: #e2e8f0;
             --dropdown-bg: #ffffff;
@@ -100,9 +96,6 @@ require_once __DIR__ . '/session/session.php';
             --modal-overlay: rgba(6, 11, 19, 0.8);
             --btn-secondary-bg: #1a2635;
             --btn-secondary-text: #94a3b8;
-            --btn-secondary-hover-bg: #1f2a3d;
-            --btn-secondary-hover-text: #ffffff;
-            --toolbar-btn-bg: #060b13;
             --modal-bg: #0d1520;
             --modal-border: #1a2635;
             --dropdown-bg: #0d1520;
@@ -142,7 +135,6 @@ require_once __DIR__ . '/session/session.php';
             border-radius: 4px;
         }
 
-        /* Sidebar Collapsed State */
         #sidebar.collapsed {
             width: 60px;
         }
@@ -151,43 +143,11 @@ require_once __DIR__ . '/session/session.php';
             display: none;
         }
 
-        #sidebar.collapsed .p-4 {
-            padding: 12px 8px;
-        }
-
-        #sidebar.collapsed .p-4 .fa-fire-fluid {
-            font-size: 1.5rem;
-        }
-
-        #sidebar.collapsed nav a {
-            justify-content: center;
-            padding: 8px 4px;
-        }
-
-        #sidebar.collapsed nav a i {
-            font-size: 1.1rem;
-            margin: 0;
-        }
-
-        #sidebar.collapsed .p-3 .sidebar-text {
-            display: none;
-        }
-
-        #sidebar.collapsed .p-3 .flex.items-center {
-            justify-content: center;
-        }
-
-        #sidebar.collapsed .p-3 img {
-            width: 32px;
-            height: 32px;
-        }
-
         #sidebar,
         #mainContent {
             transition: all 0.3s ease-in-out;
         }
 
-        /* NAV TABS - PILL BACKED SEGMENTED CONTAINER */
         .nav-tabs-custom {
             display: flex;
             flex-wrap: wrap;
@@ -197,7 +157,6 @@ require_once __DIR__ . '/session/session.php';
             border: 1px solid var(--border-color);
             border-radius: 14px;
             width: 100%;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
             transition: background-color .25s ease, border-color .25s ease;
         }
 
@@ -215,7 +174,7 @@ require_once __DIR__ . '/session/session.php';
             font-weight: 600;
             color: var(--tab-inactive);
             background: transparent;
-            transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: all 0.25s ease;
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -227,56 +186,23 @@ require_once __DIR__ . '/session/session.php';
             white-space: nowrap;
         }
 
-        .nav-tabs-custom .nav-link i {
-            font-size: 12px;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-        }
-
         .nav-tabs-custom .nav-link:hover:not(.active) {
             background: var(--hover-bg);
             color: var(--text-heading);
         }
 
-        .nav-tabs-custom .nav-link:hover:not(.active) i {
-            opacity: 1;
-        }
-
         .nav-tabs-custom .nav-link.active {
             background: var(--tab-active);
             color: #ffffff;
-            box-shadow: 0 2px 8px rgba(29, 78, 216, 0.25);
             font-weight: 700;
-        }
-
-        html.dark-mode .nav-tabs-custom .nav-link.active {
-            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
-        }
-
-        .nav-tabs-custom .nav-link.active i {
-            opacity: 1;
-        }
-
-        @media (max-width: 1024px) {
-            .nav-tabs-custom .nav-link {
-                font-size: 10px;
-                padding: 8px 12px;
-                letter-spacing: 0.3px;
-            }
-
-            .nav-tabs-custom .nav-link i {
-                font-size: 10px;
-            }
         }
 
         @media (max-width: 768px) {
             .nav-tabs-custom {
                 padding: 4px;
                 gap: 3px;
-                border-radius: 10px;
                 flex-wrap: nowrap;
                 overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
             }
 
@@ -291,29 +217,9 @@ require_once __DIR__ . '/session/session.php';
             .nav-tabs-custom .nav-link {
                 font-size: 9px;
                 padding: 6px 12px;
-                letter-spacing: 0.2px;
-                white-space: nowrap;
-                border-radius: 8px;
-            }
-
-            .nav-tabs-custom .nav-link i {
-                font-size: 9px;
             }
         }
 
-        @media (max-width: 480px) {
-            .nav-tabs-custom .nav-link {
-                font-size: 8px;
-                padding: 5px 10px;
-                letter-spacing: 0;
-            }
-
-            .nav-tabs-custom .nav-link i {
-                font-size: 8px;
-            }
-        }
-
-        /* Table Styles */
         .table-container {
             overflow-x: auto;
         }
@@ -373,12 +279,6 @@ require_once __DIR__ . '/session/session.php';
             color: #ef4444;
         }
 
-        .action-icon.view:hover {
-            background: #3b82f620;
-            color: #3b82f6;
-        }
-
-        /* DataTables Custom Styles */
         .dataTables_wrapper .dataTables_filter,
         .dataTables_wrapper .dataTables_length {
             display: none !important;
@@ -398,27 +298,15 @@ require_once __DIR__ . '/session/session.php';
             padding: 4px 10px !important;
             margin: 0 2px !important;
             border-radius: 4px !important;
-            background: var(--toolbar-btn-bg) !important;
+            background: var(--bg-panel) !important;
             border: 1px solid var(--border-color) !important;
             color: var(--text-muted) !important;
             font-size: 11px !important;
         }
 
-        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-            background: var(--hover-bg) !important;
-            color: var(--text-heading) !important;
-            border-color: var(--border-color) !important;
-        }
-
         .dataTables_wrapper .dataTables_paginate .paginate_button.current {
             background: #1d4ed8 !important;
             color: #ffffff !important;
-            border-color: #1d4ed8 !important;
-        }
-
-        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
-            opacity: 0.5 !important;
-            cursor: not-allowed !important;
         }
 
         .dt-buttons {
@@ -429,22 +317,12 @@ require_once __DIR__ . '/session/session.php';
 
         .dt-buttons .dt-button {
             padding: 6px 12px !important;
-            background-color: var(--toolbar-btn-bg) !important;
+            background-color: var(--bg-panel) !important;
             border: 1px solid var(--border-color) !important;
             border-radius: 0.25rem !important;
             color: var(--text-muted) !important;
             font-size: 10px !important;
             cursor: pointer !important;
-            transition: all 0.2s !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            gap: 4px !important;
-            font-family: 'Inter', sans-serif !important;
-        }
-
-        .dt-buttons .dt-button:hover {
-            background-color: var(--hover-bg) !important;
-            color: var(--text-heading) !important;
         }
 
         .search-input {
@@ -458,15 +336,6 @@ require_once __DIR__ . '/session/session.php';
             outline: none;
         }
 
-        .search-input:focus {
-            border-color: #1d4ed8;
-            box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.2);
-        }
-
-        .search-input::placeholder {
-            color: var(--text-muted);
-        }
-
         .btn-primary {
             background-color: #1d4ed8;
             color: #ffffff;
@@ -476,7 +345,6 @@ require_once __DIR__ . '/session/session.php';
             font-size: 11px;
             font-weight: 500;
             cursor: pointer;
-            transition: background-color 0.2s;
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -495,31 +363,8 @@ require_once __DIR__ . '/session/session.php';
             font-size: 12px;
             font-weight: 500;
             cursor: pointer;
-            transition: background-color 0.2s, color 0.2s;
         }
 
-        .btn-secondary:hover {
-            background-color: var(--btn-secondary-hover-bg);
-            color: var(--btn-secondary-hover-text);
-        }
-
-        .btn-danger {
-            background-color: #ef4444;
-            color: #ffffff;
-            padding: 6px 16px;
-            border-radius: 0.25rem;
-            border: none;
-            font-size: 11px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .btn-danger:hover {
-            background-color: #dc2626;
-        }
-
-        /* BACK BUTTON STYLES */
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -532,24 +377,9 @@ require_once __DIR__ . '/session/session.php';
             font-size: 11.5px;
             font-weight: 600;
             text-decoration: none;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
-            transition: all 0.15s ease;
             cursor: pointer;
         }
 
-        .back-btn:hover {
-            transform: translateY(-1px);
-            border-color: rgba(29, 78, 216, 0.28);
-            background: var(--hover-bg);
-            color: var(--text-heading);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        html.dark-mode .back-btn:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Badge */
         .badge {
             padding: 2px 8px;
             border-radius: 9999px;
@@ -570,19 +400,6 @@ require_once __DIR__ . '/session/session.php';
             border: 1px solid #ef444440;
         }
 
-        .badge-warning {
-            background: #f59e0b20;
-            color: #f59e0b;
-            border: 1px solid #f59e0b40;
-        }
-
-        .badge-info {
-            background: #3b82f620;
-            color: #3b82f6;
-            border: 1px solid #3b82f640;
-        }
-
-        /* MODAL STYLES */
         #modalOverlay {
             position: fixed;
             top: 0;
@@ -609,12 +426,10 @@ require_once __DIR__ . '/session/session.php';
             background: var(--modal-bg);
             border: 1px solid var(--modal-border);
             border-radius: 12px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-            z-index: 9999;
             overflow-y: auto;
             transform: scale(0.95);
-            transition: transform 0.25s ease, opacity 0.25s ease;
             opacity: 0;
+            transition: transform 0.25s ease, opacity 0.25s ease;
         }
 
         #modalOverlay.active #editModal {
@@ -632,7 +447,6 @@ require_once __DIR__ . '/session/session.php';
             position: sticky;
             top: 0;
             z-index: 10;
-            border-radius: 12px 12px 0 0;
         }
 
         #editModal .modal-body {
@@ -646,7 +460,6 @@ require_once __DIR__ . '/session/session.php';
             justify-content: flex-end;
             gap: 10px;
             background: var(--table-head-bg);
-            border-radius: 0 0 12px 12px;
             position: sticky;
             bottom: 0;
             z-index: 10;
@@ -658,57 +471,8 @@ require_once __DIR__ . '/session/session.php';
             color: var(--text-muted);
             font-size: 24px;
             cursor: pointer;
-            transition: color 0.2s;
-            padding: 0 8px;
         }
 
-        .modal-close-btn:hover {
-            color: #ef4444;
-        }
-
-        /* Select2 Styles */
-        .select2-container--default .select2-selection--multiple {
-            background-color: var(--input-bg) !important;
-            border: 1px solid var(--border-color) !important;
-            border-radius: 0.25rem !important;
-            min-height: 34px !important;
-            padding: 2px 4px !important;
-        }
-
-        .select2-container--default .select2-selection--multiple .select2-selection__choice {
-            background-color: #3b82f6 !important;
-            color: #ffffff !important;
-            border: none !important;
-            border-radius: 0.25rem !important;
-            padding: 2px 8px !important;
-            font-size: 11px !important;
-        }
-
-        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
-            color: #ffffff !important;
-            margin-right: 4px !important;
-        }
-
-        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
-            color: #ff6b6b !important;
-        }
-
-        .select2-dropdown {
-            background-color: var(--dropdown-bg) !important;
-            border: 1px solid var(--border-color) !important;
-        }
-
-        .select2-container--default .select2-results__option--highlighted[aria-selected] {
-            background-color: #3b82f6 !important;
-            color: #ffffff !important;
-        }
-
-        .select2-container--default .select2-results__option {
-            color: var(--text-body) !important;
-            font-size: 12px !important;
-        }
-
-        /* Form Styles */
         .form-input {
             background-color: var(--input-bg);
             border: 1px solid var(--border-color);
@@ -717,17 +481,6 @@ require_once __DIR__ . '/session/session.php';
             padding: 6px 10px;
             width: 100%;
             font-size: 12px;
-            transition: border-color 0.2s;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #1d4ed8;
-            box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.2);
-        }
-
-        .form-input::placeholder {
-            color: var(--text-muted);
         }
 
         .form-label {
@@ -748,20 +501,144 @@ require_once __DIR__ . '/session/session.php';
             padding: 6px 10px;
             width: 100%;
             font-size: 12px;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
-            background-position: right 8px center;
-            background-repeat: no-repeat;
-            background-size: 16px;
-            padding-right: 32px;
-            cursor: pointer;
         }
 
-        .form-select:focus {
-            outline: none;
-            border-color: #1d4ed8;
-            box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.2);
+        .disabled-delete {
+            opacity: 0.4;
+            cursor: not-allowed !important;
         }
+
+        .disabled-delete:hover {
+            background: transparent !important;
+            color: var(--text-muted) !important;
+        }
+
+        /* ============ Dip Backlog Timeline ============ */
+.timeline-wrapper {
+    position: relative;
+    padding-left: 55px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Vertical line */
+.timeline-wrapper::before {
+    content: '';
+    position: absolute;
+    left: 21px;
+    top: 25px;
+    bottom: 25px;
+    width: 2px;
+    background: #3b82f6;
+}
+
+.tl-row {
+    position: relative;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.tl-row:last-child {
+    margin-bottom: 0;
+}
+
+/* Marker column (circle) */
+.tl-marker {
+    position: absolute;
+    left: -55px;
+    top: 0;
+    width: 44px;
+    display: flex;
+    justify-content: center;
+}
+
+.tl-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 4px #fff;
+    z-index: 2;
+}
+
+.tl-start,
+.tl-end {
+    background: #2563eb;
+    color: #fff;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.tl-icon {
+    background: #fff;
+    border: 2px solid #3b82f6;
+    color: #3b82f6;
+    font-size: 14px;
+}
+
+/* Content column */
+.tl-content {
+    flex: 1;
+    min-height: 20px;
+    padding-top: 4px;
+}
+
+.tl-start ~ .tl-content,
+.tl-end ~ .tl-content {
+    min-height: 36px;
+}
+
+/* Card */
+.tl-card {
+    background: #f1f5f9;
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.tl-details {
+    font-size: 11px;
+    line-height: 1.8;
+    color: #64748b;
+    flex: 1;
+}
+
+.tl-details b {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+/* Date Badge */
+.tl-badge {
+    background: #2563eb;
+    color: #fff;
+    min-width: 42px;
+    padding: 6px 4px 10px 4px;
+    border-radius: 6px;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+    flex-shrink: 0;
+}
+
+.tl-badge-day {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.tl-badge-month {
+    font-size: 9px;
+    opacity: 0.9;
+    margin-top: 1px;
+}
     </style>
 </head>
 
@@ -776,11 +653,11 @@ require_once __DIR__ . '/session/session.php';
             <!-- Page Header -->
             <div class="flex justify-between items-center mb-4">
                 <div>
-                    <h2 class="text-heading font-semibold text-base tracking-wide uppercase">Sukhekii North</h2>
+                    <h2 class="text-heading font-semibold text-base tracking-wide uppercase" id="dealerName">Dealer
+                        Setup</h2>
                     <p class="text-[10px] text-gray-500">Manage facilities, products, tanks, dispensers, nozzles and
                         users</p>
                 </div>
-                <!-- Back to Dealers button -->
                 <button type="button" class="back-btn" onclick="closeTabAndRedirect()">
                     <i class="fa-solid fa-arrow-left"></i>
                     Back to Dealers
@@ -792,39 +669,25 @@ require_once __DIR__ . '/session/session.php';
                 <div class="p-3">
                     <ul class="nav-tabs-custom" id="setupTabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-target="facilities" role="tab">
-                                Facilities
-                            </a>
+                            <a class="nav-link active" data-target="facilities" role="tab">Facilities</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-target="products" role="tab">
-                                Products
-                            </a>
+                            <a class="nav-link" data-target="products" role="tab">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-target="tanks" role="tab">
-                                Tanks
-                            </a>
+                            <a class="nav-link" data-target="tanks" role="tab">Tanks</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-target="dispenser" role="tab">
-                                Dispenser
-                            </a>
+                            <a class="nav-link" data-target="dispenser" role="tab">Dispenser</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-target="nozzle" role="tab">
-                                Nozzle
-                            </a>
+                            <a class="nav-link" data-target="nozzle" role="tab">Nozzle</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-target="users" role="tab">
-                                Users
-                            </a>
+                            <a class="nav-link" data-target="users" role="tab">Users</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-target="last_recon" role="tab">
-                                Update Last Recon
-                            </a>
+                            <a class="nav-link" data-target="last_recon" role="tab">Update Last Recon</a>
                         </li>
                     </ul>
                 </div>
@@ -861,14 +724,7 @@ require_once __DIR__ . '/session/session.php';
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="facilityTableBody">
-                                        <tr>
-                                            <td colspan="4" class="text-center py-8 text-gray-500">
-                                                <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i>
-                                                Loading...
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody></tbody>
                                 </table>
                             </div>
                         </div>
@@ -907,14 +763,7 @@ require_once __DIR__ . '/session/session.php';
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="productTableBody">
-                                        <tr>
-                                            <td colspan="8" class="text-center py-8 text-gray-500">
-                                                <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i>
-                                                Loading...
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody></tbody>
                                 </table>
                             </div>
                         </div>
@@ -940,26 +789,20 @@ require_once __DIR__ . '/session/session.php';
                                 </div>
                             </div>
                             <div class="table-container">
-                                <table id="tankTable" class="display" style="width:100%;">
-                                    <thead>
-                                        <tr>
-                                            <th>S.No</th>
-                                            <th>Tank #</th>
-                                            <th>Product</th>
-                                            <th>Capacity</th>
-                                            <th>Current Dip</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tankTableBody">
-                                        <tr>
-                                            <td colspan="6" class="text-center py-8 text-gray-500">
-                                                <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i>
-                                                Loading...
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                             <table id="tankTable" class="display" style="width:100%;">
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Tank #</th>
+            <th>Product</th>
+            <th>Capacity</th>
+            <th>Current Dip</th>
+            <th>Dip Backlog</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
                             </div>
                         </div>
                     </div>
@@ -995,14 +838,7 @@ require_once __DIR__ . '/session/session.php';
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="dispenserTableBody">
-                                        <tr>
-                                            <td colspan="5" class="text-center py-8 text-gray-500">
-                                                <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i>
-                                                Loading...
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody></tbody>
                                 </table>
                             </div>
                         </div>
@@ -1041,14 +877,7 @@ require_once __DIR__ . '/session/session.php';
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="nozzleTableBody">
-                                        <tr>
-                                            <td colspan="8" class="text-center py-8 text-gray-500">
-                                                <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i>
-                                                Loading...
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody></tbody>
                                 </table>
                             </div>
                         </div>
@@ -1083,17 +912,9 @@ require_once __DIR__ . '/session/session.php';
                                             <th>Phone</th>
                                             <th>Role</th>
                                             <th>Status</th>
-                                            <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="userTableBody">
-                                        <tr>
-                                            <td colspan="7" class="text-center py-8 text-gray-500">
-                                                <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i>
-                                                Loading...
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody></tbody>
                                 </table>
                             </div>
                         </div>
@@ -1129,14 +950,7 @@ require_once __DIR__ . '/session/session.php';
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="reconTableBody">
-                                        <tr>
-                                            <td colspan="8" class="text-center py-8 text-gray-500">
-                                                <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i>
-                                                Loading...
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody></tbody>
                                 </table>
                             </div>
                         </div>
@@ -1161,8 +975,6 @@ require_once __DIR__ . '/session/session.php';
                 <form id="setupForm" onsubmit="saveRecord(event)">
                     <input type="hidden" id="recordId" value="">
                     <input type="hidden" id="recordType" value="">
-                    <input type="hidden" id="dealerId" value="">
-
                     <div id="formFields"></div>
                 </form>
             </div>
@@ -1173,25 +985,47 @@ require_once __DIR__ . '/session/session.php';
         </div>
     </div>
 
+      <div id="dipBacklogModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+         background:rgba(15,23,42,0.6); backdrop-filter:blur(6px); z-index:10000; 
+         justify-content:center; align-items:center;">
+
+     <div style="background:#fff; border-radius:12px; width:560px; max-width:95vw; 
+            max-height:85vh; display:flex; flex-direction:column; overflow:hidden;">
+
+            <!-- HEADER -->
+            <div style="padding:16px 20px; border-bottom:1px solid #e2e8f0; 
+                        display:flex; justify-content:space-between; align-items:center;
+                        background:#f8fafc;">
+                <h3 style="font-weight:600; font-size:14px; color:#0f2440; margin:0;">
+                    Dip Backlog
+                </h3>
+                <button onclick="closeDipBacklogModal()" 
+                        style="background:none; border:none; font-size:22px; cursor:pointer; color:#64748b;">
+                    &times;
+                </button>
+            </div>
+
+            <!-- BODY -->
+           <div style="padding:20px 24px 20px 30px; overflow-y:auto; flex:1; background:#f4f6fa; min-height:200px;"
+     id="dipBacklogContent">
+    <!-- Timeline will be injected here -->
+</div>
+
+        </div>
+    </div>
+
     <!-- TOAST NOTIFICATION -->
     <div id="toast"
-        class="fixed bottom-6 right-6 bg-panel border border-border rounded-md px-5 py-3 shadow-lg z-[9999] transform translate-y-24 opacity-0 transition-all duration-300"
-        style="background: var(--bg-panel); border-color: var(--border-color);">
+        class="fixed bottom-6 right-6 rounded-md px-5 py-3 shadow-lg z-[9999] transform translate-y-24 opacity-0 transition-all duration-300"
+        style="background: var(--bg-panel); border: 1px solid var(--border-color);">
         <i class="fa-solid fa-check-circle mr-2 text-green-500"></i>
         <span id="toastMessage" style="color: var(--text-body);">Success!</span>
     </div>
 
     <script>
         // ============================================
-        // Encryption Functions
+        // Encryption / Decryption
         // ============================================
-        function encryptId(originalId) {
-            const key = 'Hamza Ansari';
-            const iv = CryptoJS.lib.WordArray.random(16);
-            const cipher = CryptoJS.AES.encrypt(originalId.toString(), key, { iv: iv });
-            return cipher.toString();
-        }
-
         function decryptId(encryptedId) {
             try {
                 const key = 'Hamza Ansari';
@@ -1210,63 +1044,57 @@ require_once __DIR__ . '/session/session.php';
         }
 
         // ============================================
-        // API Configuration
+        // Configuration — BASE URL (SAME AS YOUR ORIGINAL WORKING FILE)
         // ============================================
         const API_BASE_URL = 'api/';
-        const PRE = 'Admin';
         const USER_ID = '1';
 
         // ============================================
-        // Get Dealer ID from URL
+        // Dealer ID
         // ============================================
         const encryptedId = getUrlParameter('id');
         const dealerId = encryptedId ? decryptId(encryptedId) : 0;
-
-        // Return URL (context from which this page was opened)
         const returnUrl = getUrlParameter('return_url') || getUrlParameter('dealer_url');
+
+        console.log('Dealer ID:', dealerId);
+        console.log('API Base:', API_BASE_URL);
 
         // ============================================
         // Data Stores
         // ============================================
         let dataTables = {};
+        let allProductsList = [];
 
         // ============================================
-        // Close current tab and redirect to the same Dealer page
+        // Close Tab
         // ============================================
         function closeTabAndRedirect() {
-            // Try to close the current tab first
             try {
                 window.open('', '_self', '');
                 window.close();
-            } catch (e) {
-                console.log('Tab close not allowed by browser:', e);
-            }
+            } catch (e) { }
 
-            // Then redirect back to the original dealer page
             setTimeout(function () {
                 if (returnUrl) {
-                    // Decode the URL in case it was encoded
                     window.location.href = decodeURIComponent(returnUrl);
                 } else if (encryptedId) {
-                    // Fallback: go to dealer profile with this dealer context
                     window.location.href = 'dealer_profile.php?id=' + encodeURIComponent(encryptedId);
                 } else {
-                    // Last fallback: go to dealers list
                     window.location.href = 'dealers.php';
                 }
             }, 100);
         }
 
         // ============================================
-        // Modal Functions
+        // Modal
         // ============================================
         function openModal(type, id = null) {
             $('#recordId').val(id || '');
             $('#recordType').val(type);
-            $('#modalTitle').text(id ? 'Edit ' + type.charAt(0).toUpperCase() + type.slice(1) : 'Add ' + type.charAt(0)
-                .toUpperCase() + type.slice(1));
+            $('#modalTitle').text((id ? 'Edit ' : 'Add ') + type.charAt(0).toUpperCase() + type.slice(1));
 
             let html = '';
+
             switch (type) {
                 case 'facility':
                     html = `
@@ -1276,17 +1104,14 @@ require_once __DIR__ . '/session/session.php';
                         </div>
                     `;
                     break;
+
                 case 'product':
                     html = `
-                        <div class="grid grid-cols-2 gap-3 mb-3">
-                            <div>
-                                <label class="form-label">Product Name</label>
-                                <input type="text" id="productName" class="form-input" placeholder="Enter product name" required>
-                            </div>
-                            <div>
-                                <label class="form-label">Product ID</label>
-                                <input type="text" id="productId" class="form-input" placeholder="Enter product ID" required>
-                            </div>
+                        <div class="mb-3">
+                            <label class="form-label">Product Name</label>
+                            <select id="productName" class="form-select" required>
+                                <option value="">Select Product</option>
+                            </select>
                         </div>
                         <div class="grid grid-cols-2 gap-3 mb-3">
                             <div>
@@ -1314,6 +1139,7 @@ require_once __DIR__ . '/session/session.php';
                         </div>
                     `;
                     break;
+
                 case 'tank':
                     html = `
                         <div class="mb-3">
@@ -1334,6 +1160,7 @@ require_once __DIR__ . '/session/session.php';
                         </div>
                     `;
                     break;
+
                 case 'dispenser':
                     html = `
                         <div class="mb-3">
@@ -1346,6 +1173,7 @@ require_once __DIR__ . '/session/session.php';
                         </div>
                     `;
                     break;
+
                 case 'nozzle':
                     html = `
                         <div class="mb-3">
@@ -1375,11 +1203,12 @@ require_once __DIR__ . '/session/session.php';
                             </div>
                             <div>
                                 <label class="form-label">Last Reading</label>
-                                <input type="number" id="nozzleReading" class="form-input" placeholder="Enter last reading" step="any" required>
+                                <input type="number" id="nozzleReading" class="form-input" placeholder="Enter last reading" step="any" value="0" required>
                             </div>
                         </div>
                     `;
                     break;
+
                 case 'user':
                     html = `
                         <div class="grid grid-cols-2 gap-3 mb-3">
@@ -1395,7 +1224,7 @@ require_once __DIR__ . '/session/session.php';
                         <div class="grid grid-cols-2 gap-3 mb-3">
                             <div>
                                 <label class="form-label">Password</label>
-                                <input type="text" id="userPassword" class="form-input" placeholder="Enter password">
+                                <input type="text" id="userPassword" class="form-input" placeholder="Enter password" required>
                             </div>
                             <div>
                                 <label class="form-label">Phone</label>
@@ -1427,20 +1256,24 @@ require_once __DIR__ . '/session/session.php';
                         </div>
                     `;
                     break;
-                case 'recon':
-                    html = `
-                        <div class="mb-3">
-                            <label class="form-label">This is for Update Last Recon</label>
-                            <p class="text-xs text-gray-500">Click Edit to update recon records</p>
-                        </div>
-                    `;
-                    break;
+
                 default:
                     html = '<p class="text-gray-500">Form not available</p>';
             }
 
             $('#formFields').html(html);
             $('#modalOverlay').addClass('active');
+
+            // After modal opens, load dynamic data
+            if (type === 'product') {
+                loadProductDropdown();
+            }
+            if (type === 'tank') {
+                loadTankDropdown();
+            }
+            if (type === 'nozzle') {
+                loadNozzleDropdowns();
+            }
         }
 
         function closeModal() {
@@ -1448,74 +1281,131 @@ require_once __DIR__ . '/session/session.php';
         }
 
         $('#modalOverlay').on('click', function (e) {
-            if (e.target === this) {
-                closeModal();
-            }
+            if (e.target === this) closeModal();
         });
 
         $(document).on('keydown', function (e) {
-            if (e.key === 'Escape') {
-                if ($('#modalOverlay').hasClass('active')) {
-                    closeModal();
-                }
-            }
+            if (e.key === 'Escape' && $('#modalOverlay').hasClass('active')) closeModal();
         });
+
+        // ============================================
+        // Load Dropdowns
+        // ============================================
+        function loadProductDropdown() {
+            if (allProductsList.length > 0) {
+                let opts = '<option value="">Select Product</option>';
+                allProductsList.forEach(p => {
+                    opts += `<option value="${p.name}">${p.name}</option>`;
+                });
+                $('#productName').html(opts);
+                return;
+            }
+            $.ajax({
+                url: API_BASE_URL + 'get/get_all_products.php?key=2170',
+                type: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    allProductsList = response || [];
+                    let opts = '<option value="">Select Product</option>';
+                    allProductsList.forEach(p => {
+                        opts += `<option value="${p.name}">${p.name}</option>`;
+                    });
+                    $('#productName').html(opts);
+                }
+            });
+        }
+
+        function loadTankDropdown() {
+            $.ajax({
+                url: API_BASE_URL + 'get/dealers_products.php?key=2170&dealer_id=' + dealerId,
+                type: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    let opts = '<option value="">Select Product</option>';
+                    (response || []).forEach(p => {
+                        opts += `<option value="${p.id}">${p.name}</option>`;
+                    });
+                    $('#tankProduct').html(opts);
+                }
+            });
+        }
+
+        function loadNozzleDropdowns() {
+            $.ajax({
+                url: API_BASE_URL + 'get/dealers_products.php?key=2170&dealer_id=' + dealerId,
+                type: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    let opts = '<option value="">Select Product</option>';
+                    (response || []).forEach(p => {
+                        opts += `<option value="${p.id}">${p.name}</option>`;
+                    });
+                    $('#nozzleProduct').html(opts);
+                }
+            });
+            $.ajax({
+                url: API_BASE_URL + 'get/get_dealers_tanks.php?key=2170&dealer_id=' + dealerId,
+                type: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    let opts = '<option value="">Select Tank</option>';
+                    (response || []).forEach(t => {
+                        opts += `<option value="${t.id}">${t.lorry_no}</option>`;
+                    });
+                    $('#nozzleTank').html(opts);
+                }
+            });
+            $.ajax({
+                url: API_BASE_URL + 'get/get_dealers_dispenser.php?key=2170&dealer_id=' + dealerId,
+                type: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    let opts = '<option value="">Select Dispenser</option>';
+                    (response || []).forEach(d => {
+                        opts += `<option value="${d.id}">${d.name}</option>`;
+                    });
+                    $('#nozzleDispenser').html(opts);
+                }
+            });
+        }
 
         // ============================================
         // Tabs
         // ============================================
         $(document).ready(function () {
-            $('#sidebarToggle').on('click', function () {
-                $('#sidebar').toggleClass('collapsed');
-                const isCollapsed = $('#sidebar').hasClass('collapsed');
-                localStorage.setItem('sidebarCollapsed', isCollapsed);
+
+            // ✅ Facilities delete icon click block (API nahi hai)
+            $(document).on('click', '.disabled-delete', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                showToast('Delete API not available for Facilities', 'error');
+                return false;
             });
 
-            const savedState = localStorage.getItem('sidebarCollapsed');
-            if (savedState === 'true') {
-                $('#sidebar').addClass('collapsed');
-            }
+            console.log('Document ready — loading facilities');
 
             $('.nav-tabs-custom .nav-link').on('click', function () {
                 $('.nav-tabs-custom .nav-link').removeClass('active');
                 $(this).addClass('active');
-
                 const target = $(this).data('target');
                 $('.tab-pane').addClass('hidden');
                 $('#' + target).removeClass('hidden');
-
                 loadTabData(target);
             });
 
+            // Load facilities by default
             loadTabData('facilities');
         });
 
-        // ============================================
-        // Load Tab Data
-        // ============================================
         function loadTabData(tab) {
             switch (tab) {
-                case 'facilities':
-                    loadFacilities();
-                    break;
-                case 'products':
-                    loadProducts();
-                    break;
-                case 'tanks':
-                    loadTanks();
-                    break;
-                case 'dispenser':
-                    loadDispensers();
-                    break;
-                case 'nozzle':
-                    loadNozzles();
-                    break;
-                case 'users':
-                    loadUsers();
-                    break;
-                case 'last_recon':
-                    loadLastRecon();
-                    break;
+                case 'facilities': loadFacilities(); break;
+                case 'products': loadProducts(); break;
+                case 'tanks': loadTanks(); break;
+                case 'dispenser': loadDispensers(); break;
+                case 'nozzle': loadNozzles(); break;
+                case 'users': loadUsers(); break;
+                case 'last_recon': loadLastRecon(); break;
             }
         }
 
@@ -1523,33 +1413,28 @@ require_once __DIR__ . '/session/session.php';
         // Load Facilities
         // ============================================
         function loadFacilities() {
-            $('#facilityTableBody').html(`
-                <tr><td colspan="4" class="text-center py-8 text-gray-500">
-                    <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i> Loading...
-                </td></tr>
-            `);
+            const url = API_BASE_URL + 'get/facilities_get.php?key=2170&dealer_id=' + dealerId;
+            console.log('Loading facilities:', url);
 
             $.ajax({
-                url: API_BASE_URL + 'get/facilities_get.php?key=2170&dealer_id=' + dealerId,
+                url: url,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
-                    if (dataTables.facility) {
-                        dataTables.facility.destroy();
-                    }
+                    console.log('Facilities response:', response);
+                    if (dataTables.facility) dataTables.facility.destroy();
 
-                    const tableData = response.map((item, index) => [
+                    const tableData = (response || []).map((item, index) => [
                         index + 1,
                         item.name || 'N/A',
                         item.created_at || 'N/A',
-                        `<span class="action-icon delete" onclick="deleteRecord('facility', ${item.id})">
-                            <i class="fa-regular fa-trash-can"></i>
-                        </span>`
+                        `<span class="action-icon delete disabled-delete" 
+           style="opacity: 0.4; cursor: not-allowed; pointer-events: auto;"
+           title="Delete API not available for Facilities">
+        <i class="fa-regular fa-trash-can"></i>
+    </span>`
                     ]);
-
-                    if (tableData.length === 0) {
-                        tableData.push(['No data available', '', '', '']);
-                    }
+                    if (tableData.length === 0) tableData.push(['No data available', '', '', '']);
 
                     dataTables.facility = $('#facilityTable').DataTable({
                         data: tableData,
@@ -1560,26 +1445,11 @@ require_once __DIR__ . '/session/session.php';
                             { title: 'Action', orderable: false, searchable: false }
                         ],
                         dom: 'Bfrtip',
-                        buttons: [
-                            { extend: 'copy', text: '<i class="fa-regular fa-copy"></i> Copy', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2] } },
-                            { extend: 'excelHtml5', text: '<i class="fa-regular fa-file-excel"></i> Excel', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2] }, title: 'Facilities' },
-                            { extend: 'csvHtml5', text: '<i class="fa-regular fa-file-csv"></i> CSV', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2] }, title: 'Facilities' },
-                            { extend: 'pdfHtml5', text: '<i class="fa-regular fa-file-pdf"></i> PDF', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2] }, title: 'Facilities Report' },
-                            { extend: 'print', text: '<i class="fa-solid fa-print"></i> Print', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2] } }
-                        ],
+                        buttons: ['copy', 'excel', 'csv', 'pdf', 'print'],
                         pageLength: 10,
-                        lengthMenu: [10, 25, 50, 100],
-                        language: {
-                            emptyTable: '<div class="text-center py-8 text-gray-500"><i class="fa-solid fa-building text-2xl block mb-2"></i>No facilities found</div>',
-                            info: 'Showing _START_ to _END_ of _TOTAL_ entries',
-                            infoEmpty: 'Showing 0 to 0 of 0 entries',
-                            infoFiltered: '(filtered from _MAX_ total entries)'
-                        },
                         initComplete: function () {
                             const $btns = $(this.api().table().container()).find('> .dt-buttons');
-                            $btns.addClass('toolbar-btn-group');
                             $('#facilityButtons').empty().append($btns);
-                            $btns.css('display', 'flex');
                         }
                     });
 
@@ -1587,8 +1457,9 @@ require_once __DIR__ . '/session/session.php';
                         dataTables.facility.search(this.value).draw();
                     });
                 },
-                error: function () {
-                    showToast('Failed to load facilities.', 'error');
+                error: function (xhr, status, error) {
+                    console.error('Facilities error:', error, xhr.responseText);
+                    showToast('Failed to load facilities', 'error');
                 }
             });
         }
@@ -1597,22 +1468,14 @@ require_once __DIR__ . '/session/session.php';
         // Load Products
         // ============================================
         function loadProducts() {
-            $('#productTableBody').html(`
-                <tr><td colspan="8" class="text-center py-8 text-gray-500">
-                    <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i> Loading...
-                </td></tr>
-            `);
-
             $.ajax({
                 url: API_BASE_URL + 'get/dealers_products.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
-                    if (dataTables.product) {
-                        dataTables.product.destroy();
-                    }
+                    if (dataTables.product) dataTables.product.destroy();
 
-                    const tableData = response.map((item, index) => [
+                    const tableData = (response || []).map((item, index) => [
                         index + 1,
                         item.name || 'N/A',
                         item.from || 'N/A',
@@ -1620,17 +1483,17 @@ require_once __DIR__ . '/session/session.php';
                         item.indent_price || 'N/A',
                         item.nozel_price || 'N/A',
                         item.update_time || 'N/A',
-                        `<span class="action-icon edit" onclick="editRecord('product', ${item.id})">
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </span>
-                        <span class="action-icon delete" onclick="deleteRecord('product', ${item.id})">
-                            <i class="fa-regular fa-trash-can"></i>
-                        </span>`
+                        `<span class="action-icon edit disabled-edit" 
+       style="opacity: 0.4; cursor: not-allowed;"
+       title="Edit API not available for Products">
+    <i class="fa-regular fa-pen-to-square"></i>
+</span>
+<span class="action-icon delete" onclick="deleteProduct(${item.id})">
+    <i class="fa-regular fa-trash-can"></i>
+</span>`
                     ]);
 
-                    if (tableData.length === 0) {
-                        tableData.push(['No data available', '', '', '', '', '', '', '']);
-                    }
+                    if (tableData.length === 0) tableData.push(['No data available', '', '', '', '', '', '', '']);
 
                     dataTables.product = $('#productTable').DataTable({
                         data: tableData,
@@ -1645,35 +1508,17 @@ require_once __DIR__ . '/session/session.php';
                             { title: 'Action', orderable: false, searchable: false }
                         ],
                         dom: 'Bfrtip',
-                        buttons: [
-                            { extend: 'copy', text: '<i class="fa-regular fa-copy"></i> Copy', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6] } },
-                            { extend: 'excelHtml5', text: '<i class="fa-regular fa-file-excel"></i> Excel', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6] }, title: 'Products' },
-                            { extend: 'csvHtml5', text: '<i class="fa-regular fa-file-csv"></i> CSV', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6] }, title: 'Products' },
-                            { extend: 'pdfHtml5', text: '<i class="fa-regular fa-file-pdf"></i> PDF', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6] }, title: 'Products Report' },
-                            { extend: 'print', text: '<i class="fa-solid fa-print"></i> Print', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6] } }
-                        ],
+                        buttons: ['copy', 'excel', 'csv', 'pdf', 'print'],
                         pageLength: 10,
-                        lengthMenu: [10, 25, 50, 100],
-                        language: {
-                            emptyTable: '<div class="text-center py-8 text-gray-500"><i class="fa-solid fa-box text-2xl block mb-2"></i>No products found</div>',
-                            info: 'Showing _START_ to _END_ of _TOTAL_ entries',
-                            infoEmpty: 'Showing 0 to 0 of 0 entries',
-                            infoFiltered: '(filtered from _MAX_ total entries)'
-                        },
                         initComplete: function () {
                             const $btns = $(this.api().table().container()).find('> .dt-buttons');
-                            $btns.addClass('toolbar-btn-group');
                             $('#productButtons').empty().append($btns);
-                            $btns.css('display', 'flex');
                         }
                     });
 
                     $('#productSearch').off('keyup').on('keyup', function () {
                         dataTables.product.search(this.value).draw();
                     });
-                },
-                error: function () {
-                    showToast('Failed to load products.', 'error');
                 }
             });
         }
@@ -1682,118 +1527,205 @@ require_once __DIR__ . '/session/session.php';
         // Load Tanks
         // ============================================
         function loadTanks() {
-            $('#tankTableBody').html(`
-                <tr><td colspan="6" class="text-center py-8 text-gray-500">
-                    <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i> Loading...
-                </td></tr>
-            `);
-
             $.ajax({
                 url: API_BASE_URL + 'get/get_dealers_tanks.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
+                cache: false,
                 success: function (response) {
-                    if (dataTables.tank) {
-                        dataTables.tank.destroy();
-                    }
+                    if (dataTables.tank) dataTables.tank.destroy();
 
-                    const tableData = response.map((item, index) => [
-                        index + 1,
-                        item.lorry_no || 'N/A',
-                        item.name || 'N/A',
-                        item.max_limit || 'N/A',
-                        item.current_dip || 'N/A',
-                        `<span class="action-icon edit" onclick="editRecord('tank', ${item.id})">
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </span>
-                        <span class="action-icon delete" onclick="deleteRecord('tank', ${item.id})">
-                            <i class="fa-regular fa-trash-can"></i>
-                        </span>`
-                    ]);
+                 const tableData = (response || []).map((item, index) => [
+    index + 1,
+    item.lorry_no || 'N/A',
+    item.name || 'N/A',
+    item.max_limit || 'N/A',
+    item.current_dip || 'N/A',
+    `<span class="action-icon" onclick="openDipBacklog(${item.id})" title="View Dip Backlog">
+        <i class="fas fa-align-justify font-size-16 align-middle"></i>
+    </span>`,
+    `${'' /* <span class="action-icon edit" onclick="editRecord('tank', ${item.id})">
+        <i class="fa-regular fa-pen-to-square"></i>
+    </span> */}
+    <span class="action-icon delete" onclick="deleteTank(${item.id})">
+        <i class="fa-regular fa-trash-can"></i>
+    </span>`
+]);
 
-                    if (tableData.length === 0) {
-                        tableData.push(['No data available', '', '', '', '', '']);
-                    }
+                    if (tableData.length === 0) tableData.push(['No data available', '', '', '', '', '', '']);
 
                     dataTables.tank = $('#tankTable').DataTable({
                         data: tableData,
-                        columns: [
-                            { title: 'S.No' },
-                            { title: 'Tank #' },
-                            { title: 'Product' },
-                            { title: 'Capacity' },
-                            { title: 'Current Dip' },
-                            { title: 'Action', orderable: false, searchable: false }
-                        ],
+                     columns: [
+    { title: 'S.No' },
+    { title: 'Tank #' },
+    { title: 'Product' },
+    { title: 'Capacity' },
+    { title: 'Current Dip' },
+    { title: 'Dip Backlog', orderable: false, searchable: false },
+    { title: 'Action', orderable: false, searchable: false }
+],
                         dom: 'Bfrtip',
-                        buttons: [
-                            { extend: 'copy', text: '<i class="fa-regular fa-copy"></i> Copy', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4] } },
-                            { extend: 'excelHtml5', text: '<i class="fa-regular fa-file-excel"></i> Excel', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4] }, title: 'Tanks' },
-                            { extend: 'csvHtml5', text: '<i class="fa-regular fa-file-csv"></i> CSV', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4] }, title: 'Tanks' },
-                            { extend: 'pdfHtml5', text: '<i class="fa-regular fa-file-pdf"></i> PDF', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4] }, title: 'Tanks Report' },
-                            { extend: 'print', text: '<i class="fa-solid fa-print"></i> Print', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4] } }
-                        ],
+                        buttons: ['copy', 'excel', 'csv', 'pdf', 'print'],
                         pageLength: 10,
-                        lengthMenu: [10, 25, 50, 100],
-                        language: {
-                            emptyTable: '<div class="text-center py-8 text-gray-500"><i class="fa-solid fa-oil-can text-2xl block mb-2"></i>No tanks found</div>',
-                            info: 'Showing _START_ to _END_ of _TOTAL_ entries',
-                            infoEmpty: 'Showing 0 to 0 of 0 entries',
-                            infoFiltered: '(filtered from _MAX_ total entries)'
-                        },
                         initComplete: function () {
                             const $btns = $(this.api().table().container()).find('> .dt-buttons');
-                            $btns.addClass('toolbar-btn-group');
                             $('#tankButtons').empty().append($btns);
-                            $btns.css('display', 'flex');
                         }
                     });
 
                     $('#tankSearch').off('keyup').on('keyup', function () {
                         dataTables.tank.search(this.value).draw();
                     });
-                },
-                error: function () {
-                    showToast('Failed to load tanks.', 'error');
                 }
             });
         }
 
         // ============================================
+// Dip Backlog — Open Modal & Load Timeline
+// ============================================
+function openDipBacklog(tankId) {
+    if (!tankId) {
+        showToast('Invalid tank ID', 'error');
+        return;
+    }
+
+    // Modal open karo
+    $('#dipBacklogModal').css('display', 'flex');
+    $('#dipBacklogContent').html(
+        '<p style="text-align:center; color:#64748b; padding:20px;">Loading...</p>'
+    );
+
+    // API hit karo
+    $.ajax({
+        url: API_BASE_URL + 'get/get_dealers_tanks_dip_log.php?key=2170&tank_id=' + tankId,
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            renderDipBacklogTimeline(response || []);
+        },
+        error: function (xhr, status, error) {
+            console.error('Dip backlog error:', error);
+            $('#dipBacklogContent').html(
+                '<p style="text-align:center; color:#ef4444; padding:20px;">Failed to load data.</p>'
+            );
+        }
+    });
+}
+
+function closeDipBacklogModal() {
+    $('#dipBacklogModal').css('display', 'none');
+}
+
+// ============================================
+// Render Timeline
+// ============================================
+function renderDipBacklogTimeline(data) {
+    if (!data || data.length === 0) {
+        $('#dipBacklogContent').html(
+            '<p style="text-align:center; color:#64748b; padding:20px;">No dip log records found.</p>'
+        );
+        return;
+    }
+
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    let html = `
+        <div class="timeline-wrapper">
+            
+            <!-- START -->
+            <div class="tl-row">
+                <div class="tl-marker">
+                    <div class="tl-circle tl-start">START</div>
+                </div>
+                <div class="tl-content"></div>
+            </div>
+    `;
+
+    data.forEach(function (item) {
+        const dt = item.datetime ? new Date(item.datetime.replace(' ', 'T')) : null;
+        const day   = dt ? String(dt.getDate()).padStart(2, '0') : '--';
+        const month = dt ? monthNames[dt.getMonth()] : '--';
+        const time  = dt ? dt.toLocaleTimeString('en-GB', {
+            hour: '2-digit', minute: '2-digit', second: '2-digit'
+        }) : '--';
+        const dateOnly = dt ? dt.toISOString().slice(0, 10) : '--';
+
+        html += `
+            <div class="tl-row">
+                <div class="tl-marker">
+                    <div class="tl-circle tl-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                </div>
+                <div class="tl-content">
+                    <div class="tl-card">
+                        <div class="tl-details">
+                            <div>Previous Dip : <b>${item.previous_dip ?? '--'}</b></div>
+                            <div>Update Dip : <b>${item.current_dip ?? '--'}</b></div>
+                            <div>Description : <b>${item.description || '---'}</b></div>
+                            <div>Action Time : <b>${dateOnly} ${time}</b></div>
+                        </div>
+                        <div class="tl-badge">
+                            <div class="tl-badge-day">${day}</div>
+                            <div class="tl-badge-month">${month}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    html += `
+            <!-- END -->
+            <div class="tl-row">
+                <div class="tl-marker">
+                    <div class="tl-circle tl-end">END</div>
+                </div>
+                <div class="tl-content"></div>
+            </div>
+
+        </div>
+    `;
+
+    $('#dipBacklogContent').html(html);
+}
+
+// Close on overlay click
+$(document).on('click', '#dipBacklogModal', function (e) {
+    if (e.target === this) closeDipBacklogModal();
+});
+
+// Close on Escape
+$(document).on('keydown', function (e) {
+    if (e.key === 'Escape' && $('#dipBacklogModal').css('display') === 'flex') {
+        closeDipBacklogModal();
+    }
+});
+
+        // ============================================
         // Load Dispensers
         // ============================================
         function loadDispensers() {
-            $('#dispenserTableBody').html(`
-                <tr><td colspan="5" class="text-center py-8 text-gray-500">
-                    <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i> Loading...
-                </td></tr>
-            `);
-
             $.ajax({
                 url: API_BASE_URL + 'get/get_dealers_dispenser.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
-                    if (dataTables.dispenser) {
-                        dataTables.dispenser.destroy();
-                    }
+                    if (dataTables.dispenser) dataTables.dispenser.destroy();
 
-                    const tableData = response.map((item, index) => [
-                        index + 1,
-                        item.name || 'N/A',
-                        item.description || 'N/A',
-                        item.created_at || 'N/A',
-                        `<span class="action-icon edit" onclick="editRecord('dispenser', ${item.id})">
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </span>
-                        <span class="action-icon delete" onclick="deleteRecord('dispenser', ${item.id})">
-                            <i class="fa-regular fa-trash-can"></i>
-                        </span>`
-                    ]);
+                  const tableData = (response || []).map((item, index) => [
+    index + 1,
+    item.name || 'N/A',
+    item.description || 'N/A',
+    item.created_at || 'N/A',
+    `<span class="action-icon delete" onclick="deleteDispenser(${item.id})">
+        <i class="fa-regular fa-trash-can"></i>
+    </span>`
+]);
 
-                    if (tableData.length === 0) {
-                        tableData.push(['No data available', '', '', '', '']);
-                    }
+                    if (tableData.length === 0) tableData.push(['No data available', '', '', '', '']);
 
                     dataTables.dispenser = $('#dispenserTable').DataTable({
                         data: tableData,
@@ -1805,35 +1737,17 @@ require_once __DIR__ . '/session/session.php';
                             { title: 'Action', orderable: false, searchable: false }
                         ],
                         dom: 'Bfrtip',
-                        buttons: [
-                            { extend: 'copy', text: '<i class="fa-regular fa-copy"></i> Copy', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3] } },
-                            { extend: 'excelHtml5', text: '<i class="fa-regular fa-file-excel"></i> Excel', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3] }, title: 'Dispensers' },
-                            { extend: 'csvHtml5', text: '<i class="fa-regular fa-file-csv"></i> CSV', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3] }, title: 'Dispensers' },
-                            { extend: 'pdfHtml5', text: '<i class="fa-regular fa-file-pdf"></i> PDF', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3] }, title: 'Dispensers Report' },
-                            { extend: 'print', text: '<i class="fa-solid fa-print"></i> Print', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3] } }
-                        ],
+                        buttons: ['copy', 'excel', 'csv', 'pdf', 'print'],
                         pageLength: 10,
-                        lengthMenu: [10, 25, 50, 100],
-                        language: {
-                            emptyTable: '<div class="text-center py-8 text-gray-500"><i class="fa-solid fa-oil-can text-2xl block mb-2"></i>No dispensers found</div>',
-                            info: 'Showing _START_ to _END_ of _TOTAL_ entries',
-                            infoEmpty: 'Showing 0 to 0 of 0 entries',
-                            infoFiltered: '(filtered from _MAX_ total entries)'
-                        },
                         initComplete: function () {
                             const $btns = $(this.api().table().container()).find('> .dt-buttons');
-                            $btns.addClass('toolbar-btn-group');
                             $('#dispenserButtons').empty().append($btns);
-                            $btns.css('display', 'flex');
                         }
                     });
 
                     $('#dispenserSearch').off('keyup').on('keyup', function () {
                         dataTables.dispenser.search(this.value).draw();
                     });
-                },
-                error: function () {
-                    showToast('Failed to load dispensers.', 'error');
                 }
             });
         }
@@ -1842,40 +1756,27 @@ require_once __DIR__ . '/session/session.php';
         // Load Nozzles
         // ============================================
         function loadNozzles() {
-            $('#nozzleTableBody').html(`
-                <tr><td colspan="8" class="text-center py-8 text-gray-500">
-                    <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i> Loading...
-                </td></tr>
-            `);
-
             $.ajax({
                 url: API_BASE_URL + 'get/get_dealers_nozels.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
-                    if (dataTables.nozzle) {
-                        dataTables.nozzle.destroy();
-                    }
+                    if (dataTables.nozzle) dataTables.nozzle.destroy();
 
-                    const tableData = response.map((item, index) => [
-                        index + 1,
-                        item.name || 'N/A',
-                        item.product_name || 'N/A',
-                        item.tank_name || 'N/A',
-                        item.dispenser_name || 'N/A',
-                        item.last_reading || 'N/A',
-                        item.created_at || 'N/A',
-                        `<span class="action-icon edit" onclick="editRecord('nozzle', ${item.id})">
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </span>
-                        <span class="action-icon delete" onclick="deleteRecord('nozzle', ${item.id})">
-                            <i class="fa-regular fa-trash-can"></i>
-                        </span>`
-                    ]);
+const tableData = (response || []).map((item, index) => [
+    index + 1,
+    item.name || 'N/A',
+    item.product_name || 'N/A',
+    item.tank_name || 'N/A',
+    item.dispenser_name || 'N/A',
+    item.last_reading || 'N/A',
+    item.created_at || 'N/A',
+    `<span class="action-icon delete" onclick="deleteNozzle(${item.id})">
+        <i class="fa-regular fa-trash-can"></i>
+    </span>`
+]);
 
-                    if (tableData.length === 0) {
-                        tableData.push(['No data available', '', '', '', '', '', '', '']);
-                    }
+                    if (tableData.length === 0) tableData.push(['No data available', '', '', '', '', '', '', '']);
 
                     dataTables.nozzle = $('#nozzleTable').DataTable({
                         data: tableData,
@@ -1890,35 +1791,17 @@ require_once __DIR__ . '/session/session.php';
                             { title: 'Action', orderable: false, searchable: false }
                         ],
                         dom: 'Bfrtip',
-                        buttons: [
-                            { extend: 'copy', text: '<i class="fa-regular fa-copy"></i> Copy', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6] } },
-                            { extend: 'excelHtml5', text: '<i class="fa-regular fa-file-excel"></i> Excel', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6] }, title: 'Nozzles' },
-                            { extend: 'csvHtml5', text: '<i class="fa-regular fa-file-csv"></i> CSV', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6] }, title: 'Nozzles' },
-                            { extend: 'pdfHtml5', text: '<i class="fa-regular fa-file-pdf"></i> PDF', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6] }, title: 'Nozzles Report' },
-                            { extend: 'print', text: '<i class="fa-solid fa-print"></i> Print', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6] } }
-                        ],
+                        buttons: ['copy', 'excel', 'csv', 'pdf', 'print'],
                         pageLength: 10,
-                        lengthMenu: [10, 25, 50, 100],
-                        language: {
-                            emptyTable: '<div class="text-center py-8 text-gray-500"><i class="fa-solid fa-gas-pump text-2xl block mb-2"></i>No nozzles found</div>',
-                            info: 'Showing _START_ to _END_ of _TOTAL_ entries',
-                            infoEmpty: 'Showing 0 to 0 of 0 entries',
-                            infoFiltered: '(filtered from _MAX_ total entries)'
-                        },
                         initComplete: function () {
                             const $btns = $(this.api().table().container()).find('> .dt-buttons');
-                            $btns.addClass('toolbar-btn-group');
                             $('#nozzleButtons').empty().append($btns);
-                            $btns.css('display', 'flex');
                         }
                     });
 
                     $('#nozzleSearch').off('keyup').on('keyup', function () {
                         dataTables.nozzle.search(this.value).draw();
                     });
-                },
-                error: function () {
-                    showToast('Failed to load nozzles.', 'error');
                 }
             });
         }
@@ -1926,106 +1809,63 @@ require_once __DIR__ . '/session/session.php';
         // ============================================
         // Load Users
         // ============================================
-        function loadUsers() {
-            $('#userTableBody').html(`
-                <tr><td colspan="7" class="text-center py-8 text-gray-500">
-                    <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i> Loading...
-                </td></tr>
-            `);
+     function loadUsers() {
+    $.ajax({
+        url: API_BASE_URL + 'get/dealer_users.php?key=2170&dealer_id=' + dealerId,
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            if (dataTables.user) dataTables.user.destroy();
 
-            $.ajax({
-                url: API_BASE_URL + 'get/dealer_users.php?key=2170&dealer_id=' + dealerId,
-                type: 'GET',
-                dataType: 'json',
-                success: function (response) {
-                    if (dataTables.user) {
-                        dataTables.user.destroy();
-                    }
+            const tableData = (response || []).map((item, index) => [
+                index + 1,
+                item.name || 'N/A',
+                item.email || 'N/A',
+                item.contact || 'N/A',
+                item.role || 'N/A',
+                `<span class="badge ${item.active == 1 ? 'badge-success' : 'badge-danger'}">${item.active == 1 ? 'Active' : 'Inactive'}</span>`
+            ]);
 
-                    const tableData = response.map((item, index) => [
-                        index + 1,
-                        item.name || 'N/A',
-                        item.email || 'N/A',
-                        item.contact || 'N/A',
-                        item.role || 'N/A',
-                        `<span class="badge ${item.active == 1 ? 'badge-success' : 'badge-danger'}">${item.active == 1 ? 'Active' : 'Inactive'}</span>`,
-                        `<span class="action-icon edit" onclick="editRecord('user', ${item.id})">
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </span>
-                        <span class="action-icon delete" onclick="deleteRecord('user', ${item.id})">
-                            <i class="fa-regular fa-trash-can"></i>
-                        </span>`
-                    ]);
+            if (tableData.length === 0) tableData.push(['No data available', '', '', '', '', '']);
 
-                    if (tableData.length === 0) {
-                        tableData.push(['No data available', '', '', '', '', '', '']);
-                    }
-
-                    dataTables.user = $('#userTable').DataTable({
-                        data: tableData,
-                        columns: [
-                            { title: 'S.No' },
-                            { title: 'Name' },
-                            { title: 'Email' },
-                            { title: 'Phone' },
-                            { title: 'Role' },
-                            { title: 'Status' },
-                            { title: 'Action', orderable: false, searchable: false }
-                        ],
-                        dom: 'Bfrtip',
-                        buttons: [
-                            { extend: 'copy', text: '<i class="fa-regular fa-copy"></i> Copy', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5] } },
-                            { extend: 'excelHtml5', text: '<i class="fa-regular fa-file-excel"></i> Excel', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5] }, title: 'Users' },
-                            { extend: 'csvHtml5', text: '<i class="fa-regular fa-file-csv"></i> CSV', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5] }, title: 'Users' },
-                            { extend: 'pdfHtml5', text: '<i class="fa-regular fa-file-pdf"></i> PDF', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5] }, title: 'Users Report' },
-                            { extend: 'print', text: '<i class="fa-solid fa-print"></i> Print', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5] } }
-                        ],
-                        pageLength: 10,
-                        lengthMenu: [10, 25, 50, 100],
-                        language: {
-                            emptyTable: '<div class="text-center py-8 text-gray-500"><i class="fa-solid fa-users text-2xl block mb-2"></i>No users found</div>',
-                            info: 'Showing _START_ to _END_ of _TOTAL_ entries',
-                            infoEmpty: 'Showing 0 to 0 of 0 entries',
-                            infoFiltered: '(filtered from _MAX_ total entries)'
-                        },
-                        initComplete: function () {
-                            const $btns = $(this.api().table().container()).find('> .dt-buttons');
-                            $btns.addClass('toolbar-btn-group');
-                            $('#userButtons').empty().append($btns);
-                            $btns.css('display', 'flex');
-                        }
-                    });
-
-                    $('#userSearch').off('keyup').on('keyup', function () {
-                        dataTables.user.search(this.value).draw();
-                    });
-                },
-                error: function () {
-                    showToast('Failed to load users.', 'error');
+            dataTables.user = $('#userTable').DataTable({
+                data: tableData,
+                columns: [
+                    { title: 'S.No' },
+                    { title: 'Name' },
+                    { title: 'Email' },
+                    { title: 'Phone' },
+                    { title: 'Role' },
+                    { title: 'Status' }
+                ],
+                dom: 'Bfrtip',
+                buttons: ['copy', 'excel', 'csv', 'pdf', 'print'],
+                pageLength: 10,
+                initComplete: function () {
+                    const $btns = $(this.api().table().container()).find('> .dt-buttons');
+                    $('#userButtons').empty().append($btns);
                 }
             });
+
+            $('#userSearch').off('keyup').on('keyup', function () {
+                dataTables.user.search(this.value).draw();
+            });
         }
+    });
+}
 
         // ============================================
         // Load Last Recon
         // ============================================
         function loadLastRecon() {
-            $('#reconTableBody').html(`
-                <tr><td colspan="8" class="text-center py-8 text-gray-500">
-                    <i class="fa-solid fa-spinner fa-spin text-blue-400 mr-2"></i> Loading...
-                </td></tr>
-            `);
-
             $.ajax({
                 url: API_BASE_URL + 'get/get_dealer_last_recons.php?key=2170&dealer_id=' + dealerId,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
-                    if (dataTables.recon) {
-                        dataTables.recon.destroy();
-                    }
+                    if (dataTables.recon) dataTables.recon.destroy();
 
-                    const tableData = response.map((item, index) => [
+                    const tableData = (response || []).map((item, index) => [
                         index + 1,
                         item.created_at || 'N/A',
                         item.dealer_name || 'N/A',
@@ -2038,9 +1878,7 @@ require_once __DIR__ . '/session/session.php';
                         </span>`
                     ]);
 
-                    if (tableData.length === 0) {
-                        tableData.push(['No data available', '', '', '', '', '', '', '']);
-                    }
+                    if (tableData.length === 0) tableData.push(['No data available', '', '', '', '', '', '', '']);
 
                     dataTables.recon = $('#reconTable').DataTable({
                         data: tableData,
@@ -2055,51 +1893,41 @@ require_once __DIR__ . '/session/session.php';
                             { title: 'Action', orderable: false, searchable: false }
                         ],
                         dom: 'Bfrtip',
-                        buttons: [
-                            { extend: 'copy', text: '<i class="fa-regular fa-copy"></i> Copy', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6] } },
-                            { extend: 'excelHtml5', text: '<i class="fa-regular fa-file-excel"></i> Excel', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6] }, title: 'Last_Recon' },
-                            { extend: 'csvHtml5', text: '<i class="fa-regular fa-file-csv"></i> CSV', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6] }, title: 'Last_Recon' },
-                            { extend: 'pdfHtml5', text: '<i class="fa-regular fa-file-pdf"></i> PDF', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6] }, title: 'Last Recon Report' },
-                            { extend: 'print', text: '<i class="fa-solid fa-print"></i> Print', className: 'toolbar-btn', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6] } }
-                        ],
+                        buttons: ['copy', 'excel', 'csv', 'pdf', 'print'],
                         pageLength: 10,
-                        lengthMenu: [10, 25, 50, 100],
-                        language: {
-                            emptyTable: '<div class="text-center py-8 text-gray-500"><i class="fa-solid fa-clock-rotate-left text-2xl block mb-2"></i>No recon records found</div>',
-                            info: 'Showing _START_ to _END_ of _TOTAL_ entries',
-                            infoEmpty: 'Showing 0 to 0 of 0 entries',
-                            infoFiltered: '(filtered from _MAX_ total entries)'
-                        },
                         initComplete: function () {
                             const $btns = $(this.api().table().container()).find('> .dt-buttons');
-                            $btns.addClass('toolbar-btn-group');
                             $('#reconButtons').empty().append($btns);
-                            $btns.css('display', 'flex');
                         }
                     });
 
                     $('#reconSearch').off('keyup').on('keyup', function () {
                         dataTables.recon.search(this.value).draw();
                     });
-                },
-                error: function () {
-                    showToast('Failed to load last recon records.', 'error');
                 }
             });
         }
 
         // ============================================
-        // Edit Record
+        // Edit Functions
         // ============================================
+        function editProduct(id) {
+            // ❌ Update API nahi hai — sirf tooltip show karo
+            showToast('Edit API not available for Products', 'error');
+            return false;
+        }
+
         function editRecord(type, id) {
             openModal(type, id);
-            showToast('Edit functionality for ' + type + ' - ID: ' + id, 'info');
+            showToast('Edit ' + type + ' (ID: ' + id + ')', 'info');
         }
 
         // ============================================
-        // Delete Record
+        // Delete Functions (Separate for each type)
         // ============================================
-        function deleteRecord(type, id) {
+
+        // Common confirm dialog
+        function confirmDelete(callback) {
             Swal.fire({
                 title: 'Are you sure?',
                 text: 'This action cannot be undone.',
@@ -2107,176 +1935,315 @@ require_once __DIR__ . '/session/session.php';
                 showCancelButton: true,
                 confirmButtonColor: '#ef4444',
                 cancelButtonColor: '#64748b',
-                confirmButtonText: 'Yes, delete it!',
-                background: document.documentElement.classList.contains('dark-mode') ? '#0d1520' : '#ffffff',
-                color: document.documentElement.classList.contains('dark-mode') ? '#e5e7eb' : '#334155'
+                confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    let url = '';
-                    switch (type) {
-                        case 'facility':
-                            url = API_BASE_URL + 'delete/delete_facility.php?key=2170&id=' + id;
-                            break;
-                        case 'product':
-                            url = API_BASE_URL + 'delete/delete_dealer_product.php?key=2170&id=' + id;
-                            break;
-                        case 'tank':
-                            url = API_BASE_URL + 'delete/delete_tank.php?key=2170&id=' + id;
-                            break;
-                        case 'dispenser':
-                            url = API_BASE_URL + 'delete/delete_despensor.php?key=2170&id=' + id;
-                            break;
-                        case 'nozzle':
-                            url = API_BASE_URL + 'delete/delete_nozzels.php?key=2170&id=' + id;
-                            break;
-                        case 'user':
-                            url = API_BASE_URL + 'delete/delete_user.php?key=2170&id=' + id;
-                            break;
-                        default:
-                            showToast('Invalid type.', 'error');
-                            return;
-                    }
-
-                    $.ajax({
-                        url: url,
-                        type: 'GET',
-                        dataType: 'json',
-                        success: function (response) {
-                            if (response === 1) {
-                                showToast('Record deleted successfully!', 'success');
-                                loadTabData(type);
-                            } else {
-                                showToast('Failed to delete record.', 'error');
-                            }
-                        },
-                        error: function () {
-                            showToast('Error deleting record.', 'error');
-                        }
-                    });
+                    callback();
                 }
+            });
+        }
+
+        // Common AJAX delete handler
+        function executeDelete(url, type) {
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    if (response === 1 || response == 1) {
+                        showToast('Record deleted successfully!', 'success');
+
+                        // ✅ Singular → Plural mapping (loadTabData ke liye)
+                        const tabMap = {
+                            'facility': 'facilities',
+                            'product': 'products',
+                            'tank': 'tanks',
+                            'dispenser': 'dispenser',
+                            'nozzle': 'nozzle',
+                            'user': 'users'
+                        };
+
+                        loadTabData(tabMap[type] || type);
+                    } else {
+                        showToast('Failed to delete record.', 'error');
+                    }
+                },
+                error: function () {
+                    showToast('Error deleting record.', 'error');
+                }
+            });
+        }
+
+        // ✅ Product Delete
+        function deleteProduct(id) {
+            confirmDelete(function () {
+                const url = API_BASE_URL + 'delete/delete_dealer_product.php?key=2170&id=' + id;
+                executeDelete(url, 'product');
+            });
+        }
+
+        // ✅ Tank Delete
+        function deleteTank(id) {
+            confirmDelete(function () {
+                const url = API_BASE_URL + 'delete/delete_tank.php?key=2170&id=' + id;
+                executeDelete(url, 'tank');
+            });
+        }
+
+        // ✅ Dispenser Delete
+        function deleteDispenser(id) {
+            confirmDelete(function () {
+                const url = API_BASE_URL + 'delete/delete_despensor.php?key=2170&id=' + id;
+                executeDelete(url, 'dispenser');
+            });
+        }
+
+        // ✅ Nozzle Delete
+        function deleteNozzle(id) {
+            confirmDelete(function () {
+                const url = API_BASE_URL + 'delete/delete_nozzels.php?key=2170&id=' + id;
+                executeDelete(url, 'nozzle');
+            });
+        }
+
+        // ✅ User Delete
+        function deleteUser(id) {
+            confirmDelete(function () {
+                const url = API_BASE_URL + 'delete/delete_user.php?key=2170&id=' + id;
+                executeDelete(url, 'user');
             });
         }
 
         // ============================================
         // Save Record
         // ============================================
+        // ============================================
+// Save Record — Common Submit Handler
+// ============================================
+function submitForm(url, formData, type, id, onSuccess) {
+    const submitBtn = $('#setupForm button[type="submit"]');
+    submitBtn.prop('disabled', true);
+    submitBtn.html('<i class="fa-solid fa-spinner fa-spin mr-1"></i> Saving...');
+
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        dataType: 'json',
+        success: function (response) {
+            submitBtn.prop('disabled', false);
+            submitBtn.html('Save');
+
+            console.log('Server Response:', response);
+
+            // ✅ Singular → Plural mapping (loadTabData ke liye)
+            const tabMap = {
+                'facility':  'facilities',
+                'product':   'products',
+                'tank':      'tanks',
+                'dispenser': 'dispenser',
+                'nozzle':    'nozzle',
+                'user':      'users'
+            };
+
+            // ✅ JSON format handle — success ya status dono
+            if (response && typeof response === 'object') {
+
+                // ✅ Success: success=true YA status=true/1/'1'
+                if (
+                    response.success === true ||
+                    response.status === true ||
+                    response.status === 1 ||
+                    response.status === '1'
+                ) {
+                    showToast(
+                        response.message || (id ? 'Record updated successfully!' : 'Record created successfully!'),
+                        'success'
+                    );
+                    closeModal();
+                    loadTabData(tabMap[type] || type);
+                } else {
+                    // ❌ Failure
+                    showToast(
+                        response.message || 'Failed to save record.',
+                        'error'
+                    );
+                }
+                return;
+            }
+
+            // ✅ Purana format bhi handle karo (backward compatibility)
+            let resp = (typeof response === 'string') ? response.trim() : response;
+
+            if (resp === 1 || resp === '1' || resp === '1\n') {
+                showToast(
+                    id ? 'Record updated successfully!' : 'Record created successfully!',
+                    'success'
+                );
+                closeModal();
+                loadTabData(tabMap[type] || type);
+            } else {
+                showToast('Unexpected response from server', 'error');
+                console.error('Unexpected response:', response);
+            }
+        },
+        error: function (xhr, status, error) {
+            submitBtn.prop('disabled', false);
+            submitBtn.html('Save');
+            showToast('Error saving record: ' + status, 'error');
+            console.error('Error:', error, xhr.responseText);
+        }
+    });
+}
+
+        // ✅ Facility Save
+        function saveFacility(id) {
+            let formData = new FormData();
+            formData.append('user_id', USER_ID);
+            formData.append('dealer_id', dealerId);
+            if (id) formData.append('row_id', id);
+            formData.append('name', $('#facilityName').val());
+
+            const url = id
+                ? API_BASE_URL + 'update/update_facility.php'
+                : API_BASE_URL + 'create/dealer_facitlities.php';
+
+            submitForm(url, formData, 'facility', id);
+        }
+
+        // ✅ Product Save — Edit DISABLED (update API nahi hai)
+        function saveProduct(id) {
+            // ❌ Edit disabled — sirf Add kaam karega
+            if (id) {
+                showToast('Edit API not available for Products', 'error');
+                return;
+            }
+
+            let formData = new FormData();
+            formData.append('user_id', USER_ID);
+            formData.append('dealer_id', dealerId);
+            formData.append('products_name', $('#productName').val());
+            formData.append('from_date', $('#productFrom').val());
+            formData.append('to_date', $('#productTo').val());
+            formData.append('indent_price', $('#productIndent').val());
+            formData.append('nozel_price', $('#productNozzle').val());
+            formData.append('products_description', $('#productDesc').val());
+
+            const url = API_BASE_URL + 'create/create_dealers_products.php';
+            submitForm(url, formData, 'product', id);
+        }
+
+        // ✅ Tank Save
+        function saveTank(id) {
+            let formData = new FormData();
+            formData.append('user_id', USER_ID);
+            formData.append('dealer_id', dealerId);
+            if (id) formData.append('row_id', id);
+            formData.append('lorry_no', $('#tankNo').val());
+            formData.append('products', $('#tankProduct').val());
+            formData.append('max_limit', $('#tankCapacity').val());
+            formData.append('min_limit', '0');
+            formData.append('current_dip', '0');
+            formData.append('current_reading', '0');
+
+            const url = id
+                ? API_BASE_URL + 'update/update_dealers_tanks.php'
+                : API_BASE_URL + 'create/create_dealers_tanks.php';
+
+            submitForm(url, formData, 'tank', id);
+        }
+
+        // ✅ Dispenser Save
+        function saveDispenser(id) {
+            let formData = new FormData();
+            formData.append('user_id', USER_ID);
+            formData.append('dealer_id', dealerId);
+            if (id) formData.append('row_id', id);
+            formData.append('dispenser_name', $('#dispenserName').val());
+            formData.append('dispenser_description', $('#dispenserDesc').val());
+
+            const url = id
+                ? API_BASE_URL + 'update/update_dispenser.php'
+                : API_BASE_URL + 'create/create_dispenser.php';
+
+            submitForm(url, formData, 'dispenser', id);
+        }
+
+        // ✅ Nozzle Save
+        function saveNozzle(id) {
+            let formData = new FormData();
+            formData.append('user_id', USER_ID);
+            formData.append('dealer_id', dealerId);
+            if (id) formData.append('row_id', id);
+            formData.append('name', $('#nozzleName').val());
+            formData.append('nozzels_products', $('#nozzleProduct').val());
+            formData.append('product_tank', $('#nozzleTank').val());
+            formData.append('product_dispenser', $('#nozzleDispenser').val());
+            formData.append('last_reading', $('#nozzleReading').val());
+
+            const url = id
+                ? API_BASE_URL + 'update/update_nozzels.php'
+                : API_BASE_URL + 'create/nozzels.php';
+
+            submitForm(url, formData, 'nozzle', id);
+        }
+
+        // ✅ User Save
+      function saveUser(id) {
+    let formData = new FormData();
+    formData.append('user_id', USER_ID);
+    formData.append('dealer_id', dealerId);
+    if (id) formData.append('row_id', id);
+
+    const userName     = $('#userName').val();
+    const userEmail    = $('#userEmail').val();
+    const userPassword = $('#userPassword').val();
+    const userPhone    = $('#userPhone').val();
+    const userRole     = $('#userRole').val();
+    const userStatus   = $('#userStatus').val();
+
+    // ✅ API ke expected field names
+    formData.append('name', userName);
+    formData.append('email', userEmail);
+    formData.append('confirm_password', userPassword);   // password
+    formData.append('number', userPhone);
+    formData.append('role', userRole);
+    formData.append('sales_role', userRole);             // role hi sales_role hai
+    formData.append('status', userStatus);
+
+    const url = id
+        ? API_BASE_URL + 'update/update_user.php'
+        : API_BASE_URL + 'create/users.php';
+
+    submitForm(url, formData, 'user', id);
+}
+
+        // ✅ Main Dispatcher — Form submit hone par yahi call hota hai
         function saveRecord(event) {
             event.preventDefault();
             const type = $('#recordType').val();
             const id = $('#recordId').val();
 
-            let formData = new FormData();
-            formData.append('user_id', USER_ID);
-            formData.append('dealer_id', dealerId);
-            if (id) formData.append('row_id', id);
-
             switch (type) {
-                case 'facility':
-                    formData.append('name', $('#facilityName').val());
-                    break;
-                case 'product':
-                    formData.append('products_name', $('#productName').val());
-                    formData.append('product_id', $('#productId').val());
-                    formData.append('from_date', $('#productFrom').val());
-                    formData.append('to_date', $('#productTo').val());
-                    formData.append('indent_price', $('#productIndent').val());
-                    formData.append('nozel_price', $('#productNozzle').val());
-                    formData.append('products_description', $('#productDesc').val());
-                    break;
-                case 'tank':
-                    formData.append('lorry_no', $('#tankNo').val());
-                    formData.append('products', $('#tankProduct').val());
-                    formData.append('max_limit', $('#tankCapacity').val());
-                    formData.append('min_limit', '0');
-                    break;
-                case 'dispenser':
-                    formData.append('dispenser_name', $('#dispenserName').val());
-                    formData.append('dispenser_description', $('#dispenserDesc').val());
-                    break;
-                case 'nozzle':
-                    formData.append('name', $('#nozzleName').val());
-                    formData.append('nozzels_products', $('#nozzleProduct').val());
-                    formData.append('product_tank', $('#nozzleTank').val());
-                    formData.append('product_dispenser', $('#nozzleDispenser').val());
-                    formData.append('last_reading', $('#nozzleReading').val());
-                    break;
-                case 'user':
-                    formData.append('usernames', $('#userName').val());
-                    formData.append('user_email', $('#userEmail').val());
-                    formData.append('user_password', $('#userPassword').val());
-                    formData.append('user_phone', $('#userPhone').val());
-                    formData.append('user_role', $('#userRole').val());
-                    formData.append('user_status', $('#userStatus').val());
-                    break;
+                case 'facility': saveFacility(id); break;
+                case 'product': saveProduct(id); break;
+                case 'tank': saveTank(id); break;
+                case 'dispenser': saveDispenser(id); break;
+                case 'nozzle': saveNozzle(id); break;
+                case 'user': saveUser(id); break;
                 default:
                     showToast('Invalid type.', 'error');
-                    return;
             }
-
-            let url = '';
-            switch (type) {
-                case 'facility':
-                    url = id ? API_BASE_URL + 'update/update_facility.php' : API_BASE_URL + 'create/dealer_facitlities.php';
-                    break;
-                case 'product':
-                    url = id ? API_BASE_URL + 'update/update_dealers_products.php' : API_BASE_URL + 'create/create_dealers_products.php';
-                    break;
-                case 'tank':
-                    url = id ? API_BASE_URL + 'update/update_dealers_tanks.php' : API_BASE_URL + 'create/create_dealers_tanks.php';
-                    break;
-                case 'dispenser':
-                    url = id ? API_BASE_URL + 'update/update_dispenser.php' : API_BASE_URL + 'create/create_dispenser.php';
-                    break;
-                case 'nozzle':
-                    url = id ? API_BASE_URL + 'update/update_nozzels.php' : API_BASE_URL + 'create/nozzels.php';
-                    break;
-                case 'user':
-                    url = id ? API_BASE_URL + 'update/update_user.php' : API_BASE_URL + 'create/users.php';
-                    break;
-                default:
-                    showToast('Invalid type.', 'error');
-                    return;
-            }
-
-            const submitBtn = $('#setupForm button[type="submit"]');
-            submitBtn.prop('disabled', true);
-            submitBtn.html('<i class="fa-solid fa-spinner fa-spin mr-1"></i> Saving...');
-
-            $.ajax({
-                url: url,
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                dataType: 'json',
-                success: function (response) {
-                    submitBtn.prop('disabled', false);
-                    submitBtn.html('Save');
-
-                    if (response === 1) {
-                        showToast(id ? 'Record updated successfully!' : 'Record created successfully!', 'success');
-                        closeModal();
-                        loadTabData(type);
-                    } else {
-                        showToast('Failed to save record. Please try again.', 'error');
-                    }
-                },
-                error: function (xhr, status, error) {
-                    submitBtn.prop('disabled', false);
-                    submitBtn.html('Save');
-                    console.error('Save Error:', status, error);
-                    showToast('Error saving record: ' + status, 'error');
-                }
-            });
         }
 
         // ============================================
-        // Toast Notification
+        // Toast
         // ============================================
         function showToast(message, type = 'success') {
             const toast = $('#toast');
-            const toastMessage = $('#toastMessage');
-            toastMessage.text(message);
+            $('#toastMessage').text(message);
 
             toast.removeClass('border-green-500 border-red-500 border-yellow-500');
             if (type === 'success') {
