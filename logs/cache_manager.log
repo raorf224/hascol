@@ -9618,3 +9618,76 @@ l
 [2026-10-06 19:11:11] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-06, region=all
 [2026-10-06 19:11:11] [INFO] Cache stale (age: 20634s), returning stale data for: dashboard_data_23c2f94f7dc6c65faf4e3281e38460e5
 [2026-10-06 19:11:11] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-07 15:49:23] [INFO] READ: filter_options - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:49:23] [INFO] Cache file not found, generating: filter_options_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:49:23] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/filter_options.php?date_from=2026-09-30&date_to=2026-10-07&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-07 15:49:23] [INFO] API Response: filter_options - HTTP: 200, Duration: 0.12s
+[2026-10-07 15:49:23] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:49:23] [INFO] Cache file not found, generating: recon_efficiency_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:49:23] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/recon_efficiency.php?date_from=2026-09-30&date_to=2026-10-07&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-07 15:49:23] [INFO] READ: trends_data - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:49:23] [INFO] Cache file not found, generating: trends_data_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:49:23] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/trends_data.php?date_from=2026-09-30&date_to=2026-10-07&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-07 15:49:23] [INFO] READ: variance_data - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:49:23] [INFO] Cache file not found, generating: variance_data_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:49:23] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/variance_data.php?date_from=2026-09-30&date_to=2026-10-07&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-07 15:49:23] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:49:23] [INFO] Cache file not found, generating: dashboard_data_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:49:23] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/dashboard_data.php?date_from=2026-09-30&date_to=2026-10-07&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-07 15:49:23] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:49:23] [INFO] Cache file not found, generating: map_data_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:49:23] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/map_data.php?date_from=2026-09-30&date_to=2026-10-07&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-07 15:49:23] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:49:23] [INFO] Cache file not found, generating: alerts_data_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:49:23] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/alerts_data.php?date_from=2026-09-30&date_to=2026-10-07&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-07 15:49:24] [INFO] API Response: map_data - HTTP: 200, Duration: 0.35s
+[2026-10-07 15:49:24] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:49:24] [INFO] Cache file not found, generating: tm_performance_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:49:24] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/tm_performance.php?date_from=2026-09-30&date_to=2026-10-07&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-07 15:49:24] [INFO] API Response: recon_efficiency - HTTP: 200, Duration: 0.57s
+[2026-10-07 15:49:24] [INFO] API Response: tm_performance - HTTP: 200, Duration: 0.14s
+[2026-10-07 15:49:24] [INFO] API Response: alerts_data - HTTP: 200, Duration: 0.51s
+[2026-10-07 15:49:24] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:49:24] [INFO] Cache file not found, generating: top_sites_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:49:24] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/top_sites.php?date_from=2026-09-30&date_to=2026-10-07&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-07 15:49:24] [INFO] API Response: top_sites - HTTP: 200, Duration: 0.08s
+[2026-10-07 15:49:24] [INFO] API Response: dashboard_data - HTTP: 200, Duration: 0.8s
+[2026-10-07 15:49:24] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:49:24] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:49:24] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:49:24] [INFO] API Response: variance_data - HTTP: 200, Duration: 1.2s
+[2026-10-07 15:49:32] [INFO] API Response: trends_data - HTTP: 200, Duration: 9.08s
+[2026-10-07 15:55:53] [INFO] READ: filter_options - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:55:53] [INFO] Cache stale (age: 390s), returning stale data for: filter_options_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:55:53] [INFO] Background update triggered: filter_options with filters
+[2026-10-07 15:55:53] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:55:53] [INFO] Cache stale (age: 389s), returning stale data for: dashboard_data_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:55:53] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-07 15:55:53] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:55:53] [INFO] Cache stale (age: 389s), returning stale data for: tm_performance_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:55:53] [INFO] Background update triggered: tm_performance with filters
+[2026-10-07 15:55:53] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:55:53] [INFO] READ: variance_data - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:55:53] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:55:53] [INFO] Cache stale (age: 389s), returning stale data for: variance_data_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:55:53] [INFO] Background update triggered: top_sites with filters
+[2026-10-07 15:55:53] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:55:53] [INFO] Cache stale (age: 389s), returning stale data for: dashboard_data_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:55:53] [INFO] Cache stale (age: 389s), returning stale data for: map_data_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:55:53] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-07 15:55:53] [INFO] Background update triggered: map_data with filters
+[2026-10-07 15:55:53] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:55:53] [INFO] Cache stale (age: 389s), returning stale data for: dashboard_data_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:55:53] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-07 15:55:53] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:55:53] [INFO] Cache stale (age: 389s), returning stale data for: alerts_data_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:55:53] [INFO] Cache stale (age: 381s), returning stale data for: trends_data_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:55:53] [INFO] Background update triggered: alerts_data with filters
+[2026-10-07 15:55:53] [INFO] Background update triggered: trends_data with filters
+[2026-10-07 15:55:53] [INFO] Background update triggered: variance_data with filters
+[2026-10-07 15:55:53] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:55:53] [INFO] Cache stale (age: 389s), returning stale data for: recon_efficiency_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:55:53] [INFO] Background update triggered: recon_efficiency with filters
+[2026-10-07 15:55:53] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-07, region=all
+[2026-10-07 15:55:53] [INFO] Cache stale (age: 389s), returning stale data for: dashboard_data_848455237405ba268e0206ba5e8cd89b
+[2026-10-07 15:55:53] [INFO] Background update triggered: dashboard_data with filters
