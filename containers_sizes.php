@@ -6,6 +6,7 @@ require_once __DIR__ . '/session/session.php';
 
 <head>
     <meta charset="utf-8" />
+    <?php include 'includes/head.php'; ?>
     <title>Container Sizes | Hascol OMC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Hascol OMC Management Dashboard" name="description" />
