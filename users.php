@@ -6,7 +6,7 @@ require_once __DIR__ . '/session/session.php';
 
 <head>
     <meta charset="UTF-8">
-<?php include 'includes/head.php'; ?>
+    <?php include 'includes/head.php'; ?>
     <title>Hascol OMC - Users Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,7 +25,7 @@ require_once __DIR__ . '/session/session.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-        (function() {
+        (function () {
             const isDarkMode = localStorage.getItem('darkMode') === 'true';
             if (isDarkMode) {
                 document.documentElement.classList.add('dark-mode');
@@ -53,7 +53,7 @@ require_once __DIR__ . '/session/session.php';
             }
         }
     </script>
-    
+
     <style>
         :root {
             --bg-body: #f4f6fa;
@@ -717,6 +717,7 @@ require_once __DIR__ . '/session/session.php';
             .toolbar-row {
                 flex-wrap: wrap;
             }
+
             .toolbar-right {
                 flex-wrap: wrap;
             }
@@ -953,7 +954,8 @@ require_once __DIR__ . '/session/session.php';
                         </div>
                         <div class="flex items-center gap-2">
                             <i class="fa-solid fa-magnifying-glass text-gray-500 text-xs"></i>
-                            <input type="text" id="customSearchInput" placeholder="Search users..." class="search-input">
+                            <input type="text" id="customSearchInput" placeholder="Search users..."
+                                class="search-input">
                         </div>
                         <select id="statusFilter" class="form-select text-xs">
                             <option value="all">All Status</option>
@@ -1018,7 +1020,8 @@ require_once __DIR__ . '/session/session.php';
     <div id="offcanvasOverlay" onclick="closeOffcanvas()"></div>
 
     <div id="offcanvasForm">
-        <div class="flex justify-between items-center p-4 border-b flex-shrink-0" style="border-color: var(--border-color);">
+        <div class="flex justify-between items-center p-4 border-b flex-shrink-0"
+            style="border-color: var(--border-color);">
             <h3 id="offcanvasTitle" class="text-heading font-semibold tracking-wide text-sm">
                 <i class="fa-solid fa-user-plus mr-2 text-blue-500"></i>Create User
             </h3>
@@ -1045,7 +1048,8 @@ require_once __DIR__ . '/session/session.php';
 
                 <div class="form-group">
                     <label class="form-label">Password</label>
-                    <input type="password" id="password" class="form-input" placeholder="Enter Password (leave blank to keep current)">
+                    <input type="password" id="password" class="form-input"
+                        placeholder="Enter Password (leave blank to keep current)">
                 </div>
 
                 <div class="form-group">
@@ -1156,7 +1160,8 @@ require_once __DIR__ . '/session/session.php';
                     <i class="fa-solid fa-trash-can text-red-500 text-2xl"></i>
                 </div>
                 <h3 class="text-heading font-semibold text-base mb-2">Delete User</h3>
-                <p class="text-gray-400 text-sm mb-6">Are you sure you want to delete this user? This action cannot be undone.</p>
+                <p class="text-gray-400 text-sm mb-6">Are you sure you want to delete this user? This action cannot be
+                    undone.</p>
                 <input type="hidden" id="deleteUserId">
                 <div class="flex gap-3">
                     <button onclick="confirmDelete()" class="btn-danger flex-1">Delete</button>
@@ -1171,15 +1176,15 @@ require_once __DIR__ . '/session/session.php';
             const html = document.documentElement;
             const isDark = html.classList.toggle('dark-mode');
             localStorage.setItem('darkMode', isDark);
-            
+
             const icon = document.querySelector('.dark-mode-toggle i');
             if (icon) {
                 icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
             }
         }
 
-        $(document).ready(function() {
-            $('#sidebarToggle').on('click', function() {
+        $(document).ready(function () {
+            $('#sidebarToggle').on('click', function () {
                 $('#sidebar').toggleClass('collapsed');
                 localStorage.setItem('sidebarCollapsed', $('#sidebar').hasClass('collapsed'));
             });
@@ -1190,7 +1195,7 @@ require_once __DIR__ . '/session/session.php';
 
             $('#password, #confirmPassword').on('input', validatePassword);
 
-            $('#customSearchInput').on('keyup', function() {
+            $('#customSearchInput').on('keyup', function () {
                 if ($.fn.DataTable.isDataTable('#usersTable')) {
                     $('#usersTable').DataTable().search($(this).val()).draw();
                 }
@@ -1202,7 +1207,7 @@ require_once __DIR__ . '/session/session.php';
             loadTMList();
             loadUsers();
 
-            $(document).on('click', function(e) {
+            $(document).on('click', function (e) {
                 if (!$(e.target).closest('.column-visibility-dropdown').length) {
                     closeColumnDropdown();
                 }
@@ -1214,7 +1219,7 @@ require_once __DIR__ . '/session/session.php';
                 icon.className = isDarkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
             }
         });
-        
+
         const API_BASE_URL = 'api/';
 
         let usersData = [];
@@ -1276,14 +1281,14 @@ require_once __DIR__ . '/session/session.php';
                 url: API_BASE_URL + 'get/get_zm.php?key=2170',
                 type: 'GET',
                 dataType: 'json',
-                success: function(data) {
+                success: function (data) {
                     var select = $('#zmRole');
                     select.empty().append('<option value="">Select GRM</option>');
-                    $.each(data, function(index, item) {
+                    $.each(data, function (index, item) {
                         select.append($('<option>', { value: item.id, text: item.name }));
                     });
                 },
-                error: function() {
+                error: function () {
                     console.log('Failed to load ZM list');
                 }
             });
@@ -1294,14 +1299,14 @@ require_once __DIR__ . '/session/session.php';
                 url: API_BASE_URL + 'get/get_tm.php?key=2170',
                 type: 'GET',
                 dataType: 'json',
-                success: function(data) {
+                success: function (data) {
                     var select = $('#tmRole');
                     select.empty().append('<option value="">Select RM</option>');
-                    $.each(data, function(index, item) {
+                    $.each(data, function (index, item) {
                         select.append($('<option>', { value: item.id, text: item.name }));
                     });
                 },
-                error: function() {
+                error: function () {
                     console.log('Failed to load TM list');
                 }
             });
@@ -1322,14 +1327,14 @@ require_once __DIR__ . '/session/session.php';
                 type: 'GET',
                 dataType: 'json',
                 timeout: 30000,
-                success: function(response) {
+                success: function (response) {
                     if (response && Array.isArray(response)) {
-                        usersData = response.map(function(user) {
+                        usersData = response.map(function (user) {
                             var privilege = user.privilege || 'N/A';
                             if (privilege == 'ZM') privilege = 'GRM';
                             else if (privilege == 'TM') privilege = 'RM';
                             else if (privilege == 'ASM') privilege = 'TM';
-                            
+
                             return {
                                 id: parseInt(user.id) || 0,
                                 username: user.name || 'N/A',
@@ -1347,7 +1352,7 @@ require_once __DIR__ . '/session/session.php';
                         initializeDataTable();
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.error('API Error:', status, error);
                     showToast('Failed to load users. Please refresh the page.', 'error');
                     usersData = [];
@@ -1371,7 +1376,7 @@ require_once __DIR__ . '/session/session.php';
                     checkboxValue: newStatus === 'active' ? 1 : 0
                 },
                 dataType: 'json',
-                success: function(response) {
+                success: function (response) {
                     toggleInput.prop('disabled', false);
                     if (response === 1) {
                         const user = usersData.find(u => u.id === userId);
@@ -1383,7 +1388,7 @@ require_once __DIR__ . '/session/session.php';
                         showToast('Failed to update status. Please try again.', 'error');
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     toggleInput.prop('disabled', false);
                     toggleInput.prop('checked', currentStatus === 'active');
                     console.error('Status Update Error:', status, error);
@@ -1490,7 +1495,7 @@ require_once __DIR__ . '/session/session.php';
                         title: 'Users Management',
                         orientation: 'landscape',
                         pageSize: 'A4',
-                        customize: function(doc) {
+                        customize: function (doc) {
                             doc.defaultStyle.fontSize = 9;
                             doc.styles.tableHeader.fontSize = 10;
                             doc.styles.tableHeader.fillColor = '#0a121c';
@@ -1514,17 +1519,17 @@ require_once __DIR__ . '/session/session.php';
                     infoEmpty: 'Showing 0 to 0 of 0 entries',
                     infoFiltered: '(filtered from _MAX_ total entries)'
                 },
-                drawCallback: function() {
+                drawCallback: function () {
                     $('.dt-buttons .dt-button').addClass('toolbar-btn');
-                    
+
                     // Bind row click event
-                    $('#usersTable tbody tr').off('click').on('click', function(e) {
+                    $('#usersTable tbody tr').off('click').on('click', function (e) {
                         // Delete button ya toggle pe click ho to ignore karo
-                        if ($(e.target).closest('.action-btn.delete').length || 
+                        if ($(e.target).closest('.action-btn.delete').length ||
                             $(e.target).closest('.toggle-switch').length) {
                             return;
                         }
-                        
+
                         var rowData = dataTable.row(this).data();
                         if (rowData && rowData[1]) {
                             var userId = rowData[1];
@@ -1532,7 +1537,7 @@ require_once __DIR__ . '/session/session.php';
                         }
                     });
                 },
-                initComplete: function() {
+                initComplete: function () {
                     $('.dt-buttons').appendTo('#exportButtonsContainer');
                     populateColumnDropdown();
                 }
@@ -1545,14 +1550,14 @@ require_once __DIR__ . '/session/session.php';
             const container = $('#columnListItems');
             container.empty();
 
-            columnConfig.forEach(function(col) {
+            columnConfig.forEach(function (col) {
                 let isVisible = true;
                 try {
                     isVisible = dataTable.column(col.idx).visible();
-                } catch(e) {
+                } catch (e) {
                     isVisible = true;
                 }
-                
+
                 container.append(`
                     <div class="dropdown-item" onclick="toggleColumnVisibility(${col.idx})">
                         <input type="checkbox" id="col-checkbox-${col.idx}" 
@@ -1570,7 +1575,7 @@ require_once __DIR__ . '/session/session.php';
                 const isVisible = dataTable.column(colIdx).visible();
                 dataTable.column(colIdx).visible(!isVisible);
                 $(`#col-checkbox-${colIdx}`).prop('checked', !isVisible);
-            } catch(e) {
+            } catch (e) {
                 console.warn('Column visibility toggle error:', e);
             }
         }
@@ -1578,12 +1583,12 @@ require_once __DIR__ . '/session/session.php';
         function selectAllColumns() {
             if (!dataTable) return;
             try {
-                columnConfig.forEach(function(col) {
+                columnConfig.forEach(function (col) {
                     dataTable.column(col.idx).visible(true);
                     $(`#col-checkbox-${col.idx}`).prop('checked', true);
                 });
                 showToast('All columns selected!', 'success');
-            } catch(e) {
+            } catch (e) {
                 showToast('Error selecting columns', 'error');
             }
         }
@@ -1591,12 +1596,12 @@ require_once __DIR__ . '/session/session.php';
         function deselectAllColumns() {
             if (!dataTable) return;
             try {
-                columnConfig.forEach(function(col) {
+                columnConfig.forEach(function (col) {
                     dataTable.column(col.idx).visible(false);
                     $(`#col-checkbox-${col.idx}`).prop('checked', false);
                 });
                 showToast('All columns deselected!', 'success');
-            } catch(e) {
+            } catch (e) {
                 showToast('Error deselecting columns', 'error');
             }
         }
@@ -1635,11 +1640,11 @@ require_once __DIR__ . '/session/session.php';
         function showToast(message, type = 'success') {
             const toast = $('#toast');
             const toastMessage = $('#toastMessage');
-            
+
             toast.removeClass('success error').addClass(type);
             toastMessage.text(message);
             toast.addClass('show');
-            
+
             clearTimeout(window.toastTimeout);
             window.toastTimeout = setTimeout(() => {
                 toast.removeClass('show');
@@ -1657,11 +1662,11 @@ require_once __DIR__ . '/session/session.php';
             $('#offcanvasForm').removeClass('active');
             $('body').removeClass('offcanvas-open');
             $('#zmRoleWrapper, #tmRoleWrapper, #salesRoleWrapper, #logisticsRoleWrapper').hide();
-            
+
             // Reset edit/save sections
             $('#editConfirmationSection').hide();
             $('#saveCancelSection').hide();
-            
+
             // Reset form
             $('#userForm')[0].reset();
             setFormReadOnly(false);
@@ -1669,7 +1674,7 @@ require_once __DIR__ . '/session/session.php';
 
         // Set form fields read-only or editable
         function setFormReadOnly(isReadOnly) {
-            $('#userForm input, #userForm select').each(function() {
+            $('#userForm input, #userForm select').each(function () {
                 if (isReadOnly) {
                     $(this).prop('disabled', true).prop('readonly', true);
                 } else {
@@ -1681,14 +1686,14 @@ require_once __DIR__ . '/session/session.php';
         // Enable edit mode - fields become editable and Save button shows
         function enableEditMode() {
             setFormReadOnly(false);
-            
+
             // Hide confirmation, show save/cancel
             $('#editConfirmationSection').hide();
             $('#saveCancelSection').show();
-            
+
             // Update title
             $('#offcanvasTitle').html('<i class="fa-solid fa-user-pen mr-2 text-blue-500"></i>Edit User');
-            
+
             // Clear password fields so user can enter new password
             $('#password').val('');
             $('#confirmPassword').val('');
@@ -1714,12 +1719,12 @@ require_once __DIR__ . '/session/session.php';
             $('#salesRoleWrapper, #zmRoleWrapper, #tmRoleWrapper, #logisticsRoleWrapper').hide();
             $('#passwordMessage').html('');
             $('#userForm')[0].reset();
-            
+
             // Create mode: fields editable, save button shown
             setFormReadOnly(false);
             $('#editConfirmationSection').hide();
             $('#saveCancelSection').show();
-            
+
             openOffcanvas();
         }
 
@@ -1728,10 +1733,10 @@ require_once __DIR__ . '/session/session.php';
                 url: API_BASE_URL + 'get/view_user.php?key=2170&id=' + userId,
                 type: 'GET',
                 dataType: 'json',
-                success: function(response) {
+                success: function (response) {
                     if (response && response.length > 0) {
                         var user = response[0];
-                        
+
                         $('#offcanvasTitle').html('<i class="fa-solid fa-user-eye mr-2 text-blue-500"></i>View User');
                         $('#userId').val(user.id);
                         $('#username').val(user.name || '');
@@ -1741,11 +1746,11 @@ require_once __DIR__ . '/session/session.php';
                         $('#contactNo').val(user.telephone || '');
                         $('#role').val('Sales');
                         $('#status').val(user.status == 1 ? 'active' : 'inactive');
-                        
+
                         $('#salesRoleWrapper, #zmRoleWrapper, #tmRoleWrapper, #logisticsRoleWrapper').hide();
-                        
+
                         var privilege = user.privilege || '';
-                        
+
                         if (privilege == 'ZM') {
                             $('#salesRoleWrapper').show();
                             $('#salesRole').val('ZM');
@@ -1753,7 +1758,7 @@ require_once __DIR__ . '/session/session.php';
                                 url: API_BASE_URL + 'get/get_zm_tm.php?key=2170&id=' + userId,
                                 type: 'GET',
                                 dataType: 'json',
-                                success: function(zmData) {
+                                success: function (zmData) {
                                     if (zmData && zmData.length > 0) {
                                         $('#zmRoleWrapper').show();
                                         $('#zmRole').val(zmData[0].zm_id || '');
@@ -1769,7 +1774,7 @@ require_once __DIR__ . '/session/session.php';
                                 url: API_BASE_URL + 'get/get_zm_tm.php?key=2170&id=' + userId,
                                 type: 'GET',
                                 dataType: 'json',
-                                success: function(zmData) {
+                                success: function (zmData) {
                                     if (zmData && zmData.length > 0) {
                                         $('#zmRole').val(zmData[0].zm_id || '');
                                         $('#zm_hide').val(zmData[0].zm_id || '');
@@ -1784,7 +1789,7 @@ require_once __DIR__ . '/session/session.php';
                                 url: API_BASE_URL + 'get/get_asm_tm.php?key=2170&id=' + userId,
                                 type: 'GET',
                                 dataType: 'json',
-                                success: function(tmData) {
+                                success: function (tmData) {
                                     if (tmData && tmData.length > 0) {
                                         $('#tmRole').val(tmData[0].tm_id || '');
                                         $('#tm_hide').val(tmData[0].tm_id || '');
@@ -1792,20 +1797,20 @@ require_once __DIR__ . '/session/session.php';
                                 }
                             });
                         }
-                        
+
                         // Set all fields read-only initially
                         setFormReadOnly(true);
-                        
+
                         // Show confirmation, hide save button
                         $('#editConfirmationSection').show();
                         $('#saveCancelSection').hide();
-                        
+
                         openOffcanvas();
                     } else {
                         showToast('User not found.', 'error');
                     }
                 },
-                error: function() {
+                error: function () {
                     showToast('Error loading user details.', 'error');
                 }
             });
@@ -1815,7 +1820,7 @@ require_once __DIR__ . '/session/session.php';
             $('#deleteUserId').val(userId);
             const modal = $('#deleteModal');
             modal.removeClass('hidden').addClass('flex');
-            setTimeout(function() {
+            setTimeout(function () {
                 modal.removeClass('opacity-0');
                 $('#deleteModalWrapper').removeClass('scale-95').addClass('scale-100');
             }, 10);
@@ -1825,7 +1830,7 @@ require_once __DIR__ . '/session/session.php';
             const modal = $('#deleteModal');
             modal.addClass('opacity-0');
             $('#deleteModalWrapper').removeClass('scale-100').addClass('scale-95');
-            setTimeout(function() {
+            setTimeout(function () {
                 modal.addClass('hidden').removeClass('flex');
             }, 300);
         }
@@ -1880,36 +1885,36 @@ require_once __DIR__ . '/session/session.php';
                 formData.append('zm_hide', zmId || '');
                 formData.append('tm_hide', tmId || '');
 
-$.ajax({
-    url: API_BASE_URL + 'update/update_user.php',
-    type: 'POST',
-    data: formData,
-    processData: false,
-    contentType: false,
-    dataType: 'text',   // ← 'json' se 'text' karein
-    success: function(response) {
-        submitBtn.prop('disabled', false);
-        submitBtn.html('<i class="fa-regular fa-floppy-disk mr-1"></i> Save');
-        
-        // Trim spaces (kyunke PHP ke end mein extra whitespace ho sakti hai)
-        var res = response.trim();
-        
-        if (res === '1') {
-            showToast('User updated successfully!', 'success');
-            closeOffcanvas();
-            loadUsers();
-        } else {
-            showToast('Failed to update user. Response: ' + res, 'error');
-        }
-    },
-    error: function(xhr, status, error) {
-        submitBtn.prop('disabled', false);
-        submitBtn.html('<i class="fa-regular fa-floppy-disk mr-1"></i> Save');
-        console.error('Update Error:', status, error);
-        console.error('Raw response:', xhr.responseText);
-        showToast('Error updating user: ' + status, 'error');
-    }
-});
+                $.ajax({
+                    url: API_BASE_URL + 'update/update_user.php',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    dataType: 'text',   // ← 'json' se 'text' karein
+                    success: function (response) {
+                        submitBtn.prop('disabled', false);
+                        submitBtn.html('<i class="fa-regular fa-floppy-disk mr-1"></i> Save');
+
+                        // Trim spaces (kyunke PHP ke end mein extra whitespace ho sakti hai)
+                        var res = response.trim();
+
+                        if (res === '1') {
+                            showToast('User updated successfully!', 'success');
+                            closeOffcanvas();
+                            loadUsers();
+                        } else {
+                            showToast('Failed to update user. Response: ' + res, 'error');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        submitBtn.prop('disabled', false);
+                        submitBtn.html('<i class="fa-regular fa-floppy-disk mr-1"></i> Save');
+                        console.error('Update Error:', status, error);
+                        console.error('Raw response:', xhr.responseText);
+                        showToast('Error updating user: ' + status, 'error');
+                    }
+                });
             } else {
                 const formData = new FormData();
                 formData.append('name', username);
@@ -1928,13 +1933,13 @@ $.ajax({
                     data: formData,
                     processData: false,
                     contentType: false,
-                    dataType: 'json',   // ← 'text' se 'json' karein
-                    success: function(response) {
+                    dataType: 'json',
+                    success: function (response) {
                         submitBtn.prop('disabled', false);
                         submitBtn.html('<i class="fa-regular fa-floppy-disk mr-1"></i> Save');
-                        
-                        // JSON response check
-                        if (response.status === 1) {
+
+                        // ✅ PHP 'success' bhej raha hai
+                        if (response.success === true) {
                             showToast(response.message || 'User created successfully!', 'success');
                             closeOffcanvas();
                             loadUsers();
@@ -1942,7 +1947,7 @@ $.ajax({
                             showToast(response.message || 'Failed to create user.', 'error');
                         }
                     },
-                    error: function(xhr, status, error) {
+                    error: function (xhr, status, error) {
                         submitBtn.prop('disabled', false);
                         submitBtn.html('<i class="fa-regular fa-floppy-disk mr-1"></i> Save');
                         console.error('Create Error:', status, error);
@@ -1966,37 +1971,37 @@ $.ajax({
             deleteBtn.prop('disabled', true);
             deleteBtn.html('<i class="fa-solid fa-spinner fa-spin mr-1"></i> Deleting...');
 
-$.ajax({
-    url: API_BASE_URL + 'delete/delete_users.php?key=2170&id=' + userId,
-    type: 'GET',
-    timeout: 30000,
-    dataType: 'text',
-    success: function(response) {
-        deleteBtn.prop('disabled', false);
-        deleteBtn.html('Delete');
-        
-        // ✅ Plain text response handle karein
-        var res = response.trim();
-        
-        if (res === '1') {
-            showToast('User deleted successfully!', 'success');
-            closeDeleteModal();
-            loadUsers();
-        } else {
-            showToast('Failed: ' + res, 'error');
-        }
-    },
-    error: function(xhr, status, error) {
-        deleteBtn.prop('disabled', false);
-        deleteBtn.html('Delete');
-        console.error('Delete Error:', status, error);
-        showToast('Error deleting user: ' + status, 'error');
-    }
-});
+            $.ajax({
+                url: API_BASE_URL + 'delete/delete_users.php?key=2170&id=' + userId,
+                type: 'GET',
+                timeout: 30000,
+                dataType: 'text',
+                success: function (response) {
+                    deleteBtn.prop('disabled', false);
+                    deleteBtn.html('Delete');
+
+                    // ✅ Plain text response handle karein
+                    var res = response.trim();
+
+                    if (res === '1') {
+                        showToast('User deleted successfully!', 'success');
+                        closeDeleteModal();
+                        loadUsers();
+                    } else {
+                        showToast('Failed: ' + res, 'error');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    deleteBtn.prop('disabled', false);
+                    deleteBtn.html('Delete');
+                    console.error('Delete Error:', status, error);
+                    showToast('Error deleting user: ' + status, 'error');
+                }
+            });
 
         }
 
-        $(document).on('keydown', function(e) {
+        $(document).on('keydown', function (e) {
             if (e.key === 'Escape') {
                 if ($('#offcanvasForm').hasClass('active')) {
                     closeOffcanvas();
@@ -2008,7 +2013,7 @@ $.ajax({
             }
         });
 
-        $(document).on('click', '#deleteModal', function(e) {
+        $(document).on('click', '#deleteModal', function (e) {
             if (e.target === this) closeDeleteModal();
         });
     </script>
