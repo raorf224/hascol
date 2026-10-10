@@ -9766,6 +9766,7 @@ l
 [2026-10-08 18:32:35] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-08, region=all
 [2026-10-08 18:32:35] [INFO] Cache stale (age: 14315s), returning stale data for: dashboard_data_fa31ce511e368bf3b495c37deba3d879
 [2026-10-08 18:32:35] [INFO] Background update triggered: dashboard_data with filters
+<<<<<<< HEAD
 [2026-10-08 18:33:40] [INFO] READ: filter_options - Filters: date_from=2026-09-30, date_to=2026-10-08, region=all
 [2026-10-08 18:33:40] [INFO] Cache stale (age: 14382s), returning stale data for: filter_options_fa31ce511e368bf3b495c37deba3d879
 [2026-10-08 18:33:40] [INFO] Background update triggered: filter_options with filters
@@ -9984,3 +9985,431 @@ l
 [2026-10-09 19:10:42] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
 [2026-10-09 19:10:42] [INFO] Cache stale (age: 28336s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
 [2026-10-09 19:10:42] [INFO] Background update triggered: dashboard_data with filters
+=======
+[2026-10-09 12:22:28] [INFO] READ: filter_options - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:22:28] [INFO] Cache file not found, generating: filter_options_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:22:28] [INFO] Calling API: http://localhost/hascol_dashboard/api/filter_options.php?date_from=2026-09-30&date_to=2026-10-09&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-09 12:22:28] [INFO] API Response: filter_options - HTTP: 404, Duration: 0s
+[2026-10-09 12:22:28] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:22:28] [INFO] Cache file not found, generating: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:22:28] [INFO] Calling API: http://localhost/hascol_dashboard/api/dashboard_data.php?date_from=2026-09-30&date_to=2026-10-09&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-09 12:22:28] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:22:28] [INFO] Cache file not found, generating: map_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:22:28] [INFO] Calling API: http://localhost/hascol_dashboard/api/map_data.php?date_from=2026-09-30&date_to=2026-10-09&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-09 12:22:28] [INFO] API Response: dashboard_data - HTTP: 404, Duration: 0.01s
+[2026-10-09 12:22:28] [INFO] API Response: map_data - HTTP: 404, Duration: 0.01s
+[2026-10-09 12:22:28] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:22:28] [INFO] Cache file not found, generating: alerts_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:22:28] [INFO] Calling API: http://localhost/hascol_dashboard/api/alerts_data.php?date_from=2026-09-30&date_to=2026-10-09&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-09 12:22:28] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:22:28] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+6
+[2026-10-09 12:22:28] [INFO] Cache file not found, generating: top_sites_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:22:28] [INFO] Calling API: http://localhost/hascol_dashboard/api/tm_performance.php?date_from=2026-09-30&date_to=2026-10-09&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-09 12:22:28] [INFO] Calling API: http://localhost/hascol_dashboard/api/top_sites.php?date_from=2026-09-30&date_to=2026-10-09&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-09 12:22:28] [INFO] API Response: tm_performance - HTTP: 404, Duration: 0s
+[2026-10-09 12:22:28] [INFO] API Response: alerts_data - HTTP: 404, Duration: 0.01s
+[2026-10-09 12:22:28] [INFO] API Response: top_sites - HTTP: 404, Duration: 0.02s
+[2026-10-09 12:22:28] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:22:28] [INFO] READ: trends_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:22:28] [INFO] Cache file not found, generating: trends_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:22:28] [INFO] Calling API: http://localhost/hascol_dashboard/api/trends_data.php?date_from=2026-09-30&date_to=2026-10-09&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-09 12:22:28] [INFO] API Response: trends_data - HTTP: 404, Duration: 0.01s
+[2026-10-09 12:22:28] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:22:28] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:22:28] [INFO] Cache file not found, generating: recon_efficiency_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:22:28] [INFO] Calling API: http://localhost/hascol_dashboard/api/recon_efficiency.php?date_from=2026-09-30&date_to=2026-10-09&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-09 12:22:28] [INFO] API Response: recon_efficiency - HTTP: 404, Duration: 0.01s
+[2026-10-09 12:22:28] [INFO] READ: variance_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:22:28] [INFO] Cache file not found, generating: variance_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:22:28] [INFO] Calling API: http://localhost/hascol_dashboard/api/variance_data.php?date_from=2026-09-30&date_to=2026-10-09&region=all&territory=all&tm=all&site=all&product=all
+[2026-10-09 12:22:28] [INFO] API Response: variance_data - HTTP: 404, Duration: 0s
+[2026-10-09 12:22:29] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:36:15] [INFO] READ: filter_options - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:36:15] [INFO] Cache stale (age: 827s), returning stale data for: filter_options_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:36:15] [INFO] Background update triggered: filter_options with filters
+[2026-10-09 12:36:15] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:36:15] [INFO] Cache stale (age: 827s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:36:15] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:36:15] [INFO] Cache stale (age: 827s), returning stale data for: map_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:36:15] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:36:15] [INFO] Background update triggered: map_data with filters
+[2026-10-09 12:36:15] [INFO] Cache stale (age: 827s), returning stale data for: alerts_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:36:15] [INFO] Background update triggered: alerts_data with filters
+[2026-10-09 12:36:15] [INFO] READ: variance_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:36:15] [INFO] Cache stale (age: 827s), returning stale data for: variance_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:36:15] [INFO] Background update triggered: variance_data with filters
+[2026-10-09 12:36:15] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 12:36:15] [INFO] READ: trends_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:36:15] [INFO] Cache stale (age: 827s), returning stale data for: trends_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:36:15] [INFO] Background update triggered: trends_data with filters
+[2026-10-09 12:36:15] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:36:15] [INFO] Cache stale (age: 827s), returning stale data for: recon_efficiency_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:36:15] [INFO] Background update triggered: recon_efficiency with filters
+[2026-10-09 12:36:15] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:36:15] [INFO] Cache stale (age: 827s), returning stale data for: tm_performance_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:36:15] [INFO] Background update triggered: tm_performance with filters
+[2026-10-09 12:36:15] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:36:15] [INFO] Cache stale (age: 827s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:36:15] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 12:36:15] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:36:15] [INFO] Cache stale (age: 827s), returning stale data for: top_sites_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:36:15] [INFO] Background update triggered: top_sites with filters
+[2026-10-09 12:36:15] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:36:15] [INFO] Cache stale (age: 827s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:36:15] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 12:36:15] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:36:15] [INFO] Cache stale (age: 827s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:36:15] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 12:36:29] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:36:29] [INFO] Cache stale (age: 841s), returning stale data for: alerts_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:36:29] [INFO] Background update triggered: alerts_data with filters
+[2026-10-09 12:36:38] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 12:36:38] [INFO] Cache stale (age: 850s), returning stale data for: alerts_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 12:36:38] [INFO] Background update triggered: alerts_data with filters
+>>>>>>> 484dbbdd82d23273c9ab3a7d05695745811c0c82
+[2026-10-09 19:15:06] [INFO] READ: filter_options - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:06] [INFO] Cache stale (age: 28602s), returning stale data for: filter_options_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:06] [INFO] Background update triggered: filter_options with filters
+[2026-10-09 19:15:07] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:07] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:07] [INFO] Cache stale (age: 28601s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:07] [INFO] Cache stale (age: 28601s), returning stale data for: map_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:07] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 19:15:07] [INFO] Background update triggered: map_data with filters
+[2026-10-09 19:15:07] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:07] [INFO] Cache stale (age: 28600s), returning stale data for: tm_performance_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:07] [INFO] Background update triggered: tm_performance with filters
+[2026-10-09 19:15:07] [INFO] READ: trends_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:07] [INFO] Cache stale (age: 28588s), returning stale data for: trends_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:07] [INFO] Background update triggered: trends_data with filters
+[2026-10-09 19:15:07] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:07] [INFO] Cache stale (age: 28600s), returning stale data for: recon_efficiency_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:07] [INFO] Background update triggered: recon_efficiency with filters
+[2026-10-09 19:15:07] [INFO] READ: variance_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:07] [INFO] Cache stale (age: 28600s), returning stale data for: variance_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:07] [INFO] Background update triggered: variance_data with filters
+[2026-10-09 19:15:07] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:07] [INFO] Cache stale (age: 28601s), returning stale data for: alerts_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:07] [INFO] Background update triggered: alerts_data with filters
+[2026-10-09 19:15:08] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:08] [INFO] Cache stale (age: 28601s), returning stale data for: top_sites_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:08] [INFO] Background update triggered: top_sites with filters
+[2026-10-09 19:15:08] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:08] [INFO] Cache stale (age: 28602s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:08] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 19:15:09] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:09] [INFO] Cache stale (age: 28603s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:09] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 19:15:19] [INFO] READ: filter_options - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:19] [INFO] Cache stale (age: 28615s), returning stale data for: filter_options_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:19] [INFO] Background update triggered: filter_options with filters
+[2026-10-09 19:15:19] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:19] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+l
+[2026-10-09 19:15:19] [INFO] Cache stale (age: 28612s), returning stale data for: variance_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:19] [INFO] Background update triggered: variance_data with filters
+[2026-10-09 19:15:19] [INFO] Cache stale (age: 28613s), returning stale data for: alerts_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:19] [INFO] Background update triggered: alerts_data with filters
+[2026-10-09 19:15:19] [INFO] Cache stale (age: 28613s), returning stale data for: map_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:19] [INFO] Background update triggered: map_data with filters
+[2026-10-09 19:15:19] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:19] [INFO] Cache stale (age: 28612s), returning stale data for: tm_performance_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:19] [INFO] Background update triggered: tm_performance with filters
+[2026-10-09 19:15:19] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:20] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:20] [INFO] Cache stale (age: 28614s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:20] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 19:15:20] [INFO] Cache stale (age: 28613s), returning stale data for: top_sites_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:20] [INFO] Background update triggered: top_sites with filters
+[2026-10-09 19:15:20] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:20] [INFO] READ: trends_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:20] [INFO] Cache stale (age: 28601s), returning stale data for: trends_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:20] [INFO] Background update triggered: trends_data with filters
+[2026-10-09 19:15:20] [INFO] Cache stale (age: 28613s), returning stale data for: recon_efficiency_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:20] [INFO] Background update triggered: recon_efficiency with filters
+[2026-10-09 19:15:21] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:21] [INFO] Cache stale (age: 28615s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:21] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 19:15:21] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:21] [INFO] Cache stale (age: 28615s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:21] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 19:15:22] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:22] [INFO] Cache stale (age: 28616s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:22] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 19:15:30] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:30] [INFO] Cache stale (age: 28624s), returning stale data for: alerts_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:30] [INFO] Background update triggered: alerts_data with filters
+[2026-10-09 19:15:33] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:15:33] [INFO] Cache stale (age: 28627s), returning stale data for: alerts_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:15:33] [INFO] Background update triggered: alerts_data with filters
+[2026-10-09 19:42:24] [INFO] READ: filter_options - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:24] [INFO] Cache stale (age: 30240s), returning stale data for: filter_options_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:24] [INFO] Background update triggered: filter_options with filters
+[2026-10-09 19:42:25] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:25] [INFO] Cache stale (age: 30239s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:25] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 19:42:25] [INFO] READ: trends_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:25] [INFO] Cache stale (age: 30239s), returning stale data for: alerts_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:25] [INFO] Background update triggered: trends_data with filters
+[2026-10-09 19:42:25] [INFO] READ: variance_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:25] [INFO] Cache stale (age: 30238s), returning stale data for: variance_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:25] [INFO] Background update triggered: variance_data with filters
+[2026-10-09 19:42:25] [INFO] Background update triggered: alerts_data with filters
+[2026-10-09 19:42:25] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:25] [INFO] Cache stale (age: 30239s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:25] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 19:42:25] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:25] [INFO] Cache stale (age: 30239s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:25] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 19:42:25] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:25] [INFO] Cache stale (age: 30238s), returning stale data for: top_sites_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:25] [INFO] Background update triggered: top_sites with filters
+[2026-10-09 19:42:25] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:25] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:25] [INFO] Cache stale (age: 30239s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:25] [INFO] Cache stale (age: 30238s), returning stale data for: recon_efficiency_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:25] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 19:42:25] [INFO] Background update triggered: recon_efficiency with filters
+[2026-10-09 19:42:25] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:25] [INFO] Cache stale (age: 30239s), returning stale data for: map_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:25] [INFO] Background update triggered: map_data with filters
+[2026-10-09 19:42:25] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:25] [INFO] Cache stale (age: 30238s), returning stale data for: tm_performance_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:25] [INFO] Background update triggered: tm_performance with filters
+[2026-10-09 19:42:33] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:33] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:33] [INFO] Cache file not found, generating: alerts_data_55e6d69db7d5e388c412094326cf31eb
+[2026-10-09 19:42:33] [INFO] Cache file not found, generating: dashboard_data_55e6d69db7d5e388c412094326cf31eb
+[2026-10-09 19:42:33] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/alerts_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=all&tm=all&site=all&product=all
+[2026-10-09 19:42:33] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/dashboard_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=all&tm=all&site=all&product=all
+[2026-10-09 19:42:33] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:33] [INFO] Cache file not found, generating: map_data_55e6d69db7d5e388c412094326cf31eb
+[2026-10-09 19:42:33] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/map_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=all&tm=all&site=all&product=all
+[2026-10-09 19:42:33] [INFO] READ: trends_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:33] [INFO] Cache file not found, generating: trends_data_55e6d69db7d5e388c412094326cf31eb
+[2026-10-09 19:42:33] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/trends_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=all&tm=all&site=all&product=all
+[2026-10-09 19:42:33] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:33] [INFO] Cache file not found, generating: recon_efficiency_55e6d69db7d5e388c412094326cf31eb
+[2026-10-09 19:42:33] [INFO] READ: variance_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:33] [INFO] Cache file not found, generating: variance_data_55e6d69db7d5e388c412094326cf31eb
+[2026-10-09 19:42:33] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/variance_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=all&tm=all&site=all&product=all
+[2026-10-09 19:42:33] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/recon_efficiency.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=all&tm=all&site=all&product=all
+[2026-10-09 19:42:33] [INFO] API Response: map_data - HTTP: 200, Duration: 0.14s
+[2026-10-09 19:42:33] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:33] [INFO] Cache file not found, generating: tm_performance_55e6d69db7d5e388c412094326cf31eb
+[2026-10-09 19:42:33] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/tm_performance.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=all&tm=all&site=all&product=all
+[2026-10-09 19:42:34] [INFO] API Response: tm_performance - HTTP: 200, Duration: 0.1s
+[2026-10-09 19:42:34] [INFO] API Response: alerts_data - HTTP: 200, Duration: 0.33s
+[2026-10-09 19:42:34] [INFO] API Response: recon_efficiency - HTTP: 200, Duration: 0.4s
+[2026-10-09 19:42:34] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:34] [INFO] Cache file not found, generating: top_sites_55e6d69db7d5e388c412094326cf31eb
+[2026-10-09 19:42:34] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/top_sites.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=all&tm=all&site=all&product=all
+[2026-10-09 19:42:34] [INFO] API Response: trends_data - HTTP: 200, Duration: 0.47s
+[2026-10-09 19:42:34] [INFO] API Response: top_sites - HTTP: 200, Duration: 0.11s
+[2026-10-09 19:42:34] [INFO] API Response: dashboard_data - HTTP: 200, Duration: 0.69s
+[2026-10-09 19:42:34] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:34] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:34] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:34] [INFO] API Response: variance_data - HTTP: 200, Duration: 0.82s
+[2026-10-09 19:42:36] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:36] [INFO] Cache file not found, generating: dashboard_data_c3d86f2c25c4168872d07cb7c08d3087
+[2026-10-09 19:42:36] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/dashboard_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=all&site=all&product=all
+[2026-10-09 19:42:36] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:36] [INFO] Cache file not found, generating: map_data_c3d86f2c25c4168872d07cb7c08d3087
+[2026-10-09 19:42:36] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/map_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=all&site=all&product=all
+[2026-10-09 19:42:36] [INFO] READ: trends_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:36] [INFO] Cache file not found, generating: alerts_data_c3d86f2c25c4168872d07cb7c08d3087
+[2026-10-09 19:42:36] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/trends_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=all&site=all&product=all
+[2026-10-09 19:42:36] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/alerts_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=all&site=all&product=all
+[2026-10-09 19:42:36] [INFO] API Response: map_data - HTTP: 200, Duration: 0.01s
+[2026-10-09 19:42:36] [INFO] READ: variance_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:36] [INFO] Cache file not found, generating: variance_data_c3d86f2c25c4168872d07cb7c08d3087
+[2026-10-09 19:42:36] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/variance_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=all&site=all&product=all
+[2026-10-09 19:42:36] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:36] [INFO] Cache file not found, generating: recon_efficiency_c3d86f2c25c4168872d07cb7c08d3087
+[2026-10-09 19:42:36] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/recon_efficiency.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=all&site=all&product=all
+[2026-10-09 19:42:36] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:36] [INFO] Cache file not found, generating: tm_performance_c3d86f2c25c4168872d07cb7c08d3087
+[2026-10-09 19:42:36] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/tm_performance.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=all&site=all&product=all
+[2026-10-09 19:42:36] [INFO] API Response: tm_performance - HTTP: 200, Duration: 0.04s
+[2026-10-09 19:42:36] [INFO] API Response: trends_data - HTTP: 200, Duration: 0.18s
+[2026-10-09 19:42:36] [INFO] API Response: alerts_data - HTTP: 200, Duration: 0.18s
+[2026-10-09 19:42:36] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:36] [INFO] Cache file not found, generating: top_sites_c3d86f2c25c4168872d07cb7c08d3087
+[2026-10-09 19:42:36] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/top_sites.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=all&site=all&product=all
+[2026-10-09 19:42:36] [INFO] API Response: recon_efficiency - HTTP: 200, Duration: 0.3s
+[2026-10-09 19:42:37] [INFO] API Response: top_sites - HTTP: 200, Duration: 0.07s
+[2026-10-09 19:42:37] [INFO] API Response: dashboard_data - HTTP: 200, Duration: 0.44s
+[2026-10-09 19:42:37] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:37] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:37] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:37] [INFO] API Response: variance_data - HTTP: 200, Duration: 0.49s
+[2026-10-09 19:42:38] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:38] [INFO] Cache file not found, generating: dashboard_data_8e53c34a02208529ba979dd3211fde08
+[2026-10-09 19:42:38] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/dashboard_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=all&product=all
+[2026-10-09 19:42:38] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:38] [INFO] Cache file not found, generating: map_data_8e53c34a02208529ba979dd3211fde08
+[2026-10-09 19:42:38] [INFO] READ: variance_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:38] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/map_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=all&product=all
+[2026-10-09 19:42:38] [INFO] Cache file not found, generating: trends_data_8e53c34a02208529ba979dd3211fde08
+8
+[2026-10-09 19:42:38] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/variance_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=all&product=all
+[2026-10-09 19:42:38] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/trends_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=all&product=all
+[2026-10-09 19:42:38] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:38] [INFO] Cache file not found, generating: alerts_data_8e53c34a02208529ba979dd3211fde08
+[2026-10-09 19:42:38] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/alerts_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=all&product=all
+[2026-10-09 19:42:38] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:38] [INFO] Cache file not found, generating: recon_efficiency_8e53c34a02208529ba979dd3211fde08
+[2026-10-09 19:42:38] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/recon_efficiency.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=all&product=all
+[2026-10-09 19:42:38] [INFO] API Response: map_data - HTTP: 200, Duration: 0.05s
+[2026-10-09 19:42:38] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:38] [INFO] Cache file not found, generating: tm_performance_8e53c34a02208529ba979dd3211fde08
+[2026-10-09 19:42:38] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/tm_performance.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=all&product=all
+[2026-10-09 19:42:38] [INFO] API Response: tm_performance - HTTP: 200, Duration: 0.02s
+[2026-10-09 19:42:38] [INFO] API Response: alerts_data - HTTP: 200, Duration: 0.14s
+[2026-10-09 19:42:38] [INFO] API Response: trends_data - HTTP: 200, Duration: 0.22s
+[2026-10-09 19:42:38] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:38] [INFO] Cache file not found, generating: top_sites_8e53c34a02208529ba979dd3211fde08
+[2026-10-09 19:42:38] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/top_sites.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=all&product=all
+[2026-10-09 19:42:38] [INFO] API Response: top_sites - HTTP: 200, Duration: 0.08s
+[2026-10-09 19:42:38] [INFO] API Response: dashboard_data - HTTP: 200, Duration: 0.35s
+[2026-10-09 19:42:38] [INFO] API Response: recon_efficiency - HTTP: 200, Duration: 0.34s
+[2026-10-09 19:42:38] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:38] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:38] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:38] [INFO] API Response: variance_data - HTTP: 200, Duration: 0.47s
+[2026-10-09 19:42:40] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:40] [INFO] Cache file not found, generating: dashboard_data_f43697cc017c0c9de15b84b7954bef80
+[2026-10-09 19:42:40] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/dashboard_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=1577&product=LPG
+[2026-10-09 19:42:40] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:40] [INFO] Cache file not found, generating: map_data_f43697cc017c0c9de15b84b7954bef80
+[2026-10-09 19:42:40] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/map_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=1577&product=LPG
+[2026-10-09 19:42:40] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:40] [INFO] Cache file not found, generating: alerts_data_f43697cc017c0c9de15b84b7954bef80
+[2026-10-09 19:42:40] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/alerts_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=1577&product=LPG
+[2026-10-09 19:42:40] [INFO] READ: trends_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:40] [INFO] READ: variance_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:40] [INFO] Cache file not found, generating: trends_data_f43697cc017c0c9de15b84b7954bef80
+[2026-10-09 19:42:40] [INFO] Cache file not found, generating: variance_data_f43697cc017c0c9de15b84b7954bef80
+[2026-10-09 19:42:40] [INFO] API Response: dashboard_data - HTTP: 200, Duration: 0.03s
+ends_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=1577&product=LPG
+[2026-10-09 19:42:40] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/variance_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=1577&product=LPG
+[2026-10-09 19:42:40] [INFO] API Response: map_data - HTTP: 200, Duration: 0.02s
+[2026-10-09 19:42:40] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:40] [INFO] Cache file not found, generating: recon_efficiency_f43697cc017c0c9de15b84b7954bef80
+[2026-10-09 19:42:40] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/recon_efficiency.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=1577&product=LPG
+[2026-10-09 19:42:40] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:40] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:40] [INFO] Cache file not found, generating: tm_performance_f43697cc017c0c9de15b84b7954bef80
+[2026-10-09 19:42:40] [INFO] API Response: recon_efficiency - HTTP: 200, Duration: 0.02s
+[2026-10-09 19:42:40] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/tm_performance.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=1577&product=LPG
+[2026-10-09 19:42:40] [INFO] API Response: alerts_data - HTTP: 200, Duration: 0.06s
+[2026-10-09 19:42:40] [INFO] Cache file not found, generating: top_sites_f43697cc017c0c9de15b84b7954bef80
+[2026-10-09 19:42:40] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/top_sites.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=1577&product=LPG
+[2026-10-09 19:42:40] [INFO] API Response: tm_performance - HTTP: 200, Duration: 0.02s
+[2026-10-09 19:42:40] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:40] [INFO] API Response: trends_data - HTTP: 200, Duration: 0.15s
+[2026-10-09 19:42:40] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:40] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:40] [INFO] API Response: top_sites - HTTP: 200, Duration: 0.13s
+[2026-10-09 19:42:41] [INFO] API Response: variance_data - HTTP: 200, Duration: 0.66s
+[2026-10-09 19:42:42] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:42] [INFO] Cache file not found, generating: dashboard_data_c89e0a675bab3d14f9f9c9f8b18f19e0
+[2026-10-09 19:42:42] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/dashboard_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=1577&product=all
+[2026-10-09 19:42:42] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:42] [INFO] Cache file not found, generating: map_data_c89e0a675bab3d14f9f9c9f8b18f19e0
+[2026-10-09 19:42:42] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/map_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=1577&product=all
+[2026-10-09 19:42:42] [INFO] READ: trends_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:42] [INFO] Cache file not found, generating: trends_data_c89e0a675bab3d14f9f9c9f8b18f19e0
+[2026-10-09 19:42:42] [INFO] READ: variance_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:42] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:42] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/trends_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=1577&product=all
+[2026-10-09 19:42:42] [INFO] Cache file not found, generating: recon_efficiency_c89e0a675bab3d14f9f9c9f8b18f19e0
+[2026-10-09 19:42:42] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/variance_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=1577&product=all
+ll
+[2026-10-09 19:42:42] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:42] [INFO] Cache file not found, generating: alerts_data_c89e0a675bab3d14f9f9c9f8b18f19e0
+[2026-10-09 19:42:42] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/alerts_data.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=1577&product=all
+[2026-10-09 19:42:42] [INFO] API Response: map_data - HTTP: 200, Duration: 0.02s
+[2026-10-09 19:42:43] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:43] [INFO] Cache file not found, generating: tm_performance_c89e0a675bab3d14f9f9c9f8b18f19e0
+[2026-10-09 19:42:43] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/tm_performance.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=1577&product=all
+[2026-10-09 19:42:43] [INFO] API Response: tm_performance - HTTP: 200, Duration: 0.11s
+[2026-10-09 19:42:43] [INFO] API Response: trends_data - HTTP: 200, Duration: 0.23s
+[2026-10-09 19:42:43] [INFO] API Response: alerts_data - HTTP: 200, Duration: 0.24s
+[2026-10-09 19:42:43] [INFO] API Response: recon_efficiency - HTTP: 200, Duration: 0.37s
+[2026-10-09 19:42:43] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:43] [INFO] Cache file not found, generating: top_sites_c89e0a675bab3d14f9f9c9f8b18f19e0
+[2026-10-09 19:42:43] [INFO] Calling API: http://localhost:8080/hascol_dashboard/api/top_sites.php?date_from=2026-09-30&date_to=2026-10-09&region=Balochistan&territory=Gujranwala&tm=38&site=1577&product=all
+[2026-10-09 19:42:43] [INFO] API Response: top_sites - HTTP: 200, Duration: 0.04s
+[2026-10-09 19:42:43] [INFO] API Response: dashboard_data - HTTP: 200, Duration: 0.52s
+[2026-10-09 19:42:43] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:43] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:43] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:43] [INFO] API Response: variance_data - HTTP: 200, Duration: 0.84s
+[2026-10-09 19:42:43] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:44] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:44] [INFO] READ: trends_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:44] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:44] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+histan
+[2026-10-09 19:42:44] [INFO] READ: variance_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:44] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:44] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:44] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:44] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: variance_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: trends_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: trends_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+stan
+[2026-10-09 19:42:46] [INFO] READ: variance_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:46] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=Balochistan
+[2026-10-09 19:42:47] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:47] [INFO] Cache stale (age: 30261s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:47] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 19:42:47] [INFO] READ: recon_efficiency - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:47] [INFO] READ: alerts_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:47] [INFO] Cache stale (age: 30261s), returning stale data for: alerts_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:47] [INFO] Background update triggered: alerts_data with filters
+[2026-10-09 19:42:47] [INFO] READ: map_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:47] [INFO] READ: trends_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:47] [INFO] Cache stale (age: 30248s), returning stale data for: trends_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:47] [INFO] Background update triggered: trends_data with filters
+[2026-10-09 19:42:47] [INFO] Cache stale (age: 30261s), returning stale data for: map_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:47] [INFO] Cache stale (age: 30260s), returning stale data for: recon_efficiency_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:47] [INFO] Background update triggered: map_data with filters
+[2026-10-09 19:42:47] [INFO] Cache stale (age: 30260s), returning stale data for: variance_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:47] [INFO] Background update triggered: variance_data with filters
+[2026-10-09 19:42:47] [INFO] Background update triggered: recon_efficiency with filters
+[2026-10-09 19:42:47] [INFO] READ: top_sites - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:47] [INFO] Cache stale (age: 30260s), returning stale data for: top_sites_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:47] [INFO] READ: tm_performance - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:47] [INFO] Cache stale (age: 30260s), returning stale data for: tm_performance_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:47] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:47] [INFO] Cache stale (age: 30261s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:47] [INFO] Background update triggered: tm_performance with filters
+[2026-10-09 19:42:47] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 19:42:47] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:47] [INFO] Cache stale (age: 30261s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:47] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 19:42:47] [INFO] READ: dashboard_data - Filters: date_from=2026-09-30, date_to=2026-10-09, region=all
+[2026-10-09 19:42:47] [INFO] Cache stale (age: 30261s), returning stale data for: dashboard_data_aaf6488909e81a5b1dd9f9d1b2c4ac86
+[2026-10-09 19:42:47] [INFO] Background update triggered: dashboard_data with filters
+[2026-10-09 19:42:47] [INFO] Background update triggered: top_sites with filters

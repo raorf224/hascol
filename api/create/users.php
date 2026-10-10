@@ -7,7 +7,6 @@ header('Content-Type: application/json');
 if (isset($_POST)) {
 
     $user_id      = $_POST['user_id'] ?? '';
-    $dealer_id    = mysqli_real_escape_string($db, $_POST['dealer_id'] ?? '');
     $name         = mysqli_real_escape_string($db, $_POST['name'] ?? '');
     $email        = mysqli_real_escape_string($db, $_POST['email'] ?? '');
     $password     = mysqli_real_escape_string($db, $_POST['confirm_password'] ?? '');
@@ -28,21 +27,23 @@ if (isset($_POST)) {
         exit;
     }
 
-    // ✅ Duplicate check
-    $check_dup = mysqli_query($db, "SELECT id FROM dealers WHERE email = '$email' LIMIT 1");
+    // ✅ Duplicate check — login (email) se
+    $check_dup = mysqli_query($db, "SELECT id FROM users WHERE login = '$email' LIMIT 1");
     if (mysqli_num_rows($check_dup) > 0) {
         echo json_encode([
             'success' => false,
-            'message' => 'User already exists with this email'
+            'message' => 'User already exists with this email/login'
         ]);
         exit;
     }
 
-    // ✅ NAYA USER — dealers table me INSERT with parent_id = dealer_id
-    $query = "INSERT INTO dealers 
-        (`parent_id`, `name`, `email`, `contact`, `password`, `privilege`, `type`, `form_status`, `is_found_in_sap_api`, `created_by`, `created_at`)
+    // ✅ NAYA USER — users table mein INSERT
+    // password column = hashed ($encriped)
+    // description column = plain ($password) — login verify ke liye
+    $query = "INSERT INTO users 
+        (`name`, `privilege`, `login`, `password`, `userSettings_id`, `status`, `description`, `email`, `telephone`, `subacc_id`)
         VALUES 
-        ('$dealer_id', '$name', '$email', '$number', '$encriped', '$sales_role', 'Dealer', '1', '1', '$user_id', NOW())";
+        ('$name', '$sales_role', '$email', '$encriped', '1', '1', '$password', '$email', '$number', '$user_id')";
 
     if (mysqli_query($db, $query)) {
         $main_id = mysqli_insert_id($db);
