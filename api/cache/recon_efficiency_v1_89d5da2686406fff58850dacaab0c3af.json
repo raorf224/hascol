@@ -30,8 +30,8 @@
         "product": "all"
     },
     "_meta": {
-        "generated_at": "2026-10-14 17:54:22",
-        "duration": 2.88,
+        "generated_at": "2026-10-14 19:13:16",
+        "duration": 4.81,
         "api_url": "http:\/\/localhost\/hascol\/api\/recon_efficiency.php?date_from=2026-09-30&date_to=2026-10-14&region=all&territory=all&tm=all&site=all&product=all"
     }
 }

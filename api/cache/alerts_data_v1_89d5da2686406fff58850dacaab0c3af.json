@@ -53,8 +53,8 @@
         "product": "all"
     },
     "_meta": {
-        "generated_at": "2026-10-14 17:54:20",
-        "duration": 0.67,
+        "generated_at": "2026-10-14 19:13:13",
+        "duration": 1.36,
         "api_url": "http:\/\/localhost\/hascol\/api\/alerts_data.php?date_from=2026-09-30&date_to=2026-10-14&region=all&territory=all&tm=all&site=all&product=all"
     }
 }

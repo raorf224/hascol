@@ -1275,14 +1275,17 @@ require_once __DIR__ . '/session/session.php';
         // ============================================
         function initMap() {
             mapInstance = L.map('coverageMap', {
-                center: [29.5, 69.5],
-                zoom: 4.8,
+                center: [30.3753, 69.3451],   // ✅ Pakistan center
+                zoom: 5,                        // ✅ Better zoom level
                 zoomControl: true,
-                attributionControl: false
+                attributionControl: true,       // ✅ Attribution on
+                scrollWheelZoom: true
             });
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-                subdomains: 'abcd',
-                maxZoom: 10
+
+            // ✅ OpenStreetMap standard tiles (light theme)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(mapInstance);
         }
 

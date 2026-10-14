@@ -3,30 +3,6 @@
     "data": [
         {
             "rank": 1,
-            "name": "Mubashir Ahmed",
-            "coverage": 1,
-            "recons": 6,
-            "variance_caught": 3,
-            "score": 10
-        },
-        {
-            "rank": 2,
-            "name": "Shahzaib",
-            "coverage": 1,
-            "recons": 4,
-            "variance_caught": 1,
-            "score": 10
-        },
-        {
-            "rank": 3,
-            "name": "Tahir Shaikh.",
-            "coverage": 0,
-            "recons": 3,
-            "variance_caught": 0,
-            "score": 10
-        },
-        {
-            "rank": 4,
             "name": "Mujtaba Brohi",
             "coverage": 0,
             "recons": 2,
@@ -34,11 +10,35 @@
             "score": 10
         },
         {
-            "rank": 5,
+            "rank": 2,
             "name": "Vacant karachi 2",
             "coverage": 0,
             "recons": 3,
             "variance_caught": 2,
+            "score": 10
+        },
+        {
+            "rank": 3,
+            "name": "Asad Qureshi",
+            "coverage": 3,
+            "recons": 22,
+            "variance_caught": 1,
+            "score": 10
+        },
+        {
+            "rank": 4,
+            "name": "Hashaam Khalid",
+            "coverage": 0,
+            "recons": 3,
+            "variance_caught": 2,
+            "score": 10
+        },
+        {
+            "rank": 5,
+            "name": "Rizwan Sheikh",
+            "coverage": 1,
+            "recons": 8,
+            "variance_caught": 9,
             "score": 10
         }
     ],
@@ -53,8 +53,8 @@
         "product": "all"
     },
     "_meta": {
-        "generated_at": "2026-10-14 17:54:22",
-        "duration": 2.69,
+        "generated_at": "2026-10-14 19:13:17",
+        "duration": 4.6,
         "api_url": "http:\/\/localhost\/hascol\/api\/tm_performance.php?date_from=2026-09-30&date_to=2026-10-14&region=all&territory=all&tm=all&site=all&product=all"
     }
 }

@@ -3168,7 +3168,7 @@
         "product": "all"
     },
     "_meta": {
-        "generated_at": "2026-10-14 17:54:18",
+        "generated_at": "2026-10-14 19:13:11",
         "duration": 0.05,
         "api_url": "http:\/\/localhost\/hascol\/api\/filter_options.php?date_from=2026-09-30&date_to=2026-10-14&region=all&territory=all&tm=all&site=all&product=all"
     }

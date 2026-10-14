@@ -92,9 +92,9 @@
             "lng": 73.97262907133081,
             "city": "",
             "region": "Islamabad",
-            "status": "critical",
-            "color": "red",
-            "variance": 6855,
+            "status": "warning",
+            "color": "yellow",
+            "variance": 2308,
             "last_visit": "2026-10-07 11:19:09"
         },
         {
@@ -430,7 +430,7 @@
             "region": "Islamabad",
             "status": "warning",
             "color": "yellow",
-            "variance": 3880,
+            "variance": 1425,
             "last_visit": "2026-10-06 14:29:15"
         },
         {
@@ -464,9 +464,9 @@
             "lng": 73.2308898,
             "city": "",
             "region": "Islamabad",
-            "status": "healthy",
-            "color": "green",
-            "variance": 0,
+            "status": "critical",
+            "color": "red",
+            "variance": 7155,
             "last_visit": "2026-10-05 15:08:47"
         },
         {
@@ -620,9 +620,9 @@
             "lng": 68.33867168067754,
             "city": "",
             "region": "Hyderabad",
-            "status": "healthy",
-            "color": "green",
-            "variance": -733,
+            "status": "warning",
+            "color": "yellow",
+            "variance": 1984,
             "last_visit": "2026-10-07 11:34:21"
         },
         {
@@ -1174,7 +1174,7 @@
             "region": "Multan",
             "status": "critical",
             "color": "red",
-            "variance": 29865,
+            "variance": 14007,
             "last_visit": "2026-10-07 13:47:18"
         },
         {
@@ -1748,9 +1748,9 @@
             "lng": 73.28268272296549,
             "city": "",
             "region": "Lahore",
-            "status": "critical",
-            "color": "red",
-            "variance": 9264,
+            "status": "warning",
+            "color": "yellow",
+            "variance": 1830,
             "last_visit": "2026-10-05 12:38:17"
         },
         {
@@ -1976,9 +1976,9 @@
             "lng": 74.07536060356402,
             "city": "",
             "region": "Islamabad",
-            "status": "critical",
-            "color": "red",
-            "variance": 22220,
+            "status": "warning",
+            "color": "yellow",
+            "variance": 2960,
             "last_visit": "2026-10-06 15:51:31"
         },
         {
@@ -2194,7 +2194,7 @@
             "region": "Lahore",
             "status": "warning",
             "color": "yellow",
-            "variance": 3954,
+            "variance": 2395,
             "last_visit": "2026-09-30 14:43:23"
         },
         {
@@ -2230,7 +2230,7 @@
             "region": "Sukkur",
             "status": "critical",
             "color": "red",
-            "variance": 20389,
+            "variance": -5760,
             "last_visit": "2026-10-07 10:05:13"
         },
         {
@@ -2324,9 +2324,9 @@
             "lng": 71.51582749932344,
             "city": "",
             "region": "Multan",
-            "status": "healthy",
-            "color": "green",
-            "variance": -6,
+            "status": "warning",
+            "color": "yellow",
+            "variance": 1741,
             "last_visit": "2026-10-06 09:12:34"
         },
         {
@@ -2348,9 +2348,9 @@
             "lng": 67.21438604509234,
             "city": "",
             "region": "Karachi",
-            "status": "critical",
-            "color": "red",
-            "variance": 14845,
+            "status": "healthy",
+            "color": "green",
+            "variance": 0,
             "last_visit": "2026-10-04 22:34:47"
         },
         {
@@ -2458,7 +2458,7 @@
             "region": "Islamabad",
             "status": "critical",
             "color": "red",
-            "variance": 12963,
+            "variance": 18435,
             "last_visit": "2026-10-07 09:26:00"
         },
         {
@@ -2590,7 +2590,7 @@
             "region": "Sukkur",
             "status": "critical",
             "color": "red",
-            "variance": 5897,
+            "variance": 20881,
             "last_visit": "2026-10-07 10:00:18"
         },
         {
@@ -2782,7 +2782,7 @@
             "region": "Islamabad",
             "status": "critical",
             "color": "red",
-            "variance": 18649,
+            "variance": 47936,
             "last_visit": "2026-10-07 09:40:38"
         },
         {
@@ -2830,7 +2830,7 @@
             "region": "Islamabad",
             "status": "critical",
             "color": "red",
-            "variance": 34028,
+            "variance": 9055,
             "last_visit": "2026-10-06 11:44:56"
         },
         {
@@ -2950,7 +2950,7 @@
             "region": "Sukkur",
             "status": "critical",
             "color": "red",
-            "variance": 15547,
+            "variance": 5533,
             "last_visit": "2026-10-07 13:21:12"
         },
         {
@@ -3070,7 +3070,7 @@
             "region": "Islamabad",
             "status": "critical",
             "color": "red",
-            "variance": 69139,
+            "variance": 19846,
             "last_visit": "2026-10-05 19:36:03"
         },
         {
@@ -3310,7 +3310,7 @@
             "region": "Islamabad",
             "status": "critical",
             "color": "red",
-            "variance": 40349,
+            "variance": 12611,
             "last_visit": "2026-10-07 11:19:07"
         },
         {
@@ -3404,9 +3404,9 @@
             "lng": 69.6680219,
             "city": "",
             "region": "Sukkur",
-            "status": "warning",
-            "color": "yellow",
-            "variance": 3719,
+            "status": "critical",
+            "color": "red",
+            "variance": 5107,
             "last_visit": "2026-10-07 14:21:04"
         },
         {
@@ -3502,7 +3502,7 @@
             "region": "Karachi",
             "status": "critical",
             "color": "red",
-            "variance": -5057,
+            "variance": -37331,
             "last_visit": "2026-10-05 15:25:05"
         },
         {
@@ -3526,7 +3526,7 @@
             "region": "Karachi",
             "status": "warning",
             "color": "yellow",
-            "variance": -2333,
+            "variance": 4445,
             "last_visit": "2026-09-30 00:48:59"
         },
         {
@@ -3560,9 +3560,9 @@
             "lng": 67.0150366,
             "city": "",
             "region": "Karachi",
-            "status": "warning",
-            "color": "yellow",
-            "variance": 2346,
+            "status": "healthy",
+            "color": "green",
+            "variance": 15,
             "last_visit": "2026-10-06 11:47:07"
         },
         {
@@ -3586,7 +3586,7 @@
             "region": "Islamabad",
             "status": "critical",
             "color": "red",
-            "variance": 31899,
+            "variance": 20063,
             "last_visit": "2026-10-05 17:03:22"
         },
         {
@@ -3646,7 +3646,7 @@
             "region": "Islamabad",
             "status": "critical",
             "color": "red",
-            "variance": -72415,
+            "variance": 107858,
             "last_visit": "2026-09-30 16:37:30"
         },
         {
@@ -3836,9 +3836,9 @@
             "lng": 73.9418717270969,
             "city": "",
             "region": "Islamabad",
-            "status": "critical",
-            "color": "red",
-            "variance": 12486,
+            "status": "warning",
+            "color": "yellow",
+            "variance": 3814,
             "last_visit": "2026-10-07 09:26:02"
         },
         {
@@ -4318,7 +4318,7 @@
             "region": "Islamabad",
             "status": "warning",
             "color": "yellow",
-            "variance": -2406,
+            "variance": 2014,
             "last_visit": "2026-10-01 14:00:24"
         },
         {
@@ -4460,9 +4460,9 @@
             "lng": 67.9829956,
             "city": "",
             "region": "Hyderabad",
-            "status": "critical",
-            "color": "red",
-            "variance": 23729,
+            "status": "warning",
+            "color": "yellow",
+            "variance": 1026,
             "last_visit": "2026-10-01 13:54:07"
         },
         {
@@ -4510,7 +4510,7 @@
             "region": "Islamabad",
             "status": "critical",
             "color": "red",
-            "variance": 29672,
+            "variance": 7654,
             "last_visit": "2026-10-05 09:05:06"
         },
         {
@@ -4532,9 +4532,9 @@
             "lng": 74.02257012698567,
             "city": "",
             "region": "Peshawar",
-            "status": "healthy",
-            "color": "green",
-            "variance": 0,
+            "status": "critical",
+            "color": "red",
+            "variance": 66958,
             "last_visit": "2026-09-30 05:25:30"
         },
         {
@@ -4762,7 +4762,7 @@
             "region": "Islamabad",
             "status": "critical",
             "color": "red",
-            "variance": 35292,
+            "variance": 125558,
             "last_visit": "2026-09-30 16:37:30"
         },
         {
@@ -5086,7 +5086,7 @@
             "region": "Hyderabad",
             "status": "critical",
             "color": "red",
-            "variance": 23664,
+            "variance": 22015,
             "last_visit": "2026-10-06 12:46:37"
         },
         {
@@ -5098,7 +5098,7 @@
             "region": "Islamabad",
             "status": "critical",
             "color": "red",
-            "variance": 9563,
+            "variance": 10725,
             "last_visit": "2026-10-07 11:19:08"
         },
         {
@@ -5242,7 +5242,7 @@
             "region": "Faisalabad",
             "status": "warning",
             "color": "yellow",
-            "variance": 1877,
+            "variance": 2613,
             "last_visit": "2026-10-06 11:46:59"
         },
         {
@@ -5516,9 +5516,9 @@
             "lng": 68.0217408,
             "city": "",
             "region": "Hyderabad",
-            "status": "healthy",
-            "color": "green",
-            "variance": 0,
+            "status": "critical",
+            "color": "red",
+            "variance": 24289,
             "last_visit": "2026-10-01 13:54:08"
         },
         {
@@ -5530,7 +5530,7 @@
             "region": "Hyderabad",
             "status": "healthy",
             "color": "green",
-            "variance": 136,
+            "variance": 0,
             "last_visit": "2026-10-07 12:39:20"
         },
         {
@@ -5672,9 +5672,9 @@
             "lng": 74.21972876381166,
             "city": "",
             "region": "Lahore",
-            "status": "critical",
-            "color": "red",
-            "variance": 5369,
+            "status": "warning",
+            "color": "yellow",
+            "variance": -4575,
             "last_visit": "2026-09-30 14:42:36"
         },
         {
@@ -5744,9 +5744,9 @@
             "lng": 68.5942236,
             "city": "",
             "region": "Hyderabad",
-            "status": "critical",
-            "color": "red",
-            "variance": 5078,
+            "status": "healthy",
+            "color": "green",
+            "variance": -962,
             "last_visit": "2026-10-05 14:07:38"
         },
         {
@@ -5996,9 +5996,9 @@
             "lng": 68.597395,
             "city": "",
             "region": "Sukkur",
-            "status": "healthy",
-            "color": "green",
-            "variance": 0,
+            "status": "warning",
+            "color": "yellow",
+            "variance": 1856,
             "last_visit": "2026-10-05 16:07:36"
         },
         {
@@ -6536,9 +6536,9 @@
             "lng": 68.9424459729826,
             "city": "",
             "region": "Hyderabad",
-            "status": "healthy",
-            "color": "green",
-            "variance": 0,
+            "status": "critical",
+            "color": "red",
+            "variance": 9985,
             "last_visit": "2026-10-06 14:46:27"
         },
         {
@@ -6716,9 +6716,9 @@
             "lng": 74.2204233,
             "city": "",
             "region": "Lahore",
-            "status": "healthy",
-            "color": "green",
-            "variance": 7,
+            "status": "critical",
+            "color": "red",
+            "variance": 11660,
             "last_visit": "2026-09-30 14:42:37"
         },
         {
@@ -6826,7 +6826,7 @@
             "region": "Islamabad",
             "status": "critical",
             "color": "red",
-            "variance": 7521,
+            "variance": 33454,
             "last_visit": "2026-10-05 09:05:05"
         },
         {
@@ -7006,7 +7006,7 @@
             "region": "Sukkur",
             "status": "critical",
             "color": "red",
-            "variance": 34648,
+            "variance": 35073,
             "last_visit": "2026-10-07 12:29:37"
         },
         {
@@ -7292,9 +7292,9 @@
             "lng": 74.2851903,
             "city": "",
             "region": "Lahore",
-            "status": "critical",
-            "color": "red",
-            "variance": 12654,
+            "status": "warning",
+            "color": "yellow",
+            "variance": -4180,
             "last_visit": "2026-09-30 11:08:07"
         },
         {
@@ -7412,9 +7412,9 @@
             "lng": 68.00482096452907,
             "city": "",
             "region": "Hyderabad",
-            "status": "critical",
-            "color": "red",
-            "variance": 190620,
+            "status": "healthy",
+            "color": "green",
+            "variance": -998,
             "last_visit": "2026-10-02 11:20:56"
         },
         {
@@ -7594,7 +7594,7 @@
             "region": "M2",
             "status": "healthy",
             "color": "green",
-            "variance": 505,
+            "variance": 636,
             "last_visit": "2026-10-06 14:37:58"
         },
         {
@@ -7618,7 +7618,7 @@
             "region": "M2",
             "status": "healthy",
             "color": "green",
-            "variance": 278,
+            "variance": 204,
             "last_visit": "2026-09-30 17:14:27"
         },
         {
@@ -7630,7 +7630,7 @@
             "region": "M2",
             "status": "healthy",
             "color": "green",
-            "variance": 89,
+            "variance": 567,
             "last_visit": "2026-09-30 14:05:57"
         },
         {
@@ -7868,9 +7868,9 @@
             "lng": 67.1142331545873,
             "city": "Karachi                  ",
             "region": "Karachi",
-            "status": "warning",
-            "color": "yellow",
-            "variance": -1881,
+            "status": "healthy",
+            "color": "green",
+            "variance": 136,
             "last_visit": "2026-10-01 19:04:34"
         },
         {
@@ -7898,24 +7898,24 @@
             "last_visit": null
         },
         {
-            "id": "1988",
-            "name": "Humber Petroleum",
-            "lat": 32.7261516,
-            "lng": 71.2644,
-            "city": "Rawalpindi",
-            "region": "Islamabad",
-            "status": "not_visited",
-            "color": "gray",
-            "variance": 0,
-            "last_visit": null
-        },
-        {
             "id": "1989",
             "name": "humber petroleum",
             "lat": 32.7261523,
             "lng": 71.2644012,
             "city": "",
             "region": "Lahore",
+            "status": "not_visited",
+            "color": "gray",
+            "variance": 0,
+            "last_visit": null
+        },
+        {
+            "id": "1988",
+            "name": "Humber Petroleum",
+            "lat": 32.7261516,
+            "lng": 71.2644,
+            "city": "Rawalpindi",
+            "region": "Islamabad",
             "status": "not_visited",
             "color": "gray",
             "variance": 0,
@@ -8014,7 +8014,7 @@
             "region": "Multan",
             "status": "critical",
             "color": "red",
-            "variance": -5289,
+            "variance": -75374,
             "last_visit": "2026-10-07 12:16:07"
         },
         {
@@ -8146,7 +8146,7 @@
             "region": "Multan",
             "status": "healthy",
             "color": "green",
-            "variance": 524,
+            "variance": -86,
             "last_visit": "2026-10-05 11:10:13"
         },
         {
@@ -8192,9 +8192,9 @@
             "lng": 73.1131785,
             "city": "LAHORE                   ",
             "region": "M2",
-            "status": "healthy",
-            "color": "green",
-            "variance": 621,
+            "status": "warning",
+            "color": "yellow",
+            "variance": 1351,
             "last_visit": "2026-10-06 09:56:15"
         },
         {
@@ -8377,8 +8377,8 @@
         "product": "all"
     },
     "_meta": {
-        "generated_at": "2026-10-14 17:54:19",
-        "duration": 0.38,
+        "generated_at": "2026-10-14 19:13:12",
+        "duration": 0.41,
         "api_url": "http:\/\/localhost\/hascol\/api\/map_data.php?date_from=2026-09-30&date_to=2026-10-14&region=all&territory=all&tm=all&site=all&product=all"
     }
 }
