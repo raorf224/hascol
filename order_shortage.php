@@ -6,6 +6,7 @@ require_once __DIR__ . '/session/session.php';
 
 <head>
     <meta charset="UTF-8">
+    <?php include 'includes/head.php'; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hascol - Order Shortage</title>
     <script src="https://cdn.tailwindcss.com"></script>
