@@ -1,0 +1,28 @@
+{
+    "success": true,
+    "data": [
+        {
+            "rank": 1,
+            "name": "Hassan",
+            "coverage": 5,
+            "recons": 3,
+            "variance_caught": 1,
+            "score": 10
+        }
+    ],
+    "message": "",
+    "filters": {
+        "date_from": "2026-09-30",
+        "date_to": "2026-10-14",
+        "region": "Faisalabad",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 12:53:33",
+        "duration": 0.27,
+        "api_url": "http:\/\/localhost\/hascol\/api\/tm_performance.php?date_from=2026-09-30&date_to=2026-10-14&region=Faisalabad&territory=all&tm=all&site=all&product=all"
+    }
+}

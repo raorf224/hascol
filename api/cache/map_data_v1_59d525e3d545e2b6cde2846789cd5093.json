@@ -1,0 +1,128 @@
+{
+    "success": true,
+    "data": [
+        {
+            "id": "1926",
+            "name": " AbdulHassan& Brothers ",
+            "lat": 31.342863708492583,
+            "lng": 69.46832014047851,
+            "city": "",
+            "region": "Balochistan",
+            "status": "not_visited",
+            "color": "gray",
+            "variance": 0,
+            "last_visit": null
+        },
+        {
+            "id": "1915",
+            "name": " FRIENDS LORALAI ",
+            "lat": 30.38314991516688,
+            "lng": 68.65117815397133,
+            "city": "",
+            "region": "Balochistan",
+            "status": "not_visited",
+            "color": "gray",
+            "variance": 0,
+            "last_visit": null
+        },
+        {
+            "id": "1916",
+            "name": " HAMDARD PETROLEUM SERVICE ",
+            "lat": 30.607337723613657,
+            "lng": 67.02568562698569,
+            "city": "",
+            "region": "Balochistan",
+            "status": "not_visited",
+            "color": "gray",
+            "variance": 0,
+            "last_visit": null
+        },
+        {
+            "id": "1917",
+            "name": " HANZALA & BROTHERS P\/S ",
+            "lat": 30.204014075918515,
+            "lng": 66.99199122698568,
+            "city": "",
+            "region": "Balochistan",
+            "status": "not_visited",
+            "color": "gray",
+            "variance": 0,
+            "last_visit": null
+        },
+        {
+            "id": "1918",
+            "name": " HASSAN FILLING STATION (LORAL) ",
+            "lat": 30.40895825569374,
+            "lng": 68.85889962883572,
+            "city": "",
+            "region": "Balochistan",
+            "status": "not_visited",
+            "color": "gray",
+            "variance": 0,
+            "last_visit": null
+        },
+        {
+            "id": "1919",
+            "name": " KHAN PETROELUM SERVICES -LORAL ",
+            "lat": 30.372794265473445,
+            "lng": 68.57894961779107,
+            "city": "",
+            "region": "Balochistan",
+            "status": "not_visited",
+            "color": "gray",
+            "variance": 0,
+            "last_visit": null
+        },
+        {
+            "id": "1921",
+            "name": " MALIK FILLING STATION - KOHLU ",
+            "lat": 29.833381382906452,
+            "lng": 69.12989748807581,
+            "city": "",
+            "region": "Balochistan",
+            "status": "not_visited",
+            "color": "gray",
+            "variance": 0,
+            "last_visit": null
+        },
+        {
+            "id": "1302",
+            "name": " Naseeb Filling Station ",
+            "lat": 30.226551127943846,
+            "lng": 67.00045708465711,
+            "city": "",
+            "region": "Balochistan",
+            "status": "not_visited",
+            "color": "gray",
+            "variance": 0,
+            "last_visit": null
+        },
+        {
+            "id": "1578",
+            "name": " NEW BOLAN PETROLEUM SERVICE ",
+            "lat": 30.1892209,
+            "lng": 66.9803678,
+            "city": "",
+            "region": "Balochistan",
+            "status": "not_visited",
+            "color": "gray",
+            "variance": 0,
+            "last_visit": null
+        }
+    ],
+    "message": "Total sites found: 9",
+    "filters": {
+        "date_from": "2026-09-30",
+        "date_to": "2026-10-14",
+        "region": "Balochistan",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 12:53:19",
+        "duration": 0.34,
+        "api_url": "http:\/\/localhost\/hascol\/api\/map_data.php?date_from=2026-09-30&date_to=2026-10-14&region=Balochistan&territory=all&tm=all&site=all&product=all"
+    }
+}

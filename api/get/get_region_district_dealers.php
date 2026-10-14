@@ -1,6 +1,7 @@
 <?php
 
 include("../../config.php");
+header('Content-Type: application/json');
 
 $access_key = '2170';
 
@@ -101,24 +102,44 @@ if ($pass != '') {
             $dealers[] = $region9;
         }
 
-        $data[] = array(
-            'district' => json_encode($district),
-            'city' => json_encode($city),
-            'province' => json_encode($province),
-            'region' => json_encode($region),
-            'tm' => json_encode($TM),
-            'asm' => json_encode($asm),
-            'ownership' => json_encode($ownership),
-            'company' => json_encode($company),
-            'dealers' => json_encode($dealers),
+        // $data[] = array(
+        //     'district' => json_encode($district),
+        //     'city' => json_encode($city),
+        //     'province' => json_encode($province),
+        //     'region' => json_encode($region),
+        //     'tm' => json_encode($TM),
+        //     'asm' => json_encode($asm),
+        //     'ownership' => json_encode($ownership),
+        //     'company' => json_encode($company),
+        //     'dealers' => json_encode($dealers),
+        // );
+
+                $data = array(
+            'success'   => true,
+            'district'  => $district,
+            'city'      => $city,
+            'province'  => $province,
+            'region'    => $region,
+            'tm'        => $TM,
+            'asm'       => $asm,
+            'ownership' => $ownership,
+            'company'   => $company,
+            'dealers'   => $dealers,
         );
 
-        echo json_encode($data);
+        echo json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     } else {
         echo 'Wrong Key...';
     }
 } else {
     echo 'Key is Required';
 }
-
+function utf8ize($data) {
+    if (is_array($data)) {
+        return array_map('utf8ize', $data);
+    } elseif (is_string($data)) {
+        return mb_convert_encoding($data, 'UTF-8', 'UTF-8');
+    }
+    return $data;
+}
 ?>

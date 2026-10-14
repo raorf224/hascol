@@ -1,0 +1,60 @@
+{
+    "success": true,
+    "data": {
+        "best_sites": [
+            {
+                "site": " ORANGE PETROLEUM SERVICE ",
+                "health_score": 30,
+                "variance": 2245,
+                "regularity": "Regular"
+            },
+            {
+                "site": " NASIR PETROLEUM SERVICE ",
+                "health_score": 30,
+                "variance": 2956.5,
+                "regularity": "Regular"
+            },
+            {
+                "site": " AFREEN PETROLEUM SERVICE ",
+                "health_score": 30,
+                "variance": 4947,
+                "regularity": "Regular"
+            }
+        ],
+        "risky_sites": [
+            {
+                "site": " AFREEN PETROLEUM SERVICE ",
+                "health_score": 0,
+                "variance": 4947,
+                "last_visit": "7 Days Ago"
+            },
+            {
+                "site": " NASIR PETROLEUM SERVICE ",
+                "health_score": 0,
+                "variance": 2956.5,
+                "last_visit": "9 Days Ago"
+            },
+            {
+                "site": " ORANGE PETROLEUM SERVICE ",
+                "health_score": 0,
+                "variance": 2245,
+                "last_visit": "8 Days Ago"
+            }
+        ]
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-09-30",
+        "date_to": "2026-10-14",
+        "region": "Faisalabad",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 12:53:33",
+        "duration": 0.64,
+        "api_url": "http:\/\/localhost\/hascol\/api\/top_sites.php?date_from=2026-09-30&date_to=2026-10-14&region=Faisalabad&territory=all&tm=all&site=all&product=all"
+    }
+}

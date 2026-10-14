@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "data": {
+        "months": [
+            "May 26",
+            "Jun 26",
+            "Jul 26",
+            "Aug 26",
+            "Sep 26",
+            "Oct 26"
+        ],
+        "uplift": [
+            4744.16,
+            7823.9,
+            2868.6,
+            14828.38,
+            10513.08,
+            395.51
+        ],
+        "dumping": [
+            8842.6,
+            25830.63,
+            10415.11,
+            19805.58,
+            22236.86,
+            2031.52
+        ],
+        "total_uplift": 41173.630000000005,
+        "total_dumping": 89162.3
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-09-30",
+        "date_to": "2026-10-14",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 17:54:22",
+        "duration": 2.79,
+        "api_url": "http:\/\/localhost\/hascol\/api\/trends_data.php?date_from=2026-09-30&date_to=2026-10-14&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

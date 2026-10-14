@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "data": {
+        "months": [
+            "May 26",
+            "Jun 26",
+            "Jul 26",
+            "Aug 26",
+            "Sep 26",
+            "Oct 26"
+        ],
+        "uplift": [
+            126.5,
+            97.84,
+            51.31,
+            9208.27,
+            3236.11,
+            4.21
+        ],
+        "dumping": [
+            1325.71,
+            1254.63,
+            2453.13,
+            1993.01,
+            6789.66,
+            16.09
+        ],
+        "total_uplift": 12724.24,
+        "total_dumping": 13832.23
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-09-30",
+        "date_to": "2026-10-14",
+        "region": "Faisalabad",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 12:53:34",
+        "duration": 1.46,
+        "api_url": "http:\/\/localhost\/hascol\/api\/trends_data.php?date_from=2026-09-30&date_to=2026-10-14&region=Faisalabad&territory=all&tm=all&site=all&product=all"
+    }
+}

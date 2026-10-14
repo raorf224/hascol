@@ -1,0 +1,91 @@
+{
+    "success": true,
+    "data": {
+        "total_sites": 517,
+        "visited_sites": 517,
+        "avg_health_score": 36,
+        "health_distribution": [
+            {
+                "status": "Critical",
+                "count": "515"
+            }
+        ],
+        "recent_visits": [
+            {
+                "site": " Jam Pet & Cng ",
+                "date": "2026-10-07 14:21:04",
+                "variance": 5107,
+                "tm": "Tahir Shaikh."
+            },
+            {
+                "site": " Jam Pet & Cng ",
+                "date": "2026-10-07 14:21:04",
+                "variance": 3719,
+                "tm": "Tahir Shaikh."
+            },
+            {
+                "site": " AMANULLAH ",
+                "date": "2026-10-07 13:47:18",
+                "variance": 29865,
+                "tm": "Hashaam Khalid"
+            },
+            {
+                "site": " AMANULLAH ",
+                "date": "2026-10-07 13:47:18",
+                "variance": 14007,
+                "tm": "Hashaam Khalid"
+            },
+            {
+                "site": " Haq Bahoo Petroleum Service ",
+                "date": "2026-10-07 13:21:12",
+                "variance": 15547,
+                "tm": "Tahir Shaikh."
+            },
+            {
+                "site": " Haq Bahoo Petroleum Service ",
+                "date": "2026-10-07 13:21:12",
+                "variance": 5533,
+                "tm": "Tahir Shaikh."
+            },
+            {
+                "site": " Allah Muhammad ",
+                "date": "2026-10-07 13:06:08",
+                "variance": -130497,
+                "tm": "Latif Shigri"
+            },
+            {
+                "site": " Allah Muhammad ",
+                "date": "2026-10-07 13:06:08",
+                "variance": -47385,
+                "tm": "Latif Shigri"
+            },
+            {
+                "site": " SHUJABAD PET ",
+                "date": "2026-10-07 13:06:07",
+                "variance": 1902,
+                "tm": "Latif Shigri"
+            },
+            {
+                "site": " SHUJABAD PET ",
+                "date": "2026-10-07 13:06:07",
+                "variance": 24353,
+                "tm": "Latif Shigri"
+            }
+        ]
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-08-01",
+        "date_to": "2026-10-14",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 17:55:03",
+        "duration": 17.16,
+        "api_url": "http:\/\/localhost\/hascol\/api\/site_details.php?date_from=2026-08-01&date_to=2026-10-14&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

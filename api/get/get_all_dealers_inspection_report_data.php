@@ -1,13 +1,14 @@
 <?php
 // fetch.php  
 include("../../config.php");
+header('Content-Type: application/json');
 
 $access_key = '2170';
 $pass = $_GET["key"];
 $from = $_GET["from"];
 $to = $_GET["to"];
 $pre = $_GET["pre"];
-$id = $_GET["id"];
+$user_id = $_GET["user_id"];
 
 if ($pass != '') {
     if ($pass == $access_key) {

@@ -1,0 +1,25 @@
+{
+    "success": true,
+    "data": {
+        "total_sites": 0,
+        "visited_sites": 0,
+        "avg_health_score": 0,
+        "health_distribution": [],
+        "recent_visits": []
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-10-01",
+        "date_to": "2026-10-14",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 12:30:48",
+        "duration": 0.01,
+        "api_url": "http:\/\/localhost\/hascol\/api\/site_details.php?date_from=2026-10-01&date_to=2026-10-14&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

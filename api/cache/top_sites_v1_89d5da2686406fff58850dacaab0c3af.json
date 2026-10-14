@@ -1,0 +1,84 @@
+{
+    "success": true,
+    "data": {
+        "best_sites": [
+            {
+                "site": " Raza Mahar Filling Station ",
+                "health_score": 90,
+                "variance": 0,
+                "regularity": "Regular"
+            },
+            {
+                "site": " NADEEM FILLING STATION ",
+                "health_score": 90,
+                "variance": 0,
+                "regularity": "Regular"
+            },
+            {
+                "site": " Rashid Petroleum Service ",
+                "health_score": 90,
+                "variance": 0,
+                "regularity": "Regular"
+            },
+            {
+                "site": " Raheel Petroleum & Cng Station ",
+                "health_score": 60,
+                "variance": 68,
+                "regularity": "Regular"
+            },
+            {
+                "site": " Al Hayyat F\/S ",
+                "health_score": 30,
+                "variance": 139.5,
+                "regularity": "Regular"
+            }
+        ],
+        "risky_sites": [
+            {
+                "site": " Al-Sami Petroleum ",
+                "health_score": 0,
+                "variance": 98128.5,
+                "last_visit": "7 Days Ago"
+            },
+            {
+                "site": " Zohaib Fuel Station ",
+                "health_score": 0,
+                "variance": 95809,
+                "last_visit": "12 Days Ago"
+            },
+            {
+                "site": " Muhammad Aziz & Sons F\/S ",
+                "health_score": 0,
+                "variance": 93870.67,
+                "last_visit": "14 Days Ago"
+            },
+            {
+                "site": " Kashmir ps ",
+                "health_score": 0,
+                "variance": 90136.5,
+                "last_visit": "14 Days Ago"
+            },
+            {
+                "site": " Allah Muhammad ",
+                "health_score": 0,
+                "variance": 88941,
+                "last_visit": "7 Days Ago"
+            }
+        ]
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-09-30",
+        "date_to": "2026-10-14",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 17:54:21",
+        "duration": 1.53,
+        "api_url": "http:\/\/localhost\/hascol\/api\/top_sites.php?date_from=2026-09-30&date_to=2026-10-14&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

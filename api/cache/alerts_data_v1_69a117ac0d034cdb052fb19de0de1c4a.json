@@ -1,0 +1,60 @@
+{
+    "success": true,
+    "data": [
+        {
+            "id": "high_variance",
+            "title": "High Variance Sites",
+            "description": "Variance more than 2%",
+            "count": 498,
+            "severity": "critical",
+            "icon": "fa-triangle-exclamation"
+        },
+        {
+            "id": "overdue_recons",
+            "title": "Overdue Recons",
+            "description": "Recons past due date",
+            "count": 82,
+            "severity": "warning",
+            "icon": "fa-clock-rotate-left"
+        },
+        {
+            "id": "sites_not_visited",
+            "title": "Sites Not Visited",
+            "description": "Not visited in last 60 days",
+            "count": 19,
+            "severity": "warning",
+            "icon": "fa-eye-slash"
+        },
+        {
+            "id": "tm_inactive",
+            "title": "TM Inactive",
+            "description": "No activity in last 7 days",
+            "count": 31,
+            "severity": "orange",
+            "icon": "fa-user-xmark"
+        },
+        {
+            "id": "possible_pilferage",
+            "title": "Possible Pilferage",
+            "description": "Uplift > Dumping (High Gap)",
+            "count": 281,
+            "severity": "critical",
+            "icon": "fa-receipt"
+        }
+    ],
+    "message": "",
+    "filters": {
+        "date_from": "2026-08-01",
+        "date_to": "2026-10-14",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 17:54:32",
+        "duration": 0.23,
+        "api_url": "http:\/\/localhost\/hascol\/api\/alerts_data.php?date_from=2026-08-01&date_to=2026-10-14&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "success": true,
+    "data": {
+        "distribution": [
+            1,
+            2,
+            2,
+            0
+        ],
+        "top_sites": [
+            {
+                "site": " AFREEN PETROLEUM SERVICE ",
+                "variance": 5683,
+                "stock_loss": 5683
+            },
+            {
+                "site": " NASIR PETROLEUM SERVICE ",
+                "variance": 5104,
+                "stock_loss": 5104
+            },
+            {
+                "site": " AFREEN PETROLEUM SERVICE ",
+                "variance": 4211,
+                "stock_loss": 4211
+            },
+            {
+                "site": " ORANGE PETROLEUM SERVICE ",
+                "variance": 2613,
+                "stock_loss": 2613
+            },
+            {
+                "site": " ORANGE PETROLEUM SERVICE ",
+                "variance": 1877,
+                "stock_loss": 1877
+            }
+        ],
+        "total_stock_loss": 16086,
+        "variance_sites": 3,
+        "critical_sites": 0
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-09-30",
+        "date_to": "2026-10-14",
+        "region": "Faisalabad",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 12:53:37",
+        "duration": 5.26,
+        "api_url": "http:\/\/localhost\/hascol\/api\/variance_data.php?date_from=2026-09-30&date_to=2026-10-14&region=Faisalabad&territory=all&tm=all&site=all&product=all"
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "success": true,
+    "data": {
+        "distribution": [
+            39,
+            38,
+            35,
+            48
+        ],
+        "top_sites": [
+            {
+                "site": " Muhammad Aziz & Sons F\/S ",
+                "variance": 214654,
+                "stock_loss": 214654
+            },
+            {
+                "site": " Al-Sami Petroleum ",
+                "variance": 192268,
+                "stock_loss": 192268
+            },
+            {
+                "site": " Zohaib Fuel Station ",
+                "variance": 190620,
+                "stock_loss": 190620
+            },
+            {
+                "site": " Allah Muhammad ",
+                "variance": 130497,
+                "stock_loss": 130497
+            },
+            {
+                "site": " Nakyal Filling Station ",
+                "variance": 125558,
+                "stock_loss": 125558
+            }
+        ],
+        "total_stock_loss": 2796673.3,
+        "variance_sites": 86,
+        "critical_sites": 48
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-09-30",
+        "date_to": "2026-10-14",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 17:54:26",
+        "duration": 6.94,
+        "api_url": "http:\/\/localhost\/hascol\/api\/variance_data.php?date_from=2026-09-30&date_to=2026-10-14&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

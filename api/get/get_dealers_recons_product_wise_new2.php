@@ -1,6 +1,6 @@
 <?php
 //fetch.php  
-include("../config.php");
+include("../../config.php");
 
 $access_key = '2170';
 $pass = $_GET["key"];
@@ -14,25 +14,57 @@ if (!empty($pass)) {
 
         $from = $db->real_escape_string($_GET["from"]);
         $to = $db->real_escape_string($_GET["to"]);
-        $products = $db->real_escape_string($_GET["products"]);
+        $products = isset($_GET["product"]) ? $db->real_escape_string($_GET["product"]) : '';
         $product_val = "";
-        if ($products != "") {
+        if ($products != "" && $products !== 'all') {
             $product_val = "AND pp.id='$products'";
-        } else {
-            $product_val = "";
         }
+
+        // ✅ TM filter — sirf tab jab value ho
+        $tm_val = "";
+        if ($tm != "" && $tm !== 'all') {
+            // Comma-separated ids ko safe banao
+            $tm_ids = array_map('intval', explode(',', $tm));
+            $tm_ids = array_filter($tm_ids); // 0 hata do
+            if (!empty($tm_ids)) {
+                $tm_val = "AND us.id IN(" . implode(',', $tm_ids) . ")";
+            }
+        }
+
+        // ✅ Region filter — sirf tab jab value ho
+        $region_val = "";
+        if ($region != "" && $region !== 'all') {
+            $region_val = "AND us.region = '" . $db->real_escape_string($region) . "'";
+        }
+
         // Initialize an array to store the data
         // and tr.recon_approval='1' and tr.approved_status='1'
         $formatted_data = [];
-        $get_orders = "SELECT rs.*, pp.name as product_name,us.name as tm_name,dl.sap_no as dealer_sap,dl.name as dealer_name
+        // $get_orders = "SELECT rs.*, pp.name as product_name,us.name as tm_name,dl.sap_no as dealer_sap,dl.name as dealer_name
+        // FROM dealer_stock_recon_new as rs
+        // join dealers_products as dp on dp.id=rs.product_id
+        // JOIN all_products as pp ON pp.name = dp.name
+        // join inspector_task as it on it.id=rs.task_id
+        // JOIN dealers as dl ON dl.id = it.dealer_id
+        // left join inspector_task_response as tr on tr.task_id=it.id
+        //  JOIN users as us on us.id = it.user_id
+        // WHERE rs.total_days>0 and us.region='$region' and date(rs.created_at)>='$from' and date(rs.created_at)<='$to' and rs.variance!='0.0' and us.id IN($tm)
+        // GROUP BY rs.product_id, rs.task_id";
+        $get_orders = "SELECT rs.*, pp.name as product_name, us.name as tm_name, dl.sap_no as dealer_sap, dl.name as dealer_name
         FROM dealer_stock_recon_new as rs
         join dealers_products as dp on dp.id=rs.product_id
         JOIN all_products as pp ON pp.name = dp.name
         join inspector_task as it on it.id=rs.task_id
         JOIN dealers as dl ON dl.id = it.dealer_id
         left join inspector_task_response as tr on tr.task_id=it.id
-         JOIN users as us on us.id = it.user_id
-        WHERE rs.total_days>0 and us.region='$region' and date(rs.created_at)>='$from' and date(rs.created_at)<='$to' and rs.variance!='0.0' and us.id IN($tm)
+        JOIN users as us on us.id = it.user_id
+        WHERE rs.total_days > 0 
+            $region_val
+            AND date(rs.created_at) >= '$from' 
+            AND date(rs.created_at) <= '$to' 
+            AND rs.variance != '0.0' 
+            $tm_val
+            $product_val
         GROUP BY rs.product_id, rs.task_id";
 
         $result_orders = $db->query($get_orders);
@@ -52,7 +84,7 @@ if (!empty($pass)) {
                 $tm_name = $row_2['tm_name'];
                 $dealer_sap = $row_2['dealer_sap'];
                 $dealer_name = $row_2['dealer_name'];
-                
+
 
 
                 if ($variance < 1000 && $variance > -1000) {
@@ -102,7 +134,9 @@ if (!empty($pass)) {
                     'sales' => $row_2['total_sales'],
                     'book_stock' => $row_2['book_value'],
                     'variance' => ($row_2['variance'] === 'NaN') ? 0 : $row_2['variance'],
-                    'variance_percentage' => round($row_2['variance_of_sales'], 2),
+                    // 'variance_percentage' => round($row_2['variance_of_sales'], 2),
+                    'variance_percentage' => (is_numeric($row_2['variance_of_sales']) ? round((float) $row_2['variance_of_sales'], 2) : 0),
+
                     'remark' => $row_2['remark'],
                     'tank_beharior' => $tank_beharior,
                     'external_dumping' => $external_dumping,

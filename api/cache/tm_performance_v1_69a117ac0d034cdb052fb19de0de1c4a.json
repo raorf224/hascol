@@ -1,0 +1,60 @@
+{
+    "success": true,
+    "data": [
+        {
+            "rank": 1,
+            "name": "Zeeshan Kashmiri",
+            "coverage": 4,
+            "recons": 42,
+            "variance_caught": 20,
+            "score": 10
+        },
+        {
+            "rank": 2,
+            "name": "Waqar ul Imran Zahid",
+            "coverage": 4,
+            "recons": 53,
+            "variance_caught": 11,
+            "score": 10
+        },
+        {
+            "rank": 3,
+            "name": "Tahir Shaikh.",
+            "coverage": 2,
+            "recons": 29,
+            "variance_caught": 8,
+            "score": 10
+        },
+        {
+            "rank": 4,
+            "name": "Rizwan Sheikh",
+            "coverage": 3,
+            "recons": 38,
+            "variance_caught": 23,
+            "score": 10
+        },
+        {
+            "rank": 5,
+            "name": "Syed Shaheer Hussain",
+            "coverage": 4,
+            "recons": 48,
+            "variance_caught": 25,
+            "score": 10
+        }
+    ],
+    "message": "",
+    "filters": {
+        "date_from": "2026-08-01",
+        "date_to": "2026-10-14",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 17:54:46",
+        "duration": 5.6,
+        "api_url": "http:\/\/localhost\/hascol\/api\/tm_performance.php?date_from=2026-08-01&date_to=2026-10-14&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

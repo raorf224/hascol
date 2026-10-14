@@ -1,6 +1,7 @@
 <?php
 // fetch.php  
-include("../../config.php");
+include("../../../config.php");
+header('Content-Type: application/json');
 
 $access_key = '2170';
 $pass = $_GET["key"];

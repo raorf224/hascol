@@ -1,0 +1,37 @@
+{
+    "success": true,
+    "data": {
+        "avg_duration": 0,
+        "overdue": 0,
+        "completion_rate": 100,
+        "same_day_completion": 100,
+        "pipeline": {
+            "initiated": 0,
+            "under_review": 5,
+            "rm_approved": 0,
+            "completed": 0
+        },
+        "backlog_trend": [
+            17,
+            8,
+            21,
+            9
+        ],
+        "total_recons": 3
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-09-30",
+        "date_to": "2026-10-14",
+        "region": "Faisalabad",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 12:53:33",
+        "duration": 0.6,
+        "api_url": "http:\/\/localhost\/hascol\/api\/recon_efficiency.php?date_from=2026-09-30&date_to=2026-10-14&region=Faisalabad&territory=all&tm=all&site=all&product=all"
+    }
+}

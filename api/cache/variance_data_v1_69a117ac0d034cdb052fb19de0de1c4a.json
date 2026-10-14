@@ -1,0 +1,56 @@
+{
+    "success": true,
+    "data": {
+        "distribution": [
+            230,
+            204,
+            218,
+            388
+        ],
+        "top_sites": [
+            {
+                "site": " CITY CNG  ",
+                "variance": 5203361,
+                "stock_loss": 5203361
+            },
+            {
+                "site": " Karmanwala ",
+                "variance": 3685492,
+                "stock_loss": 3685492
+            },
+            {
+                "site": " Karmanwala ",
+                "variance": 3050855,
+                "stock_loss": 3050855
+            },
+            {
+                "site": " CITY CNG  ",
+                "variance": 3045801,
+                "stock_loss": 3045801
+            },
+            {
+                "site": " V Petroleum Service ",
+                "variance": 1904751,
+                "stock_loss": 1904751
+            }
+        ],
+        "total_stock_loss": 44073962.5,
+        "variance_sites": 477,
+        "critical_sites": 388
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-08-01",
+        "date_to": "2026-10-14",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 17:54:36",
+        "duration": 2.34,
+        "api_url": "http:\/\/localhost\/hascol\/api\/variance_data.php?date_from=2026-08-01&date_to=2026-10-14&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

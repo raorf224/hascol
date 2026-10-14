@@ -1,0 +1,84 @@
+{
+    "success": true,
+    "data": {
+        "best_sites": [
+            {
+                "site": " REHMAN CNG & FILLING STATION ( ",
+                "health_score": 90,
+                "variance": 0,
+                "regularity": "Regular"
+            },
+            {
+                "site": " Al Azzan Filling Station ",
+                "health_score": 90,
+                "variance": 0,
+                "regularity": "Regular"
+            },
+            {
+                "site": " HAJI MUHAMMAD WARIS FILLING ST ",
+                "health_score": 90,
+                "variance": 0,
+                "regularity": "Regular"
+            },
+            {
+                "site": " Rashid Petroleum Service ",
+                "health_score": 90,
+                "variance": 0,
+                "regularity": "Regular"
+            },
+            {
+                "site": " SADA BAHAR FILLING STATION ",
+                "health_score": 90,
+                "variance": 0,
+                "regularity": "Regular"
+            }
+        ],
+        "risky_sites": [
+            {
+                "site": " CITY CNG  ",
+                "health_score": 0,
+                "variance": 2079861.5,
+                "last_visit": "36 Days Ago"
+            },
+            {
+                "site": " Karmanwala ",
+                "health_score": 0,
+                "variance": 1685881.25,
+                "last_visit": "40 Days Ago"
+            },
+            {
+                "site": " Mukhi Petroleum (Grace Cng & Fs) ",
+                "health_score": 0,
+                "variance": 850977.33,
+                "last_visit": "51 Days Ago"
+            },
+            {
+                "site": " Jamra Petroleum \/ Cng ",
+                "health_score": 0,
+                "variance": 765557.5,
+                "last_visit": "56 Days Ago"
+            },
+            {
+                "site": " AZHAR PETROLEUM SERVICE ",
+                "health_score": 0,
+                "variance": 623206.5,
+                "last_visit": "20 Days Ago"
+            }
+        ]
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-08-01",
+        "date_to": "2026-10-14",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 17:54:46",
+        "duration": 0.27,
+        "api_url": "http:\/\/localhost\/hascol\/api\/top_sites.php?date_from=2026-08-01&date_to=2026-10-14&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

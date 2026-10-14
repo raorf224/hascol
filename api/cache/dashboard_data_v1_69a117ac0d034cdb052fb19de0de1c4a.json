@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "data": {
+        "total_sites": 703,
+        "site_coverage": 74,
+        "total_recons_all": 1123,
+        "recons_completed": 937,
+        "recons_pending": 186,
+        "total_uplift": "25,737.0M",
+        "total_uplift_raw": 25736967,
+        "total_dumping": "44,074.0M",
+        "total_dumping_raw": 44073962.45,
+        "stock_loss": "44,073,962",
+        "stock_loss_raw": 44073962.45,
+        "avg_health_score": 55,
+        "changes": {
+            "uplift": -31,
+            "dumping": -3,
+            "recons": 141,
+            "loss": 484,
+            "coverage": 8,
+            "health": 4
+        },
+        "health_distribution": {
+            "healthy": 230,
+            "warning": 204,
+            "critical": 446,
+            "not_visited": 690
+        }
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-08-01",
+        "date_to": "2026-10-14",
+        "region": "all",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 17:54:32",
+        "duration": 6.79,
+        "api_url": "http:\/\/localhost\/hascol\/api\/dashboard_data.php?date_from=2026-08-01&date_to=2026-10-14&region=all&territory=all&tm=all&site=all&product=all"
+    }
+}

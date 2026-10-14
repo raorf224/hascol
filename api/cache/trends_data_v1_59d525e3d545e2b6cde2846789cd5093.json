@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "data": {
+        "months": [
+            "May 26",
+            "Jun 26",
+            "Jul 26",
+            "Aug 26",
+            "Sep 26",
+            "Oct 26"
+        ],
+        "uplift": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "dumping": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "total_uplift": 0,
+        "total_dumping": 0
+    },
+    "message": "",
+    "filters": {
+        "date_from": "2026-09-30",
+        "date_to": "2026-10-14",
+        "region": "Balochistan",
+        "territory": "all",
+        "tm": "all",
+        "site": "all",
+        "product": "all"
+    },
+    "_meta": {
+        "generated_at": "2026-10-14 12:53:21",
+        "duration": 1.97,
+        "api_url": "http:\/\/localhost\/hascol\/api\/trends_data.php?date_from=2026-09-30&date_to=2026-10-14&region=Balochistan&territory=all&tm=all&site=all&product=all"
+    }
+}
